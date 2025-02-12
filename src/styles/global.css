@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tailwindcss/preflight.css' layer(base);
 @theme {
 	--color-green1: #06170b;
 	--color-green2: #3d5b59;
