@@ -55,9 +55,7 @@ import { Icon } from 'astro-icon/components';
 		transition: 0.2s linear all;
 		&__buttons {
 			display: flex;
-			position: absolute;
-			top: 50%;
-			left: 50%;
+			position: relative;
 			width: 150px;
 			height: 150px;
 			font-size: 30px;
@@ -65,9 +63,6 @@ import { Icon } from 'astro-icon/components';
 			align-items: center;
 			border: 1px solid black;
 			border-radius: 50%;
-			opacity: 1;
-			transform: translate(-50%, -50%);
-			transition: 0.3s all linear;
 			z-index: -1;
 			cursor: pointer;
 			&__button {
