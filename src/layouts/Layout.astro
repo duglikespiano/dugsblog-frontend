@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import MenuButton from '../components/MenuButton.astro';
+import Header from '../components/Header.astro';
 ---
 
 <!doctype html>
@@ -13,6 +14,7 @@ import MenuButton from '../components/MenuButton.astro';
 		<title>Astro Basics</title>
 	</head>
 	<body>
+		<Header />
 		<MenuButton />
 		<slot />
 	</body>
