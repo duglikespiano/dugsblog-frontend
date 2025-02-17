@@ -15,9 +15,11 @@ import CommitHistory from '../components/CommitHistory';
 		<title>Astro Basics</title>
 	</head>
 	<body class="m-0 w-full h-full bg-green1 text-gray3">
-		<Header />
-		<CommitHistory client:only />
-		<MenuButton />
-		<slot />
+		<div class="body-max-width-wrapper max-w-7xl mx-auto">
+			<Header />
+			<CommitHistory client:only />
+			<MenuButton />
+			<slot />
+		</div>
 	</body>
 </html>
