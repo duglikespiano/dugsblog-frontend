@@ -23,6 +23,7 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.16",
     "react-github-calendar": "^4.5.5",
+    "react-tooltip": "^5.28.0",
     "sass-embedded": "^1.85.0"
   }
 }
