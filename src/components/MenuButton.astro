@@ -72,6 +72,7 @@ import { Icon } from 'astro-icon/components';
 				width: 100px;
 				height: 100px;
 				opacity: 0;
+				color: #d8a7b1;
 				transform: translate(-50%, -50%);
 				transition: 0.3s all linear;
 				&.active {
@@ -93,6 +94,7 @@ import { Icon } from 'astro-icon/components';
 				left: 50%;
 				top: 50%;
 				opacity: 0;
+				color: #d8a7b1;
 				cursor: pointer;
 				transform: translate(-50%, -50%);
 				transition: all 0.3s linear;
@@ -111,6 +113,17 @@ import { Icon } from 'astro-icon/components';
 				&.menu3 {
 					left: -50%;
 				}
+			}
+		}
+		&:hover,
+		&.active {
+			.menu-button__buttons__button {
+				color: #f8fafc;
+			}
+		}
+		.menu-button__menus__menu {
+			&:hover {
+				color: #f8fafc;
 			}
 		}
 	}

@@ -13,6 +13,9 @@ export default function CommitHistory() {
 						'data-tooltip-html': `${activity.count} activities on ${activity.date}`,
 					})
 				}
+				labels={{
+					totalCount: `{{count}} activities for the past year`,
+				}}
 			/>
 			<Tooltip id="react-tooltip" />
 		</section>
