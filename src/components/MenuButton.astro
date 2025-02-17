@@ -19,6 +19,7 @@ import { Icon } from 'astro-icon/components';
 	const iconsInMenuButton = document.querySelectorAll('[data-menu-button-icon]');
 	const menuOpenIconInMenuButton = document.querySelector('[data-menu-button-icon="to-open"]');
 	const menuCloseIconInMenuButton = document.querySelector('[data-menu-button-icon="to-close"]');
+	const menuButtons = document.querySelectorAll<HTMLElement>('[data-menu-button-menu]');
 
 	const buttonToggler = (boolean: boolean | null) => {
 		if (menuOpenIconInMenuButton && menuCloseIconInMenuButton && iconsInMenuButton && menuButton) {
@@ -29,8 +30,16 @@ import { Icon } from 'astro-icon/components';
 				menuButton.classList.toggle('active');
 				if (menuButton.classList.contains('active')) {
 					menuCloseIconInMenuButton.classList.add('active');
+					setTimeout(() => {
+						menuButtons.forEach((button) => {
+							button.style.pointerEvents = 'auto';
+						});
+					}, 300);
 				} else {
 					menuOpenIconInMenuButton.classList.add('active');
+					menuButtons.forEach((button) => {
+						button.style.pointerEvents = 'none';
+					});
 				}
 			} else if (boolean === true) {
 				menuButton.classList.add('active');
