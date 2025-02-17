@@ -4,7 +4,7 @@ import GitHubCalendar from 'react-github-calendar';
 
 export default function CommitHistory() {
 	return (
-		<>
+		<section id="commit-history">
 			<GitHubCalendar
 				username="duglikespiano"
 				renderBlock={(block, activity) =>
@@ -15,6 +15,6 @@ export default function CommitHistory() {
 				}
 			/>
 			<Tooltip id="react-tooltip" />
-		</>
+		</section>
 	);
 }
