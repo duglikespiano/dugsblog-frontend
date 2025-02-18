@@ -6,6 +6,8 @@ import icon from 'astro-icon';
 
 import react from '@astrojs/react';
 
+import node from '@astrojs/node';
+
 // https://astro.build/config
 export default defineConfig({
 	vite: {
@@ -20,4 +22,8 @@ export default defineConfig({
 		}),
 		react(),
 	],
+	output: 'static',
+	adapter: node({
+		mode: 'standalone',
+	}),
 });
