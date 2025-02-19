@@ -4,7 +4,7 @@ import GitHubCalendar from 'react-github-calendar';
 
 export default function CommitHistory() {
 	return (
-		<section id="commit-history">
+		<section id="commit-history" className="flex justify-center py-16">
 			<GitHubCalendar
 				username="duglikespiano"
 				renderBlock={(block, activity) =>
