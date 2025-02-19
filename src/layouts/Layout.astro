@@ -2,7 +2,6 @@
 import '../styles/global.css';
 import MenuButton from '../components/MenuButton.astro';
 import Header from '../components/Header.astro';
-import CommitHistory from '../components/CommitHistory';
 ---
 
 <!doctype html>
@@ -17,7 +16,6 @@ import CommitHistory from '../components/CommitHistory';
 	<body class="m-0 w-full h-full bg-green1 text-gray3">
 		<div class="body-max-width-wrapper max-w-7xl mx-auto">
 			<Header />
-			<CommitHistory client:only />
 			<MenuButton />
 			<slot />
 		</div>
