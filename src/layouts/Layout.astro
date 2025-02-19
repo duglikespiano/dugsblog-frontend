@@ -3,6 +3,7 @@ import '../styles/global.css';
 import MenuButton from '../components/MenuButton.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import { OverlayScrollbars } from 'overlayscrollbars';
 ---
 
 <!doctype html>
@@ -10,8 +11,23 @@ import Footer from '../components/Footer.astro';
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+			integrity="sha512-bDTkSDb0/IRzL9tINJGwc2iQwmqVF3X9y7Doo7ZWvtfUM0y8Wuw1yqbYSPCBfVUBun64XIyPfXStDf9vc7cR8Q=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+			onload="OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {})"
+			defer></script>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/styles/overlayscrollbars.min.css"
+			integrity="sha512-1upUL7mU0vRAdxf0hllx44X8k95N0hSFoljRxrCYLvqn7Ih2lGbzgrNTDpXUPnHo/m6lB7JZzteEy7IXHuJ/cw=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+
 		<title>Astro Basics</title>
 	</head>
 	<body>
