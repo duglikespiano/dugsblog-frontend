@@ -17,9 +17,7 @@ export default defineConfig({
 	integrations: [
 		icon({
 			include: {
-				tabler: ['*'],
-				uit: ['*'],
-				ph: ['*'],
+				ph: ['github-logo-light', 'instagram-logo-light'],
 			},
 		}),
 		react(),
