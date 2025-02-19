@@ -40,21 +40,18 @@ const characteristics = [
 ];
 ---
 
-<section class="characteristics" id="characteristics">
-	<ul class="characteristics__list flex flex-col gap-7">
+<section id="characteristics">
+	<ul class="flex flex-col gap-7">
 		{
 			characteristics.map((characteristic) => (
-				<li
-					class:list={[{ '[direction:rtl]': characteristic.isRtl }]}
-					class="characteristics__characteristic grid grid-cols-[52.5%_auto] gap-x-7 grid-flow-col"
-				>
+				<li class:list={[{ '[direction:rtl]': characteristic.isRtl }]} class="grid grid-cols-[52.5%_auto] gap-x-7 grid-flow-col">
 					<Image src={characteristic.imageSrc} alt={characteristic.imageAlt} />
-					<div class="characteristics__characteristic__texts" class:list={[{ 'text-right': characteristic.isRtl }]}>
-						<p class="texts__name text-7xl text-hotpink font-bold">{characteristic.name}</p>
-						<p class="texts__title text-5xl mt-4 text-yellow1">{characteristic.title}</p>
-						<div class="text__descriptions text-3xl mt-3 font-light" class:list={[{ '[direction:ltr]': characteristic.isRtl }]}>
+					<div class:list={[{ 'text-right': characteristic.isRtl }]}>
+						<p class="text-7xl text-hotpink font-bold">{characteristic.name}</p>
+						<p class="text-5xl mt-4 text-yellow1">{characteristic.title}</p>
+						<div class="text-3xl mt-3 font-light" class:list={[{ '[direction:ltr]': characteristic.isRtl }]}>
 							{characteristic.descriptions.map((description) => (
-								<p class="texts__descriptions__description">{description}</p>
+								<p>{description}</p>
 							))}
 						</div>
 					</div>

@@ -13,11 +13,15 @@ import Header from '../components/Header.astro';
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
 	</head>
-	<body class="m-0 w-full h-full bg-green1 text-gray3">
-		<div class="body-max-width-wrapper max-w-7xl mx-auto">
-			<Header />
-			<MenuButton />
-			<slot />
-		</div>
+	<body>
+		<section id="body-wrapper" class="bg-green1">
+			<section id="body-max-width-wrapper" class="text-gray3 font-en max-w-7xl mx-auto">
+				<Header />
+				<section id="slot-wrapper" class="py-14">
+					<slot />
+				</section>
+				<MenuButton />
+			</section>
+		</section>
 	</body>
 </html>
