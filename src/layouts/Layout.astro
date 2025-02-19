@@ -2,6 +2,7 @@
 import '../styles/global.css';
 import MenuButton from '../components/MenuButton.astro';
 import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 ---
 
 <!doctype html>
@@ -20,6 +21,7 @@ import Header from '../components/Header.astro';
 				<section id="slot-wrapper" class="py-14">
 					<slot />
 				</section>
+				<Footer />
 				<MenuButton />
 			</section>
 		</section>
