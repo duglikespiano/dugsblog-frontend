@@ -18,6 +18,8 @@ export default defineConfig({
 		icon({
 			include: {
 				tabler: ['*'],
+				uit: ['*'],
+				ph: ['*'],
 			},
 		}),
 		react(),
