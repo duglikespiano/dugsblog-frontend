@@ -2,10 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import CommitHistoryComponent from '../../components/main/CommitHistory';
 import Profile from '../../components/main/Profile.astro';
+import Characteristics from '../../components/main/Characteristics.astro';
 export const prerender = false;
 ---
 
 <Layout>
 	<Profile />
 	<CommitHistoryComponent client:only />
+	<Characteristics />
 </Layout>
