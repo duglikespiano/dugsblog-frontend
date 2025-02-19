@@ -5,18 +5,18 @@ import profileImage from '../../assets/profile.png';
 export const prerender = false;
 ---
 
-<section id="profile" class="flex justify-center gap-6">
+<section id="profile" class="flex justify-between w-[844px] mx-auto">
 	<Image class="rounded-full w-[400px] aspect-square" src={profileImage} alt="Dug's profile image" />
-	<div class="flex flex-col items-center justify-center">
-		<p class="text-4xl mb-5 text-gray2">Hello! I am</p>
-		<p class="text-6xl font-extrabold text-hotpink">Suho Park</p>
-		<p class="text-5xl mb-5 text-yellow1">Web developer</p>
-		<p class="text-2xl self-end mb-2 font-extralight text-gray2">- slowly but steadily🐢</p>
-		<div class="flex self-end text-gray2 text-5xl font-extralight">
-			<a href="https://www.github.com/duglikespiano" target="_blank">
+	<div class="flex flex-col justify-end">
+		<p class="text-4xl mb-3 text-gray2">Hello! I am</p>
+		<p class="text-7xl font-extrabold text-hotpink">Suho Park</p>
+		<p class="text-4xl mb-5 text-yellow1">Web developer</p>
+		<p class="text-2xl mb-14 text-gray2 opacity-80">slowly but steadily <span class="opacity-100">🐢</span></p>
+		<div class="flex text-gray2 text-6xl">
+			<a href="https://www.github.com/duglikespiano" target="_blank" class="hover:scale-110 duration-200">
 				<Icon name="ph:github-logo-light" />
 			</a>
-			<a href="https://www.instagram.com/piano_dug" target="_blank">
+			<a href="https://www.instagram.com/piano_dug" target="_blank" class="hover:scale-110 duration-200">
 				<Icon name="ph:instagram-logo-light" />
 			</a>
 		</div>
