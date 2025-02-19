@@ -33,7 +33,7 @@ import Footer from '../components/Footer.astro';
 		<section id="body-wrapper" class="bg-green1">
 			<section id="body-max-width-wrapper" class="text-gray3 font-en max-w-7xl mx-auto py-4">
 				<Header />
-				<section id="slot-wrapper" class="py-14">
+				<section id="slot-wrapper" class="py-14 duration-500 opacity-0" data-reveal-on-load>
 					<slot />
 				</section>
 				<Footer />
@@ -42,3 +42,9 @@ import Footer from '../components/Footer.astro';
 		</section>
 	</body>
 </html>
+
+<script>
+	setTimeout(() => {
+		document.querySelector<HTMLElement>('[data-reveal-on-load]')!.style.opacity = '1';
+	}, 500);
+</script>
