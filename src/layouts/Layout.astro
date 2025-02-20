@@ -44,7 +44,9 @@ import Footer from '../components/Footer.astro';
 </html>
 
 <script>
-	setTimeout(() => {
-		document.querySelector<HTMLElement>('[data-reveal-on-load]')!.style.opacity = '1';
-	}, 500);
+	window.addEventListener('DOMContentLoaded', () => {
+		setTimeout(() => {
+			document.querySelector<HTMLElement>('[data-reveal-on-load]')!.style.opacity = '1';
+		}, 500);
+	});
 </script>
