@@ -33,11 +33,11 @@ import Footer from '../components/Footer.astro';
 		<section id="body-wrapper" class="bg-green1">
 			<section
 				id="body-max-width-wrapper"
-				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 opacity-0"
+				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 delay-300 opacity-0"
 				data-reveal-on-load-first
 			>
 				<Header />
-				<section id="slot-wrapper" class="py-14 duration-1000 opacity-0" data-reveal-on-load-second>
+				<section id="slot-wrapper" class="py-14 duration-1000 opacity-0 delay-700" data-reveal-on-load-second>
 					<slot />
 				</section>
 				<Footer />
@@ -49,12 +49,7 @@ import Footer from '../components/Footer.astro';
 
 <script>
 	window.addEventListener('DOMContentLoaded', () => {
-		setTimeout(() => {
-			document.querySelector<HTMLElement>('[data-reveal-on-load-first]')!.classList.add('opacity-100');
-		}, 300);
-
-		setTimeout(() => {
-			document.querySelector<HTMLElement>('[data-reveal-on-load-second]')!.classList.add('opacity-100');
-		}, 700);
+		document.querySelector<HTMLElement>('[data-reveal-on-load-first]')!.classList.add('opacity-100');
+		document.querySelector<HTMLElement>('[data-reveal-on-load-second]')!.classList.add('opacity-100');
 	});
 </script>
