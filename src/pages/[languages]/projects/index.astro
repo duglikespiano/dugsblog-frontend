@@ -1,0 +1,13 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../../layouts/Layout.astro';
+import SkillsFilter from '../../../components/projects/SkillsFilter.astro';
+
+export const getStaticPaths = (() => {
+	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+}) satisfies GetStaticPaths;
+---
+
+<Layout>
+	<SkillsFilter />
+</Layout>

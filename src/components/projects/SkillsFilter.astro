@@ -1,0 +1,14 @@
+---
+import { projects } from '../../common/variables';
+const skillsSet = new Set();
+
+projects.forEach((project) => {
+	project.skills.forEach((skill) => {
+		skillsSet.add(skill);
+	});
+});
+
+console.log(skillsSet);
+---
+
+<ul></ul>
