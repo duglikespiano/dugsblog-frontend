@@ -1,8 +1,13 @@
 ---
+import type { GetStaticPaths } from 'astro';
 import Layout from '../../layouts/Layout.astro';
 import CommitHistoryComponent from '../../components/main/CommitHistory';
 import Profile from '../../components/main/Profile.astro';
 import Characteristics from '../../components/main/Characteristics.astro';
+
+export const getStaticPaths = (() => {
+	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+}) satisfies GetStaticPaths;
 ---
 
 <Layout>
