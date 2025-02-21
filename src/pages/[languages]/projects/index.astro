@@ -1,15 +1,29 @@
 ---
-import type { GetStaticPaths } from 'astro';
 import Layout from '../../../layouts/Layout.astro';
-import SkillsFilter from '../../../components/projects/SkillsFilter.astro';
+import SkillsFilter from '../../../components/projects/SkillsFilter.tsx';
 import Projects from '../../../components/projects/Projects.astro';
-
+import type { GetStaticPaths } from 'astro';
+import { projects } from '../../../common/variables';
 export const getStaticPaths = (() => {
 	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
 }) satisfies GetStaticPaths;
+
+const skillsSet = new Set();
+projects.forEach((project) => {
+	project.skills.forEach((skill) => {
+		skillsSet.add(skill);
+	});
+});
+const skillsArray: string[] = Array.from(skillsSet as Set<string>);
+
+let selectedSkills: string[] = [];
+const skillsHandler = (skill: string) => {
+	console.log('Selected Skill:', skill);
+};
+console.log(skillsHandler);
 ---
 
 <Layout>
-	<SkillsFilter />
+	<SkillsFilter skillsArray={skillsArray} client:load />
 	<Projects />
 </Layout>
