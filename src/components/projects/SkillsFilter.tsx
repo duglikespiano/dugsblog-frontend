@@ -1,21 +1,55 @@
-import { skillsOriginalStore, skillsSelectedStore } from '../../common/stores';
+import { useStore } from '@nanostores/react';
+import { skillsStore, projectsStore } from '../../common/stores';
+import { allOfSkillsIhaveTried, allOfMyProjects } from '../../common/variables';
+import type { ProjectObjectType } from '../../common/variables';
 
-export default function SkillsFilter({ skillsArray }: { skillsArray: string[] }) {
-	const handleSetSkills = (index: number) => {
-		skillsSelectedStore.set(index);
+export default function SkillsFilter() {
+	const skillsToDisplay = useStore(skillsStore);
+
+	const toggleSkillsSelect = (index: number) => {
+		skillsToDisplay[index].isSelected = !skillsToDisplay[index].isSelected;
+		skillsStore.set([...skillsToDisplay]);
+	};
+
+	const handleDisplayProjects = (event: React.MouseEvent<HTMLLIElement>, index: number) => {
+		toggleSkillsSelect(index);
+
+		const selectedSkillsArray = skillsToDisplay.filter((skill) => skill.isSelected).map((skill) => skill.name);
+		const filteredProjects: ProjectObjectType[] = [];
+
+		selectedSkillsArray.forEach((selectedSkill) => {
+			allOfMyProjects.forEach((project) => {
+				project.skills.forEach((skill) => {
+					if (selectedSkill === skill) {
+						filteredProjects.push(project);
+					}
+				});
+			});
+		});
+
+		if (allOfSkillsIhaveTried.length === skillsToDisplay.filter((skill) => !skill.isSelected).length) {
+			projectsStore.set(allOfMyProjects);
+		} else {
+			const sortedProjects = filteredProjects.sort((a, b) => new Date(b.period[0]).getTime() - new Date(a.period[0]).getTime());
+			projectsStore.set(Array.from(new Set(sortedProjects)) as ProjectObjectType[]);
+		}
 	};
 
 	return (
-		<section className="border-6 rounded-4xl flex p-5 flex-wrap gap-3">
-			{skillsArray.map((skill, index) => (
-				<p
-					className={`flex justify-center items-center border-3 rounded-2xl p-2 text-2xl cursor-pointer`}
-					onClick={() => handleSetSkills(index)}
-					key={Math.random()}
-				>
-					{skill}
-				</p>
-			))}
+		<section>
+			<ul className="border-6 rounded-4xl flex p-5 flex-wrap gap-3">
+				{skillsToDisplay.map((skill, index: number) => (
+					<li
+						className={`flex justify-center items-center border-3 rounded-2xl p-2 text-2xl cursor-pointer ${
+							skill.isSelected ? 'bg-amber-400' : ''
+						}`}
+						onClick={(event) => handleDisplayProjects(event, index)}
+						key={skill.id}
+					>
+						{skill.name}
+					</li>
+				))}
+			</ul>
 		</section>
 	);
 }

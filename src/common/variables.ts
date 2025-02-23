@@ -21,12 +21,43 @@ export const routes = [
 	},
 ];
 
-export const projects = [
+export const allOfSkillsIhaveTried = [
+	{ id: 1, name: 'HTML/CSS', isSelected: false },
+	{ id: 2, name: 'Astro', isSelected: false },
+	{ id: 3, name: 'Typescript', isSelected: false },
+	{ id: 4, name: 'Javascript', isSelected: false },
+	{ id: 5, name: 'PHP', isSelected: false },
+	{ id: 6, name: 'Python', isSelected: false },
+	{ id: 7, name: 'Flask', isSelected: false },
+	{ id: 8, name: 'React', isSelected: false },
+	{ id: 9, name: 'Redux', isSelected: false },
+	{ id: 10, name: 'Sass', isSelected: false },
+	{ id: 11, name: 'Tailwindcss', isSelected: false },
+	{ id: 12, name: 'Node.js', isSelected: false },
+	{ id: 13, name: 'Express', isSelected: false },
+	{ id: 14, name: 'EJS', isSelected: false },
+	{ id: 15, name: 'Three.js', isSelected: false },
+	{ id: 16, name: 'GSAP', isSelected: false },
+	{ id: 17, name: 'Socket.io', isSelected: false },
+	{ id: 18, name: 'Googlemaps API', isSelected: false },
+	{ id: 19, name: 'MySQL', isSelected: false },
+	{ id: 20, name: 'MongoDB', isSelected: false },
+	{ id: 21, name: 'AWS', isSelected: false },
+	{ id: 22, name: 'Netlify', isSelected: false },
+	{ id: 23, name: 'PaaS', isSelected: false },
+	{ id: 24, name: 'Deployment', isSelected: false },
+	{ id: 25, name: 'Linux', isSelected: false },
+	{ id: 26, name: 'Vitest', isSelected: false },
+	{ id: 27, name: 'Vue', isSelected: false },
+	{ id: 28, name: 'TeamProject', isSelected: false },
+];
+
+export const allOfMyProjects = [
 	{
 		title: "Dug's Blog",
-		descriptionEn: 'A project to note ideas about HTML',
-		descriptionKo: 'HTML에 관한 아이디어를 기록하는 프로젝트',
-		descriptionJa: 'HTMLに対してのアイデアを記録するプロジェクト',
+		descriptionEn: '123123123',
+		descriptionKo: '123123123',
+		descriptionJa: '123123123',
 		deploymentURL: '',
 		frontendRepositoryURL: 'https://github.com/duglikespiano/dugsblog-frontend',
 		backendRepositoryURL: '',
@@ -174,7 +205,7 @@ export const projects = [
 		frontendRepositoryURL: 'https://github.com/duglikespiano/dugsblog',
 		backendRepositoryURL: '',
 		period: ['2024-02-02', '2024-09-06'],
-		skills: ['HTML/CSS', 'Typescript', 'Sass', 'Node.js', 'Express', 'ejs'],
+		skills: ['HTML/CSS', 'Typescript', 'Sass', 'Node.js', 'Express', 'EJS'],
 	},
 	{
 		title: "Dug's notes - three.js",
@@ -185,7 +216,7 @@ export const projects = [
 		frontendRepositoryURL: 'https://github.com/duglikespiano/dugsnotes-three.js',
 		backendRepositoryURL: '',
 		period: ['2024-06-04', ''],
-		skills: ['HTML/CSS', 'Javascript', 'three.js'],
+		skills: ['HTML/CSS', 'Javascript', 'Three.js'],
 	},
 	{
 		title: "Dug's notes - Python",
@@ -309,7 +340,6 @@ export const projects = [
 			'PaaS',
 			'Deployment',
 			'Linux',
-			,
 		],
 	},
 	{
@@ -378,7 +408,6 @@ export const projects = [
 			'PaaS',
 			'Deployment',
 			'Linux',
-			,
 		],
 	},
 	{
@@ -426,3 +455,15 @@ export const projects = [
 		skills: ['Node.js', 'Javascript', 'Express', 'MySQL', 'TeamProject'],
 	},
 ];
+
+export type ProjectObjectType = {
+	title: string;
+	descriptionEn: string;
+	descriptionKo: string;
+	descriptionJa: string;
+	deploymentURL: string;
+	frontendRepositoryURL: string;
+	backendRepositoryURL: string;
+	period: string[];
+	skills: string[];
+};

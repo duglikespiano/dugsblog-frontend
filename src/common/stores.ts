@@ -1,4 +1,6 @@
 import { atom } from 'nanostores';
+import { allOfSkillsIhaveTried, allOfMyProjects } from '../common/variables';
 
-export const skillsOriginalStore = atom();
-export const skillsSelectedStore = atom();
+// Initial value is all skills
+export const skillsStore = atom(allOfSkillsIhaveTried);
+export const projectsStore = atom(allOfMyProjects);
