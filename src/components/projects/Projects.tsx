@@ -4,8 +4,8 @@ import { projectsStore } from '../../common/stores';
 export default function Projects() {
 	const filteredProjects = useStore(projectsStore);
 	return (
-		<>
-			<ul className="pt-30 flex flex-col gap-10">
+		<section id="projects">
+			<ul className="pt-15 flex flex-col gap-10">
 				{filteredProjects.map((project) => (
 					<li className="border-6 rounded-4xl p-5" key={project.id}>
 						<div className="flex flex-col mb-3">
@@ -32,6 +32,6 @@ export default function Projects() {
 					</li>
 				))}
 			</ul>
-		</>
+		</section>
 	);
 }
