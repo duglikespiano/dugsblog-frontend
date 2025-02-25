@@ -40,10 +40,10 @@ export default function SkillsFilter() {
 			id="skillsFilter"
 			className="relative px-20 pb-15 after:content-[''] after:w-[calc(100%-10rem)] after:h-0.5 after:bg-gray3 after:block after:absolute after:bottom-0 after:left-[50%] after:translate-x-[-50%]"
 		>
-			<ul className="border-6 rounded-4xl flex p-5 flex-wrap gap-3">
+			<ul className="border-4 rounded-4xl flex p-5 flex-wrap gap-2.5">
 				{selectedSkills.map((skill, index: number) => (
 					<li
-						className={`flex justify-center items-center border-4 font-bold rounded-2xl p-2 text-2xl cursor-pointer select-none ${
+						className={`flex justify-center items-center border-4 font-bold rounded-2xl p-1 text-2xl cursor-pointer select-none ${
 							skill.isSelected ? 'bg-purple4' : 'bg-green2'
 						}`}
 						onClick={(event) => handleDisplayProjects(event, index)}
