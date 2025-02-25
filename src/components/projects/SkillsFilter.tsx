@@ -42,8 +42,8 @@ export default function SkillsFilter() {
 		>
 			<h3 className="text-rosewater font-bold text-5xl mb-5">Skills filter</h3>
 			<div className="px-6">
-				<p className="text-gray-300 font-bold text-2xl">Click skills to filter projects</p>
-				<p className="text-gray-300 font-bold text-xl flex items-center">
+				<p className="text-gray-400 font-bold text-2xl">Click skills to filter projects</p>
+				<p className="text-gray-500 font-bold text-xl flex items-center">
 					<span className="text-yellow1">{projectsStore.get().length}</span>&nbsp;of&nbsp;
 					<span className="text-yellow1">{allOfMyProjects.length}</span>&nbsp;Project(s) selected
 				</p>
