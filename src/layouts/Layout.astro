@@ -33,13 +33,15 @@ import Footer from '../components/Footer.astro';
 		<section id="body-wrapper" class="bg-green1">
 			<section
 				id="body-max-width-wrapper"
-				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 delay-300 opacity-0"
+				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 delay-300 opacity-0 flex flex-col justify-between min-h-lvh"
 				data-reveal-on-load-first
 			>
-				<Header />
-				<section id="slot-wrapper" class="py-14 duration-1000 opacity-0 delay-700" data-reveal-on-load-second>
-					<slot />
-				</section>
+				<div>
+					<Header />
+					<section id="slot-wrapper" class="py-14 duration-1000 opacity-0 delay-700" data-reveal-on-load-second>
+						<slot />
+					</section>
+				</div>
 				<Footer />
 				<MenuButton />
 			</section>
