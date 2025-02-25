@@ -13,9 +13,11 @@ const { languages } = Astro.params;
 			{
 				routes.map((route) => (
 					<li class="transition-text hover:text-gray3 duration-300">
-						<a class="no-underline" href={`/${languages}/${route.url}`}>
-							{route.name}
-						</a>
+						<h2>
+							<a class="no-underline" href={`/${languages}/${route.url}`}>
+								{route.name}
+							</a>
+						</h2>
 					</li>
 				))
 			}
