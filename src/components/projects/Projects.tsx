@@ -1,8 +1,11 @@
 import { useStore } from '@nanostores/react';
-import { projectsStore } from '../../common/stores';
+import { skillsStore, projectsStore } from '../../common/stores';
 
 export default function Projects() {
 	const filteredProjects = useStore(projectsStore);
+	const selectedSkills = useStore(skillsStore);
+	const selectedSkillsArray = selectedSkills.filter((skill) => skill.isSelected).map((skill) => skill.name);
+
 	return (
 		<section id="projects">
 			<ul className="pt-15 flex flex-col gap-10">
@@ -24,8 +27,13 @@ export default function Projects() {
 						<div>
 							<p className="text-xl mb-1">Relative Skills</p>
 							<ul className="flex gap-2 text-xl">
-								{project.skills.map((skill) => (
-									<li className="border-3 rounded-xl p-1">{skill}</li>
+								{project.skills.map((skill: string, index) => (
+									<li
+										className={`border-3 rounded-xl p-1 ${selectedSkillsArray.includes(skill) ? 'bg-rosewater' : ''}`}
+										key={index}
+									>
+										{skill}
+									</li>
 								))}
 							</ul>
 						</div>
