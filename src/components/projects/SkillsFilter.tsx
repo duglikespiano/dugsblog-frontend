@@ -38,13 +38,13 @@ export default function SkillsFilter() {
 	return (
 		<section
 			id="skillsFilter"
-			className="relative pb-30 after:content-[''] after:w-full after:h-0.5 after:bg-red-500 after:block after:absolute after:bottom-0 after:left-0"
+			className="relative pb-15 after:content-[''] after:w-full after:h-0.5 after:bg-gray3 after:block after:absolute after:bottom-0 after:left-0"
 		>
 			<ul className="border-6 rounded-4xl flex p-5 flex-wrap gap-3">
 				{skillsToDisplay.map((skill, index: number) => (
 					<li
-						className={`flex justify-center items-center border-3 rounded-2xl p-2 text-2xl cursor-pointer ${
-							skill.isSelected ? 'bg-amber-400' : ''
+						className={`flex justify-center items-center border-3 rounded-2xl p-2 text-2xl cursor-pointer select-none ${
+							skill.isSelected ? 'bg-rosewater' : ''
 						}`}
 						onClick={(event) => handleDisplayProjects(event, index)}
 						key={skill.id}
