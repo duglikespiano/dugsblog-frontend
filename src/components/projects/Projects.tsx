@@ -8,7 +8,7 @@ export default function Projects() {
 
 	return (
 		<section id="projects">
-			<ul className="pt-15 flex flex-col gap-10">
+			<ul className="pt-15 flex flex-col gap-10 px-20">
 				{filteredProjects.map((project) => (
 					<li className="border-6 rounded-4xl p-5" key={project.id}>
 						<div className="flex flex-col mb-3">
@@ -26,10 +26,12 @@ export default function Projects() {
 						</div>
 						<div>
 							<p className="text-xl mb-1">Relative Skills</p>
-							<ul className="flex gap-2 text-xl">
+							<ul className="flex gap-2 flex-wrap text-xl">
 								{project.skills.map((skill: string, index) => (
 									<li
-										className={`border-3 rounded-xl p-1 ${selectedSkillsArray.includes(skill) ? 'bg-rosewater' : ''}`}
+										className={`border-3 rounded-xl font-bold p-1 ${
+											selectedSkillsArray.includes(skill) ? 'bg-purple4' : 'bg-green2'
+										}`}
 										key={index}
 									>
 										{skill}
