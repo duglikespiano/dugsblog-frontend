@@ -36,7 +36,10 @@ export default function SkillsFilter() {
 	};
 
 	return (
-		<section>
+		<section
+			id="skillsFilter"
+			className="relative pb-30 after:content-[''] after:w-full after:h-0.5 after:bg-red-500 after:block after:absolute after:bottom-0 after:left-0"
+		>
 			<ul className="border-6 rounded-4xl flex p-5 flex-wrap gap-3">
 				{skillsToDisplay.map((skill, index: number) => (
 					<li
