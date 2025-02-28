@@ -1,0 +1,9 @@
+---
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (() => {
+	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+}) satisfies GetStaticPaths;
+---
+
+This is 404 en page
