@@ -1,8 +1,8 @@
 ---
 import type { GetStaticPaths } from 'astro';
 import Layout from '../../../layouts/Layout.astro';
-import SkillsFilter from '../../../components/projects/SkillsFilter.tsx';
-import Projects from '../../../components/projects/Projects.tsx';
+import Skills from '../../../components/about/Skills.astro';
+import BriefHistory from '../../../components/about/BriefHistory.astro';
 
 export const getStaticPaths = (() => {
 	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
@@ -10,6 +10,6 @@ export const getStaticPaths = (() => {
 ---
 
 <Layout>
-	<SkillsFilter client:load />
-	<Projects client:load />
+	<Skills />
+	<BriefHistory />
 </Layout>

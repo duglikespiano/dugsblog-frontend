@@ -1,0 +1,13 @@
+---
+import { allofMySkills } from '../../common/variables';
+---
+
+<section id="projects" class="px-20 pt-15">
+	<h3 class="text-rosewater font-bold text-5xl">Projects</h3>
+	<ul class="flex flex-col gap-10 mt-5">
+		{allofMySkills.frontend.map((skill) => <p>{skill.name}</p>)}
+		{allofMySkills.backend.map((skill) => <p>{skill.name}</p>)}
+		{allofMySkills.cloud.map((skill) => <p>{skill.name}</p>)}
+		{allofMySkills.misc.map((skill) => <p>{skill.name}</p>)}
+	</ul>
+</section>

@@ -502,3 +502,40 @@ export type ProjectObjectType = {
 	period: string[];
 	skills: string[];
 };
+
+export const allofMySkills = {
+	frontend: [
+		{ id: 1, name: 'HTML/CSS' },
+		{ id: 2, name: 'Astro' },
+		{ id: 3, name: 'React' },
+		{ id: 4, name: 'Redux' },
+		{ id: 5, name: 'Vue' },
+		{ id: 6, name: 'Sass' },
+		{ id: 7, name: 'Javascript' },
+		{ id: 8, name: 'Typescript' },
+		{ id: 9, name: 'TailwindCSS' },
+	],
+	backend: [
+		{ id: 1, name: 'Node.js' },
+		{ id: 2, name: 'Express' },
+		{ id: 3, name: 'PHP' },
+		{ id: 4, name: 'Python' },
+		{ id: 5, name: 'MySQL' },
+		{ id: 6, name: 'MongoDB' },
+		{ id: 7, name: 'Socket.io' },
+		{ id: 8, name: 'Javascript' },
+		{ id: 9, name: 'Typescript' },
+	],
+	cloud: [
+		{ id: 1, name: 'AWS' },
+		{ id: 2, name: 'Railway' },
+		{ id: 3, name: 'Netlify' },
+		{ id: 4, name: 'CloudType' },
+	],
+	misc: [
+		{ id: 1, name: 'Git' },
+		{ id: 2, name: 'Linux' },
+		{ id: 3, name: 'Public APIs' },
+		{ id: 4, name: 'Vitest' },
+	],
+};
