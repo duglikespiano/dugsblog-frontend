@@ -7,9 +7,11 @@ import BriefHistory from '../../../components/about/BriefHistory.astro';
 export const getStaticPaths = (() => {
 	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
 }) satisfies GetStaticPaths;
+
+const { language } = Astro.params;
 ---
 
 <Layout>
-	<Skills />
+	<Skills language={language} />
 	<BriefHistory />
 </Layout>
