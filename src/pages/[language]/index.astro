@@ -6,7 +6,7 @@ import Profile from '../../components/main/Profile.astro';
 import Characteristics from '../../components/main/Characteristics.astro';
 
 export const getStaticPaths = (() => {
-	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
 }) satisfies GetStaticPaths;
 ---
 

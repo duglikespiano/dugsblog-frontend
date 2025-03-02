@@ -5,7 +5,7 @@ import SkillsFilter from '../../../components/projects/SkillsFilter.tsx';
 import Projects from '../../../components/projects/Projects.tsx';
 
 export const getStaticPaths = (() => {
-	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
 }) satisfies GetStaticPaths;
 ---
 

@@ -5,7 +5,7 @@ import Skills from '../../../components/about/Skills.astro';
 import BriefHistory from '../../../components/about/BriefHistory.astro';
 
 export const getStaticPaths = (() => {
-	return [{ params: { languages: 'en' } }, { params: { languages: 'ko' } }, { params: { languages: 'ja' } }];
+	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
 }) satisfies GetStaticPaths;
 ---
 

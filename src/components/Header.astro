@@ -1,6 +1,6 @@
 ---
 import { routes } from '../common/variables';
-const { languages } = Astro.params;
+const { language } = Astro.params;
 ---
 
 <header class="flex justify-between">
@@ -14,7 +14,7 @@ const { languages } = Astro.params;
 				routes.map((route) => (
 					<li class="transition-text hover:text-gray3 duration-300">
 						<h2>
-							<a class="no-underline" href={`/${languages}/${route.url}`}>
+							<a class="no-underline" href={`/${language}/${route.url}`}>
 								{route.name}
 							</a>
 						</h2>
