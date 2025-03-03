@@ -567,3 +567,196 @@ export const allofMySkills = {
 		],
 	},
 };
+
+export const educationAndCareer = [
+	{
+		period: 'after',
+		data: [
+			{
+				language: 'en',
+				period: 'Jan 2023 - Present',
+				name: 'Self Taught',
+				department: 'Frontend & Backend',
+				duty: [
+					'Studying web development by Udemy lectures and other articles',
+					'Trying to wide view about web development by studying Frontend and Backend',
+					'Practicing to learn a variety of languages and skills quick',
+				],
+			},
+			{
+				language: 'ko',
+				period: '2023. 01 - 현재',
+				name: '독학',
+				department: '프론트엔드 & 백엔드',
+				duty: [
+					'Udemy 및 기타 자료를 통해 웹 개발을 공부하고 있습니다',
+					'프론트엔드, 백엔드 지식을 모두 공부하여 웹 개발에 대해 넓은 시야를 가지려 노력합니다',
+					'다양한 언어, 기술에 대해 빠르게 익히는 연습을 합니다',
+				],
+			},
+			{
+				language: 'ja',
+				period: '2023. 01 - 現在',
+				name: '独学',
+				department: 'フロントエンド & バックエンド',
+				duty: [
+					'Udemy及び他の資料を通じてウェブ開発を勉強しています',
+					'フルスタックを目指してウェブ開発について幅広い視野を持つ為にします',
+					'色んな言語、技術を手早く習う練習をします',
+				],
+			},
+		],
+	},
+	{
+		period: 'bootcamp',
+		data: [
+			{
+				language: 'en',
+				period: 'Oct 2022 - Dec 2022',
+				name: 'Justcode',
+				department: 'Backend course',
+				duty: [
+					'Completed online bootcamp Justcode Backend course',
+					'Learnt HTML, CSS, Javascript Node.js, Express, AWS, Git etc',
+					'Experienced team project twice through Agile Methodology',
+				],
+			},
+			{
+				language: 'ko',
+				period: '2022. 10 - 2022. 12',
+				name: '저스트코드',
+				department: '백엔드과정',
+				duty: [
+					'온라인 부트캠프 저스트코드에서 백엔드과정을 수료하였습니다',
+					'HTML, CSS, Javascript, Node.js, Express, AWS, Git 등의 개념을 배웠습니다',
+					'에자일방법론을 통한 팀 단위 개발을 두 차례 경험하였습니다',
+				],
+			},
+			{
+				language: 'ja',
+				period: '2022. 10 - 2022. 12',
+				name: 'ジャストコード',
+				department: 'バックエンド過程',
+				duty: [
+					'オンラインブートキャンプジャストコードのバックエンド過程を修了しました',
+					'HTML、CSS、Javascript、Node.js、Express、AWS、Gitの概念を習いました',
+					'アジャイル手法を通じたチーム単位開発を2回経験しました',
+				],
+			},
+		],
+	},
+	{
+		period: 'secondCompany',
+		data: [
+			{
+				language: 'en',
+				period: 'Dec 2020 - Jun 2022',
+				name: 'ULVAC KOREA, Ltd.',
+				department: 'Purchasing Department',
+				duty: [
+					'Worked at a semiconductor manufacturing machine company',
+					"Managed mechanical parts' delivery, quaility and cooperate companies",
+					'Managed communication to Japanese headquater',
+				],
+			},
+			{
+				language: 'ko',
+				period: '2020. 12 - 2022. 06',
+				name: '한국알박(주)',
+				department: '구매파트',
+				duty: [
+					'일본계 반도체공정장비제조기업 구매부서에서 근무하였습니다',
+					'기계품목들의 납기관리, 품질관리, 협력업체를 담당하였습니다',
+					'일본 본사와의 커뮤니케이션을 담당하였습니다',
+				],
+			},
+			{
+				language: 'ja',
+				period: '2020. 12 - 2022. 06',
+				name: '韓国アルバック(株)',
+				department: '購買パート',
+				duty: [
+					'日本系半導体工程装備製造企業の購買府署で勤務しました',
+					'機械品目たちの納期管理、品質管理、協力企業を担当しました',
+					'日本本社とのコミュニケーションを担当しました',
+				],
+			},
+		],
+	},
+	{
+		period: 'firstCompany',
+		data: [
+			{
+				language: 'en',
+				period: 'Jun 2017 - Feb 2020',
+				name: 'Clean Factomation, Inc.',
+				department: 'Design department',
+				duty: [
+					'Worked at a semiconductor handling machine company',
+					'Designed mechanical parts of STK, RM, CONVEYOR, VHL etc',
+					'Managed communication to Japanese headquater and American customer',
+				],
+			},
+			{
+				language: 'ko',
+				period: '2017. 06 - 2020. 02',
+				name: '크린팩토메이션(주)',
+				department: '설계팀',
+				duty: [
+					'일본계 반도체반송장비제조기업 설계팀에서 근무하였습니다',
+					'STK, RM, CONVEYOR, VHL등의 기계설계를 담당하였습니다',
+					'미국 고객사 및 일본 본사와의 커뮤니케이션을 담당하였습니다',
+				],
+			},
+			{
+				language: 'ja',
+				period: '2017. 06 - 2020. 02',
+				name: 'Clean Factomation, Inc.',
+				department: '設計チーム',
+				duty: [
+					'日本系半導体搬送装備製造企業の設計チームで勤務しました',
+					'STK、RM、CONVEYOR、VHLなどの機械設計を担当しました',
+					'アメリカの客先及び日本本社とのコミュニケーションを担当しました',
+				],
+			},
+		],
+	},
+	{
+		period: 'school',
+		data: [
+			{
+				language: 'en',
+				period: 'Mar 2008 - Feb 2015',
+				name: 'Pukyong National University',
+				department: 'Ocean Engineering',
+				duty: [
+					"Majored in ocean engineering at Korea's Pukyong national university",
+					'Studied dynamics about ocean and mechanics',
+					'Experienced student exchange at Malaysia',
+				],
+			},
+			{
+				language: 'ko',
+				period: '2008. 03 - 2015. 02',
+				name: '부경대학교',
+				department: '해양공학과',
+				duty: [
+					'대한민국 부산광역시 소재 국립부경대학교에서 해양공학을 전공하였습니다',
+					'해양 및 기계관련 역학에 대해 공부하였습니다',
+					'말레이시아 교환학생생활을 경험하였습니다',
+				],
+			},
+			{
+				language: 'ja',
+				period: '2008. 03 - 2015. 02',
+				name: '釜慶大学(ブギョンデハク)',
+				department: '海洋工学',
+				duty: [
+					'韓国の釜山広域市所在の国立釜慶大学で海洋工学を専攻しました',
+					'海洋及び機械関連力学について勉強しました',
+					'マレーシア交換学生生活を経験しました',
+				],
+			},
+		],
+	},
+];

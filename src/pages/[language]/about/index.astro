@@ -2,7 +2,7 @@
 import type { GetStaticPaths } from 'astro';
 import Layout from '../../../layouts/Layout.astro';
 import Skills from '../../../components/about/Skills.astro';
-import BriefHistory from '../../../components/about/BriefHistory.astro';
+import EducationAndCareer from '../../../components/about/EducationAndCareer.astro';
 
 export const getStaticPaths = (() => {
 	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
@@ -13,5 +13,5 @@ const { language } = Astro.params;
 
 <Layout>
 	<Skills language={language} />
-	<BriefHistory />
+	<EducationAndCareer language={language} />
 </Layout>

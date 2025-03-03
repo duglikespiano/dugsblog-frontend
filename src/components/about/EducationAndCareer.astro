@@ -1,0 +1,25 @@
+---
+import { educationAndCareer } from '../../common/variables';
+const { language } = Astro.props;
+---
+
+<section id="educationandcareer" class="px-20">
+	<h3 class="text-rosewater font-bold text-5xl">Education & Career</h3>
+
+	<ul class="gap-5 mt-5 border-4 rounded-4xl p-8">
+		{
+			educationAndCareer.map((object) => (
+				<p>
+					{object.data
+						.filter((item) => item.language === language)
+						.map((smallItem) => (
+							<p>{smallItem.name}</p>
+							<p>{smallItem.period}</p>
+							<p>{smallItem.department}</p>
+							<ul>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
+						))}
+				</p>
+			))
+		}
+	</ul>
+</section>
