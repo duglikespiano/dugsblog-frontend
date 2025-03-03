@@ -3,16 +3,21 @@ import { allofMySkills } from '../../common/variables';
 const { language } = Astro.props;
 ---
 
-<section id="projects" class="px-20 pt-15">
-	<h3 class="text-rosewater font-bold text-5xl">Projects</h3>
-	<ul class="flex flex-col gap-10 mt-5">
+<section id="projects" class="px-20">
+	<h3 class="text-rosewater font-bold text-5xl">Skills</h3>
+
+	<ul class="grid grid-cols-4 justify-center gap-5 mt-5 border-4 rounded-4xl p-8">
 		{
 			Object.values(allofMySkills).map((category) => (
-				<li>
-					<p>{language === 'en' ? category.name.en : language === 'ko' ? category.name.ko : category.name.ja}</p>
-					{category.skills.map((skill) => (
-						<p>{skill.name}</p>
-					))}
+				<li class="flex flex-col gap-3">
+					<p class="text-4xl font-bold">
+						{language === 'en' ? category.name.en : language === 'ko' ? category.name.ko : category.name.ja}
+					</p>
+					<ul>
+						{category.skills.map((skill) => (
+							<li class="text-gray-400 text-2xl pl-5">{skill.name}</li>
+						))}
+					</ul>
 				</li>
 			))
 		}
