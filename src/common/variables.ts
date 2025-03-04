@@ -570,22 +570,48 @@ export const allofMySkills = {
 
 export const educationAndCareer = [
 	{
-		period: 'after',
+		period: 'karabinerTechnology',
 		data: [
 			{
 				language: 'en',
-				period: 'Jan 2023 - Present',
+				period: 'Jan 2024 - present',
+				name: 'karabiner.inc',
+				department: 'Frontend development',
+				duty: ['-', '-', '-'],
+			},
+			{
+				language: 'ko',
+				period: '2024. 01 - 現在',
+				name: '카라비너테크놀로지 주식회사',
+				department: '프론트엔드개발',
+				duty: ['-', '-', '-'],
+			},
+			{
+				language: 'ja',
+				period: '2024. 01 - 現在',
+				name: 'カラビナテクノロジー株式会社',
+				department: 'フロントエンド開発',
+				duty: ['-', '-', '-'],
+			},
+		],
+	},
+	{
+		period: 'selfTaught',
+		data: [
+			{
+				language: 'en',
+				period: 'Jan 2023 - Jan 2024',
 				name: 'Self Taught',
 				department: 'Frontend & Backend',
 				duty: [
-					'Studying web development by Udemy lectures and other articles',
-					'Trying to wide view about web development by studying Frontend and Backend',
-					'Practicing to learn a variety of languages and skills quick',
+					'Studied web development by Udemy lectures and other articles',
+					'Studied both Frontend and Backend to have wide view about web development',
+					'Practiced to learn a variety of languages and skills quick',
 				],
 			},
 			{
 				language: 'ko',
-				period: '2023. 01 - 현재',
+				period: '2023. 01 - 2024. 01',
 				name: '독학',
 				department: '프론트엔드 & 백엔드',
 				duty: [
@@ -596,7 +622,7 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2023. 01 - 現在',
+				period: '2023. 01 - 2024. 01',
 				name: '独学',
 				department: 'フロントエンド & バックエンド',
 				duty: [

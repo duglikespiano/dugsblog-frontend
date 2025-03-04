@@ -6,19 +6,22 @@ const { language } = Astro.props;
 <section id="educationandcareer" class="px-20">
 	<h3 class="text-rosewater font-bold text-5xl">Education & Career</h3>
 
-	<ul class="gap-5 mt-5 border-4 rounded-4xl p-8">
+	<ul class="flex flex-col gap-10 mt-5">
 		{
 			educationAndCareer.map((object) => (
-				<p>
+				<li class="relative border-4 rounded-4xl p-8 after:content-[''] after:absolute after:-bottom-12 after:bg-gray3 after:left-1/2 after:translate-x-[-50%] after:h-11 after:w-1 last-of-type:after:content-none">
+					
 					{object.data
 						.filter((item) => item.language === language)
 						.map((smallItem) => (
-							<p>{smallItem.name}</p>
-							<p>{smallItem.period}</p>
-							<p>{smallItem.department}</p>
-							<ul>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
+							<p class='text-4xl text-gray1 font-bold'>{smallItem.name}</p>
+							<div class='mx-4 mt-3'>
+							<p class='text-3xl text-gray-200' >{smallItem.department}</p>
+							<p class='text-xl text-gray-500'>{smallItem.period}</p>
+							<ul class='text-xl text-gray-300 mt-5'>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
+						</div>
 						))}
-				</p>
+				</li>
 			))
 		}
 	</ul>
