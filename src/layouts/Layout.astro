@@ -1,8 +1,8 @@
 ---
-import '../styles/global.css';
-import MenuButton from '../components/MenuButton.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+import '../styles/common.scss';
 ---
 
 <!doctype html>
@@ -26,19 +26,18 @@ import Footer from '../components/Footer.astro';
 			crossorigin="anonymous"
 			referrerpolicy="no-referrer"
 		/>
-
 		<title>Astro Basics</title>
 	</head>
-	<body data-overlayscrollbars-initialize>
+	<body>
 		<section id="body-wrapper" class="bg-green1">
 			<section
 				id="body-max-width-wrapper"
-				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 delay-300 opacity-0 flex flex-col justify-between min-h-lvh lg:px-10 md:px-5"
+				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 delay-300 flex flex-col justify-between min-h-lvh lg:px-10 md:px-5"
 				data-reveal-on-load-first
 			>
 				<div>
 					<Header />
-					<section id="slot-wrapper" class="py-14 duration-1000 opacity-0 delay-700" data-reveal-on-load-second>
+					<section id="slot-wrapper" class="py-14 duration-1000 delay-700" data-reveal-on-load-second>
 						<slot />
 					</section>
 				</div>
@@ -48,9 +47,9 @@ import Footer from '../components/Footer.astro';
 	</body>
 </html>
 
-<script>
+<!-- <script>
 	window.addEventListener('DOMContentLoaded', () => {
 		document.querySelector<HTMLElement>('[data-reveal-on-load-first]')!.classList.add('opacity-100');
 		document.querySelector<HTMLElement>('[data-reveal-on-load-second]')!.classList.add('opacity-100');
 	});
-</script>
+</script> -->
