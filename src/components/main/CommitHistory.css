@@ -1,0 +1,13 @@
+#commit-history .react-activity-calendar__scroll-container {
+	overflow: visible !important;
+}
+
+#commit-history .os-scrollbar.os-scrollbar-horizontal.os-scrollbar-cornerless {
+	bottom: 17.5px !important;
+}
+
+.os-theme-dark {
+	--os-handle-bg: rgba(255, 255, 255, 0.44);
+	--os-handle-bg-hover: rgba(255, 255, 255, 0.55);
+	--os-handle-bg-active: rgba(255, 255, 255, 0.66);
+}
