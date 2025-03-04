@@ -4,12 +4,12 @@ const { language } = Astro.params;
 ---
 
 <header class="flex justify-between">
-	<h1 class="text-rosewater font-extrabold text-6xl">
+	<h1 class="text-rosewater font-extrabold lg:text-6xl md:text-4xl">
 		<a href="/" class="no-underline align-text-top"> Dug's Blog</a>
 	</h1>
 
 	<nav class="flex items-center">
-		<ul class="flex text-4xl gap-4 text-rosewater font-bold">
+		<ul class="flex md:text-2xl md:gap-3 lg:text-3xl lg:gap-4 text-rosewater font-bold">
 			{
 				routes.map((route) => (
 					<li class="transition-text hover:text-gray3 duration-300">
