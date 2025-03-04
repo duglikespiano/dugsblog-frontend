@@ -14,10 +14,10 @@ const { language } = Astro.props;
 					{object.data
 						.filter((item) => item.language === language)
 						.map((smallItem) => (
-							<p class='text-4xl text-gray1 font-bold'>{smallItem.name}</p>
+							<p class='text-4xl font-bold'>{smallItem.name}</p>
 							<div class='mx-4 mt-3'>
-							<p class='text-3xl text-gray-200' >{smallItem.department}</p>
-							<p class='text-xl text-gray-500'>{smallItem.period}</p>
+							<p class='text-3xl text-gray-200 font-bold' >{smallItem.department}</p>
+							<p class='text-xl text-gray-400'>{smallItem.period}</p>
 							<ul class='text-xl text-gray-300 mt-5'>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
 						</div>
 						))}
