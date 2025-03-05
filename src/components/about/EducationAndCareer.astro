@@ -16,10 +16,10 @@ const { language } = Astro.props;
 						.map((smallItem) => (
 							<p class='text-4xl font-bold'>{smallItem.name}</p>
 							<div class='mx-4 mt-3'>
-							<p class='text-3xl text-gray-200 font-bold' >{smallItem.department}</p>
-							<p class='text-xl text-gray-400'>{smallItem.period}</p>
-							<ul class='text-xl text-gray-300 mt-5'>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
-						</div>
+								<p class='text-3xl text-gray-200 font-bold' >{smallItem.department}</p>
+								<p class='text-xl text-gray-400'>{smallItem.date}</p>
+								<ul class='text-xl text-gray-300 mt-5'>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
+							</div>
 						))}
 				</li>
 			))

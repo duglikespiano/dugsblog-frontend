@@ -574,22 +574,22 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Jan 2024 - present',
 				name: 'karabiner.inc',
+				date: 'Jan 2024 - present',
 				department: 'Frontend development',
 				duty: ['-', '-', '-'],
 			},
 			{
 				language: 'ko',
-				period: '2024. 01 - 現在',
 				name: '카라비너테크놀로지 주식회사',
+				date: '2024. 01 - 現在',
 				department: '프론트엔드개발',
 				duty: ['-', '-', '-'],
 			},
 			{
 				language: 'ja',
-				period: '2024. 01 - 現在',
 				name: 'カラビナテクノロジー株式会社',
+				date: '2024. 01 - 現在',
 				department: 'フロントエンド開発',
 				duty: ['-', '-', '-'],
 			},
@@ -600,8 +600,8 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Jan 2023 - Jan 2024',
 				name: 'Self Taught',
+				date: 'Jan 2023 - Jan 2024',
 				department: 'Frontend & Backend',
 				duty: [
 					'Studied web development by Udemy lectures and other articles',
@@ -611,8 +611,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ko',
-				period: '2023. 01 - 2024. 01',
 				name: '독학',
+				date: '2023. 01 - 2024. 01',
 				department: '프론트엔드 & 백엔드',
 				duty: [
 					'Udemy 및 기타 자료를 통해 웹 개발을 공부하고 있습니다',
@@ -622,8 +622,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2023. 01 - 2024. 01',
 				name: '独学',
+				date: '2023. 01 - 2024. 01',
 				department: 'フロントエンド & バックエンド',
 				duty: [
 					'Udemy及び他の資料を通じてウェブ開発を勉強しています',
@@ -638,8 +638,8 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Oct 2022 - Dec 2022',
 				name: 'Justcode',
+				date: 'Oct 2022 - Dec 2022',
 				department: 'Backend course',
 				duty: [
 					'Completed online bootcamp Justcode Backend course',
@@ -649,8 +649,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ko',
-				period: '2022. 10 - 2022. 12',
 				name: '저스트코드',
+				date: '2022. 10 - 2022. 12',
 				department: '백엔드과정',
 				duty: [
 					'온라인 부트캠프 저스트코드에서 백엔드과정을 수료하였습니다',
@@ -660,8 +660,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2022. 10 - 2022. 12',
 				name: 'ジャストコード',
+				date: '2022. 10 - 2022. 12',
 				department: 'バックエンド過程',
 				duty: [
 					'オンラインブートキャンプジャストコードのバックエンド過程を修了しました',
@@ -676,8 +676,8 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Dec 2020 - Jun 2022',
 				name: 'ULVAC KOREA, Ltd.',
+				date: 'Dec 2020 - Jun 2022',
 				department: 'Purchasing Department',
 				duty: [
 					'Worked at a semiconductor manufacturing machine company',
@@ -687,8 +687,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ko',
-				period: '2020. 12 - 2022. 06',
 				name: '한국알박(주)',
+				date: '2020. 12 - 2022. 06',
 				department: '구매파트',
 				duty: [
 					'일본계 반도체공정장비제조기업 구매부서에서 근무하였습니다',
@@ -698,8 +698,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2020. 12 - 2022. 06',
 				name: '韓国アルバック(株)',
+				date: '2020. 12 - 2022. 06',
 				department: '購買パート',
 				duty: [
 					'日本系半導体工程装備製造企業の購買府署で勤務しました',
@@ -714,8 +714,8 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Jun 2017 - Feb 2020',
 				name: 'Clean Factomation, Inc.',
+				date: 'Jun 2017 - Feb 2020',
 				department: 'Design department',
 				duty: [
 					'Worked at a semiconductor handling machine company',
@@ -725,8 +725,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ko',
-				period: '2017. 06 - 2020. 02',
 				name: '크린팩토메이션(주)',
+				date: '2017. 06 - 2020. 02',
 				department: '설계팀',
 				duty: [
 					'일본계 반도체반송장비제조기업 설계팀에서 근무하였습니다',
@@ -736,8 +736,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2017. 06 - 2020. 02',
 				name: 'Clean Factomation, Inc.',
+				date: '2017. 06 - 2020. 02',
 				department: '設計チーム',
 				duty: [
 					'日本系半導体搬送装備製造企業の設計チームで勤務しました',
@@ -752,8 +752,8 @@ export const educationAndCareer = [
 		data: [
 			{
 				language: 'en',
-				period: 'Mar 2008 - Feb 2015',
 				name: 'Pukyong National University',
+				date: 'Mar 2008 - Feb 2015',
 				department: 'Ocean Engineering',
 				duty: [
 					"Majored in ocean engineering at Korea's Pukyong national university",
@@ -763,8 +763,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ko',
-				period: '2008. 03 - 2015. 02',
 				name: '부경대학교',
+				date: '2008. 03 - 2015. 02',
 				department: '해양공학과',
 				duty: [
 					'대한민국 부산광역시 소재 국립부경대학교에서 해양공학을 전공하였습니다',
@@ -774,8 +774,8 @@ export const educationAndCareer = [
 			},
 			{
 				language: 'ja',
-				period: '2008. 03 - 2015. 02',
 				name: '釜慶大学(ブギョンデハク)',
+				date: '2008. 03 - 2015. 02',
 				department: '海洋工学',
 				duty: [
 					'韓国の釜山広域市所在の国立釜慶大学で海洋工学を専攻しました',
