@@ -1,0 +1,12 @@
+<p id="test-text">test texttttttttttt</p>
+<script>
+	import { isModalOpenStore } from '../common/stores';
+
+	isModalOpenStore.subscribe((open) => {
+		if (open) {
+			document.getElementById('test-text')!.style.color = 'green';
+		} else {
+			document.getElementById('test-text')!.style.color = 'yellow';
+		}
+	});
+</script>
