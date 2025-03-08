@@ -1,0 +1,16 @@
+---
+import type { GetStaticPaths } from 'astro';
+import Layout from '../../../../layouts/Layout.astro';
+
+export const getStaticPaths = (() => {
+	return [
+		{ params: { language: 'en', posts: 'test' } },
+		{ params: { language: 'ko', posts: 'test' } },
+		{ params: { language: 'ja', posts: 'test' } },
+	];
+}) satisfies GetStaticPaths;
+---
+
+<Layout>
+	<p>This is post page</p>
+</Layout>
