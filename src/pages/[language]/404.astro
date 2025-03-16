@@ -5,6 +5,8 @@ import type { GetStaticPaths } from 'astro';
 export const getStaticPaths = (() => {
 	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
 }) satisfies GetStaticPaths;
+
+const { language } = Astro.params;
 ---
 
-<Layout> This is 404 en page </Layout>
+<Layout> This is 404 {language} page </Layout>
