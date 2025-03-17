@@ -8,7 +8,6 @@
 
 1. Overview
 2. Project goal
-3. Development note
    </br>
    </br>
 
@@ -35,5 +34,3 @@
 4. To publish and manage
    </br>
    </br>
-
-### 3. Development note
