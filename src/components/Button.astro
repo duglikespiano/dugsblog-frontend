@@ -3,7 +3,8 @@
 	import { isModalOpenStore } from '../common/stores';
 
 	function openDialog() {
-		isModalOpenStore.set(!isModalOpenStore.get());
+		const isModalOpen = isModalOpenStore.get();
+		isModalOpenStore.set(!isModalOpen);
 	}
 
 	// Add an event listener to the button
