@@ -1,9 +1,10 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import type { GetStaticPaths } from 'astro';
+import { languagesParams } from '../../common/variables';
 
 export const getStaticPaths = (() => {
-	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
+	return languagesParams;
 }) satisfies GetStaticPaths;
 
 const { language } = Astro.params;

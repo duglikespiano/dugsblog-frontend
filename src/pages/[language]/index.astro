@@ -4,9 +4,10 @@ import Layout from '../../layouts/Layout.astro';
 import CommitHistoryComponent from '../../components/main/CommitHistory';
 import Profile from '../../components/main/Profile.astro';
 import Characteristics from '../../components/main/Characteristics.astro';
+import { languagesParams } from '../../common/variables';
 
 export const getStaticPaths = (() => {
-	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
+	return languagesParams;
 }) satisfies GetStaticPaths;
 ---
 

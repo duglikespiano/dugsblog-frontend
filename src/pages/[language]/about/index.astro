@@ -3,9 +3,10 @@ import type { GetStaticPaths } from 'astro';
 import Layout from '../../../layouts/Layout.astro';
 import Skills from '../../../components/about/Skills.astro';
 import EducationAndCareer from '../../../components/about/EducationAndCareer.astro';
+import { languagesParams } from '../../../common/variables';
 
 export const getStaticPaths = (() => {
-	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
+	return languagesParams;
 }) satisfies GetStaticPaths;
 
 const { language } = Astro.params;

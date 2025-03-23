@@ -21,6 +21,8 @@ export const routes = [
 	},
 ];
 
+export const languagesParams = [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
+
 export const allOfSkillsIhaveTried = [
 	{ id: 1, name: 'HTML/CSS', isSelected: false },
 	{ id: 2, name: 'Astro', isSelected: false },
