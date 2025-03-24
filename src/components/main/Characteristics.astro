@@ -44,7 +44,7 @@ const characteristics = [
 	<ul class="flex flex-col gap-20">
 		{
 			characteristics.map((characteristic) => (
-				<li class:list={[{ '[direction:rtl]': characteristic.isRtl }]} class="grid grid-cols-[52.5%_auto] gap-x-3 grid-flow-col">
+				<li class:list={[{ '[direction:rtl]': characteristic.isRtl }]} class="grid grid-cols-[42.5%_auto] gap-x-3 grid-flow-col">
 					<Image src={characteristic.imageSrc} alt={characteristic.imageAlt} />
 					<div class:list={[{ 'text-right': characteristic.isRtl }]}>
 						<p class="lg:text-6xl md:text-4xl text-hotpink font-bold">{characteristic.name}</p>
