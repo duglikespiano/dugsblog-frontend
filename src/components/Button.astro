@@ -1,11 +1,11 @@
-<button id="openDialog">Open</button>
+<button id="openModal">Open</button>
 <script>
 	import { isModalOpenStore } from '../common/stores';
 
-	function openDialog() {
+	function openModal() {
 		const isModalOpen = isModalOpenStore.get();
 		isModalOpenStore.set(!isModalOpen);
 	}
 
-	document.getElementById('openDialog')!.addEventListener('click', openDialog);
+	document.getElementById('openModal')!.addEventListener('click', openModal);
 </script>
