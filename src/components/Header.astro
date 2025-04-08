@@ -1,8 +1,6 @@
 ---
 import { routes } from '../common/variables';
 const { language } = Astro.params;
-
-console.log(window.location.href);
 ---
 
 <header class="flex justify-between">
@@ -26,3 +24,7 @@ console.log(window.location.href);
 		</ul>
 	</nav>
 </header>
+
+<script>
+	console.log(window.location.href);
+</script>
