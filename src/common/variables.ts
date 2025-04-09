@@ -800,3 +800,42 @@ export const educationAndCareer = [
 		],
 	},
 ];
+
+import turtle from '../assets/turtle.jpg';
+import goldenGateBridge from '../assets/golden-gate-bridge.jpg';
+import clovers from '../assets/clovers.jpg';
+
+export const characteristics = [
+	{
+		name: 'Turtle',
+		isRtl: false,
+		title: 'I am a turtle',
+		descriptions: ['Although I am not fast like a rabbit.', 'Nobody can stop me.', 'I will achieve a goal eventually.'],
+		imageSrc: turtle,
+		imageAlt: 'turtle',
+	},
+	{
+		name: 'Dream',
+		isRtl: true,
+		title: 'I always dream',
+		descriptions: [
+			'My dream is becoming a fullstack engineer.',
+			'who can speak four languages.',
+			'I will work for the people around the world.',
+		],
+		imageSrc: goldenGateBridge,
+		imageAlt: 'golden gate bridge',
+	},
+	{
+		name: 'Effort',
+		isRtl: false,
+		title: 'I grow everyday',
+		descriptions: [
+			"I believe in everyday's discipline",
+			'I like to challenge',
+			'But what I like more is to prepare for those challenges',
+		],
+		imageSrc: clovers,
+		imageAlt: 'clovers',
+	},
+];
