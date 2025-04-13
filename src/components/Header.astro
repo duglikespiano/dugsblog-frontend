@@ -1,10 +1,7 @@
 ---
 import { routes } from '../common/variables';
 import Button from './Button.astro';
-import Modal from './Modal.astro';
-import { isModalOpenStore } from '../common/stores';
 const { language } = Astro.params;
-console.log(isModalOpenStore.get());
 ---
 
 <header class="flex justify-between">
@@ -27,6 +24,5 @@ console.log(isModalOpenStore.get());
 			}
 		</ul>
 		<Button />
-		{isModalOpenStore.get() && <Modal />}
 	</nav>
 </header>
