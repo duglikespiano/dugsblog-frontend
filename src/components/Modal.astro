@@ -4,10 +4,19 @@
 <script>
 	import { isModalOpenStore } from '../common/stores';
 
+	isModalOpenStore.subscribe((open) => {
+		if (open) {
+			(document.querySelector('#test-text') as HTMLElement).style.display = 'block';
+		} else {
+			(document.querySelector('#test-text') as HTMLElement).style.display = 'none';
+		}
+	});
+
 	function openModal() {
 		const isModalOpen = isModalOpenStore.get();
 		isModalOpenStore.set(!isModalOpen);
 	}
 
+	(document.querySelector('#test-text') as HTMLElement).style.display = 'none';
 	document.getElementById('openModal2')!.addEventListener('click', openModal);
 </script>
