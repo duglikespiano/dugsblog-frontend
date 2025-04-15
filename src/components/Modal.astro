@@ -1,14 +1,14 @@
-<p id="test-text" class="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-10 flex justify-center items-center">
-	<button id="openModal2" class="z-20 relative">asdasdasd</button>
+<p id="modal" class="w-full h-full absolute top-0 left-0 bg-black opacity-50 z-10 flex justify-center items-center">
+	<button class="z-20 relative" data-modal-close-button>asdasdasd</button>
 </p>
 <script>
 	import { isModalOpenStore } from '../common/stores';
 
 	isModalOpenStore.subscribe((open) => {
 		if (open) {
-			(document.querySelector('#test-text') as HTMLElement).style.display = 'block';
+			(document.querySelector('#modal') as HTMLElement).style.display = 'flex';
 		} else {
-			(document.querySelector('#test-text') as HTMLElement).style.display = 'none';
+			(document.querySelector('#modal') as HTMLElement).style.display = 'none';
 		}
 	});
 
@@ -17,6 +17,6 @@
 		isModalOpenStore.set(!isModalOpen);
 	}
 
-	(document.querySelector('#test-text') as HTMLElement).style.display = 'none';
-	document.getElementById('openModal2')!.addEventListener('click', openModal);
+	(document.querySelector('#modal') as HTMLElement).style.display = 'none';
+	document.querySelector('[data-modal-close-button]')!.addEventListener('click', openModal);
 </script>
