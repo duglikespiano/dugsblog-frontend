@@ -5,7 +5,6 @@
 	function openModal() {
 		const isModalOpen = isModalOpenStore.get();
 		isModalOpenStore.set(!isModalOpen);
-		console.log(isModalOpenStore.get());
 	}
 
 	document.getElementById('openModal')!.addEventListener('click', openModal);
