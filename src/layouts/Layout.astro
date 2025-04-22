@@ -1,56 +1,62 @@
 ---
-import '../styles/global.css';
-import '../styles/common.scss';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import Modal from '../components/Modal.astro';
+import "../styles/global.css";
+import "../styles/common.scss";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Modal from "../components/Modal.astro";
 ---
 
 <!doctype html>
 <html lang="en" data-overlayscrollbars-initialize>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<script
-			src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/browser/overlayscrollbars.browser.es6.min.js"
-			integrity="sha512-bDTkSDb0/IRzL9tINJGwc2iQwmqVF3X9y7Doo7ZWvtfUM0y8Wuw1yqbYSPCBfVUBun64XIyPfXStDf9vc7cR8Q=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-			onload="OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {})"
-			defer></script>
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/styles/overlayscrollbars.min.css"
-			integrity="sha512-1upUL7mU0vRAdxf0hllx44X8k95N0hSFoljRxrCYLvqn7Ih2lGbzgrNTDpXUPnHo/m6lB7JZzteEy7IXHuJ/cw=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<title>Astro Basics</title>
-	</head>
-	<body data-overlayscrollbars-initialize>
-		<section id="body-wrapper" class="bg-green1">
-			<section
-				id="body-max-width-wrapper"
-				class="text-gray3 font-en max-w-7xl mx-auto py-4 duration-1000 flex flex-col justify-between min-h-lvh lg:px-10 md:px-5"
-				data-reveal-on-load-first
-			>
-				<div>
-					<Header />
-					<section id="slot-wrapper" class="py-14 px-5 duration-1000 opacity-0 delay-300" data-reveal-on-load>
-						<slot />
-					</section>
-				</div>
-				<Footer />
-				<Modal />
-			</section>
-		</section>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/browser/overlayscrollbars.browser.es6.min.js"
+      integrity="sha512-bDTkSDb0/IRzL9tINJGwc2iQwmqVF3X9y7Doo7ZWvtfUM0y8Wuw1yqbYSPCBfVUBun64XIyPfXStDf9vc7cR8Q=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+      onload="OverlayScrollbarsGlobal.OverlayScrollbars(document.body, {})"
+      defer></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/2.10.1/styles/overlayscrollbars.min.css"
+      integrity="sha512-1upUL7mU0vRAdxf0hllx44X8k95N0hSFoljRxrCYLvqn7Ih2lGbzgrNTDpXUPnHo/m6lB7JZzteEy7IXHuJ/cw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>Astro Basics</title>
+  </head>
+  <body data-overlayscrollbars-initialize>
+    <section id="body-wrapper" class="bg-green1">
+      <section
+        id="body-max-width-wrapper"
+        class="text-gray3 font-en mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-10 py-4 duration-1000"
+        data-reveal-on-load-first
+      >
+        <div>
+          <Header />
+          <section
+            id="slot-wrapper"
+            class="px-5 py-14 opacity-0 delay-300 duration-1000"
+            data-reveal-on-load
+          >
+            <slot />
+          </section>
+        </div>
+        <Footer />
+        <Modal />
+      </section>
+    </section>
+  </body>
 </html>
 
 <script>
-	window.addEventListener('DOMContentLoaded', () => {
-		document.querySelector<HTMLElement>('[data-reveal-on-load]')!.classList.add('opacity-100');
-	});
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelector<HTMLElement>("[data-reveal-on-load]")!
+      .classList.add("opacity-100");
+  });
 </script>
