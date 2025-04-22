@@ -1,28 +1,30 @@
 ---
-import { routes } from '../common/variables';
-import ModalOpenButton from './ModalOpenButton.astro';
+import { routes } from "../common/variables";
+import ModalOpenButton from "./ModalOpenButton.astro";
 const { language } = Astro.params;
 ---
 
 <header class="flex justify-between">
-	<h1 class="text-rosewater font-extrabold lg:text-6xl md:text-4xl">
-		<a href={`/${language}`} class="no-underline align-text-top"> Dug's Blog</a>
-	</h1>
+  <h1 class="text-rosewater font-extrabold md:text-4xl lg:text-6xl">
+    <a href={`/${language}`} class="align-text-top no-underline"> Dug's Blog</a>
+  </h1>
 
-	<nav class="flex items-center">
-		<ul class="flex md:text-2xl md:gap-3 lg:text-3xl lg:gap-4 text-rosewater font-bold">
-			{
-				routes.map((route) => (
-					<li class="transition-text hover:text-gray3 duration-300">
-						<h2>
-							<a class="no-underline" href={`/${language}/${route.url}`}>
-								{route.name}
-							</a>
-						</h2>
-					</li>
-				))
-			}
-		</ul>
-		<ModalOpenButton />
-	</nav>
+  <nav class="flex items-center">
+    <ul
+      class="text-rosewater hidden font-bold md:gap-3 md:text-2xl lg:flex lg:gap-4 lg:text-3xl"
+    >
+      {
+        routes.map((route) => (
+          <li class="transition-text hover:text-gray3 duration-300">
+            <h2>
+              <a class="no-underline" href={`/${language}/${route.url}`}>
+                {route.name}
+              </a>
+            </h2>
+          </li>
+        ))
+      }
+    </ul>
+    <ModalOpenButton />
+  </nav>
 </header>
