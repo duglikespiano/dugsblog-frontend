@@ -1,11 +1,31 @@
-<button id="openModal">Open</button>
+<button
+  id="openModal"
+  class="flex h-8 w-10 cursor-pointer flex-col items-center justify-between transition-all lg:hidden [&.active>span:nth-child(1)]:translate-y-[14px] [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-translate-y-[14px] [&.active>span:nth-child(3)]:-rotate-45"
+>
+  <span
+    class="bg-rosewater h-1 w-full origin-center transform transition-all duration-300"
+  ></span>
+  <span
+    class="bg-rosewater h-1 w-full origin-center transform transition-all duration-300"
+  ></span>
+  <span
+    class="bg-rosewater h-1 w-full origin-center transform transition-all duration-300"
+  ></span>
+</button>
+
 <script>
-	import { isModalOpenStore } from '../common/stores';
+  import { isModalOpenStore } from "../common/stores";
 
-	function openModal() {
-		const isModalOpen = isModalOpenStore.get();
-		isModalOpenStore.set(!isModalOpen);
-	}
+  function openModal() {
+    isModalOpenStore.set(!isModalOpenStore.get());
+    document.querySelector("#openModal")?.classList.toggle("active");
 
-	document.getElementById('openModal')!.addEventListener('click', openModal);
+    if (isModalOpenStore.get()) {
+      document.querySelector("#openModal")?.classList.add("active");
+    } else {
+      document.querySelector("#openModal")?.classList.remove("active");
+    }
+  }
+
+  document.getElementById("openModal")!.addEventListener("click", openModal);
 </script>
