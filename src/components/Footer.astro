@@ -1,20 +1,20 @@
 ---
-import { routes } from '../common/variables';
+import { routes } from "../common/variables";
 const { language } = Astro.params;
 ---
 
 <footer class="flex items-center justify-center">
-	<ul class="flex gap-4 text-rosewater font-bold text-base">
-		{
-			routes.map((route) => (
-				<li class="transition-text hover:text-gray3 duration-300">
-					<h2>
-						<a class="no-underline" href={`/${language}/${route.url}`}>
-							{route.name}
-						</a>
-					</h2>
-				</li>
-			))
-		}
-	</ul>
+  <ul class="text-rosewater flex gap-4 text-base font-bold">
+    {
+      routes.map((route) => (
+        <li class="transition-text hover:text-gray3 duration-300">
+          <h2>
+            <a class="no-underline" href={`/${language}/${route.url}`}>
+              {route.name}
+            </a>
+          </h2>
+        </li>
+      ))
+    }
+  </ul>
 </footer>
