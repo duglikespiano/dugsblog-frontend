@@ -1,25 +1,35 @@
 ---
-import { Image } from 'astro:assets';
-import { characteristics } from '../../common/variables';
+import { Image } from "astro:assets";
+import { characteristics } from "../../common/variables";
 ---
 
 <section id="characteristics">
-	<ul class="flex flex-col gap-5">
-		{
-			characteristics.map((characteristic) => (
-				<li class:list={[{ '[direction:rtl]': characteristic.isRtl }]} class="grid grid-cols-[42.5%_auto] gap-x-3 grid-flow-col">
-					<Image src={characteristic.imageSrc} alt={characteristic.imageAlt} />
-					<div class:list={[{ 'text-right': characteristic.isRtl }]}>
-						<p class="lg:text-6xl md:text-4xl text-hotpink font-bold">{characteristic.name}</p>
-						<p class="lg:text-4xl md:text-3xl mt-3 text-yellow1">{characteristic.title}</p>
-						<div class="lg:text-2xl md:text-2xl mt-2 font-light" class:list={[{ '[direction:ltr]': characteristic.isRtl }]}>
-							{characteristic.descriptions.map((description) => (
-								<p>{description}</p>
-							))}
-						</div>
-					</div>
-				</li>
-			))
-		}
-	</ul>
+  <ul class="flex flex-col gap-15 md:gap-5">
+    {
+      characteristics.map((characteristic) => (
+        <li
+          class:list={[{ "[direction:rtl]": characteristic.isRtl }]}
+          class="sm:flex sm:flex-col md:grid md:grid-flow-col md:grid-cols-[42.5%_auto] md:gap-x-3"
+        >
+          <Image src={characteristic.imageSrc} alt={characteristic.imageAlt} />
+          <div class:list={[{ "text-right": characteristic.isRtl }]}>
+            <p class="text-hotpink mt-2 text-3xl font-bold md:mt-0 md:text-4xl lg:text-6xl">
+              {characteristic.name}
+            </p>
+            <p class="text-yellow1 text-2xl md:mt-3 md:text-3xl lg:text-4xl">
+              {characteristic.title}
+            </p>
+            <div
+              class="text-xl font-light md:mt-2 md:text-2xl lg:text-2xl"
+              class:list={[{ "[direction:ltr]": characteristic.isRtl }]}
+            >
+              {characteristic.descriptions.map((description) => (
+                <p>{description}</p>
+              ))}
+            </div>
+          </div>
+        </li>
+      ))
+    }
+  </ul>
 </section>
