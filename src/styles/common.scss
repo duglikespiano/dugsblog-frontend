@@ -1,5 +1,14 @@
 .os-theme-dark {
-	--os-handle-bg: rgba(255, 255, 255, 0.44);
-	--os-handle-bg-hover: rgba(255, 255, 255, 0.55);
-	--os-handle-bg-active: rgba(255, 255, 255, 0.66);
+  --os-handle-bg: rgba(255, 255, 255, 0.44);
+  --os-handle-bg-hover: rgba(255, 255, 255, 0.55);
+  --os-handle-bg-active: rgba(255, 255, 255, 0.66);
+}
+
+@media (max-width: 1024px) {
+  .os-scrollbar-vertical {
+    opacity: 0;
+  }
+  .os-scrollbar-vertical:hover {
+    opacity: 0;
+  }
 }
