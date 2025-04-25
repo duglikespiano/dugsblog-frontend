@@ -11,6 +11,10 @@
   .os-scrollbar-vertical:hover {
     opacity: 0;
   }
+
+  .os-scrollbar-vertical.os-scrollbar-interaction.os-scrollbar-visible {
+    opacity: 0;
+  }
 }
 
 @media (max-width: 400px) {
