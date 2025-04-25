@@ -36,16 +36,14 @@ import Modal from "../components/Modal.astro";
         class="text-gray3 font-en mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000 md:px-10"
         data-reveal-on-load-first
       >
-        <div>
-          <Header />
-          <section
-            id="slot-wrapper"
-            class="py-14 opacity-0 delay-300 duration-1000 md:px-5"
-            data-reveal-on-load
-          >
-            <slot />
-          </section>
-        </div>
+        <Header />
+        <section
+          id="slot-wrapper"
+          class="py-14 opacity-0 delay-300 duration-1000 md:px-5"
+          data-reveal-on-load
+        >
+          <slot />
+        </section>
         <Footer />
         <Modal />
       </section>
