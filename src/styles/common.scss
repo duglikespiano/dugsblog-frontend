@@ -12,3 +12,9 @@
     opacity: 0;
   }
 }
+
+@media (max-width: 400px) {
+  .react-activity-calendar__legend-colors {
+    margin-left: 0 !important;
+  }
+}
