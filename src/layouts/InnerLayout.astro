@@ -1,0 +1,29 @@
+---
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Modal from "../components/Modal.astro";
+---
+
+<section
+  id="max-width-wrapper"
+  class="text-gray3 font-en mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000"
+>
+  <Header />
+  <section
+    id="slot-wrapper"
+    class="py-14 opacity-0 delay-300 duration-1000 md:px-5"
+    data-reveal-on-load
+  >
+    <slot />
+  </section>
+  <Footer />
+  <Modal />
+</section>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document
+      .querySelector<HTMLElement>("[data-reveal-on-load]")!
+      .classList.add("opacity-100");
+  });
+</script>

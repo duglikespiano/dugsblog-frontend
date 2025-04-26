@@ -1,13 +1,13 @@
 ---
-import type { GetStaticPaths } from 'astro';
-import Layout from '../../../layouts/Layout.astro';
-import { languagesParams } from '../../../common/variables';
+import type { GetStaticPaths } from "astro";
+import RootLayout from "../../../layouts/RootLayout.astro";
+import { languagesParams } from "../../../common/variables";
 
 export const getStaticPaths = (() => {
-	return languagesParams;
+  return languagesParams;
 }) satisfies GetStaticPaths;
 ---
 
-<Layout>
-	<p>This is blog page</p>
-</Layout>
+<RootLayout>
+  <p>This is blog page</p>
+</RootLayout>

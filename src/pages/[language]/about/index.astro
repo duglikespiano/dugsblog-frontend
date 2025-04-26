@@ -1,18 +1,18 @@
 ---
-import type { GetStaticPaths } from 'astro';
-import Layout from '../../../layouts/Layout.astro';
-import Skills from '../../../components/about/Skills.astro';
-import EducationAndCareer from '../../../components/about/EducationAndCareer.astro';
-import { languagesParams } from '../../../common/variables';
+import type { GetStaticPaths } from "astro";
+import RootLayout from "../../../layouts/RootLayout.astro";
+import Skills from "../../../components/about/Skills.astro";
+import EducationAndCareer from "../../../components/about/EducationAndCareer.astro";
+import { languagesParams } from "../../../common/variables";
 
 export const getStaticPaths = (() => {
-	return languagesParams;
+  return languagesParams;
 }) satisfies GetStaticPaths;
 
 const { language } = Astro.params;
 ---
 
-<Layout>
-	<Skills language={language} />
-	<EducationAndCareer language={language} />
-</Layout>
+<RootLayout>
+  <Skills language={language} />
+  <EducationAndCareer language={language} />
+</RootLayout>

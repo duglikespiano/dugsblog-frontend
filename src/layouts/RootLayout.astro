@@ -1,0 +1,19 @@
+---
+import Head from "./Head.astro";
+import OuterLayout from "./OuterLayout.astro";
+import InnerLayout from "./InnerLayout.astro";
+import "../styles/global.css";
+import "../styles/common.scss";
+---
+
+<!doctype html>
+<html lang="en" data-overlayscrollbars-initialize>
+  <Head />
+  <body data-overlayscrollbars-initialize>
+    <OuterLayout>
+      <InnerLayout>
+        <slot />
+      </InnerLayout>
+    </OuterLayout>
+  </body>
+</html>

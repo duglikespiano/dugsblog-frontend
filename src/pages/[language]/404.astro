@@ -1,13 +1,17 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import type { GetStaticPaths } from 'astro';
-import { languagesParams } from '../../common/variables';
+import RootLayout from "../../layouts/RootLayout.astro";
+import type { GetStaticPaths } from "astro";
+import { languagesParams } from "../../common/variables";
 
 export const getStaticPaths = (() => {
-	return [{ params: { language: 'en' } }, { params: { language: 'ko' } }, { params: { language: 'ja' } }];
+  return [
+    { params: { language: "en" } },
+    { params: { language: "ko" } },
+    { params: { language: "ja" } },
+  ];
 }) satisfies GetStaticPaths;
 
 const { language } = Astro.params;
 ---
 
-<Layout> This is 404 {language} page </Layout>
+<RootLayout> This is 404 {language} page </RootLayout>
