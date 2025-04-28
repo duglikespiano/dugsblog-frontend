@@ -4,11 +4,12 @@ import OuterLayout from "./OuterLayout.astro";
 import InnerLayout from "./InnerLayout.astro";
 import "../styles/global.css";
 import "../styles/common.scss";
+const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en" data-overlayscrollbars-initialize>
-  <Head />
+  <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>
       <InnerLayout>
