@@ -1,28 +1,39 @@
 ---
-import { educationAndCareer } from '../../common/variables';
+import { educationAndCareer } from "../../common/variables";
 const { language } = Astro.props;
 ---
 
-<section id="educationandcareer" class="px-20 pt-15">
-	<h3 class="text-rosewater font-bold text-5xl">Education & Career</h3>
+<section id="educationandcareer" class="px-5 pt-15 lg:px-20">
+  <h3 class="text-rosewater text-5xl font-bold">
+    Education <br class="xs:hidden" />& Career
+  </h3>
 
-	<ul class="flex flex-col gap-10 mt-5">
-		{
-			educationAndCareer.map((object) => (
-				<li class="relative border-4 rounded-4xl p-8 after:content-[''] after:absolute after:-bottom-12 after:bg-gray3 after:left-1/2 after:translate-x-[-50%] after:h-11 after:w-1 last-of-type:after:content-none">
-					
-					{object.data
-						.filter((item) => item.language === language)
-						.map((smallItem) => (
-							<p class='text-4xl font-bold'>{smallItem.name}</p>
-							<div class='mx-4 mt-3'>
-								<p class='text-3xl text-gray-200 font-bold' >{smallItem.department}</p>
-								<p class='text-xl text-gray-400'>{smallItem.date}</p>
-								<ul class='text-xl text-gray-300 mt-5'>{smallItem.duty.map(item=><li>{item}</li>)}</ul>
-							</div>
-						))}
-				</li>
-			))
-		}
-	</ul>
+  <ul class="mt-5 flex flex-col gap-10">
+    {
+      educationAndCareer.map((object) => (
+        <li class="after:bg-gray3 relative rounded-4xl border-4 p-4 after:absolute after:-bottom-12 after:left-1/2 after:h-11 after:w-1 after:translate-x-[-50%] after:content-[''] last-of-type:after:content-none sm:p-8">
+          {object.data
+            .filter((item) => item.language === language)
+            .map((smallItem) => (
+              <div>
+                <p class="text-3xl font-bold sm:text-4xl">{smallItem.name}</p>
+                <div class="mx-4 mt-3">
+                  <p class="text-2xl font-bold text-gray-200 sm:text-3xl">
+                    {smallItem.department}
+                  </p>
+                  <p class="text-lg text-gray-400 sm:text-xl">
+                    {smallItem.date}
+                  </p>
+                  <ul class="mt-5 text-lg text-gray-300 sm:text-xl">
+                    {smallItem.duty.map((item) => (
+                      <li>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+        </li>
+      ))
+    }
+  </ul>
 </section>
