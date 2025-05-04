@@ -65,7 +65,7 @@ export default function SkillsFilter() {
           &nbsp;Project(s) selected
         </p>
       </div>
-      <ul className="mx-6 mt-5 flex flex-wrap gap-2.5 rounded-4xl border-4 p-5">
+      <ul className="mt-5 flex flex-wrap gap-2.5 rounded-4xl border-4 p-5">
         {selectedSkills.map((skill, index: number) => (
           <li
             className={`flex cursor-pointer items-center justify-center rounded-2xl border-4 p-1 text-2xl font-bold select-none ${
