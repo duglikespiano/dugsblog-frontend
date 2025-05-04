@@ -54,7 +54,7 @@ export default function SkillsFilter() {
       className="after:bg-gray3 relative px-5 pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-[calc(100%-(var(--spacing)*5)*2)] after:translate-x-[-50%] after:content-[''] lg:px-20 lg:after:w-[calc(100%-10rem)]"
     >
       <h3 className="text-rosewater mb-5 text-5xl font-bold">Skills filter</h3>
-      <div className="px-6">
+      <div className="lg:px-6">
         <p className="text-2xl font-bold text-gray-400">
           Click skills to filter projects
         </p>
@@ -65,10 +65,10 @@ export default function SkillsFilter() {
           &nbsp;Project(s) selected
         </p>
       </div>
-      <ul className="mt-5 flex flex-wrap gap-2.5 rounded-4xl border-4 p-5">
+      <ul className="mt-5 flex flex-wrap gap-1.5 rounded-4xl border-4 p-5 lg:gap-2.5">
         {selectedSkills.map((skill, index: number) => (
           <li
-            className={`flex cursor-pointer items-center justify-center rounded-2xl border-4 p-1 text-2xl font-bold select-none ${
+            className={`flex cursor-pointer items-center justify-center rounded-2xl border-4 p-1 text-xl font-bold select-none lg:text-2xl ${
               skill.isSelected ? "bg-purple4" : "bg-green2"
             }`}
             onClick={(event) => handleDisplayProjects(event, index)}
