@@ -252,7 +252,7 @@ export const allOfMyProjects = [
   },
   {
     id: 19,
-    title: "10Responsive websites(HTML,CSS,Javascript)",
+    title: "10Responsive websites",
     descriptionEn: "A project to build 10responsive webpsites",
     descriptionKo: "10가지 반응형 웹사이트를 제작하는 프로젝트",
     descriptionJa: "10個の反応形ウェブサイトを制作するプロジェクト",
@@ -292,7 +292,7 @@ export const allOfMyProjects = [
   },
   {
     id: 16,
-    title: "150Animation projects(HTML,CSS,Javascript)",
+    title: "150Animation projects",
     descriptionEn: "A project to build 150 HTML animations",
     descriptionKo: "150가지 HTML 애니메이션을 제작하는 프로젝트",
     descriptionJa: "150個のHTMLアニメーションを制作するプロジェクト",
@@ -329,7 +329,7 @@ export const allOfMyProjects = [
   },
   {
     id: 13,
-    title: "60Projects In 60Days(HTML,CSS,Javascript)",
+    title: "60Projects In 60Days",
     descriptionEn: "Coding challenges for 60 days with HTML,CSS,Javascript",
     descriptionKo: "HTML,CSS,Javascript를 통한 60일간의 Coding challenge",
     descriptionJa: "HTML、CSS、Javascriptを通じた60日間のCoding challenge",
@@ -354,7 +354,7 @@ export const allOfMyProjects = [
   },
   {
     id: 11,
-    title: "50Projects In 50Days(HTML,CSS,Javascript)",
+    title: "50Projects In 50Days",
     descriptionEn: "Coding challenges for 50 days with HTML,CSS,Javascript",
     descriptionKo: "HTML,CSS,Javascript를 통한 50일간의 Coding challenge",
     descriptionJa: "HTML、CSS、Javascriptを通じた50日間のCoding challenge",
