@@ -11,7 +11,7 @@ export default function Projects() {
   return (
     <section id="projects" className="px-5 pt-15 lg:px-20">
       <h3 className="text-rosewater text-5xl font-bold">Projects</h3>
-      <ul className="mt-5 flex flex-col gap-10">
+      <ul className="mt-5 flex flex-col gap-5 lg:gap-10">
         {filteredProjects.map((project) => (
           <li className="rounded-4xl border-4 p-4 lg:p-8" key={project.id}>
             <p className="text-gray1 mb-3 text-2xl font-bold md:text-4xl">
