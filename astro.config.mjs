@@ -1,14 +1,11 @@
-// @ts-check
+// https://astro.build/config
+
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
-
 import icon from "astro-icon";
-
 import react from "@astrojs/react";
-
 import node from "@astrojs/node";
 
-// https://astro.build/config
 export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
