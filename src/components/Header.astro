@@ -1,12 +1,12 @@
 ---
 import { routes } from "../common/variables";
-import ModalOpenButton from "./ModalOpenButton.astro";
+import Hamburger from "./Hamburger.astro";
 const { language } = Astro.params;
 ---
 
-<header class="flex justify-between">
+<header class="relative flex justify-between">
   <h1 class="text-rosewater text-5xl leading-none font-extrabold">
-    <a href="/en" class="inline-block leading-none no-underline"> Dug's Blog</a>
+    <a href="/en" class="inline-block leading-none no-underline">Dug's Blog</a>
   </h1>
 
   <nav class="flex items-center">
@@ -25,6 +25,6 @@ const { language } = Astro.params;
         ))
       }
     </ul>
-    <ModalOpenButton />
+    <Hamburger />
   </nav>
 </header>
