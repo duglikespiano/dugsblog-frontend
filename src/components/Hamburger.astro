@@ -1,5 +1,5 @@
 <button
-  id="openModal"
+  id="hamburger"
   class="absolute top-1/2 right-0 z-100 flex h-8 w-10 -translate-y-1/2 cursor-pointer flex-col items-center justify-between transition-all md:hidden [&.active>span:nth-child(1)]:translate-y-[14px] [&.active>span:nth-child(1)]:rotate-45 [&.active>span:nth-child(2)]:opacity-0 [&.active>span:nth-child(3)]:-translate-y-[14px] [&.active>span:nth-child(3)]:-rotate-45"
 >
   <span
@@ -15,17 +15,16 @@
 
 <script>
   import { isModalOpenStore } from "../common/stores";
+  const hamburgerElement = document.querySelector("#hamburger") as HTMLElement;
 
-  function openModal() {
+  function toggleModal() {
     isModalOpenStore.set(!isModalOpenStore.get());
-    document.querySelector("#openModal")?.classList.toggle("active");
-
-    if (isModalOpenStore.get()) {
-      document.querySelector("#openModal")?.classList.add("active");
-    } else {
-      document.querySelector("#openModal")?.classList.remove("active");
-    }
   }
+  hamburgerElement.addEventListener("click", toggleModal);
 
-  document.getElementById("openModal")!.addEventListener("click", openModal);
+  isModalOpenStore.subscribe((isOpen) =>
+    isOpen
+      ? hamburgerElement.classList.add("active")
+      : hamburgerElement.classList.remove("active"),
+  );
 </script>

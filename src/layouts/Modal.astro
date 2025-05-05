@@ -1,0 +1,21 @@
+<dialog
+  id="modal"
+  class="absolute top-0 left-0 z-10 hidden h-full w-full items-center justify-center bg-black opacity-50 [&.active]:flex"
+>
+  <slot />
+</dialog>
+<script>
+  import { isModalOpenStore } from "../common/stores";
+  const modalBackground = document.querySelector("#modal") as HTMLElement;
+
+  function closeModal() {
+    isModalOpenStore.set(false);
+  }
+  modalBackground.addEventListener("click", closeModal);
+
+  isModalOpenStore.subscribe((isOpen) =>
+    isOpen
+      ? modalBackground.classList.add("active")
+      : modalBackground.classList.remove("active"),
+  );
+</script>
