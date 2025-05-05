@@ -1,16 +1,7 @@
 ---
-import type { GetStaticPaths } from "astro";
 import { printFileURL } from "../../../../common/functions";
 import RootLayout from "../../../../layouts/RootLayout.astro";
 import Prose from "../../../../components/blog/Prose.astro";
-
-export const getStaticPaths = (() => {
-  return [
-    { params: { language: "en", posts: "test" } },
-    { params: { language: "ko", posts: "test" } },
-    { params: { language: "ja", posts: "test" } },
-  ];
-}) satisfies GetStaticPaths;
 
 import { Content as GreatPost } from "../[posts]/test.md";
 

@@ -1,29 +1,29 @@
 // @ts-check
-import { defineConfig } from 'astro/config';
-import tailwindcss from '@tailwindcss/vite';
+import { defineConfig } from "astro/config";
+import tailwindcss from "@tailwindcss/vite";
 
-import icon from 'astro-icon';
+import icon from "astro-icon";
 
-import react from '@astrojs/react';
+import react from "@astrojs/react";
 
-import node from '@astrojs/node';
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
-	vite: {
-		plugins: [tailwindcss()],
-	},
+  vite: {
+    plugins: [tailwindcss()],
+  },
 
-	integrations: [
-		icon({
-			include: {
-				ph: ['github-logo-light', 'instagram-logo-light'],
-			},
-		}),
-		react(),
-	],
-	output: 'static',
-	adapter: node({
-		mode: 'standalone',
-	}),
+  integrations: [
+    icon({
+      include: {
+        ph: ["github-logo-light", "instagram-logo-light"],
+      },
+    }),
+    react(),
+  ],
+  output: "server",
+  adapter: node({
+    mode: "standalone",
+  }),
 });

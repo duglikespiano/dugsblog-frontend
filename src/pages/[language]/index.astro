@@ -1,15 +1,10 @@
 ---
-import type { GetStaticPaths } from "astro";
 import RootLayout from "../../layouts/RootLayout.astro";
 import CommitHistoryComponent from "../../components/main/CommitHistory";
 import Profile from "../../components/main/Profile.astro";
 import Characteristics from "../../components/main/Characteristics.astro";
 import { languagesParams } from "../../common/variables";
 import { pageTitles } from "../../common/variables";
-
-export const getStaticPaths = (() => {
-  return languagesParams;
-}) satisfies GetStaticPaths;
 
 type Language = keyof typeof pageTitles;
 

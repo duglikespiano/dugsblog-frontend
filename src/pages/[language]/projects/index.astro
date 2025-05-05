@@ -1,13 +1,7 @@
 ---
-import type { GetStaticPaths } from "astro";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import SkillsFilter from "../../../components/projects/SkillsFilter.tsx";
 import Projects from "../../../components/projects/Projects.tsx";
-import { languagesParams } from "../../../common/variables";
-
-export const getStaticPaths = (() => {
-  return languagesParams;
-}) satisfies GetStaticPaths;
 ---
 
 <RootLayout>
