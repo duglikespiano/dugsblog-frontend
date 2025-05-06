@@ -4,27 +4,30 @@ import Hamburger from "./Hamburger.astro";
 const { language } = Astro.params;
 ---
 
-<header class="relative flex justify-between">
-  <h1 class="text-rosewater text-5xl leading-none font-extrabold">
-    <a href="/en" class="inline-block leading-none no-underline">Dug's Blog</a>
-  </h1>
-
-  <nav class="flex items-center">
-    <ul
-      class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl"
-    >
-      {
-        routes.map((route) => (
-          <li class="transition-text hover:text-gray3 duration-300">
-            <h2>
-              <a class="no-underline" href={`/${language}/${route.url}`}>
-                {route.name}
-              </a>
-            </h2>
-          </li>
-        ))
-      }
-    </ul>
+<header
+  class="bg-green1 fixed top-0 z-10 w-[calc(100%-(var(--spacing)*5)*2)] py-4 md:static md:w-full"
+>
+  <div class="relative justify-between md:flex">
+    <h1 class="text-rosewater text-5xl leading-none font-extrabold">
+      <a href="/en" class="leading-none no-underline">Dug's Blog</a>
+    </h1>
+    <nav class="flex items-center">
+      <ul
+        class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl"
+      >
+        {
+          routes.map((route) => (
+            <li class="transition-text hover:text-gray3 duration-300">
+              <h2>
+                <a class="no-underline" href={`/${language}/${route.url}`}>
+                  {route.name}
+                </a>
+              </h2>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
     <Hamburger />
-  </nav>
+  </div>
 </header>
