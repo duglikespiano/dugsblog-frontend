@@ -1,9 +1,10 @@
 <dialog
   id="modal"
-  class="absolute top-0 left-0 z-10 hidden h-full w-full items-center justify-center bg-black opacity-50 [&.active]:flex"
+  class="pointer-events-none absolute top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/75 opacity-0 transition-all duration-300 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
 >
   <slot />
 </dialog>
+
 <script>
   import { isModalOpenStore } from "../common/stores";
   const modalBackground = document.querySelector("#modal") as HTMLElement;
@@ -11,11 +12,30 @@
   function closeModal() {
     isModalOpenStore.set(false);
   }
+
+  function fixScrollWhenModalIsOpen(isOpen: boolean) {
+    if (isOpen) {
+      document.body.style.cssText = `
+    position: fixed;
+    top: -${window.scrollY}px;
+    overflow-y: scroll;
+    width: 100%;`;
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.cssText = "";
+      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+    }
+  }
+
   modalBackground.addEventListener("click", closeModal);
 
-  isModalOpenStore.subscribe((isOpen) =>
-    isOpen
-      ? modalBackground.classList.add("active")
-      : modalBackground.classList.remove("active"),
-  );
+  isModalOpenStore.subscribe((isOpen) => {
+    if (isOpen) {
+      modalBackground.classList.add("active");
+      fixScrollWhenModalIsOpen(isOpen);
+    } else {
+      modalBackground.classList.remove("active");
+      fixScrollWhenModalIsOpen(isOpen);
+    }
+  });
 </script>
