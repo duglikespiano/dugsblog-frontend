@@ -1,139 +1,131 @@
 ---
-import { Icon } from 'astro-icon/components';
+import { Icon } from "astro-icon/components";
 ---
 
-<div class="menu-button" data-menu-button>
-	<button class="menu-button__buttons">
-		<Icon class="menu-button__buttons__button active" name="tabler:list" data-menu-button-icon="to-open" />
-		<Icon class="menu-button__buttons__button" name="tabler:x" data-menu-button-icon="to-close" />
-	</button>
-	<div class="menu-button__menus">
-		<p class="menu-button__menus__menu menu1" data-menu-button-menu>menu1</p>
-		<p class="menu-button__menus__menu menu2" data-menu-button-menu>menu2</p>
-		<p class="menu-button__menus__menu menu3" data-menu-button-menu>menu3</p>
-	</div>
+<div
+  class="fixed right-[50px] bottom-[50px] h-[150px] w-[150px] rounded-[50%]"
+  data-menu-button
+>
+  <div class="relative h-full w-full">
+    <button
+      class="absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%]"
+      style="background-color: plum;"
+      role="button"
+      tabindex="0"
+      aria-label="Toggle menu"
+    >
+      <div class="relative h-full w-full">
+        <Icon
+          class="absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] rounded-[50%]"
+          name="tabler:list"
+          data-menu-button-icon="to-open"
+        />
+        <Icon
+          class="absolute top-[50%] left-[50%] hidden h-full w-full -translate-x-[50%] -translate-y-[50%] rounded-[50%]"
+          name="tabler:x"
+          data-menu-button-icon="to-close"
+        />
+      </div>
+    </button>
+    <div
+      class="absolute top-[50%] left-[50%] z-[-10] h-full w-full -translate-x-[50%] -translate-y-[50%]"
+    >
+      <div class="relative h-full w-full">
+        <p
+          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+          data-menu-button-menu
+          data-menu-button-menu1
+          style="background-color: red;"
+        >
+          menu1
+        </p>
+        <p
+          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+          data-menu-button-menu
+          data-menu-button-menu2
+          style="background-color: blue;"
+        >
+          menu2
+        </p>
+        <p
+          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+          data-menu-button-menu
+          data-menu-button-menu3
+          style="background-color: green;"
+        >
+          menu3
+        </p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>
-	const menuButton = document.querySelector('[data-menu-button]');
-	const iconsInMenuButton = document.querySelectorAll('[data-menu-button-icon]');
-	const menuOpenIconInMenuButton = document.querySelector('[data-menu-button-icon="to-open"]');
-	const menuCloseIconInMenuButton = document.querySelector('[data-menu-button-icon="to-close"]');
-	const menuButtons = document.querySelectorAll<HTMLElement>('[data-menu-button-menu]');
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
 
-	const buttonToggler = (boolean: boolean | null) => {
-		if (menuOpenIconInMenuButton && menuCloseIconInMenuButton && iconsInMenuButton && menuButton) {
-			iconsInMenuButton.forEach((element) => {
-				element.classList.remove('active');
-			});
-			if (boolean === null) {
-				menuButton.classList.toggle('active');
-				if (menuButton.classList.contains('active')) {
-					menuCloseIconInMenuButton.classList.add('active');
-					setTimeout(() => {
-						menuButtons.forEach((button) => {
-							button.style.pointerEvents = 'auto';
-						});
-					}, 300);
-				} else {
-					menuOpenIconInMenuButton.classList.add('active');
-					menuButtons.forEach((button) => {
-						button.style.pointerEvents = 'none';
-					});
-				}
-			} else if (boolean === true) {
-				menuButton.classList.add('active');
-				menuCloseIconInMenuButton.classList.add('active');
-			} else if (boolean === false) {
-				menuButton.classList.remove('active');
-				menuOpenIconInMenuButton.classList.add('active');
-			}
-		}
-	};
-	menuButton && menuButton.addEventListener('click', () => buttonToggler(null));
+  let isMenuButtonOpen = false;
+
+  const menuButton = document.querySelector(
+    "[data-menu-button]",
+  ) as HTMLElement;
+
+  const menuButtonMenuElements = document.querySelectorAll(
+    "[data-menu-button-menu]",
+  );
+
+  const buttonsPosition = {
+    open: [
+      { x: -200, y: 0 },
+      { x: -150, y: -150 },
+      { x: 0, y: -200 },
+    ],
+    close: [
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+      { x: 0, y: 0 },
+    ],
+  };
+
+  const openMenuTimeline = gsap.timeline({ paused: true });
+
+  const closeMenuTimeline = gsap.timeline({ paused: true });
+
+  menuButtonMenuElements.forEach((element, i) => {
+    openMenuTimeline.to(
+      `[data-menu-button-menu${i + 1}]`,
+      {
+        x: buttonsPosition.open[i].x,
+        y: buttonsPosition.open[i].y,
+      },
+      0,
+    );
+  });
+
+  menuButtonMenuElements.forEach((element, i) => {
+    closeMenuTimeline.to(
+      `[data-menu-button-menu${i + 1}]`,
+      {
+        x: buttonsPosition.close[i].x,
+        y: buttonsPosition.close[i].y,
+      },
+      0,
+    );
+  });
+
+  const openMenuIcons = () => {
+    if (!isMenuButtonOpen) {
+      openMenuTimeline.restart();
+    } else {
+      closeMenuTimeline.restart();
+    }
+  };
+
+  menuButton.addEventListener("click", (event) => {
+    if ((event.target as HTMLElement).dataset.menuButtonMenu === undefined) {
+      openMenuIcons();
+      isMenuButtonOpen = !isMenuButtonOpen;
+    }
+  });
 </script>
-
-<style lang="scss">
-	.menu-button {
-		position: fixed;
-		width: 150px;
-		height: 150px;
-		bottom: 100px;
-		right: 100px;
-		border-radius: 50%;
-		transition: 0.2s linear all;
-		&__buttons {
-			display: flex;
-			position: relative;
-			width: 150px;
-			height: 150px;
-			font-size: 30px;
-			justify-content: center;
-			align-items: center;
-			border: 1px solid black;
-			border-radius: 50%;
-			z-index: -1;
-			cursor: pointer;
-			&__button {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				width: 100px;
-				height: 100px;
-				opacity: 0;
-				color: #d8a7b1;
-				transform: translate(-50%, -50%);
-				transition: 0.3s all linear;
-				&.active {
-					opacity: 1;
-				}
-			}
-		}
-		&__menus {
-			&__menu {
-				position: absolute;
-				display: flex;
-				width: fit-content;
-				aspect-ratio: 1 / 1;
-				border-radius: 50%;
-				align-items: center;
-				justify-content: center;
-				border: 1px solid black;
-				font-size: 30px;
-				left: 50%;
-				top: 50%;
-				opacity: 0;
-				color: #d8a7b1;
-				cursor: pointer;
-				transform: translate(-50%, -50%);
-				transition: all 0.3s linear;
-			}
-		}
-		&.active {
-			.menu-button__menus__menu {
-				opacity: 1;
-				&.menu1 {
-					top: -50%;
-				}
-				&.menu2 {
-					top: -25%;
-					left: -25%;
-				}
-				&.menu3 {
-					left: -50%;
-				}
-			}
-		}
-		&:hover,
-		&.active {
-			.menu-button__buttons__button {
-				color: #f8fafc;
-			}
-		}
-		.menu-button__menus__menu {
-			&:hover {
-				color: #f8fafc;
-			}
-		}
-	}
-</style>
