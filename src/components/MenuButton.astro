@@ -8,8 +8,7 @@ import { Icon } from "astro-icon/components";
 >
   <div class="relative h-full w-full">
     <button
-      class="absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%]"
-      style="background-color: plum;"
+      class="hover:text-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] duration-500 hover:bg-white"
       role="button"
       tabindex="0"
       aria-label="Toggle menu"
@@ -35,7 +34,6 @@ import { Icon } from "astro-icon/components";
           class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
           data-menu-button-menu
           data-menu-button-menu1
-          style="background-color: red;"
         >
           menu1
         </p>
@@ -43,7 +41,6 @@ import { Icon } from "astro-icon/components";
           class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
           data-menu-button-menu
           data-menu-button-menu2
-          style="background-color: blue;"
         >
           menu2
         </p>
@@ -51,7 +48,6 @@ import { Icon } from "astro-icon/components";
           class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
           data-menu-button-menu
           data-menu-button-menu3
-          style="background-color: green;"
         >
           menu3
         </p>
@@ -89,9 +85,7 @@ import { Icon } from "astro-icon/components";
   };
 
   const openMenuTimeline = gsap.timeline({ paused: true });
-
   const closeMenuTimeline = gsap.timeline({ paused: true });
-
   menuButtonMenuElements.forEach((element, i) => {
     openMenuTimeline.to(
       `[data-menu-button-menu${i + 1}]`,
@@ -102,7 +96,6 @@ import { Icon } from "astro-icon/components";
       0,
     );
   });
-
   menuButtonMenuElements.forEach((element, i) => {
     closeMenuTimeline.to(
       `[data-menu-button-menu${i + 1}]`,
