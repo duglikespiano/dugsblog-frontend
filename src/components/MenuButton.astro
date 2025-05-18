@@ -8,7 +8,7 @@ import { Icon } from "astro-icon/components";
 >
   <div class="relative h-full w-full">
     <button
-      class="hover:text-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] duration-500 hover:bg-white"
+      class="hover:text-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white duration-500 hover:bg-white"
       role="button"
       tabindex="0"
       aria-label="Toggle menu"
@@ -30,27 +30,39 @@ import { Icon } from "astro-icon/components";
       class="absolute top-[50%] left-[50%] z-[-10] h-full w-full -translate-x-[50%] -translate-y-[50%]"
     >
       <div class="relative h-full w-full">
-        <p
-          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+        <button
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu1
         >
-          menu1
-        </p>
-        <p
-          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+          <p
+            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-500 hover:bg-white"
+          >
+            menu1
+          </p>
+        </button>
+        <button
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu2
         >
-          menu2
-        </p>
-        <p
-          class="absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] items-center justify-center rounded-[50%]"
+          <p
+            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-500 hover:bg-white"
+          >
+            menu2
+          </p>
+        </button>
+        <button
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu3
         >
-          menu3
-        </p>
+          <p
+            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-500 hover:bg-white"
+          >
+            menu3
+          </p>
+        </button>
       </div>
     </div>
   </div>
@@ -92,6 +104,8 @@ import { Icon } from "astro-icon/components";
       {
         x: buttonsPosition.open[i].x,
         y: buttonsPosition.open[i].y,
+        opacity: 1,
+        pointerEvents: "auto",
       },
       0,
     );
@@ -102,6 +116,8 @@ import { Icon } from "astro-icon/components";
       {
         x: buttonsPosition.close[i].x,
         y: buttonsPosition.close[i].y,
+        opacity: 0,
+        pointerEvents: "none",
       },
       0,
     );
