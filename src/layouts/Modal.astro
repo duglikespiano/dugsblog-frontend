@@ -1,6 +1,7 @@
 <dialog
   id="modal"
-  class="pointer-events-none fixed top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-300 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
+  class="[&.active]: pointer-events-none fixed top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-300 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
+  inert
 >
   <slot />
 </dialog>
@@ -32,9 +33,11 @@
   isModalOpenStore.subscribe((isOpen) => {
     if (isOpen) {
       modalBackground.classList.add("active");
+      modalBackground.removeAttribute("inert");
       fixScrollWhenModalIsOpen(isOpen);
     } else {
       modalBackground.classList.remove("active");
+      modalBackground.setAttribute("inert", "");
       fixScrollWhenModalIsOpen(isOpen);
     }
   });
