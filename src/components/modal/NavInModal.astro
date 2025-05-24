@@ -9,7 +9,7 @@ const { language } = Astro.params;
     <ul class="flex flex-col gap-4">
       {
         routes.map((route) => (
-          <li class="text-rosewater text-4xl font-bold">
+          <li class="text-rosewater text-3xl font-bold">
             <h2>
               <a class="no-underline" href={`/${language}/${route.url}`}>
                 {route.name}
