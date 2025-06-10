@@ -883,4 +883,5 @@ export const characteristics = [
 
 export const pageTitles = {
   en: { default: "Dug's Blog", home: "" },
+  ko: { default: "더그의 블로그", home: "" },
 };
