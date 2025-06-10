@@ -1,7 +1,8 @@
 ---
-import { routes } from "../common/variables";
 import Hamburger from "./Hamburger.astro";
-const { language } = Astro.params;
+import { logoInfo, navInfo } from "../common/html-elements";
+import type { Languages } from "../common/types";
+const { language } = Astro.params as { language: Languages };
 ---
 
 <header
@@ -9,18 +10,24 @@ const { language } = Astro.params;
 >
   <div class="relative justify-between md:flex">
     <h1 class="text-rosewater text-5xl leading-none font-extrabold">
-      <a href="/en" class="leading-none no-underline">Dug's Blog</a>
+      <a
+        href={`/${language}/${logoInfo["href"]}`}
+        class="leading-none no-underline">{logoInfo[language]}</a
+      >
     </h1>
     <nav class="flex items-center">
       <ul
         class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl"
       >
         {
-          routes.map((route) => (
+          (Object.keys(navInfo) as (keyof typeof navInfo)[]).map((item) => (
             <li class="transition-text hover:text-gray3 duration-300">
               <h2>
-                <a class="no-underline" href={`/${language}/${route.url}`}>
-                  {route.name}
+                <a
+                  class="no-underline"
+                  href={`/${language}${navInfo[item]["href"]}`}
+                >
+                  {navInfo[item][language]}
                 </a>
               </h2>
             </li>
