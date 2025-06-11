@@ -8,7 +8,7 @@ const { language } = Astro.params as { language: Languages };
   <ul class="text-rosewater flex gap-3 text-base font-bold md:gap-4">
     {
       (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
-        <li class="transition-text hover:text-gray3 duration-300">
+        <li class="transition-text md:hover:text-gray3 duration-200">
           <h2>
             <a
               class="no-underline"

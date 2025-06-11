@@ -9,7 +9,9 @@ const { language } = Astro.params as { language: Languages };
   class="bg-green1 fixed top-0 left-0 z-20 w-full px-5 py-4 md:static md:w-full md:px-0"
 >
   <div class="relative justify-between md:flex">
-    <h1 class="text-rosewater text-5xl leading-none font-extrabold">
+    <h1
+      class="text-rosewater md:hover:text-gray3 text-5xl leading-none font-extrabold duration-200"
+    >
       <a
         href={`/${language}/${logoInfo["href"]}`}
         class="leading-none no-underline">{logoInfo[language]}</a
@@ -21,15 +23,13 @@ const { language } = Astro.params as { language: Languages };
       >
         {
           (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
-            <li class="transition-text hover:text-gray3 duration-300">
-              <h2>
-                <a
-                  class="no-underline"
-                  href={`/${language}${menuInfo[item]["href"]}`}
-                >
-                  {menuInfo[item][language]}
-                </a>
-              </h2>
+            <li class="transition-text md:hover:text-gray3 duration-200">
+              <a
+                class="no-underline"
+                href={`/${language}${menuInfo[item]["href"]}`}
+              >
+                {menuInfo[item][language]}
+              </a>
             </li>
           ))
         }

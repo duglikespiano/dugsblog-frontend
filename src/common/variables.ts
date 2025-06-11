@@ -1,32 +1,3 @@
-export const routes = [
-  {
-    name: "About",
-    url: "about",
-  },
-  {
-    name: "Projects",
-    url: "projects",
-  },
-  {
-    name: "Blog",
-    url: "blog",
-  },
-  {
-    name: "Contact",
-    url: "contact",
-  },
-  {
-    name: "Guestbook",
-    url: "guestbook",
-  },
-];
-
-export const languagesParams = [
-  { params: { language: "en" } },
-  { params: { language: "ko" } },
-  { params: { language: "ja" } },
-];
-
 export const allOfSkillsIhaveTried = [
   { id: 1, name: "HTML/CSS", isSelected: false },
   { id: 2, name: "Astro", isSelected: false },
