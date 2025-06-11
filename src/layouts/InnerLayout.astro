@@ -2,11 +2,13 @@
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import NavInModal from "../components/modal/NavInModal.astro";
+import type { Languages } from "../common/types";
+const { language } = Astro.params as { language: Languages };
 ---
 
 <section
   id="max-width-wrapper"
-  class="text-gray3 font-en mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000"
+  class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000`
 >
   <Header />
   <section
