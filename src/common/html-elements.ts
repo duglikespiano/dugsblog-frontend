@@ -5,7 +5,7 @@ export const logoInfo = {
   href: "",
 };
 
-export const navInfo = {
+export const menuInfo = {
   about: {
     en: "About",
     ko: "소개",

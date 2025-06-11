@@ -1,6 +1,6 @@
 ---
 import Hamburger from "./Hamburger.astro";
-import { logoInfo, navInfo } from "../common/html-elements";
+import { logoInfo, menuInfo } from "../common/html-elements";
 import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -20,14 +20,14 @@ const { language } = Astro.params as { language: Languages };
         class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl"
       >
         {
-          (Object.keys(navInfo) as (keyof typeof navInfo)[]).map((item) => (
+          (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
             <li class="transition-text hover:text-gray3 duration-300">
               <h2>
                 <a
                   class="no-underline"
-                  href={`/${language}${navInfo[item]["href"]}`}
+                  href={`/${language}${menuInfo[item]["href"]}`}
                 >
-                  {navInfo[item][language]}
+                  {menuInfo[item][language]}
                 </a>
               </h2>
             </li>
