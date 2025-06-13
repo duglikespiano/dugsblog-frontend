@@ -1,16 +1,19 @@
 ---
-import { educationAndCareer } from "../../common/variables";
-const { language } = Astro.props;
+import { educationAndCareer } from "../../common/html-elements";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 ---
 
 <section id="educationandcareer" class="px-5 pt-15 lg:px-20">
   <h3 class="text-rosewater text-5xl font-bold">
-    Education <br class="xs:hidden" />& Career
+    {educationAndCareer.title[language][0]}
+    <br class="xs:hidden" />
+    {educationAndCareer.title[language][1]}
   </h3>
 
   <ul class="mt-5 flex flex-col gap-10">
     {
-      educationAndCareer.map((object) => (
+      educationAndCareer.data.map((object) => (
         <li class="after:bg-gray3 relative rounded-4xl border-4 p-4 after:absolute after:-bottom-12 after:left-1/2 after:h-11 after:w-1 after:translate-x-[-50%] after:content-[''] last-of-type:after:content-none sm:p-8">
           {object.data
             .filter((item) => item.language === language)
