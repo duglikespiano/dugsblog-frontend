@@ -38,6 +38,78 @@ export const menuInfo = {
   },
 };
 
+export const skillSet = {
+  title: {
+    en: ["Skill set"],
+    ko: ["스킬셋"],
+    ja: ["スキルセット"],
+  },
+  data: {
+    frontend: {
+      name: {
+        en: "Frontend",
+        ko: "프론트엔드",
+        ja: "フロントエンド",
+      },
+      skills: [
+        { id: 1, name: "HTML/CSS" },
+        { id: 2, name: "Astro" },
+        { id: 3, name: "React" },
+        { id: 4, name: "Redux" },
+        { id: 5, name: "Vue" },
+        { id: 6, name: "Sass" },
+        { id: 7, name: "Javascript" },
+        { id: 8, name: "Typescript" },
+        { id: 9, name: "TailwindCSS" },
+      ],
+    },
+    backend: {
+      name: {
+        en: "Backend",
+        ko: "백엔드",
+        ja: "バックエンド",
+      },
+      skills: [
+        { id: 1, name: "Node.js" },
+        { id: 2, name: "Express" },
+        { id: 3, name: "PHP" },
+        { id: 4, name: "Python" },
+        { id: 5, name: "MySQL" },
+        { id: 6, name: "MongoDB" },
+        { id: 7, name: "Socket.io" },
+        { id: 8, name: "Javascript" },
+        { id: 9, name: "Typescript" },
+      ],
+    },
+    cloud: {
+      name: {
+        en: "Cloud",
+        ko: "클라우드",
+        ja: "クラウド",
+      },
+      skills: [
+        { id: 1, name: "AWS" },
+        { id: 2, name: "Railway" },
+        { id: 3, name: "Netlify" },
+        { id: 4, name: "CloudType" },
+      ],
+    },
+    misc: {
+      name: {
+        en: "Misc",
+        ko: "기타",
+        ja: "その他",
+      },
+      skills: [
+        { id: 1, name: "Git" },
+        { id: 2, name: "Linux" },
+        { id: 3, name: "Public APIs" },
+        { id: 4, name: "Vitest" },
+      ],
+    },
+  },
+};
+
 export const educationAndCareer = {
   title: {
     en: ["Education", "& Career"],

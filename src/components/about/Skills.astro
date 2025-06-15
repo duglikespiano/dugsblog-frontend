@@ -1,26 +1,23 @@
 ---
-import { allofMySkills } from "../../common/variables";
-const { language } = Astro.props;
+import { skillSet } from "../../common/html-elements";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 ---
 
 <section
   id="skills"
   class="after:bg-gray3 relative px-5 pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-[calc(100%-(var(--spacing)*5)*2)] after:translate-x-[-50%] after:content-[''] lg:px-20 lg:after:w-[calc(100%-10rem)]"
 >
-  <h3 class="text-rosewater text-5xl font-bold">Skills</h3>
+  <h3 class="text-rosewater text-5xl font-bold">{skillSet.title[language]}</h3>
 
   <ul
     class="mt-5 grid grid-cols-2 justify-center gap-5 rounded-4xl border-4 p-4 sm:p-8 lg:grid-cols-4"
   >
     {
-      Object.values(allofMySkills).map((category) => (
+      Object.values(skillSet.data).map((category) => (
         <li class="flex flex-col gap-3">
           <p class="text-2xl font-bold sm:text-4xl">
-            {language === "en"
-              ? category.name.en
-              : language === "ko"
-                ? category.name.ko
-                : category.name.ja}
+            {category["name"][language]}
           </p>
           <ul>
             {category.skills.map((skill) => (
