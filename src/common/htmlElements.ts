@@ -41,8 +41,8 @@ export const menuInfo = {
 export const skillSet = {
   title: {
     en: ["Skill set"],
-    ko: ["스킬셋"],
-    ja: ["スキルセット"],
+    ko: ["활용가능 기술"],
+    ja: ["活用可能技術"],
   },
   data: {
     frontend: {
