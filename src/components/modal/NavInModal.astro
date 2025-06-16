@@ -1,6 +1,6 @@
 ---
 import Modal from "../../layouts/Modal.astro";
-import { menuInfo } from "../../common/htmlElements";
+import { menus } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -9,13 +9,10 @@ const { language } = Astro.params as { language: Languages };
   <nav id="nav-in-modal">
     <ul class="flex flex-col gap-4">
       {
-        (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
+        (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
           <li class="text-rosewater text-3xl font-bold">
-            <a
-              class="no-underline"
-              href={`/${language}${menuInfo[item]["href"]}`}
-            >
-              {menuInfo[item][language]}
+            <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
+              {menus[item][language]}
             </a>
           </li>
         ))

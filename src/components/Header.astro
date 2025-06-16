@@ -1,6 +1,6 @@
 ---
 import Hamburger from "./Hamburger.astro";
-import { logoInfo, menuInfo } from "../common/htmlElements";
+import { pageTitles, menus } from "../common/htmlElements";
 import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -13,8 +13,8 @@ const { language } = Astro.params as { language: Languages };
       class="text-rosewater md:hover:text-gray3 text-5xl leading-none font-bold duration-200"
     >
       <a
-        href={`/${language}/${logoInfo["href"]}`}
-        class="leading-none no-underline">{logoInfo[language]}</a
+        href={`/${language}/${pageTitles["href"]}`}
+        class="leading-none no-underline">{pageTitles[language]}</a
       >
     </h1>
     <nav class="flex items-center">
@@ -22,13 +22,13 @@ const { language } = Astro.params as { language: Languages };
         class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl"
       >
         {
-          (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
+          (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
             <li class="transition-text md:hover:text-gray3 duration-200">
               <a
                 class="no-underline"
-                href={`/${language}${menuInfo[item]["href"]}`}
+                href={`/${language}${menus[item]["href"]}`}
               >
-                {menuInfo[item][language]}
+                {menus[item][language]}
               </a>
             </li>
           ))

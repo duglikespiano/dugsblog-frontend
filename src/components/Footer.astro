@@ -1,5 +1,5 @@
 ---
-import { menuInfo } from "../common/htmlElements";
+import { menus } from "../common/htmlElements";
 import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -7,14 +7,11 @@ const { language } = Astro.params as { language: Languages };
 <footer class="flex items-center justify-center">
   <ul class="text-rosewater flex gap-3 text-base font-bold md:gap-4">
     {
-      (Object.keys(menuInfo) as (keyof typeof menuInfo)[]).map((item) => (
+      (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
         <li class="transition-text md:hover:text-gray3 duration-200">
           <h2>
-            <a
-              class="no-underline"
-              href={`/${language}${menuInfo[item]["href"]}`}
-            >
-              {menuInfo[item][language]}
+            <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
+              {menus[item][language]}
             </a>
           </h2>
         </li>

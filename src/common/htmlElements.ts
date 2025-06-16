@@ -1,11 +1,11 @@
-export const logoInfo = {
+export const pageTitles = {
   en: "Dug's Blog",
   ko: "더그의 블로그",
   ja: "ダグのブログ",
   href: "",
 };
 
-export const menuInfo = {
+export const menus = {
   about: {
     en: "About",
     ko: "소개",

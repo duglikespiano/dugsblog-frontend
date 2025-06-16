@@ -555,8 +555,3 @@ export const characteristics = [
     imageAlt: "clovers",
   },
 ];
-
-export const pageTitles = {
-  en: { default: "Dug's Blog", home: "" },
-  ko: { default: "더그의 블로그", home: "" },
-};
