@@ -7,7 +7,3 @@ export function printFileURL(url: string) {
   const folderName = fullFilePath.split("[language]/")[1];
   return folderName;
 }
-
-export function printPageTitle(language: string, page: string): string {
-  return "";
-}
