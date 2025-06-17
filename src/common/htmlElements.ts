@@ -1,8 +1,19 @@
 export const pageTitles = {
-  en: "Dug's Blog",
-  ko: "더그의 블로그",
-  ja: "ダグのブログ",
-  href: "",
+  main: {
+    en: "Dug's Blog",
+    ko: "더그의 블로그",
+    ja: "ダグのブログ",
+  },
+  about: {
+    en: "About",
+    ko: "소개",
+    ja: "紹介",
+  },
+  projects: {
+    en: "Projects",
+    ko: "프로젝트",
+    ja: "プロジェクト",
+  },
 };
 
 export const menus = {

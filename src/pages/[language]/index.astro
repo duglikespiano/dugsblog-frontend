@@ -4,11 +4,9 @@ import CommitHistoryComponent from "../../components/main/CommitHistory";
 import Profile from "../../components/main/Profile.astro";
 import Characteristics from "../../components/main/Characteristics.astro";
 import { pageTitles } from "../../common/htmlElements";
-
-type Language = keyof typeof pageTitles;
-
-const { language } = Astro.params as { language: Language };
-const title = pageTitles[language];
+import type { Languages } from "../../common/types";
+const { language } = Astro.params as { language: Languages };
+const title = pageTitles["main"][language];
 ---
 
 <RootLayout title={title}>

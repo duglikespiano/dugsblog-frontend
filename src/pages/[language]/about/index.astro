@@ -2,11 +2,16 @@
 import RootLayout from "../../../layouts/RootLayout.astro";
 import Skills from "../../../components/about/Skills.astro";
 import EducationAndCareer from "../../../components/about/EducationAndCareer.astro";
-
-const { language } = Astro.params;
+import { pageTitles } from "../../../common/htmlElements";
+import { printFileURL } from "../../../common/functions";
+import type { Languages } from "../../../common/types";
+const { language } = Astro.params as { language: Languages };
+const folderName = printFileURL(import.meta.url) as keyof typeof pageTitles;
+console.log(folderName);
+const title = `${pageTitles[folderName][language]} - ${pageTitles["main"][language]}`;
 ---
 
-<RootLayout>
+<RootLayout title={title}>
   <Skills language={language} />
   <EducationAndCareer language={language} />
 </RootLayout>
