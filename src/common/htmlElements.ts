@@ -14,6 +14,11 @@ export const pageTitles = {
     ko: "프로젝트",
     ja: "プロジェクト",
   },
+  contact: {
+    en: "Contact",
+    ko: "문의",
+    ja: "問い合わせ",
+  },
 };
 
 export const menus = {

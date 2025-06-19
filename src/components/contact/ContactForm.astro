@@ -1,0 +1,159 @@
+<div id="contact-form" class="mx-auto max-w-2xl">
+  <div class="text-rosewater mb-5 text-5xl font-bold">Contact</div>
+  <form
+    class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5"
+    data-contact-form
+  >
+    <fieldset class="flex flex-col gap-2 md:gap-4">
+      <label class="flex flex-col gap-2">
+        <p class="text-rosewater text-3xl font-bold sm:text-4xl">Name</p>
+        <input
+          class="contact-input placeholder-green1 placeholder:text-1xl h-12 rounded-md border-2 bg-white pr-4 pl-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          type="text"
+          id="name"
+          name="name"
+          maxlength="40"
+          placeholder="Your name"
+        />
+      </label>
+      <label class="flex flex-col gap-2">
+        <p class="text-rosewater text-3xl font-bold sm:text-4xl">Email</p>
+        <input
+          class="contact-input placeholder-green1 placeholder:text-1xl h-12 rounded-md border-2 bg-white pr-4 pl-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          type="email"
+          id="email"
+          name="email"
+          maxlength="40"
+          placeholder="Your email"
+        />
+      </label>
+      <label class="flex flex-col gap-2">
+        <p class="text-rosewater text-3xl font-bold sm:text-4xl">Message</p>
+        <textarea
+          class="contact-input placeholder-green1 placeholder:text-1xl h-40 resize-none rounded-md border-2 bg-white p-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          id="message"
+          name="message"
+          maxlength="3000"
+          placeholder="Your Message"></textarea>
+      </label>
+    </fieldset>
+
+    <div id="form-errors" class="mt-2 font-bold text-red-500"></div>
+
+    <button
+      class="bg-rosewater mx-auto mt-4 flex w-full cursor-pointer flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold md:w-auto"
+      type="submit"
+      data-contact-form-button
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<script>
+  const contactForm = document.querySelector(
+    "[data-contact-form]",
+  ) as HTMLFormElement | null;
+  const submitButton = document.querySelector(
+    "[data-contact-form-button]",
+  ) as HTMLButtonElement | null;
+
+  contactForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    clearErrorsAndStyles();
+    disableButton();
+
+    const formData = new FormData(contactForm);
+
+    const name = (formData.get("name") as string)?.trim() ?? "";
+    const email = (formData.get("email") as string)?.trim() ?? "";
+    const message = (formData.get("message") as string)?.trim() ?? "";
+
+    const errors: string[] = [];
+
+    if (!name) {
+      errors.push("Name is required.");
+      markInvalid("name");
+    }
+
+    if (!email) {
+      errors.push("Email is required.");
+      markInvalid("email");
+    } else if (!isValidEmail(email)) {
+      errors.push("Email format is invalid.");
+      markInvalid("email");
+    }
+
+    if (!message) {
+      errors.push("Message is required.");
+      markInvalid("message");
+    }
+
+    if (errors.length > 0) {
+      showErrors(errors);
+      enableButton();
+      return;
+    }
+
+    const data = { name, email, message };
+
+    console.log("✅ Collected valid form data:", data);
+
+    // Example: simulate async submit
+    await fakeSubmit(data);
+
+    enableButton();
+  });
+
+  function isValidEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  }
+
+  function showErrors(errors: string[]) {
+    const errorDiv = document.getElementById("form-errors");
+    if (errorDiv) {
+      errorDiv.innerHTML = errors.map((err) => `<p>${err}</p>`).join("");
+    }
+  }
+
+  function clearErrorsAndStyles() {
+    const errorDiv = document.getElementById("form-errors");
+    if (errorDiv) {
+      errorDiv.innerHTML = "";
+    }
+    document.querySelectorAll(".contact-input").forEach((input) => {
+      (input as HTMLElement).classList.remove("border-red-500");
+    });
+  }
+
+  function markInvalid(id: string) {
+    const el = document.getElementById(id);
+    if (el) {
+      el.classList.add("border-red-500");
+    }
+  }
+
+  function disableButton() {
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add("opacity-50", "cursor-not-allowed");
+    }
+  }
+
+  function enableButton() {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+    }
+  }
+
+  async function fakeSubmit(data: {
+    name: string;
+    email: string;
+    message: string;
+  }) {
+    console.log("🚀 Submitting data...", data);
+    return new Promise((resolve) => setTimeout(resolve, 2000)); // simulate 2 sec delay
+  }
+</script>
