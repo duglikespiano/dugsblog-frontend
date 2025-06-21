@@ -1,7 +1,12 @@
 import { useStore } from "@nanostores/react";
 import { skillsStore, projectsStore } from "../../common/stores";
+import type { Languages } from "../../common/types";
 
-export default function Projects() {
+type ProjectProps = {
+  language: Languages;
+};
+
+export default function Projects({ language }: ProjectProps) {
   const filteredProjects = useStore(projectsStore);
   const selectedSkills = useStore(skillsStore);
   const selectedSkillsArray = selectedSkills
@@ -19,7 +24,7 @@ export default function Projects() {
             </p>
             <div className="lg:px-6">
               <p className="mb-3 text-xl text-gray-400 lg:text-3xl">
-                {project.descriptionEn}
+                {project.descriptions[language]}
               </p>
               <div className="mb-3 flex flex-col text-gray-500">
                 <div className="flex items-center text-base lg:text-lg">

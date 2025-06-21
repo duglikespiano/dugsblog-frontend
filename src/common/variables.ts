@@ -33,9 +33,11 @@ export const allOfMyProjects = [
   {
     id: 34,
     title: "Dug's Blog",
-    descriptionEn: "A personal blog built with Astro in SSR",
-    descriptionKo: "Astro, SSR로 구현한 개인 블로그",
-    descriptionJa: "Astro、SSRで実装した個人ブログ",
+    descriptions: {
+      en: "A personal blog built with Astro in SSR",
+      ko: "Astro, SSR로 구현한 개인 블로그",
+      ja: "Astro、SSRで実装した個人ブログ",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsblog-frontend",
     backendRepositoryURL: "",
@@ -45,9 +47,11 @@ export const allOfMyProjects = [
   {
     id: 33,
     title: "Dug's notes - notepad HTML",
-    descriptionEn: "A project to note ideas about HTML",
-    descriptionKo: "HTML에 관한 아이디어를 기록하는 프로젝트",
-    descriptionJa: "HTMLに対してのアイデアを記録するプロジェクト",
+    descriptions: {
+      en: "A project to note ideas about HTML",
+      ko: "HTML에 관한 아이디어를 기록하는 프로젝트",
+      ja: "HTMLに対してのアイデアを記録するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-notepad-html",
@@ -58,9 +62,11 @@ export const allOfMyProjects = [
   {
     id: 32,
     title: "7Javascript games",
-    descriptionEn: "A project to build 7Javascript games",
-    descriptionKo: "7개의 자바스크립트 게임을 제작하는 프로젝트",
-    descriptionJa: "7個のJavascriptゲームを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build 7Javascript games",
+      ko: "7개의 자바스크립트 게임을 제작하는 프로젝트",
+      ja: "7個のJavascriptゲームを制作するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/7javascriptgames",
     backendRepositoryURL: "",
@@ -70,9 +76,11 @@ export const allOfMyProjects = [
   {
     id: 31,
     title: "Dug's notes - Typescript",
-    descriptionEn: "A project to learn concepts of Typescript",
-    descriptionKo: "Typescript의 개념을 배우는 프로젝트",
-    descriptionJa: "Typescriptのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Typescript",
+      ko: "Typescript의 개념을 배우는 프로젝트",
+      ja: "Typescriptのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-typescript",
@@ -83,9 +91,11 @@ export const allOfMyProjects = [
   {
     id: 30,
     title: "Dug's notes - Astro SSR by Coding in public",
-    descriptionEn: "A project to learn concepts of Astro ",
-    descriptionKo: "Astro의 개념을 배우는 프로젝트",
-    descriptionJa: "Astroのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Astro ",
+      ko: "Astro의 개념을 배우는 프로젝트",
+      ja: "Astroのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-astro-coding-in-public",
@@ -96,9 +106,11 @@ export const allOfMyProjects = [
   {
     id: 29,
     title: "Dug's notes - Astro SSR by traversymedia",
-    descriptionEn: "A project to learn concepts of Astro SSR",
-    descriptionKo: "Astro SSR의 개념을 배우는 프로젝트",
-    descriptionJa: "Astro SSRのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Astro SSR",
+      ko: "Astro SSR의 개념을 배우는 프로젝트",
+      ja: "Astro SSRのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-astro-ssr-by-traversymedia",
@@ -109,9 +121,11 @@ export const allOfMyProjects = [
   {
     id: 28,
     title: "Dug's notes - Astro by JamesQQuick",
-    descriptionEn: "A project to learn concepts of Astro",
-    descriptionKo: "Astro의 개념을 배우는 프로젝트",
-    descriptionJa: "Astroのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Astro",
+      ko: "Astro의 개념을 배우는 프로젝트",
+      ja: "Astroのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-astro-by-jamesqquick",
@@ -122,9 +136,11 @@ export const allOfMyProjects = [
   {
     id: 27,
     title: "Dug's notes - Astro by traversymedia",
-    descriptionEn: "A project to learn concepts of Astro",
-    descriptionKo: "Astro의 개념을 배우는 프로젝트",
-    descriptionJa: "Astroのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Astro",
+      ko: "Astro의 개념을 배우는 프로젝트",
+      ja: "Astroのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-astro-by-traversymedia",
@@ -135,9 +151,11 @@ export const allOfMyProjects = [
   {
     id: 26,
     title: "Dug's notes - Pokemon memory game",
-    descriptionEn: "A project to build a Pokemon themed HTML game",
-    descriptionKo: "포켓몬이 테마인 HTML게임을 제작하는 프로젝트",
-    descriptionJa: "ポケモンがテマのHTMLゲームを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build a Pokemon themed HTML game",
+      ko: "포켓몬이 테마인 HTML게임을 제작하는 프로젝트",
+      ja: "ポケモンがテマのHTMLゲームを制作するプロジェクト",
+    },
     deploymentURL: "https://dugsnotes-pokemon-memory-game.netlify.app",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-pokemon-memory-game",
@@ -148,9 +166,11 @@ export const allOfMyProjects = [
   {
     id: 25,
     title: "Dug's notes - googlemaps",
-    descriptionEn: "A project to practice manipulating Googlemaps API",
-    descriptionKo: "Googlemaps API 조작을 연습하는 프로젝트",
-    descriptionJa: "Googlemaps API操作を練習するプロジェクト",
+    descriptions: {
+      en: "A project to practice manipulating Googlemaps API",
+      ko: "Googlemaps API 조작을 연습하는 프로젝트",
+      ja: "Googlemaps API操作を練習するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-googlemaps",
@@ -161,9 +181,11 @@ export const allOfMyProjects = [
   {
     id: 24,
     title: "React best practice",
-    descriptionEn: "A project to practice build React page efficiently",
-    descriptionKo: "효율적인 React페이지 작성을 연습하는 프로젝트",
-    descriptionJa: "効率的なReactページ作成を連取するプロジェクタ",
+    descriptions: {
+      en: "A project to practice build React page efficiently",
+      ko: "효율적인 React페이지 작성을 연습하는 프로젝트",
+      ja: "効率的なReactページ作成を連取するプロジェクタ",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/reactjs-best-practice",
@@ -174,9 +196,11 @@ export const allOfMyProjects = [
   {
     id: 23,
     title: "25Projects with React",
-    descriptionEn: "A project to build 25React page",
-    descriptionKo: "25개의 React페이지를 제작하는 프로젝트",
-    descriptionJa: "25個のReactページを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build 25React page",
+      ko: "25개의 React페이지를 제작하는 프로젝트",
+      ja: "25個のReactページを制作するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/25projectswithreact",
@@ -187,9 +211,11 @@ export const allOfMyProjects = [
   {
     id: 22,
     title: "Dug's notes - Python",
-    descriptionEn: "A project to learn concepts of Python, Flask",
-    descriptionKo: "Python과 Flask의 개념을 배우는 프로젝트",
-    descriptionJa: "PythonとFlaskのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of Python, Flask",
+      ko: "Python과 Flask의 개념을 배우는 프로젝트",
+      ja: "PythonとFlaskのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-python",
     backendRepositoryURL: "",
@@ -199,9 +225,11 @@ export const allOfMyProjects = [
   {
     id: 21,
     title: "Dug's notes - three.js",
-    descriptionEn: "A project to learn concepts of three.js",
-    descriptionKo: "three.js의 개념을 배우는 프로젝트",
-    descriptionJa: "three.jsのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of three.js",
+      ko: "three.js의 개념을 배우는 프로젝트",
+      ja: "three.jsのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-three.js",
@@ -212,9 +240,11 @@ export const allOfMyProjects = [
   {
     id: 20,
     title: "Dug's notes - svg",
-    descriptionEn: "A project to practice manipulate svg file on HTML",
-    descriptionKo: "HTML상의 svg파일 조작을 연습하는 프로젝트",
-    descriptionJa: "HTML上のsvgファイル操作を練習するプロジェクト",
+    descriptions: {
+      en: "A project to practice manipulate svg file on HTML",
+      ko: "HTML상의 svg파일 조작을 연습하는 프로젝트",
+      ja: "HTML上のsvgファイル操作を練習するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-svg",
     backendRepositoryURL: "",
@@ -224,9 +254,11 @@ export const allOfMyProjects = [
   {
     id: 19,
     title: "10Responsive websites",
-    descriptionEn: "A project to build 10responsive webpsites",
-    descriptionKo: "10가지 반응형 웹사이트를 제작하는 프로젝트",
-    descriptionJa: "10個の反応形ウェブサイトを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build 10responsive webpsites",
+      ko: "10가지 반응형 웹사이트를 제작하는 프로젝트",
+      ja: "10個の反応形ウェブサイトを制作するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/10responsivewebsites-html-css-javascript",
@@ -237,12 +269,11 @@ export const allOfMyProjects = [
   {
     id: 18,
     title: "Cloning qude",
-    descriptionEn:
-      "A project to project manipulating GSAP by building a clone page of Qude",
-    descriptionKo:
-      "웹사이트 Qude의 클론페이지를 제작을 통해 GSAP 조작을 연습하는 프로젝트",
-    descriptionJa:
-      "ウェブサイトQudeのクローンページを制作を通じてGSAPを操作を練習するプロジェクト",
+    descriptions: {
+      en: "A project to project manipulating GSAP by building a clone page of Qude",
+      ko: "웹사이트 Qude의 클론페이지를 제작을 통해 GSAP 조작을 연습하는 프로젝트",
+      ja: "ウェブサイトQudeのクローンページを制作を通じてGSAPを操作を練習するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/cloning-qude",
     backendRepositoryURL: "",
@@ -252,9 +283,11 @@ export const allOfMyProjects = [
   {
     id: 17,
     title: "Dug's notes - GSAP",
-    descriptionEn: "A project to practice building components using GSAP",
-    descriptionKo: "GSAP을 활용해 컴포넌트 제작을 연습하는 프로젝트",
-    descriptionJa: "GSAPを活用してコンポーネント制作を練習するプロジェクト",
+    descriptions: {
+      en: "A project to practice building components using GSAP",
+      ko: "GSAP을 활용해 컴포넌트 제작을 연습하는 프로젝트",
+      ja: "GSAPを活用してコンポーネント制作を練習するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-gsap",
     backendRepositoryURL: "",
@@ -264,9 +297,11 @@ export const allOfMyProjects = [
   {
     id: 16,
     title: "150Animation projects",
-    descriptionEn: "A project to build 150 HTML animations",
-    descriptionKo: "150가지 HTML 애니메이션을 제작하는 프로젝트",
-    descriptionJa: "150個のHTMLアニメーションを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build 150 HTML animations",
+      ko: "150가지 HTML 애니메이션을 제작하는 프로젝트",
+      ja: "150個のHTMLアニメーションを制作するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/150animationprojects-html-css-javascript",
@@ -277,9 +312,11 @@ export const allOfMyProjects = [
   {
     id: 15,
     title: "Dug's blog(prototype)",
-    descriptionEn: "A project to build a SSR blog page",
-    descriptionKo: "SSR블로그 페이지를 제작하는 프로젝트",
-    descriptionJa: "SSRブログページを制作するプロジェクト",
+    descriptions: {
+      en: "A project to build a SSR blog page",
+      ko: "SSR블로그 페이지를 제작하는 프로젝트",
+      ja: "SSRブログページを制作するプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "",
     backendRepositoryURL: "https://github.com/duglikespiano/dugsblog",
@@ -289,9 +326,11 @@ export const allOfMyProjects = [
   {
     id: 14,
     title: "Dug's notes - PHP",
-    descriptionEn: "A project to learn concepts of PHP",
-    descriptionKo: "PHP의 개념을 배우는 프로젝트",
-    descriptionJa: "PHPのコンセプトを習うプロジェクト",
+    descriptions: {
+      en: "A project to learn concepts of PHP",
+      ko: "PHP의 개념을 배우는 프로젝트",
+      ja: "PHPのコンセプトを習うプロジェクト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-php",
     backendRepositoryURL: "",
@@ -301,9 +340,11 @@ export const allOfMyProjects = [
   {
     id: 13,
     title: "60Projects In 60Days",
-    descriptionEn: "Coding challenges for 60 days with HTML,CSS,Javascript",
-    descriptionKo: "HTML,CSS,Javascript를 통한 60일간의 Coding challenge",
-    descriptionJa: "HTML、CSS、Javascriptを通じた60日間のCoding challenge",
+    descriptions: {
+      en: "Coding challenges for 60 days with HTML,CSS,Javascript",
+      ko: "HTML,CSS,Javascript를 통한 60일간의 Coding challenge",
+      ja: "HTML、CSS、Javascriptを通じた60日間のCoding challenge",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/60projectsin60days-html-css-javascript",
@@ -314,9 +355,11 @@ export const allOfMyProjects = [
   {
     id: 12,
     title: "Dug's notes - Node.js",
-    descriptionEn: "Mastering backend knowledge through Node.js",
-    descriptionKo: "Node.js를 통한 백엔드 관련 지식 습득",
-    descriptionJa: "Node.jsを通じたバックエンド関連知識の習得",
+    descriptions: {
+      en: "Mastering backend knowledge through Node.js",
+      ko: "Node.js를 통한 백엔드 관련 지식 습득",
+      ja: "Node.jsを通じたバックエンド関連知識の習得",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "",
     backendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-node.js",
@@ -326,9 +369,11 @@ export const allOfMyProjects = [
   {
     id: 11,
     title: "50Projects In 50Days",
-    descriptionEn: "Coding challenges for 50 days with HTML,CSS,Javascript",
-    descriptionKo: "HTML,CSS,Javascript를 통한 50일간의 Coding challenge",
-    descriptionJa: "HTML、CSS、Javascriptを通じた50日間のCoding challenge",
+    descriptions: {
+      en: "Coding challenges for 50 days with HTML,CSS,Javascript",
+      ko: "HTML,CSS,Javascript를 통한 50일간의 Coding challenge",
+      ja: "HTML、CSS、Javascriptを通じた50日間のCoding challenge",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/50projectsin50days-html-css-javascript",
@@ -339,9 +384,11 @@ export const allOfMyProjects = [
   {
     id: 10,
     title: "Dug's Works",
-    descriptionEn: "A website to introduce Dug's works and contact with Dug",
-    descriptionKo: "Dug의 작품 소개를 위한 웹 사이트",
-    descriptionJa: "Dugの作品紹介の為のウェブサイト",
+    descriptions: {
+      en: "A website to introduce Dug's works and contact with Dug",
+      ko: "Dug의 작품 소개를 위한 웹 사이트",
+      ja: "Dugの作品紹介の為のウェブサイト",
+    },
     deploymentURL: "https://dugsworks.netlify.app",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsworks-frontend",
@@ -366,9 +413,11 @@ export const allOfMyProjects = [
   {
     id: 9,
     title: "Dug's notes - Algorithms and Data Structure",
-    descriptionEn: "Mastering Algorithms and Data Structure with Javascript",
-    descriptionKo: "Javascript를 통한 알고리즘 및 자료구조 관련 지식 습득",
-    descriptionJa: "Javascriptを通じたアルゴリズム及び資料構造関連知識習得",
+    descriptions: {
+      en: "Mastering Algorithms and Data Structure with Javascript",
+      ko: "Javascript를 통한 알고리즘 및 자료구조 관련 지식 습득",
+      ja: "Javascriptを通じたアルゴリズム及び資料構造関連知識習得",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugsnotes-algorithms-datastructures-javascript",
@@ -380,9 +429,11 @@ export const allOfMyProjects = [
   {
     id: 8,
     title: "Dug's notes - UnitTesting",
-    descriptionEn: "Writing test codes with vitest(Typescript, Javascript)",
-    descriptionKo: "Vitest(Typescript, Javascript)를 통한 test code 작성연습",
-    descriptionJa: "Vitest(Typescript, Javascript)を通じたtest codeの作成練習",
+    descriptions: {
+      en: "Writing test codes with vitest(Typescript, Javascript)",
+      ko: "Vitest(Typescript, Javascript)를 통한 test code 작성연습",
+      ja: "Vitest(Typescript, Javascript)を通じたtest codeの作成練習",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/dugesnotes-unittesting-typescript",
@@ -394,9 +445,11 @@ export const allOfMyProjects = [
   {
     id: 7,
     title: "100Day of Code(Python)",
-    descriptionEn: "Coding challenges for 100 days with Python",
-    descriptionKo: "Python을 통한 100일간의 Coding challenge",
-    descriptionJa: "Pythonを通じた100日間のCoding challenge",
+    descriptions: {
+      en: "Coding challenges for 100 days with Python",
+      ko: "Python을 통한 100일간의 Coding challenge",
+      ja: "Pythonを通じた100日間のCoding challenge",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/100daysofcode-python",
@@ -408,9 +461,11 @@ export const allOfMyProjects = [
   {
     id: 6,
     title: "Social Login Collector",
-    descriptionEn: "A website to practice big platforms' social logins API",
-    descriptionKo: "대형 플랫폼들의 Social login API를 다루는 웹 사이트",
-    descriptionJa: "大きなプラットフォームのSocial login APIのhandlingを練習",
+    descriptions: {
+      en: "A website to practice big platforms' social logins API",
+      ko: "대형 플랫폼들의 Social login API를 다루는 웹 사이트",
+      ja: "大きなプラットフォームのSocial login APIのhandlingを練習",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/sociallogincollector-frontend",
@@ -422,9 +477,11 @@ export const allOfMyProjects = [
   {
     id: 5,
     title: "Chat with Dug",
-    descriptionEn: "A website to have a chat with friends with Socket.io",
-    descriptionKo: "친구들과 사용하기 위해 만든 Socket.io를 활용한 채팅 사이트",
-    descriptionJa: "友達を使用する為のSocket.ioを活用したチャットサイト",
+    descriptions: {
+      en: "A website to have a chat with friends with Socket.io",
+      ko: "친구들과 사용하기 위해 만든 Socket.io를 활용한 채팅 사이트",
+      ja: "友達を使用する為のSocket.ioを活用したチャットサイト",
+    },
     deploymentURL: "https://chatwithdug.netlify.app",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/chatwithdug-frontend",
@@ -449,9 +506,11 @@ export const allOfMyProjects = [
   {
     id: 4,
     title: "Drag&Drop",
-    descriptionEn: "A component to practice DOM's Drag&Drop with Vue",
-    descriptionKo: "Vue를 사용하여 DOM의 Drag&Drop을 구현한 컴포넌트",
-    descriptionJa: "Vueを使用してDOMのDrag&Dropを具現したコンポーネント",
+    descriptions: {
+      en: "A component to practice DOM's Drag&Drop with Vue",
+      ko: "Vue를 사용하여 DOM의 Drag&Drop을 구현한 컴포넌트",
+      ja: "Vueを使用してDOMのDrag&Dropを具現したコンポーネント",
+    },
     deploymentURL: "",
     frontendRepositoryURL:
       "https://github.com/duglikespiano/draganddrop-frontend",
@@ -463,9 +522,11 @@ export const allOfMyProjects = [
   {
     id: 3,
     title: "TodoList",
-    descriptionEn: "A Todo list component with basic React",
-    descriptionKo: "React의 기초적인 문법을 활용하여 구현한 Todo list 컴포넌트",
-    descriptionJa: "Reactの基礎文法を活用して具現したコンポーネント",
+    descriptions: {
+      en: "A Todo list component with basic React",
+      ko: "React의 기초적인 문법을 활용하여 구현한 Todo list 컴포넌트",
+      ja: "Reactの基礎文法を活用して具現したコンポーネント",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "https://github.com/duglikespiano/todolist-frontend",
     backendRepositoryURL: "https://github.com/duglikespiano/todolist-backend",
@@ -475,9 +536,11 @@ export const allOfMyProjects = [
   {
     id: 2,
     title: "Jegabox",
-    descriptionEn: "A Clone site of Megabox(Korean movie theater)",
-    descriptionKo: "메가박스 웹 사이트의 클론사이트",
-    descriptionJa: "韓国の映画館、MEGABOXウェブサイトのクロンサイト",
+    descriptions: {
+      en: "A Clone site of Megabox(Korean movie theater)",
+      ko: "메가박스 웹 사이트의 클론사이트",
+      ja: "韓国の映画館、MEGABOXウェブサイトのクロンサイト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "",
     backendRepositoryURL:
@@ -488,9 +551,11 @@ export const allOfMyProjects = [
   {
     id: 1,
     title: "Photofolio",
-    descriptionEn: "A Clone site of Grafolio(Korean creators' playground)",
-    descriptionKo: "그라폴리오 웹 사이트의 클론사이트",
-    descriptionJa: "韓国のクリエイター向けのサイト、Grafolioのクロンサイト",
+    descriptions: {
+      en: "A Clone site of Grafolio(Korean creators' playground)",
+      ko: "그라폴리오 웹 사이트의 클론사이트",
+      ja: "韓国のクリエイター向けのサイト、Grafolioのクロンサイト",
+    },
     deploymentURL: "",
     frontendRepositoryURL: "",
     backendRepositoryURL:
@@ -503,9 +568,11 @@ export const allOfMyProjects = [
 export type ProjectObjectType = {
   id: number;
   title: string;
-  descriptionEn: string;
-  descriptionKo: string;
-  descriptionJa: string;
+  descriptions: {
+    en: string;
+    ko: string;
+    ja: string;
+  };
   deploymentURL: string;
   frontendRepositoryURL: string;
   backendRepositoryURL: string;
