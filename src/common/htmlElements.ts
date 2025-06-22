@@ -360,3 +360,21 @@ export const educationAndCareer = {
     },
   ],
 };
+
+export const skillsFilter = {
+  title: {
+    en: "Skills filter",
+    ko: "스킬 필터",
+    ja: "スキルフィルター",
+  },
+  heading: {
+    en: "Click skills to filter projects",
+    ko: "관련된 프로젝트를 보기위해 스킬들을 클릭하세요",
+    ja: "関連のプロジェクトを見る為、スキルをクリックしてください",
+  },
+  counts: {
+    en: ["\u00A0of\u00A0 ", "project(s) selected"],
+    ko: ["개 중\u00A0", "개의 프로젝트 선택됨"],
+    ja: ["個中", "個のプロジェクト選択"],
+  },
+};

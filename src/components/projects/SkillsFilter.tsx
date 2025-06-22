@@ -1,9 +1,15 @@
 import { useStore } from "@nanostores/react";
 import { skillsStore, projectsStore } from "../../common/stores";
+import { skillsFilter } from "../../common/htmlElements";
 import { allOfSkillsIhaveTried, allOfMyProjects } from "../../common/variables";
 import type { ProjectObjectType } from "../../common/variables";
+import type { Languages } from "../../common/types";
 
-export default function SkillsFilter() {
+type ProjectProps = {
+  language: Languages;
+};
+
+export default function SkillsFilter({ language }: ProjectProps) {
   const selectedSkills = useStore(skillsStore);
 
   const toggleSkillsSelect = (index: number) => {
@@ -53,17 +59,28 @@ export default function SkillsFilter() {
       id="skillsFilter"
       className="after:bg-gray3 relative px-5 pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-[calc(100%-(var(--spacing)*5)*2)] after:translate-x-[-50%] after:content-[''] lg:px-20 lg:after:w-[calc(100%-10rem)]"
     >
-      <h3 className="text-rosewater mb-5 text-5xl font-bold">Skills filter</h3>
+      <h3 className="text-rosewater mb-5 text-5xl font-bold">
+        {skillsFilter.title[language]}
+      </h3>
       <div className="lg:px-6">
         <p className="text-2xl font-bold text-gray-400">
-          Click skills to filter projects
+          {skillsFilter.heading[language]}
         </p>
-        <p className="flex items-center text-xl font-bold text-gray-500">
-          <span className="text-yellow1">{projectsStore.get().length}</span>
-          &nbsp;of&nbsp;
-          <span className="text-yellow1">{allOfMyProjects.length}</span>
-          &nbsp;Project(s) selected
-        </p>
+        {language === "en" ? (
+          <p className="flex items-center text-xl font-bold text-gray-500">
+            <span className="text-yellow1">{projectsStore.get().length}</span>
+            {skillsFilter.counts[language][0]}
+            <span className="text-yellow1">{allOfMyProjects.length}</span>
+            {skillsFilter.counts[language][1]}
+          </p>
+        ) : (
+          <p className="flex items-center text-xl font-bold text-gray-500">
+            <span className="text-yellow1">{allOfMyProjects.length}</span>
+            {skillsFilter.counts[language][0]}
+            <span className="text-yellow1">{projectsStore.get().length}</span>
+            {skillsFilter.counts[language][1]}
+          </p>
+        )}
       </div>
       <ul className="mt-5 flex flex-wrap gap-1.5 rounded-4xl border-4 p-5 lg:gap-2.5">
         {selectedSkills.map((skill, index: number) => (

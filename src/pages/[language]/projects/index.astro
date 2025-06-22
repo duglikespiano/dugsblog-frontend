@@ -11,6 +11,6 @@ const title = `${pageTitles[folderName][language]} - ${pageTitles["main"][langua
 ---
 
 <RootLayout title={title}>
-  <SkillsFilter client:load />
+  <SkillsFilter language={language} client:load />
   <Projects language={language} client:load />
 </RootLayout>
