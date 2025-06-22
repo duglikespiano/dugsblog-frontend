@@ -1,5 +1,6 @@
 import { useStore } from "@nanostores/react";
 import { skillsStore, projectsStore } from "../../common/stores";
+import { projects } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
 
 type ProjectProps = {
@@ -15,7 +16,9 @@ export default function Projects({ language }: ProjectProps) {
 
   return (
     <section id="projects" className="px-5 pt-15 lg:px-20">
-      <h3 className="text-rosewater text-5xl font-bold">Projects</h3>
+      <h3 className="text-rosewater text-5xl font-bold">
+        {projects.title[language]}
+      </h3>
       <ul className="mt-5 flex flex-col gap-5 lg:gap-10">
         {filteredProjects.map((project) => (
           <li className="rounded-4xl border-4 p-4 lg:p-8" key={project.id}>
@@ -28,39 +31,39 @@ export default function Projects({ language }: ProjectProps) {
               </p>
               <div className="mb-3 flex flex-col text-gray-500">
                 <div className="flex items-center text-base lg:text-lg">
-                  <span>Deployment URL :&nbsp;</span>
+                  <span>{projects.deployment[language]}</span>
                   {project.deploymentURL ? (
                     <a
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.deploymentURL}
                     >
-                      Click here
+                      {projects.click[language]}
                     </a>
                   ) : (
                     "-"
                   )}
                 </div>
                 <div className="flex items-center text-base lg:text-lg">
-                  <span>Frontend Repository :&nbsp;</span>
+                  <span>{projects.frontend[language]}</span>
                   {project.frontendRepositoryURL ? (
                     <a
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.frontendRepositoryURL}
                     >
-                      Click here
+                      {projects.click[language]}
                     </a>
                   ) : (
                     "-"
                   )}
                 </div>
                 <div className="flex items-center text-base lg:text-lg">
-                  <span>Backend Repository :&nbsp;</span>
+                  <span>{projects.backend[language]}</span>
                   {project.backendRepositoryURL ? (
                     <a
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.backendRepositoryURL}
                     >
-                      Click here
+                      {projects.click[language]}
                     </a>
                   ) : (
                     "-"
@@ -69,7 +72,7 @@ export default function Projects({ language }: ProjectProps) {
               </div>
               <div>
                 <p className="mb-1 text-xl font-bold text-gray-300 lg:text-2xl">
-                  Related Skills
+                  {projects.skills[language]}
                 </p>
                 <ul className="flex flex-wrap gap-2">
                   {project.skills.map((skill: string, index) => (

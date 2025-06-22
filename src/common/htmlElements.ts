@@ -378,3 +378,36 @@ export const skillsFilter = {
     ja: ["個中", "個のプロジェクト選択"],
   },
 };
+
+export const projects = {
+  title: {
+    en: "Projects",
+    ko: "프로젝트",
+    ja: "プロジェクト",
+  },
+  click: {
+    en: "Click to move to the repository",
+    ko: "클릭하여 저장소로 이동",
+    ja: "クリックしてリポジトリに移動",
+  },
+  deployment: {
+    en: "Deployment URL :\u00A0",
+    ko: "배포주소 :\u00A0",
+    ja: "配布URL :\u00A0",
+  },
+  frontend: {
+    en: "Frontend Repository :\u00A0",
+    ko: "프론트엔드저장소 :\u00A0",
+    ja: "フロントエンドリポジトリ :\u00A0",
+  },
+  backend: {
+    en: "Backend Repository :\u00A0",
+    ko: "백엔드저장소 :\u00A0",
+    ja: "バックエンドリポジトリ :\u00A0",
+  },
+  skills: {
+    en: "Related Skills",
+    ko: "관련 스킬",
+    ja: "関連スキル",
+  },
+};
