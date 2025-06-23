@@ -23,12 +23,15 @@
   const hamburgerElement = document.querySelector("#hamburger") as HTMLElement;
 
   function toggleModal() {
-    isModalOpenStore.set(!isModalOpenStore.get());
+    isModalOpenStore.set({
+      ...isModalOpenStore.get(),
+      nav: !isModalOpenStore.get().nav,
+    });
   }
   hamburgerElement.addEventListener("click", toggleModal);
 
-  isModalOpenStore.subscribe((isOpen) =>
-    isOpen
+  isModalOpenStore.subscribe((isNavOpen) =>
+    isNavOpen.nav
       ? hamburgerElement.classList.add("active")
       : hamburgerElement.classList.remove("active"),
   );

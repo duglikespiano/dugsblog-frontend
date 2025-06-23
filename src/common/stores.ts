@@ -1,6 +1,9 @@
-import { atom } from 'nanostores';
-import { allOfSkillsIhaveTried, allOfMyProjects } from '../common/variables';
+import { atom } from "nanostores";
+import { allOfSkillsIhaveTried, allOfMyProjects } from "../common/variables";
 
 export const skillsStore = atom(allOfSkillsIhaveTried);
 export const projectsStore = atom(allOfMyProjects);
-export const isModalOpenStore = atom(false);
+export const isModalOpenStore = atom({
+  nav: false,
+  contactForm: true,
+});

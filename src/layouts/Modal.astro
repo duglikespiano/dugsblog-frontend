@@ -1,5 +1,10 @@
+---
+const { modalName } = Astro.props;
+---
+
 <dialog
-  id="modal"
+  id=`modal-${modalName}`
+  data-which-modal={modalName}
   class="[&.active]: pointer-events-none fixed top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-200 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
   inert
 >
@@ -8,10 +13,22 @@
 
 <script>
   import { isModalOpenStore } from "../common/stores";
-  const modalBackground = document.querySelector("#modal") as HTMLElement;
+
+  const modalElement = document.querySelector(
+    `[data-which-modal]`,
+  ) as HTMLElement;
+  const whichModal = modalElement.dataset.whichModal as
+    | "nav"
+    | "contactForm"
+    | undefined;
 
   function closeModal() {
-    isModalOpenStore.set(false);
+    if (!whichModal) return;
+
+    isModalOpenStore.set({
+      ...isModalOpenStore.get(),
+      [whichModal]: false,
+    });
   }
 
   function fixScrollWhenModalIsOpen(isOpen: boolean) {
@@ -28,16 +45,19 @@
     }
   }
 
-  modalBackground.addEventListener("click", closeModal);
+  modalElement.addEventListener("click", closeModal);
 
-  isModalOpenStore.subscribe((isOpen) => {
+  isModalOpenStore.subscribe((isModalOpen) => {
+    if (!whichModal) return;
+
+    const isOpen = isModalOpen[whichModal];
     if (isOpen) {
-      modalBackground.classList.add("active");
-      modalBackground.removeAttribute("inert");
+      modalElement.classList.add("active");
+      modalElement.removeAttribute("inert");
       fixScrollWhenModalIsOpen(isOpen);
     } else {
-      modalBackground.classList.remove("active");
-      modalBackground.setAttribute("inert", "");
+      modalElement.classList.remove("active");
+      modalElement.setAttribute("inert", "");
       fixScrollWhenModalIsOpen(isOpen);
     }
   });

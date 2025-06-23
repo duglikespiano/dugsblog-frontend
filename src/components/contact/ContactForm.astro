@@ -1,3 +1,7 @@
+---
+import FetchingDataModal from "./FetchingDataModal.astro";
+---
+
 <div id="contact-form" class="mx-auto max-w-2xl">
   <div class="text-rosewater mb-5 text-5xl font-bold">Contact</div>
   <form
@@ -50,6 +54,8 @@
   </form>
 </div>
 
+<FetchingDataModal />
+
 <script>
   const contactForm = document.querySelector(
     "[data-contact-form]",
@@ -61,49 +67,49 @@
   contactForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
 
-    clearErrorsAndStyles();
-    disableButton();
+    // clearErrorsAndStyles();
+    // disableButton();
 
-    const formData = new FormData(contactForm);
+    // const formData = new FormData(contactForm);
 
-    const name = (formData.get("name") as string)?.trim() ?? "";
-    const email = (formData.get("email") as string)?.trim() ?? "";
-    const message = (formData.get("message") as string)?.trim() ?? "";
+    // const name = (formData.get("name") as string)?.trim() ?? "";
+    // const email = (formData.get("email") as string)?.trim() ?? "";
+    // const message = (formData.get("message") as string)?.trim() ?? "";
 
-    const errors: string[] = [];
+    // const errors: string[] = [];
 
-    if (!name) {
-      errors.push("Name is required.");
-      markInvalid("name");
-    }
+    // if (!name) {
+    //   errors.push("Name is required.");
+    //   markInvalid("name");
+    // }
 
-    if (!email) {
-      errors.push("Email is required.");
-      markInvalid("email");
-    } else if (!isValidEmail(email)) {
-      errors.push("Email format is invalid.");
-      markInvalid("email");
-    }
+    // if (!email) {
+    //   errors.push("Email is required.");
+    //   markInvalid("email");
+    // } else if (!isValidEmail(email)) {
+    //   errors.push("Email format is invalid.");
+    //   markInvalid("email");
+    // }
 
-    if (!message) {
-      errors.push("Message is required.");
-      markInvalid("message");
-    }
+    // if (!message) {
+    //   errors.push("Message is required.");
+    //   markInvalid("message");
+    // }
 
-    if (errors.length > 0) {
-      showErrors(errors);
-      enableButton();
-      return;
-    }
+    // if (errors.length > 0) {
+    //   showErrors(errors);
+    //   enableButton();
+    //   return;
+    // }
 
-    const data = { name, email, message };
+    // const data = { name, email, message };
 
-    console.log("✅ Collected valid form data:", data);
+    // console.log("✅ Collected valid form data:", data);
 
-    // Example: simulate async submit
-    await fakeSubmit(data);
+    // // Example: simulate async submit
+    // await fakeSubmit(data);
 
-    enableButton();
+    // enableButton();
   });
 
   function isValidEmail(email: string): boolean {
