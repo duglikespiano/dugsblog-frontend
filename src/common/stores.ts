@@ -7,3 +7,8 @@ export const isModalOpenStore = atom({
   nav: false,
   contactForm: true,
 });
+export const contactFormStore = atom({
+  name: "",
+  email: "",
+  message: "",
+});
