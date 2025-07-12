@@ -74,7 +74,6 @@ import FetchingDataModal from "./FetchingDataModal.astro";
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.classList.add("opacity-50", "cursor-not-allowed");
-      console.log("check");
     }
   }
 
@@ -85,9 +84,32 @@ import FetchingDataModal from "./FetchingDataModal.astro";
     }
   }
 
-  //
-  //
-  disableButton();
+  function checkIfStringEmpty(value: string) {
+    return value === "" || value === null || value === undefined;
+  }
+
+  function updateInputBorder(target: HTMLElement, boolean: boolean) {
+    if (boolean) {
+      target.classList.add("border-red-500");
+    } else {
+      target.classList.remove("border-red-500");
+    }
+  }
+
+  function updateErrorMessagesDisplay(errorMessages: NodeListOf<Element>, boolean: boolean, value: string = "") {
+    if (boolean) {
+      errorMessages.forEach((message) => message.classList.remove("hidden"));
+    } else {
+      errorMessages.forEach((message) => {
+        message.classList.add("hidden");
+        const messageElement = message as HTMLElement;
+        if ("errorEmailRegex" in messageElement.dataset && !isValidEmail(value)) {
+          messageElement.classList.remove("hidden");
+        }
+      });
+    }
+  }
+
   //
   //
   document.querySelectorAll("[data-input-element]").forEach((input) => {
@@ -95,49 +117,41 @@ import FetchingDataModal from "./FetchingDataModal.astro";
       const target = event.target as HTMLInputElement;
       const id = target.id;
       const value = target.value;
-      const prev = contactFormStore.get();
-      contactFormStore.set({
-        ...prev,
-        [id]: value,
-      });
-      //
-      const storeValues = Object.values(prev);
-      const isEmpty = (value: string) => value === "" || value === null || value === undefined;
+      const trimmedValue = value.trim();
       let areAllValuesValid = false;
       let areAllValuesFilled = true;
+      contactFormStore.set({
+        ...contactFormStore.get(),
+        [id]: value,
+      });
+
+      const storeValues = Object.values(contactFormStore.get());
+
       for (const key in storeValues) {
-        if (isEmpty(storeValues[key])) {
+        if (checkIfStringEmpty(storeValues[key])) {
           areAllValuesFilled = false;
           break;
         }
       }
+
       if (areAllValuesFilled && isValidEmail(contactFormStore.get().email)) {
         areAllValuesValid = true;
       }
 
-      //
       const errorMessages = document.querySelectorAll(`[data-error-${id}]`);
-      if (value.trim() === "") {
-        target?.classList.add("border-red-500");
-        errorMessages?.forEach((message) => message.classList.remove("hidden"));
-        disableButton();
+      if (trimmedValue === "") {
+        updateInputBorder(target, true);
+        updateErrorMessagesDisplay(errorMessages, true);
       } else {
-        target?.classList.remove("border-red-500");
-        errorMessages?.forEach((message) => {
-          message.classList.add("hidden");
-          const messageElement = message as HTMLElement;
-          if (messageElement.dataset.errorEmailRegex === "" && !isValidEmail(value)) {
-            messageElement.classList.remove("hidden");
-          }
-        });
+        updateInputBorder(target, false);
+        updateErrorMessagesDisplay(errorMessages, false, value);
       }
 
-      if (areAllValuesValid && submitButton) {
+      if (areAllValuesValid) {
         enableButton();
       } else {
         disableButton();
       }
-      //
     });
   });
   //
@@ -147,22 +161,11 @@ import FetchingDataModal from "./FetchingDataModal.astro";
       const target = event.target as HTMLInputElement;
       const id = target.id;
       const value = target.value;
+      const trimmedValue = value.trim();
       const errorMessages = document.querySelectorAll(`[data-error-${id}]`);
-
-      if (value.trim() === "") {
-        target?.classList.add("border-red-500");
-        errorMessages?.forEach((message) => {
-          const el = message as HTMLElement;
-          el.classList.remove("hidden");
-          if (el.dataset.errorEmailRegex === "") {
-            isValidEmail(value);
-          }
-        });
-      } else {
-        target?.classList.remove("border-red-500");
-        errorMessages?.forEach((message) => {
-          message.classList.add("hidden");
-        });
+      if (trimmedValue === "") {
+        updateInputBorder(target, true);
+        updateErrorMessagesDisplay(errorMessages, true);
       }
     });
   });
@@ -172,4 +175,7 @@ import FetchingDataModal from "./FetchingDataModal.astro";
     event.preventDefault();
     console.log(contactFormStore.get());
   });
+  //
+  //
+  disableButton();
 </script>
