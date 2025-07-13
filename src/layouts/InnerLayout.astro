@@ -3,6 +3,8 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import NavInModal from "../components/modal/NavInModal.astro";
 import MenuButton from "../components/MenuButton.astro";
+import ProcessingModal from "../components/contact/ProcessingModal.astro";
+import CompleteModal from "../components/contact/CompleteModal.astro";
 import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -12,10 +14,18 @@ const { language } = Astro.params as { language: Languages };
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000`
 >
   <Header />
-  <section id="slot-wrapper" class="py-20 md:px-5 md:py-14" data-reveal-on-load>
+  <section id="slot-wrapper" class="py-20 opacity-0 delay-300 duration-1000 md:px-5 md:py-14" data-reveal-on-load>
     <slot />
   </section>
   <Footer />
   <NavInModal />
+  <ProcessingModal />
+  <CompleteModal />
   <MenuButton />
 </section>
+
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    document.querySelector<HTMLElement>("[data-reveal-on-load]")!.classList.add("opacity-100");
+  });
+</script>
