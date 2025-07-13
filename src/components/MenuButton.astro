@@ -2,10 +2,10 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div class="fixed right-[50px] bottom-[50px] h-[150px] w-[150px] rounded-[50%]" data-menu-button>
+<div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]" data-menu-button>
   <div class="relative h-full w-full">
     <button
-      class="hover:text-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white duration-200 hover:bg-white"
+      class="hover:text-green1 bg-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white p-2 duration-200 hover:bg-white"
       role="button"
       tabindex="0"
       aria-label="Toggle menu"
@@ -26,36 +26,51 @@ import { Icon } from "astro-icon/components";
     <div class="absolute top-[50%] left-[50%] z-[-10] h-full w-full -translate-x-[50%] -translate-y-[50%]">
       <div class="relative h-full w-full">
         <button
-          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center opacity-0 transition-opacity"
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu1
         >
           <p
-            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-200 hover:bg-white"
+            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            menu1
+            <!-- 한글/日本語 
+            한글/Eng  -->
+            Eng
           </p>
         </button>
         <button
-          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center opacity-0 transition-opacity"
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu2
         >
           <p
-            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-200 hover:bg-white"
+            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            menu2
+            <!-- 한글/日本語 
+            한글/Eng  -->
+            日本語
           </p>
         </button>
         <button
-          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center opacity-0 transition-opacity"
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu3
         >
           <p
-            class="hover:text-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white duration-200 hover:bg-white"
+            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white p-4 duration-200 hover:bg-white"
           >
-            menu3
+            <Icon name="cil:sun" class="h-full w-full" />
+          </p>
+        </button>
+        <button
+          class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
+          data-menu-button-menu
+          data-menu-button-menu4
+        >
+          <p
+            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white p-4 duration-200 hover:bg-white"
+          >
+            <Icon name="cil:arrow-top" class="h-full w-full" />
           </p>
         </button>
       </div>
@@ -77,11 +92,13 @@ import { Icon } from "astro-icon/components";
 
   const buttonsPosition = {
     open: [
-      { x: -200, y: 0 },
-      { x: -150, y: -150 },
-      { x: 0, y: -200 },
+      { x: -100, y: 0 },
+      { x: -180, y: 0 },
+      { x: -75, y: -75 },
+      { x: 0, y: -100 },
     ],
     close: [
+      { x: 0, y: 0 },
       { x: 0, y: 0 },
       { x: 0, y: 0 },
       { x: 0, y: 0 },
@@ -99,7 +116,7 @@ import { Icon } from "astro-icon/components";
         y: buttonsPosition.open[i].y,
         opacity: 1,
         pointerEvents: "auto",
-        duration: 0.3,
+        duration: 0.2,
         ease: "none",
       },
       0,
@@ -113,7 +130,7 @@ import { Icon } from "astro-icon/components";
         y: buttonsPosition.close[i].y,
         opacity: 0,
         pointerEvents: "none",
-        duration: 0.3,
+        duration: 0.2,
         ease: "none",
       },
       0,
