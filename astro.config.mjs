@@ -16,6 +16,7 @@ export default defineConfig({
       include: {
         ph: ["github-logo-light", "instagram-logo-light"],
         zondicons: ["hour-glass"],
+        humbleicons: ["check", "exclamation"],
       },
     }),
     react(),

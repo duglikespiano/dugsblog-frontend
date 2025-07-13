@@ -1,4 +1,5 @@
 ---
+import CompleteModal from "./CompleteModal.astro";
 import ProcessingModal from "./ProcessingModal.astro";
 ---
 
@@ -57,10 +58,11 @@ import ProcessingModal from "./ProcessingModal.astro";
     </button>
   </form>
   <ProcessingModal />
+  <CompleteModal />
 </div>
 
 <script>
-  import { contactFormStore } from "../../common/stores";
+  import { contactFormStore, isModalOpenStore } from "../../common/stores";
 
   const contactForm = document.querySelector("[data-contact-form]") as HTMLFormElement;
   const submitButton = document.querySelector("[data-contact-form-button]") as HTMLButtonElement;
@@ -109,6 +111,13 @@ import ProcessingModal from "./ProcessingModal.astro";
     }
   }
 
+  function resetInputs() {
+    document.querySelectorAll("[data-input-element]").forEach((inputElement) => {
+      disableButton();
+      const test = inputElement as HTMLInputElement;
+      test.value = "";
+    });
+  }
   //
   //
   document.querySelectorAll("[data-input-element]").forEach((input) => {
@@ -173,8 +182,30 @@ import ProcessingModal from "./ProcessingModal.astro";
   contactForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
     console.log(contactFormStore.get());
+
+    // const previousStore = isModalOpenStore.get();
+    // isModalOpenStore.set({
+    //   ...previousStore,
+    //   "contact-process": true,
+    // });
+
+    // setTimeout(() => {
+    //   const previousStore = isModalOpenStore.get();
+    //   isModalOpenStore.set({
+    //     ...previousStore,
+    //     "contact-process": false,
+    //     "contact-complete": true,
+    //   });
+    //   resetInputs();
+    // }, 2000);
   });
   //
   //
   disableButton();
+  const previousStore = isModalOpenStore.get();
+  isModalOpenStore.set({
+    ...previousStore,
+    // "contact-process": true,
+    "contact-complete": true,
+  });
 </script>
