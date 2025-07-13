@@ -12,11 +12,7 @@ const { language } = Astro.params as { language: Languages };
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000`
 >
   <Header />
-  <section
-    id="slot-wrapper"
-    class="py-20 opacity-0 delay-300 duration-1000 md:px-5 md:py-14"
-    data-reveal-on-load
-  >
+  <section id="slot-wrapper" class="py-20 opacity-0 delay-300 duration-1000 md:px-5 md:py-14" data-reveal-on-load>
     <slot />
   </section>
   <Footer />
@@ -26,8 +22,6 @@ const { language } = Astro.params as { language: Languages };
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    document
-      .querySelector<HTMLElement>("[data-reveal-on-load]")!
-      .classList.add("opacity-100");
+    document.querySelector<HTMLElement>("[data-reveal-on-load]")!.classList.add("opacity-100");
   });
 </script>

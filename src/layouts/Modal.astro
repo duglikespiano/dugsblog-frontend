@@ -1,16 +1,14 @@
 ---
 const { modalName } = Astro.props;
-import Hamburger from "../components/Hamburger.astro";
 ---
 
 <div
   id=`modal-${modalName}`
   data-which-modal={modalName}
-  class="[&.active]: pointer-events-none fixed top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-200 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
+  class="[&.active]: pointer-events-none fixed top-0 left-0 z-0 flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-200 [&.active]:pointer-events-auto [&.active]:z-100 [&.active]:opacity-100"
   inert
 >
   <slot />
-  <Hamburger position="fixed" top="top-10" right="right-5" />
 </div>
 
 <script>
@@ -34,7 +32,7 @@ import Hamburger from "../components/Hamburger.astro";
 
   modalElements.forEach((modalElement) => {
     const modal = modalElement as HTMLElement;
-    const whichModal = modal.dataset.whichModal as "nav" | "contactForm";
+    const whichModal = modal.dataset.whichModal as "nav" | "contact-process";
 
     isModalOpenStore.subscribe((isModalOpen) => {
       const isOpen = isModalOpen[whichModal];

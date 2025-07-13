@@ -5,7 +5,7 @@ export const skillsStore = atom(allOfSkillsIhaveTried);
 export const projectsStore = atom(allOfMyProjects);
 export const isModalOpenStore = atom({
   nav: false,
-  contactForm: true,
+  "contact-process": true,
 });
 export const contactFormStore = atom({
   name: "",

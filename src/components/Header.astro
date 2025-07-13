@@ -5,7 +5,7 @@ import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
 
-<header class="bg-green1 fixed top-0 left-0 z-5 w-full px-5 py-4 md:static md:w-full md:px-0">
+<header class="bg-green1 fixed top-0 left-0 z-10 w-full px-5 py-4 md:static md:w-full md:px-0">
   <div class="relative justify-between md:flex">
     <h1 class="text-rosewater md:hover:text-gray3 text-5xl leading-none font-bold duration-200">
       <a href={`/${language}/`} class="leading-none no-underline">{pageTitles["main"][language]}</a>
