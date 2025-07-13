@@ -1,10 +1,13 @@
+---
+const { position, top, right } = Astro.props;
+---
+
 <button
-  id="hamburger"
-  class="absolute top-1/2 right-0 z-100 flex h-8 w-10 -translate-y-1/2 cursor-pointer transition-all md:hidden [&.active>div>span:nth-child(1)]:opacity-0 [&.active>div>span:nth-child(2)]:rotate-45 [&.active>div>span:nth-child(3)]:-rotate-45 [&.active>div>span:nth-child(4)]:opacity-0"
+  class=`${position} ${top} ${right} flex h-8 w-10 -translate-y-1/2 cursor-pointer transition-all md:hidden [&.active>div>span:nth-child(1)]:opacity-0 [&.active>div>span:nth-child(2)]:rotate-45 [&.active>div>span:nth-child(3)]:-rotate-45 [&.active>div>span:nth-child(4)]:opacity-0`
+  data-hamburger
 >
   <div class="relative h-full w-full">
-    <span
-      class="bg-rosewater absolute top-0 right-0 inline-block h-1 w-full origin-center transition-all duration-200"
+    <span class="bg-rosewater absolute top-0 right-0 inline-block h-1 w-full origin-center transition-all duration-200"
     ></span>
     <span
       class="bg-rosewater absolute top-1/2 right-0 inline-block h-1 w-full origin-center -translate-y-1/2 transform transition-all duration-200"
@@ -20,7 +23,7 @@
 
 <script>
   import { isModalOpenStore } from "../common/stores";
-  const hamburgerElement = document.querySelector("#hamburger") as HTMLElement;
+  const hamburgerElements = document.querySelectorAll("[data-hamburger]") as NodeListOf<Element>;
 
   function toggleModal() {
     isModalOpenStore.set({
@@ -28,11 +31,16 @@
       nav: !isModalOpenStore.get().nav,
     });
   }
-  hamburgerElement.addEventListener("click", toggleModal);
 
-  isModalOpenStore.subscribe((isNavOpen) =>
-    isNavOpen.nav
-      ? hamburgerElement.classList.add("active")
-      : hamburgerElement.classList.remove("active"),
-  );
+  hamburgerElements.forEach((hamburger) => hamburger.addEventListener("click", toggleModal));
+
+  isModalOpenStore.subscribe((isNavOpen) => {
+    if (isNavOpen.nav) {
+      hamburgerElements.forEach((hamburger) => {
+        hamburger.classList.add("active");
+      });
+    } else {
+      hamburgerElements.forEach((hamburger) => hamburger.classList.remove("active"));
+    }
+  });
 </script>

@@ -1,35 +1,22 @@
 ---
 const { modalName } = Astro.props;
+import Hamburger from "../components/Hamburger.astro";
 ---
 
-<dialog
+<div
   id=`modal-${modalName}`
   data-which-modal={modalName}
   class="[&.active]: pointer-events-none fixed top-0 left-0 z-[-10] flex h-svh w-full items-center justify-center bg-black/90 opacity-0 transition-all duration-200 [&.active]:pointer-events-auto [&.active]:z-10 [&.active]:opacity-100"
   inert
 >
   <slot />
-</dialog>
+  <Hamburger position="fixed" top="top-10" right="right-5" />
+</div>
 
 <script>
   import { isModalOpenStore } from "../common/stores";
 
-  const modalElement = document.querySelector(
-    `[data-which-modal]`,
-  ) as HTMLElement;
-  const whichModal = modalElement.dataset.whichModal as
-    | "nav"
-    | "contactForm"
-    | undefined;
-
-  function closeModal() {
-    if (!whichModal) return;
-
-    isModalOpenStore.set({
-      ...isModalOpenStore.get(),
-      [whichModal]: false,
-    });
-  }
+  const modalElements = document.querySelectorAll(`[data-which-modal]`) as NodeListOf<Element>;
 
   function fixScrollWhenModalIsOpen(isOpen: boolean) {
     if (isOpen) {
@@ -45,20 +32,21 @@ const { modalName } = Astro.props;
     }
   }
 
-  modalElement.addEventListener("click", closeModal);
+  modalElements.forEach((modalElement) => {
+    const modal = modalElement as HTMLElement;
+    const whichModal = modal.dataset.whichModal as "nav" | "contactForm";
 
-  isModalOpenStore.subscribe((isModalOpen) => {
-    if (!whichModal) return;
-
-    const isOpen = isModalOpen[whichModal];
-    if (isOpen) {
-      modalElement.classList.add("active");
-      modalElement.removeAttribute("inert");
-      fixScrollWhenModalIsOpen(isOpen);
-    } else {
-      modalElement.classList.remove("active");
-      modalElement.setAttribute("inert", "");
-      fixScrollWhenModalIsOpen(isOpen);
-    }
+    isModalOpenStore.subscribe((isModalOpen) => {
+      const isOpen = isModalOpen[whichModal];
+      if (isOpen) {
+        modalElement.classList.add("active");
+        modalElement.removeAttribute("inert");
+        fixScrollWhenModalIsOpen(isOpen);
+      } else {
+        modalElement.classList.remove("active");
+        modalElement.setAttribute("inert", "");
+        fixScrollWhenModalIsOpen(isOpen);
+      }
+    });
   });
 </script>
