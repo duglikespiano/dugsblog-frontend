@@ -19,6 +19,11 @@ export const pageTitles = {
     ko: "문의",
     ja: "問い合わせ",
   },
+  guestbook: {
+    en: "Guestbook",
+    ko: "방명록",
+    ja: "ゲストブック",
+  },
 };
 
 export const menus = {
