@@ -2,10 +2,7 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<div
-  class="fixed right-[50px] bottom-[50px] h-[150px] w-[150px] rounded-[50%]"
-  data-menu-button
->
+<div class="fixed right-[50px] bottom-[50px] h-[150px] w-[150px] rounded-[50%]" data-menu-button>
   <div class="relative h-full w-full">
     <button
       class="hover:text-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white duration-200 hover:bg-white"
@@ -26,9 +23,7 @@ import { Icon } from "astro-icon/components";
         />
       </div>
     </button>
-    <div
-      class="absolute top-[50%] left-[50%] z-[-10] h-full w-full -translate-x-[50%] -translate-y-[50%]"
-    >
+    <div class="absolute top-[50%] left-[50%] z-[-10] h-full w-full -translate-x-[50%] -translate-y-[50%]">
       <div class="relative h-full w-full">
         <button
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center opacity-0 transition-opacity"
@@ -71,17 +66,14 @@ import { Icon } from "astro-icon/components";
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
-  gsap.registerPlugin(ScrollTrigger);
+  import { SplitText } from "gsap/SplitText";
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
   let isMenuButtonOpen = false;
 
-  const menuButton = document.querySelector(
-    "[data-menu-button]",
-  ) as HTMLElement;
+  const menuButton = document.querySelector("[data-menu-button]") as HTMLElement;
 
-  const menuButtonMenuElements = document.querySelectorAll(
-    "[data-menu-button-menu]",
-  );
+  const menuButtonMenuElements = document.querySelectorAll("[data-menu-button-menu]");
 
   const buttonsPosition = {
     open: [

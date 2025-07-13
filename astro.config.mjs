@@ -15,6 +15,7 @@ export default defineConfig({
     icon({
       include: {
         ph: ["github-logo-light", "instagram-logo-light"],
+        zondicons: ["hour-glass"],
       },
     }),
     react(),

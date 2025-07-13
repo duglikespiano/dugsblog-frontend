@@ -1,5 +1,5 @@
 ---
-import FetchingDataModal from "./FetchingDataModal.astro";
+import ProcessingModal from "./ProcessingModal.astro";
 ---
 
 <div id="contact-form" class="mx-auto max-w-2xl">
@@ -56,9 +56,8 @@ import FetchingDataModal from "./FetchingDataModal.astro";
       Submit
     </button>
   </form>
+  <ProcessingModal />
 </div>
-
-<FetchingDataModal />
 
 <script>
   import { contactFormStore } from "../../common/stores";
