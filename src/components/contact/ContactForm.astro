@@ -50,7 +50,7 @@ import ProcessingModal from "./ProcessingModal.astro";
     </fieldset>
 
     <button
-      class="bg-rosewater mx-auto mt-4 flex w-full cursor-pointer flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold md:w-auto"
+      class="bg-rosewater mx-auto mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold md:w-auto"
       type="submit"
       data-contact-form-button
     >
@@ -75,6 +75,7 @@ import ProcessingModal from "./ProcessingModal.astro";
     if (submitButton) {
       submitButton.disabled = true;
       submitButton.classList.add("opacity-50", "cursor-not-allowed");
+      submitButton.classList.remove("cursor-pointer");
     }
   }
 
@@ -82,6 +83,7 @@ import ProcessingModal from "./ProcessingModal.astro";
     if (submitButton) {
       submitButton.disabled = false;
       submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+      submitButton.classList.add("cursor-pointer");
     }
   }
 
