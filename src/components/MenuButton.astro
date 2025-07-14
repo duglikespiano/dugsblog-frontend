@@ -1,5 +1,23 @@
 ---
 import { Icon } from "astro-icon/components";
+import type { Languages } from "../common/types";
+const { language } = Astro.params as { language: Languages };
+
+const obj: Record<Languages, { url: string; title: string }> = {
+  ko: { url: "/ko", title: "한글" },
+  en: { url: "/en", title: "Eng" },
+  ja: { url: "/ja", title: "日本語" },
+};
+
+const navLanguages: Partial<typeof obj> = {};
+
+(Object.keys(obj) as Languages[]).forEach((key) => {
+  if (key !== language) {
+    navLanguages[key] = obj[key];
+  }
+});
+
+const languageArray = Object.values(navLanguages);
 ---
 
 <div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]" data-menu-button>
@@ -33,9 +51,9 @@ import { Icon } from "astro-icon/components";
           <p
             class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            <!-- 한글/日本語 
-            한글/Eng  -->
-            Eng
+            <a class="flex h-full w-full items-center justify-center" href={languageArray[0]["url"]}>
+              {languageArray[0]["title"]}
+            </a>
           </p>
         </button>
         <button
@@ -46,9 +64,9 @@ import { Icon } from "astro-icon/components";
           <p
             class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            <!-- 한글/日本語 
-            한글/Eng  -->
-            日本語
+            <a class="flex h-full w-full items-center justify-center" href={languageArray[1]["url"]}>
+              {languageArray[1]["title"]}
+            </a>
           </p>
         </button>
         <button
