@@ -1,10 +1,10 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import NavInModal from "../components/modal/NavInModal.astro";
+import NavModal from "../components/modal/Nav.astro";
+import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
+import FetchCompleteModal from "../components/modal/FetchComplete.astro";
 import MenuButton from "../components/MenuButton.astro";
-import ProcessingModal from "../components/contact/ProcessingModal.astro";
-import CompleteModal from "../components/contact/CompleteModal.astro";
 import type { Languages } from "../common/types";
 const { language } = Astro.params as { language: Languages };
 ---
@@ -18,9 +18,9 @@ const { language } = Astro.params as { language: Languages };
     <slot />
   </section>
   <Footer />
-  <NavInModal />
-  <ProcessingModal />
-  <CompleteModal />
+  <NavModal />
+  <FetchProcessingModal />
+  <FetchCompleteModal />
   <MenuButton />
 </section>
 
