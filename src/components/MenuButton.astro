@@ -84,6 +84,7 @@ const languageArray = Object.values(navLanguages);
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
           data-menu-button-menu
           data-menu-button-menu4
+          data-menu-to-top
         >
           <p
             class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white p-4 duration-200 hover:bg-white"
@@ -99,8 +100,9 @@ const languageArray = Object.values(navLanguages);
 <script>
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { SplitText } from "gsap/SplitText";
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
 
   let isMenuButtonOpen = false;
 
@@ -157,9 +159,7 @@ const languageArray = Object.values(navLanguages);
 
   const openMenuIcons = () => {
     if (!isMenuButtonOpen) {
-      openMenuTimeline.restart();
-    } else {
-      closeMenuTimeline.restart();
+      openMenuTimeline.play();
     }
   };
 
@@ -168,5 +168,12 @@ const languageArray = Object.values(navLanguages);
       openMenuIcons();
       isMenuButtonOpen = !isMenuButtonOpen;
     }
+  });
+
+  document.querySelector("[data-menu-to-top]")?.addEventListener("click", () => {
+    gsap.to(window, {
+      scrollTo: 0,
+      ease: "power2.out",
+    });
   });
 </script>
