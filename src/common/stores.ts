@@ -13,3 +13,8 @@ export const contactFormStore = atom({
   email: "",
   message: "",
 });
+export const guestbookFormStore = atom({
+  name: "",
+  password: "",
+  message: "",
+});

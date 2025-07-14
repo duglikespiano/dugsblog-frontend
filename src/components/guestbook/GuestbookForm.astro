@@ -1,0 +1,199 @@
+---
+
+---
+
+<div
+  id="guestbook-form"
+  class="after:bg-gray3 relative mx-auto max-w-4xl px-5 pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-[calc(100%-(var(--spacing)*5)*2)] after:translate-x-[-50%] after:content-[''] lg:after:w-[calc(100%-2rem)]"
+>
+  <div class="text-rosewater mb-5 text-5xl font-bold">Guestbook</div>
+  <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-guestbook-form>
+    <fieldset class="flex flex-col gap-2 md:gap-4">
+      <div class="grid grid-cols-2 gap-1">
+        <div class="flex flex-col">
+          <label class="text-rosewater mt-2 text-3xl font-bold sm:text-4xl">Name</label>
+          <input
+            data-input-element
+            class="contact-input placeholder-green1 placeholder:text-1xl h-12 rounded-md border-4 bg-white pr-4 pl-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+            type="text"
+            id="name"
+            name="name"
+            maxlength="40"
+            placeholder="Your name"
+            autocomplete="off"
+          />
+          <p data-error-name class="hidden pl-1 leading-none text-red-500">Please enter your name</p>
+        </div>
+        <div class="flex flex-col">
+          <label class="text-rosewater mt-2 text-3xl font-bold sm:text-4xl">Password</label>
+          <input
+            data-input-element
+            class="contact-input placeholder-green1 placeholder:text-1xl h-12 rounded-md border-4 bg-white pr-4 pl-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+            type="password"
+            id="password"
+            name="password"
+            maxlength="40"
+            placeholder="Your password"
+            autocomplete="off"
+          />
+          <p data-error-password class="hidden pl-1 leading-none text-red-500">Please enter password</p>
+        </div>
+      </div>
+      <div class="flex flex-col">
+        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-4xl">Message</label>
+        <textarea
+          data-input-element
+          class="contact-input placeholder-green1 placeholder:text-1xl h-40 resize-none rounded-md border-4 bg-white p-4 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          id="message"
+          name="message"
+          maxlength="3000"
+          placeholder="Your Message"></textarea>
+        <p data-error-message class="hidden pl-1 leading-none text-red-500">Please enter your message</p>
+      </div>
+    </fieldset>
+
+    <button
+      class="bg-rosewater mx-auto mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold md:w-auto"
+      type="submit"
+      data-guestbook-form-button
+    >
+      Submit
+    </button>
+  </form>
+</div>
+
+<script>
+  import { guestbookFormStore, isModalOpenStore } from "../../common/stores";
+
+  const guestbookForm = document.querySelector("[data-guestbook-form]") as HTMLFormElement;
+  const submitButton = document.querySelector("[data-guestbook-form-button]") as HTMLButtonElement;
+
+  function disableButton() {
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.classList.add("opacity-50", "cursor-not-allowed");
+      submitButton.classList.remove("cursor-pointer");
+    }
+  }
+
+  function enableButton() {
+    if (submitButton) {
+      submitButton.disabled = false;
+      submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+      submitButton.classList.add("cursor-pointer");
+    }
+  }
+
+  function checkIfStringEmpty(value: string) {
+    return value === "" || value === null || value === undefined;
+  }
+
+  function updateInputBorder(target: HTMLElement, boolean: boolean) {
+    if (boolean) {
+      target.classList.add("border-red-500");
+    } else {
+      target.classList.remove("border-red-500");
+    }
+  }
+
+  function updateErrorMessagesDisplay(errorMessages: NodeListOf<Element>, boolean: boolean, value: string = "") {
+    if (boolean) {
+      errorMessages.forEach((message) => message.classList.remove("hidden"));
+    } else {
+      errorMessages.forEach((message) => message.classList.add("hidden"));
+    }
+  }
+
+  function resetInputs() {
+    document.querySelectorAll("[data-input-element]").forEach((inputElement) => {
+      disableButton();
+      const test = inputElement as HTMLInputElement;
+      test.value = "";
+    });
+  }
+  //
+  //
+  document.querySelectorAll("[data-input-element]").forEach((input) => {
+    input.addEventListener("input", (event) => {
+      const target = event.target as HTMLInputElement;
+      const id = target.id;
+      const value = target.value;
+      const trimmedValue = value.trim();
+      let areAllValuesFilled = true;
+      guestbookFormStore.set({
+        ...guestbookFormStore.get(),
+        [id]: value,
+      });
+
+      const storeValues = Object.values(guestbookFormStore.get());
+
+      for (const key in storeValues) {
+        if (checkIfStringEmpty(storeValues[key])) {
+          areAllValuesFilled = false;
+          break;
+        }
+      }
+
+      const errorMessages = document.querySelectorAll(`[data-error-${id}]`);
+      if (trimmedValue === "") {
+        updateInputBorder(target, true);
+        updateErrorMessagesDisplay(errorMessages, true);
+      } else {
+        updateInputBorder(target, false);
+        updateErrorMessagesDisplay(errorMessages, false, value);
+      }
+
+      if (areAllValuesFilled) {
+        enableButton();
+      } else {
+        disableButton();
+      }
+    });
+  });
+  //
+  //
+  document.querySelectorAll("[data-input-element]").forEach((input) => {
+    input.addEventListener("blur", (event) => {
+      const target = event.target as HTMLInputElement;
+      const id = target.id;
+      const value = target.value;
+      const trimmedValue = value.trim();
+      const errorMessages = document.querySelectorAll(`[data-error-${id}]`);
+      if (trimmedValue === "") {
+        updateInputBorder(target, true);
+        updateErrorMessagesDisplay(errorMessages, true);
+      }
+    });
+  });
+  //
+  //
+  guestbookForm?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    console.log(guestbookFormStore.get());
+
+    // const previousStore = isModalOpenStore.get();
+    // isModalOpenStore.set({
+    //   ...previousStore,
+    //   "contact-process": true,
+    // });
+
+    // setTimeout(() => {
+    //   const previousStore = isModalOpenStore.get();
+    //   isModalOpenStore.set({
+    //     ...previousStore,
+    //     "contact-process": false,
+    //     "contact-complete": true,
+    //   });
+    //   resetInputs();
+    // }, 2000);
+  });
+  //
+  //
+  disableButton();
+  const previousStore = isModalOpenStore.get();
+  isModalOpenStore.set({
+    ...previousStore,
+    // "contact-process": true,
+    // "contact-complete": true,
+  });
+</script>

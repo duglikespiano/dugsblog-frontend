@@ -3,11 +3,12 @@ import RootLayout from "../../../layouts/RootLayout.astro";
 import { pageTitles } from "../../../common/htmlElements";
 import { printFileURL } from "../../../common/functions";
 import type { Languages } from "../../../common/types";
+import GuestbookForm from "../../../components/guestbook/GuestbookForm.astro";
 const { language } = Astro.params as { language: Languages };
 const folderName = printFileURL(import.meta.url) as keyof typeof pageTitles;
 const title = `${pageTitles[folderName][language]} - ${pageTitles["main"][language]}`;
 ---
 
 <RootLayout title={title}>
-  <div></div>
+  <GuestbookForm />
 </RootLayout>
