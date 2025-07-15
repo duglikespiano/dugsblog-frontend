@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+import { guestbookMessagesStore } from "../../common/stores";
+---
+
+<div id="guestbook-list">
+  <ul class="flex flex-col gap-y-8 pt-15">
+    {
+      guestbookMessagesStore.get().map((data, i) => (
+        <li class="rounded-4xl border-4 p-6" data-messages-index={i}>
+          <div class="relative flex flex-col gap-4">
+            <div class="flex items-center gap-2">
+              <p class="text-3xl font-bold">{data.name}</p>
+              <p class="text-1xl text-gray5 font-bold">{data.date}</p>
+            </div>
+            <p class="text-rosewater text-3xl">{data.message}</p>
+            <Icon
+              name="cil:trash"
+              class="absolute top-0 right-0 h-6 w-6 cursor-pointer"
+              data-guestbook-delete-button
+              data-messages-delete-index={i}
+            />
+          </div>
+        </li>
+      ))
+    }
+  </ul>
+</div>
+
+<script>
+  const guestbookDeleteButtons = document.querySelectorAll("[data-guestbook-delete-button]");
+  guestbookDeleteButtons.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      const messageIndex = target.dataset["messagesDeleteIndex"];
+      const itemToHide = document.querySelector(`[data-messages-index="${messageIndex}"]`) as HTMLElement;
+
+      if (itemToHide) {
+        itemToHide.style.display = "none";
+        // Or use a CSS class: itemToHide.classList.add('hidden');
+      }
+    });
+  });
+</script>
