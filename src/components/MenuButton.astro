@@ -136,7 +136,7 @@ const languageArray = Object.values(navLanguages);
         y: buttonsPosition.open[i].y,
         opacity: 1,
         pointerEvents: "auto",
-        duration: 0.2,
+        duration: 0.1,
         ease: "none",
       },
       0,
@@ -157,17 +157,13 @@ const languageArray = Object.values(navLanguages);
     );
   });
 
-  const openMenuIcons = () => {
-    if (!isMenuButtonOpen) {
-      openMenuTimeline.play();
-    }
+  const updateMenuIcons = () => {
+    !isMenuButtonOpen ? openMenuTimeline.restart() : closeMenuTimeline.restart();
+    isMenuButtonOpen = !isMenuButtonOpen;
   };
 
   menuButton.addEventListener("click", (event) => {
-    if ((event.target as HTMLElement).dataset.menuButtonMenu === undefined) {
-      openMenuIcons();
-      isMenuButtonOpen = !isMenuButtonOpen;
-    }
+    updateMenuIcons();
   });
 
   document.querySelector("[data-menu-to-top]")?.addEventListener("click", () => {
