@@ -110,20 +110,12 @@ const languageArray = Object.values(navLanguages);
 
   const menuButtonMenuElements = document.querySelectorAll("[data-menu-button-menu]");
 
-  const buttonsPosition = {
-    open: [
-      { x: -100, y: 0 },
-      { x: -180, y: 0 },
-      { x: -75, y: -75 },
-      { x: 0, y: -100 },
-    ],
-    close: [
-      { x: 0, y: 0 },
-      { x: 0, y: 0 },
-      { x: 0, y: 0 },
-      { x: 0, y: 0 },
-    ],
-  };
+  const buttonsPosition = [
+    { x: -100, y: 0 },
+    { x: -180, y: 0 },
+    { x: -75, y: -75 },
+    { x: 0, y: -100 },
+  ];
 
   const openMenuTimeline = gsap.timeline({ paused: true });
 
@@ -131,8 +123,8 @@ const languageArray = Object.values(navLanguages);
     openMenuTimeline.to(
       `[data-menu-button-menu${i + 1}]`,
       {
-        x: buttonsPosition.open[i].x,
-        y: buttonsPosition.open[i].y,
+        x: buttonsPosition[i].x,
+        y: buttonsPosition[i].y,
         opacity: 1,
         pointerEvents: "auto",
         duration: 0.3,
