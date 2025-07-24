@@ -7,6 +7,8 @@ import { pageTitles } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
 const { language } = Astro.params as { language: Languages };
 const title = pageTitles["main"][language];
+
+console.log(language);
 ---
 
 <RootLayout title={title}>
