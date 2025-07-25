@@ -13,13 +13,15 @@ const { language } = Astro.props as { language: Languages };
     <nav class="flex items-center">
       <ul class="text-rosewater hidden gap-3 text-2xl font-bold md:flex lg:gap-4 lg:text-3xl">
         {
-          (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
-            <li class="transition-text md:hover:text-gray3 duration-200">
-              <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
-                {menus[item][language]}
-              </a>
-            </li>
-          ))
+          (Object.keys(menus) as (keyof typeof menus)[])
+            .filter((item) => menus[item][language] !== menus["main"][language])
+            .map((item) => (
+              <li class="transition-text md:hover:text-gray3 duration-200">
+                <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
+                  {menus[item][language]}
+                </a>
+              </li>
+            ))
         }
       </ul>
     </nav>
