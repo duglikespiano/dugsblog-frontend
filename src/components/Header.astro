@@ -2,7 +2,7 @@
 import Hamburger from "./Hamburger.astro";
 import { pageTitles, menus } from "../common/htmlElements";
 import type { Languages } from "../common/types";
-const { language } = Astro.params as { language: Languages };
+const { language } = Astro.props as { language: Languages };
 ---
 
 <header class="bg-green1 fixed top-0 left-0 z-10 w-full px-5 py-4 md:static md:w-full md:px-0">
@@ -23,6 +23,6 @@ const { language } = Astro.params as { language: Languages };
         }
       </ul>
     </nav>
-    <Hamburger position="absolute" top="top-1/2" right="right-0" />
+    <Hamburger position="absolute" top="top-1/2" right="right-0" language={language} />
   </div>
 </header>

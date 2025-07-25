@@ -1,7 +1,7 @@
 ---
 import { menus } from "../common/htmlElements";
 import type { Languages } from "../common/types";
-const { language } = Astro.params as { language: Languages };
+const { language } = Astro.props as { language: Languages };
 ---
 
 <footer class="flex items-center justify-center">

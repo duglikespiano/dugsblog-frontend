@@ -4,7 +4,7 @@ import OuterLayout from "./OuterLayout.astro";
 import InnerLayout from "./InnerLayout.astro";
 import "../styles/global.css";
 import "../styles/common.scss";
-const { title } = Astro.props;
+const { title, language } = Astro.props;
 ---
 
 <!doctype html>
@@ -12,7 +12,7 @@ const { title } = Astro.props;
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>
-      <InnerLayout>
+      <InnerLayout language={language}>
         <slot />
       </InnerLayout>
     </OuterLayout>

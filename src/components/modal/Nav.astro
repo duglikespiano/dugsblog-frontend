@@ -3,7 +3,7 @@ import Modal from "../../layouts/Modal.astro";
 import Hamburger from "../Hamburger.astro";
 import { menus } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
-const { language } = Astro.params as { language: Languages };
+const { language } = Astro.props as { language: Languages };
 ---
 
 <Modal modalName="nav">
