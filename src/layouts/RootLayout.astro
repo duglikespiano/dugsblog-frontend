@@ -2,13 +2,14 @@
 import Head from "./Head.astro";
 import OuterLayout from "./OuterLayout.astro";
 import InnerLayout from "./InnerLayout.astro";
+import { printHTMLDocumentLanguage } from "../common/functions";
 import "../styles/global.css";
 import "../styles/common.scss";
 const { title, language } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en" data-overlayscrollbars-initialize>
+<html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize>
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>
