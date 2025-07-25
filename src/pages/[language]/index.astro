@@ -9,7 +9,7 @@ const { language } = Astro.params as { language: Languages };
 const title = pageTitles["main"][language];
 ---
 
-<RootLayout title={title} language={language}>
+<RootLayout title={title}>
   <Profile language={language} />
   <CommitHistoryComponent client:only />
   <Characteristics language={language} />

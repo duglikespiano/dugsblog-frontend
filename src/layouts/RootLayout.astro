@@ -3,9 +3,11 @@ import Head from "./Head.astro";
 import OuterLayout from "./OuterLayout.astro";
 import InnerLayout from "./InnerLayout.astro";
 import { printHTMLDocumentLanguage } from "../common/functions";
+import type { Languages } from "../common/types";
 import "../styles/global.css";
 import "../styles/common.scss";
-const { title, language } = Astro.props;
+const { title } = Astro.props;
+const { language } = Astro.params as { language: Languages };
 ---
 
 <!doctype html>

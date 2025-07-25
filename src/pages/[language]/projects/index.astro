@@ -5,7 +5,7 @@ import Projects from "../../../components/projects/Projects.tsx";
 import { pageTitles } from "../../../common/htmlElements";
 import { printFileURL } from "../../../common/functions";
 import type { Languages } from "../../../common/types";
-const { language } = Astro.props as { language: Languages };
+const { language } = Astro.params as { language: Languages };
 const folderName = printFileURL(import.meta.url) as keyof typeof pageTitles;
 const title = `${pageTitles[folderName][language]} - ${pageTitles["main"][language]}`;
 ---
