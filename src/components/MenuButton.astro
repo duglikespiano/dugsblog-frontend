@@ -149,4 +149,17 @@ const languageArray = Object.values(navLanguages);
       ease: "power2.out",
     });
   });
+
+  let lastScrollTime = 0;
+  const throttleDelay = 1000; // run at most once every 200ms
+  window.addEventListener("scroll", (e) => {
+    const now = Date.now();
+    if (now - lastScrollTime >= throttleDelay) {
+      if (isMenuButtonOpen) {
+        isMenuButtonOpen = false;
+        openMenuTimeline.reverse();
+      }
+      lastScrollTime = now;
+    }
+  });
 </script>
