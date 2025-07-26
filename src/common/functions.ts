@@ -1,5 +1,6 @@
 import { fileURLToPath } from "node:url";
-import type { Languages } from "./types";
+import { pageTitles } from "./htmlElements";
+import type { Languages, Pages } from "./types";
 import path from "node:path";
 
 export function printFileURL(url: string) {
@@ -39,4 +40,19 @@ export function printPageUrlInMenuButton(url: string) {
   });
 
   return filteredLanguagesArray;
+}
+
+export function printPageTitle(url: string, language: Languages): string {
+  const isPageTop = !Boolean(url.split("/")[2]);
+  const whichPage = url.split("/")[2];
+  if (isPageTop) {
+    return `${pageTitles["main"][language]}`;
+  }
+
+  if (whichPage in pageTitles) {
+    return `${pageTitles["main"][language]} - ${pageTitles[whichPage as keyof typeof pageTitles][language]}`;
+  }
+
+  // Fallback if page is unknown
+  return pageTitles.main[language];
 }

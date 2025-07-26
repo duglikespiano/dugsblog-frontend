@@ -1,12 +1,10 @@
 ---
 import RootLayout from "../../../layouts/RootLayout.astro";
 import ContactForm from "../../../components/contact/ContactForm.astro";
-import { pageTitles } from "../../../common/htmlElements";
-import { printFileURL } from "../../../common/functions";
 import type { Languages } from "../../../common/types";
+import { printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
-const folderName = printFileURL(import.meta.url) as keyof typeof pageTitles;
-const title = `${pageTitles[folderName][language]} - ${pageTitles["main"][language]}`;
+const title = printPageTitle(Astro.url.pathname, language);
 ---
 
 <RootLayout title={title}>

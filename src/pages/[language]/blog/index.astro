@@ -5,7 +5,10 @@ import { getCollection, getEntry } from "astro:content";
 // Get all entries from a collection.
 // Requires the name of the collection as an argument.
 const allBlogPosts = await getCollection("blog");
-const { language } = Astro.params;
+import type { Languages } from "../../../common/types";
+import { printPageTitle } from "../../../common/functions";
+const { language } = Astro.params as { language: Languages };
+const title = printPageTitle(Astro.url.pathname, language);
 // console.log(allBlogPosts);
 
 // import { writeFileSync } from "node:fs";
@@ -27,7 +30,7 @@ const { language } = Astro.params;
 // saveVariableToJsFile(allBlogPosts, "myVariable", "myVariable.js");
 ---
 
-<RootLayout language={language}>
+<RootLayout title={title}>
   <ul>
     {
       allBlogPosts.map((post) => (

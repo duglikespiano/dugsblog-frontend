@@ -14,6 +14,11 @@ export const pageTitles = {
     ko: "프로젝트",
     ja: "プロジェクト",
   },
+  blog: {
+    en: "Blog",
+    ko: "블로그",
+    ja: "ブログ",
+  },
   contact: {
     en: "Contact",
     ko: "문의",
