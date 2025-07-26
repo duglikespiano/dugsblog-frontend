@@ -42,7 +42,7 @@ export const allOfMyProjects = [
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsblog-frontend",
     backendRepositoryURL: "",
     period: ["2025-02-20", ""],
-    skills: ["HTML/CSS", "Astro", "Typescript", "Tailwindcss"],
+    skills: ["HTML/CSS", "Astro", "Typescript", "Tailwindcss", "Deployment"],
   },
   {
     id: 33,
@@ -154,7 +154,7 @@ export const allOfMyProjects = [
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-pokemon-memory-game",
     backendRepositoryURL: "",
     period: ["2025-01-02", "2025-01-03"],
-    skills: ["HTML/CSS", "Javascript"],
+    skills: ["HTML/CSS", "Javascript", "Deployment"],
   },
   {
     id: 25,

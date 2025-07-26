@@ -513,3 +513,61 @@ export const contactForm = {
     ja: "提出",
   },
 };
+
+export const guestbook = {
+  name: {
+    en: "Name",
+    ko: "이름",
+    ja: "お名前",
+  },
+  namePlaceholder: {
+    en: "Your name",
+    ko: "이름을 입력해주세요",
+    ja: "お名前を入力してください",
+  },
+  nameError: {
+    en: "Please enter your name",
+    ko: "이름이 필요합니다",
+    ja: "お名前が必要です",
+  },
+  password: {
+    en: "Password",
+    ko: "비밀번호",
+    ja: "パスワード",
+  },
+  passwordDescription: {
+    en: "required to remove the message",
+    ko: "메세지 삭제에 필요",
+    ja: "メッセージ削除に必要",
+  },
+  passwordPlaceholder: {
+    en: "Your password",
+    ko: "비밀번호를 입력해주세요",
+    ja: "パスワードを入力してかださい",
+  },
+  passwordError: {
+    en: "Please enter password",
+    ko: "비밀번호가 필요합니다",
+    ja: "パスワードが必要です",
+  },
+  message: {
+    en: "Message",
+    ko: "메세지",
+    ja: "メッセージ",
+  },
+  messagePlaceholder: {
+    en: "Your message",
+    ko: "메세지를 입력해주세요",
+    ja: "メッセージを入力してください",
+  },
+  messageError: {
+    en: "Please enter your message",
+    ko: "메세지를 입력해주세요",
+    ja: "メッセージが必要です",
+  },
+  submit: {
+    en: "Submit",
+    ko: "제출",
+    ja: "提出",
+  },
+};
