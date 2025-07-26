@@ -1,18 +1,18 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { Languages } from "../common/types";
-import { printPageUrl } from "../common/functions";
+import { printPageUrlInMenuButton } from "../common/functions";
 
-const languageArray = printPageUrl(Astro.url.pathname);
+const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
 ---
 
-<div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]" data-menu-button>
+<div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]">
   <div class="relative h-full w-full">
     <button
       class="hover:text-green1 bg-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white p-2 duration-200 hover:bg-white"
       role="button"
       tabindex="0"
       aria-label="Toggle menu"
+      data-menu-button
     >
       <div class="relative h-full w-full">
         <Icon
@@ -131,15 +131,21 @@ const languageArray = printPageUrl(Astro.url.pathname);
   });
 
   document.querySelector("[data-menu-to-top]")?.addEventListener("click", () => {
+    isUserScrolling = false;
     gsap.to(window, {
       scrollTo: 0,
       ease: "power2.out",
+      onComplete: () => {
+        isUserScrolling = true;
+      },
     });
   });
 
+  let isUserScrolling = true;
   let lastScrollTime = 0;
   const throttleDelay = 1000; // run at most once every 200ms
   window.addEventListener("scroll", (e) => {
+    if (!isUserScrolling) return;
     const now = Date.now();
     if (now - lastScrollTime >= throttleDelay) {
       if (isMenuButtonOpen) {

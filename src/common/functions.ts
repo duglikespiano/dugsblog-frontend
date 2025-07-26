@@ -19,7 +19,7 @@ export function printHTMLDocumentLanguage(language: string) {
   }
 }
 
-export function printPageUrl(url: string) {
+export function printPageUrlInMenuButton(url: string) {
   const filteredLanguagesArray: { title: string; pageUrl?: string }[] = [];
   const languageFromUrl = url.split("/")[1];
   const dataObject: Record<Languages, { title: string; pageUrl?: string }> = {
