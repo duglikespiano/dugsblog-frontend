@@ -48,7 +48,7 @@ export default function SkillsFilter({ language }: ProjectProps) {
       id="skillsFilter"
       className="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-[''] lg:px-20 lg:after:w-[calc(100%-10rem)]"
     >
-      <h3 className="text-rosewater mb-5 text-4xl font-bold">{skillsFilter.title[language]}</h3>
+      <h2 className="text-rosewater text-4xl font-bold">{skillsFilter.title[language]}</h2>
       <div className="lg:px-6">
         <p className="text-2xl font-bold text-gray-400">{skillsFilter.heading[language]}</p>
         {language === "en" ? (

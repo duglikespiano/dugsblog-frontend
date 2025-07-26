@@ -5,11 +5,11 @@ const { language } = Astro.props as { language: Languages };
 ---
 
 <section id="educationandcareer" class="pt-15">
-  <h3 class="text-rosewater text-4xl font-bold">
+  <h2 class="text-rosewater text-4xl font-bold">
     {educationAndCareer.title[language][0]}
     <br class="xs:hidden" />
     {educationAndCareer.title[language][1]}
-  </h3>
+  </h2>
 
   <ul class="mt-5 flex flex-col gap-10">
     {

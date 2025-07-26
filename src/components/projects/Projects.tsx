@@ -14,7 +14,7 @@ export default function Projects({ language }: ProjectProps) {
 
   return (
     <section id="projects" className="pt-15 lg:px-20">
-      <h3 className="text-rosewater text-4xl font-bold">{projects.title[language]}</h3>
+      <h2 className="text-rosewater text-4xl font-bold">{projects.title[language]}</h2>
       <ul className="mt-5 flex flex-col gap-5 lg:gap-10">
         {filteredProjects.map((project) => (
           <li className="rounded-4xl border-4 p-4 lg:p-8" key={project.id}>

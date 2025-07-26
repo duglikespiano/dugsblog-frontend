@@ -8,13 +8,12 @@ const { language } = Astro.props as { language: Languages };
   id="skills"
   class="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
 >
-  <h3 class="text-rosewater text-4xl font-bold">{skillSet.title[language]}</h3>
-
-  <ul class="mt-5 grid grid-cols-2 justify-center gap-5 rounded-4xl border-4 p-4 sm:p-8 lg:grid-cols-4">
+  <h2 class="text-rosewater text-4xl font-bold">{skillSet.title[language]}</h2>
+  <ul class="mt-5 grid grid-cols-2 justify-center gap-2 rounded-4xl border-4 p-4 sm:gap-5 sm:p-8 lg:grid-cols-4">
     {
       Object.values(skillSet.data).map((category) => (
-        <li class="flex flex-col gap-3">
-          <p class="text-2xl font-bold sm:text-4xl">{category["name"][language]}</p>
+        <li class="flex flex-col gap-0 sm:gap-3">
+          <p class="text-2xl font-bold sm:text-3xl">{category["name"][language]}</p>
           <ul>
             {category.skills.map((skill) => (
               <li class="pl-5 text-lg text-gray-400 sm:text-2xl">{skill.name}</li>
