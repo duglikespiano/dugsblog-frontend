@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { skillsStore, projectsStore } from "../../common/stores";
 import { skillsFilter } from "../../common/htmlElements";
 import { allOfSkillsIhaveTried, allOfMyProjects } from "../../common/variables";
-import type { ProjectObjectType } from "../../common/variables";
+import type { ProjectObjectType } from "../../common/types";
 import type { Languages } from "../../common/types";
 
 type ProjectProps = {

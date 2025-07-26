@@ -63,7 +63,7 @@ export default function Projects({ language }: ProjectProps) {
                 </div>
               </div>
               <div>
-                <p className="mb-1 text-xl font-bold text-gray-300 lg:text-2xl">{projects.skills[language]}</p>
+                <p className="mb-1 text-xl font-bold text-gray-300 lg:text-xl">{projects.skills[language]}</p>
                 <ul className="flex flex-wrap gap-2">
                   {project.skills.map((skill: string, index) => (
                     <li

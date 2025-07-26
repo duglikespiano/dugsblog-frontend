@@ -455,3 +455,61 @@ export const componentTitles = {
     ja: "ゲストブック",
   },
 };
+
+export const contactForm = {
+  name: {
+    en: "Name",
+    ko: "이름",
+    ja: "お名前",
+  },
+  namePlaceholder: {
+    en: "Your name",
+    ko: "이름을 입력해주세요",
+    ja: "お名前を入力してください",
+  },
+  nameError: {
+    en: "Please enter your name",
+    ko: "이름이 필요합니다",
+    ja: "お名前が必要です",
+  },
+  email: {
+    en: "Email",
+    ko: "이메일",
+    ja: "メール",
+  },
+  emailPlaceholder: {
+    en: "Your email",
+    ko: "이메일을 입력해주세요",
+    ja: "メールを入力してください",
+  },
+  emailInvalidError: {
+    en: "Please enter a valid email",
+    ko: "유효한 이메일을 입력해주세요",
+    ja: "有効なメールが必要です",
+  },
+  emailEmptyError: {
+    en: "Please enter your email",
+    ko: "이메일을 입력해주세요",
+    ja: "メールが必要です",
+  },
+  message: {
+    en: "Message",
+    ko: "메세지",
+    ja: "メッセージ",
+  },
+  messagePlaceholder: {
+    en: "Your message",
+    ko: "메세지를 입력해주세요",
+    ja: "メッセージを入力してください",
+  },
+  messageError: {
+    en: "Please enter your message",
+    ko: "메세지를 입력해주세요",
+    ja: "メッセージが必要です",
+  },
+  submit: {
+    en: "Submit",
+    ko: "제출",
+    ja: "提出",
+  },
+};
