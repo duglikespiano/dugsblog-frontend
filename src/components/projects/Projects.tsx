@@ -29,7 +29,7 @@ export default function Projects({ language }: ProjectProps) {
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.deploymentURL}
                     >
-                      {projects.click[language]}
+                      {projects.repository[language]}
                     </a>
                   ) : (
                     "-"
@@ -42,7 +42,7 @@ export default function Projects({ language }: ProjectProps) {
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.frontendRepositoryURL}
                     >
-                      {projects.click[language]}
+                      {projects.repository[language]}
                     </a>
                   ) : (
                     "-"
@@ -55,7 +55,7 @@ export default function Projects({ language }: ProjectProps) {
                       className="bg-green2 rounded-sm border-1 p-0.5 text-xs text-gray-300"
                       href={project.backendRepositoryURL}
                     >
-                      {projects.click[language]}
+                      {projects.repository[language]}
                     </a>
                   ) : (
                     "-"

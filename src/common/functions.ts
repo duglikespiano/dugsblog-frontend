@@ -1,13 +1,14 @@
-import { fileURLToPath } from "node:url";
 import { pageTitles } from "./htmlElements";
-import type { Languages, Pages } from "./types";
-import path from "node:path";
+import type { Languages } from "./types";
 
-export function printFileURL(url: string) {
-  const __filename = fileURLToPath(url);
-  const fullFilePath = path.dirname(__filename);
-  const folderName = fullFilePath.split("[language]/")[1];
-  return folderName;
+export function printFilename(url: string, withExtension: boolean = false) {
+  const fileNameWithExtension = url.split("/")[url.split("/").length - 1];
+  const fileNameWithoutExtension = fileNameWithExtension.split(".")[0];
+  if (withExtension) {
+    return fileNameWithExtension;
+  } else {
+    return fileNameWithoutExtension;
+  }
 }
 
 export function printHTMLDocumentLanguage(language: string) {

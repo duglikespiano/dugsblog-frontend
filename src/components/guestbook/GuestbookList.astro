@@ -1,4 +1,6 @@
 ---
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 import { Icon } from "astro-icon/components";
 import { guestbookMessagesStore } from "../../common/stores";
 ---

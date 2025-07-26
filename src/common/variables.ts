@@ -53,8 +53,7 @@ export const allOfMyProjects = [
       ja: "HTMLに対してのアイデアを記録するプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-notepad-html",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-notepad-html",
     backendRepositoryURL: "",
     period: ["2025-02-18", ""],
     skills: ["HTML/CSS", "Javascript"],
@@ -82,8 +81,7 @@ export const allOfMyProjects = [
       ja: "Typescriptのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-typescript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-typescript",
     backendRepositoryURL: "",
     period: ["2025-02-07", ""],
     skills: ["Typescript"],
@@ -97,8 +95,7 @@ export const allOfMyProjects = [
       ja: "Astroのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-astro-coding-in-public",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-astro-coding-in-public",
     backendRepositoryURL: "",
     period: ["2025-01-23", "2025-02-03"],
     skills: ["Astro"],
@@ -112,8 +109,7 @@ export const allOfMyProjects = [
       ja: "Astro SSRのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-astro-ssr-by-traversymedia",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-astro-ssr-by-traversymedia",
     backendRepositoryURL: "",
     period: ["2025-01-16", "2025-01-23"],
     skills: ["Astro"],
@@ -127,8 +123,7 @@ export const allOfMyProjects = [
       ja: "Astroのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-astro-by-jamesqquick",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-astro-by-jamesqquick",
     backendRepositoryURL: "",
     period: ["2025-01-14", "2025-01-24"],
     skills: ["Astro"],
@@ -142,8 +137,7 @@ export const allOfMyProjects = [
       ja: "Astroのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-astro-by-traversymedia",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-astro-by-traversymedia",
     backendRepositoryURL: "",
     period: ["2025-01-12", "2025-01-13"],
     skills: ["Astro"],
@@ -157,8 +151,7 @@ export const allOfMyProjects = [
       ja: "ポケモンがテマのHTMLゲームを制作するプロジェクト",
     },
     deploymentURL: "https://dugsnotes-pokemon-memory-game.netlify.app",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-pokemon-memory-game",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-pokemon-memory-game",
     backendRepositoryURL: "",
     period: ["2025-01-02", "2025-01-03"],
     skills: ["HTML/CSS", "Javascript"],
@@ -172,8 +165,7 @@ export const allOfMyProjects = [
       ja: "Googlemaps API操作を練習するプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-googlemaps",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-googlemaps",
     backendRepositoryURL: "",
     period: ["2024-10-30", "2025-01-05"],
     skills: ["HTML/CSS", "Javascript", "Googlemaps API"],
@@ -187,8 +179,7 @@ export const allOfMyProjects = [
       ja: "効率的なReactページ作成を連取するプロジェクタ",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/reactjs-best-practice",
+    frontendRepositoryURL: "https://github.com/duglikespiano/reactjs-best-practice",
     backendRepositoryURL: "",
     period: ["2024-09-15", ""],
     skills: ["HTML/CSS", "Typescript", "React"],
@@ -202,8 +193,7 @@ export const allOfMyProjects = [
       ja: "25個のReactページを制作するプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/25projectswithreact",
+    frontendRepositoryURL: "https://github.com/duglikespiano/25projectswithreact",
     backendRepositoryURL: "",
     period: ["2024-07-16", ""],
     skills: ["HTML/CSS", "Typescript", "React", "Sass"],
@@ -231,8 +221,7 @@ export const allOfMyProjects = [
       ja: "three.jsのコンセプトを習うプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-three.js",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-three.js",
     backendRepositoryURL: "",
     period: ["2024-06-04", ""],
     skills: ["HTML/CSS", "Javascript", "Three.js"],
@@ -260,8 +249,7 @@ export const allOfMyProjects = [
       ja: "10個の反応形ウェブサイトを制作するプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/10responsivewebsites-html-css-javascript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/10responsivewebsites-html-css-javascript",
     backendRepositoryURL: "",
     period: ["2024-05-05", "2024-06-06"],
     skills: ["HTML/CSS", "Javascript"],
@@ -303,8 +291,7 @@ export const allOfMyProjects = [
       ja: "150個のHTMLアニメーションを制作するプロジェクト",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/150animationprojects-html-css-javascript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/150animationprojects-html-css-javascript",
     backendRepositoryURL: "",
     period: ["2024-02-12", "2024-07-06"],
     skills: ["HTML/CSS", "Javascript"],
@@ -346,8 +333,7 @@ export const allOfMyProjects = [
       ja: "HTML、CSS、Javascriptを通じた60日間のCoding challenge",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/60projectsin60days-html-css-javascript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/60projectsin60days-html-css-javascript",
     backendRepositoryURL: "",
     period: ["2023-12-09", "2024-02-06"],
     skills: ["HTML/CSS", "Javascript"],
@@ -375,8 +361,7 @@ export const allOfMyProjects = [
       ja: "HTML、CSS、Javascriptを通じた50日間のCoding challenge",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/50projectsin50days-html-css-javascript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/50projectsin50days-html-css-javascript",
     backendRepositoryURL: "",
     period: ["2023-10-31", "2023-12-08"],
     skills: ["HTML/CSS", "Javascript"],
@@ -390,8 +375,7 @@ export const allOfMyProjects = [
       ja: "Dugの作品紹介の為のウェブサイト",
     },
     deploymentURL: "https://dugsworks.netlify.app",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsworks-frontend",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsworks-frontend",
     backendRepositoryURL: "https://github.com/duglikespiano/dugsworks-backend",
     period: ["2023-09-30", ""],
     skills: [
@@ -419,10 +403,8 @@ export const allOfMyProjects = [
       ja: "Javascriptを通じたアルゴリズム及び資料構造関連知識習得",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-algorithms-datastructures-javascript",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/dugsnotes-algorithms-datastructures-javascript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-algorithms-datastructures-javascript",
+    backendRepositoryURL: "https://github.com/duglikespiano/dugsnotes-algorithms-datastructures-javascript",
     period: ["2023-09-12", "2023-09-15"],
     skills: ["Javascript"],
   },
@@ -435,10 +417,8 @@ export const allOfMyProjects = [
       ja: "Vitest(Typescript, Javascript)を通じたtest codeの作成練習",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/dugesnotes-unittesting-typescript",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/dugesnotes-unittesting-typescript",
+    frontendRepositoryURL: "https://github.com/duglikespiano/dugesnotes-unittesting-typescript",
+    backendRepositoryURL: "https://github.com/duglikespiano/dugesnotes-unittesting-typescript",
     period: ["2023-08-26", "2023-09-15"],
     skills: ["Typescript", "Javascript", "Vitest"],
   },
@@ -451,10 +431,8 @@ export const allOfMyProjects = [
       ja: "Pythonを通じた100日間のCoding challenge",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/100daysofcode-python",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/100daysofcode-python",
+    frontendRepositoryURL: "https://github.com/duglikespiano/100daysofcode-python",
+    backendRepositoryURL: "https://github.com/duglikespiano/100daysofcode-python",
     period: ["2023-08-25", "2023-11-03"],
     skills: ["Python"],
   },
@@ -467,10 +445,8 @@ export const allOfMyProjects = [
       ja: "大きなプラットフォームのSocial login APIのhandlingを練習",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/sociallogincollector-frontend",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/sociallogincollector-backend",
+    frontendRepositoryURL: "https://github.com/duglikespiano/sociallogincollector-frontend",
+    backendRepositoryURL: "https://github.com/duglikespiano/sociallogincollector-backend",
     period: ["2023-06-09", "2023-06-23"],
     skills: ["HTML/CSS", "Typescript", "React", "Node.js", "Express"],
   },
@@ -483,10 +459,8 @@ export const allOfMyProjects = [
       ja: "友達を使用する為のSocket.ioを活用したチャットサイト",
     },
     deploymentURL: "https://chatwithdug.netlify.app",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/chatwithdug-frontend",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/chatwithdug-backend",
+    frontendRepositoryURL: "https://github.com/duglikespiano/chatwithdug-frontend",
+    backendRepositoryURL: "https://github.com/duglikespiano/chatwithdug-backend",
     period: ["2023-03-01", "2023-04-27"],
     skills: [
       "HTML/CSS",
@@ -512,10 +486,8 @@ export const allOfMyProjects = [
       ja: "Vueを使用してDOMのDrag&Dropを具現したコンポーネント",
     },
     deploymentURL: "",
-    frontendRepositoryURL:
-      "https://github.com/duglikespiano/draganddrop-frontend",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/draganddrop-backend",
+    frontendRepositoryURL: "https://github.com/duglikespiano/draganddrop-frontend",
+    backendRepositoryURL: "https://github.com/duglikespiano/draganddrop-backend",
     period: ["2023-02-20", "2023-03-03"],
     skills: ["HTML/CSS", "Javascript", "Vue", "Node.js", "Express", "MySQL"],
   },
@@ -543,8 +515,7 @@ export const allOfMyProjects = [
     },
     deploymentURL: "",
     frontendRepositoryURL: "",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/justcode-7-2nd-jegabox-back",
+    backendRepositoryURL: "https://github.com/duglikespiano/justcode-7-2nd-jegabox-back",
     period: ["2022.11.14", "2022.11.25"],
     skills: ["Node.js", "Javascript", "Express", "MySQL", "TeamProject"],
   },
@@ -558,27 +529,11 @@ export const allOfMyProjects = [
     },
     deploymentURL: "",
     frontendRepositoryURL: "",
-    backendRepositoryURL:
-      "https://github.com/duglikespiano/justcode-7-1st-photofolio-renewal-back",
+    backendRepositoryURL: "https://github.com/duglikespiano/justcode-7-1st-photofolio-renewal-back",
     period: ["2022-10-31", "2022-11-11"],
     skills: ["Node.js", "Javascript", "Express", "MySQL", "TeamProject"],
   },
 ];
-
-export type ProjectObjectType = {
-  id: number;
-  title: string;
-  descriptions: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-  deploymentURL: string;
-  frontendRepositoryURL: string;
-  backendRepositoryURL: string;
-  period: string[];
-  skills: string[];
-};
 
 import turtle from "../assets/turtle.jpg";
 import goldenGateBridge from "../assets/golden-gate-bridge.jpg";
@@ -589,11 +544,7 @@ export const characteristics = [
     name: "Turtle",
     isRtl: false,
     title: "I am a turtle",
-    descriptions: [
-      "Although I am not fast like a rabbit.",
-      "Nobody can stop me.",
-      "I will achieve a goal eventually.",
-    ],
+    descriptions: ["Although I am not fast like a rabbit.", "Nobody can stop me.", "I will achieve a goal eventually."],
     imageSrc: turtle,
     imageAlt: "turtle",
   },

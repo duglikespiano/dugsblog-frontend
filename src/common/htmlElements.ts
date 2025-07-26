@@ -34,8 +34,8 @@ export const pageTitles = {
 export const menus = {
   main: {
     en: "Main",
-    ko: "메인페이지",
-    ja: "メインページ",
+    ko: "메인",
+    ja: "メイン",
     href: "/",
   },
   about: {
@@ -70,11 +70,11 @@ export const menus = {
   },
 };
 
-export const skillSet = {
+export const skills = {
   title: {
-    en: ["Skill set"],
-    ko: ["활용가능 기술"],
-    ja: ["活用可能技術"],
+    en: ["Skills"],
+    ko: ["스킬"],
+    ja: ["スキル"],
   },
   data: {
     frontend: {
@@ -401,10 +401,10 @@ export const projects = {
     ko: "프로젝트",
     ja: "プロジェクト",
   },
-  click: {
-    en: "Click to move to the repository",
-    ko: "클릭하여 저장소로 이동",
-    ja: "クリックしてリポジトリに移動",
+  repository: {
+    en: "Click here",
+    ko: "저장소로 이동",
+    ja: "コード確認",
   },
   deployment: {
     en: "Deployment URL :\u00A0",
@@ -425,5 +425,33 @@ export const projects = {
     en: "Related Skills",
     ko: "관련 스킬",
     ja: "関連スキル",
+  },
+};
+
+export const componentTitles = {
+  skills: {
+    en: "Skills",
+    ko: "스킬",
+    ja: "スキル",
+  },
+  educationAndCareer: {
+    en: "Education & Career",
+    ko: "교육 & 이력",
+    ja: "教育＆履歴",
+  },
+  skillsFilter: {
+    en: "Skills filter",
+    ko: "기술 필터",
+    ja: "スキル絞り込み",
+  },
+  contact: {
+    en: "Contact",
+    ko: "문의처",
+    ja: "問い合わせ",
+  },
+  guestbook: {
+    en: "Guestbook",
+    ko: "방명록",
+    ja: "ゲストブック",
   },
 };

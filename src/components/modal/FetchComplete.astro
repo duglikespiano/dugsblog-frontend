@@ -1,6 +1,8 @@
 ---
 import Modal from "../../layouts/Modal.astro";
 import { Icon } from "astro-icon/components";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 ---
 
 <Modal modalName="contact-complete">

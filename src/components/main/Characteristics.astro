@@ -1,6 +1,8 @@
 ---
 import { Image } from "astro:assets";
 import { characteristics } from "../../common/variables";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 ---
 
 <section id="characteristics">
@@ -13,12 +15,8 @@ import { characteristics } from "../../common/variables";
         >
           <Image src={characteristic.imageSrc} alt={characteristic.imageAlt} />
           <div class:list={[{ "text-right": characteristic.isRtl }]}>
-            <p class="text-hotpink mt-2 text-3xl font-bold md:mt-0 md:text-4xl lg:text-6xl">
-              {characteristic.name}
-            </p>
-            <p class="text-yellow1 text-2xl md:mt-3 md:text-3xl lg:text-4xl">
-              {characteristic.title}
-            </p>
+            <p class="text-hotpink mt-2 text-3xl font-bold md:mt-0 md:text-4xl lg:text-6xl">{characteristic.name}</p>
+            <p class="text-yellow1 text-2xl md:mt-3 md:text-3xl lg:text-4xl">{characteristic.title}</p>
             <div
               class="text-xl font-light md:mt-2 md:text-2xl lg:text-2xl"
               class:list={[{ "[direction:ltr]": characteristic.isRtl }]}

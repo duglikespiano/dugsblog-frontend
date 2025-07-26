@@ -1,12 +1,15 @@
 ---
-
+import { componentTitles } from "../../common/htmlElements";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
+const componentTitle = componentTitles["contact"][language];
 ---
 
 <div
   id="guestbook-form"
   class="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
 >
-  <div class="text-rosewater mb-5 text-4xl font-bold">Guestbook</div>
+  <div class="text-rosewater mb-5 text-4xl font-bold">{componentTitle}</div>
   <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-guestbook-form>
     <fieldset class="flex flex-col gap-2 md:gap-4">
       <div class="grid grid-cols-2 gap-2">

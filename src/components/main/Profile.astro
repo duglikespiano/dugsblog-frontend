@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import profileImage from "../../assets/profile.png";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
 ---
 
 <section
