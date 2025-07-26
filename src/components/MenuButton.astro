@@ -1,23 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../common/types";
-const { language } = Astro.props as { language: Languages };
+import { printPageUrl } from "../common/functions";
 
-const obj: Record<Languages, { url: string; title: string }> = {
-  ko: { url: "/ko", title: "한글" },
-  en: { url: "/en", title: "Eng" },
-  ja: { url: "/ja", title: "日本語" },
-};
-
-const navLanguages: Partial<typeof obj> = {};
-
-(Object.keys(obj) as Languages[]).forEach((key) => {
-  if (key !== language) {
-    navLanguages[key] = obj[key];
-  }
-});
-
-const languageArray = Object.values(navLanguages);
+const languageArray = printPageUrl(Astro.url.pathname);
 ---
 
 <div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]" data-menu-button>
@@ -51,7 +37,7 @@ const languageArray = Object.values(navLanguages);
           <p
             class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            <a class="flex h-full w-full items-center justify-center" href={languageArray[0]["url"]}>
+            <a class="flex h-full w-full items-center justify-center" href={languageArray[0]["pageUrl"]}>
               {languageArray[0]["title"]}
             </a>
           </p>
@@ -64,7 +50,7 @@ const languageArray = Object.values(navLanguages);
           <p
             class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
           >
-            <a class="flex h-full w-full items-center justify-center" href={languageArray[1]["url"]}>
+            <a class="flex h-full w-full items-center justify-center" href={languageArray[1]["pageUrl"]}>
               {languageArray[1]["title"]}
             </a>
           </p>
@@ -102,6 +88,7 @@ const languageArray = Object.values(navLanguages);
   import { ScrollTrigger } from "gsap/ScrollTrigger";
   import { ScrollToPlugin } from "gsap/ScrollToPlugin";
   import { SplitText } from "gsap/SplitText";
+
   gsap.registerPlugin(ScrollTrigger, ScrollToPlugin, SplitText);
 
   let isMenuButtonOpen = false;
