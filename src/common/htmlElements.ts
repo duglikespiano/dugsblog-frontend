@@ -33,7 +33,7 @@ export const pageTitles = {
 
 export const menus = {
   main: {
-    en: "Mainpage",
+    en: "Main",
     ko: "메인페이지",
     ja: "メインページ",
     href: "/",

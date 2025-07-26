@@ -5,8 +5,7 @@ import NavModal from "../components/modal/Nav.astro";
 import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
 import FetchCompleteModal from "../components/modal/FetchComplete.astro";
 import MenuButton from "../components/MenuButton.astro";
-import type { Languages } from "../common/types";
-const { language } = Astro.props as { language: Languages };
+const { language } = Astro.props;
 ---
 
 <section
@@ -14,7 +13,7 @@ const { language } = Astro.props as { language: Languages };
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000`
 >
   <Header language={language} />
-  <section id="slot-wrapper" class="py-20 opacity-0 delay-300 duration-1000 md:px-5 md:py-14" data-reveal-on-load>
+  <section id="slot-wrapper" class="py-20 opacity-0 delay-300 duration-1000 md:py-14" data-reveal-on-load>
     <slot />
   </section>
   <Footer language={language} />

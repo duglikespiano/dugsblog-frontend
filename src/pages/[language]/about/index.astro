@@ -9,6 +9,8 @@ const title = printPageTitle(Astro.url.pathname, language);
 ---
 
 <RootLayout title={title} language={language}>
-  <Skills language={language} />
-  <EducationAndCareer language={language} />
+  <div class="px-2 lg:px-20">
+    <Skills language={language} />
+    <EducationAndCareer language={language} />
+  </div>
 </RootLayout>

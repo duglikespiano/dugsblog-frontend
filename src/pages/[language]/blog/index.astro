@@ -31,15 +31,17 @@ const title = printPageTitle(Astro.url.pathname, language);
 ---
 
 <RootLayout title={title}>
-  <ul>
-    {
-      allBlogPosts.map((post) => (
-        <li>
-          <a href={`/en/blog/${post.data.slug}`}>
-            <div>{post.data.title}</div>
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+  <div class="mx-auto max-w-4xl px-2">
+    <ul>
+      {
+        allBlogPosts.map((post) => (
+          <li>
+            <a href={`/en/blog/${post.data.slug}`}>
+              <div>{post.data.title}</div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </RootLayout>

@@ -10,25 +10,17 @@ type ProjectProps = {
 export default function Projects({ language }: ProjectProps) {
   const filteredProjects = useStore(projectsStore);
   const selectedSkills = useStore(skillsStore);
-  const selectedSkillsArray = selectedSkills
-    .filter((skill) => skill.isSelected)
-    .map((skill) => skill.name);
+  const selectedSkillsArray = selectedSkills.filter((skill) => skill.isSelected).map((skill) => skill.name);
 
   return (
-    <section id="projects" className="px-5 pt-15 lg:px-20">
-      <h3 className="text-rosewater text-5xl font-bold">
-        {projects.title[language]}
-      </h3>
+    <section id="projects" className="pt-15 lg:px-20">
+      <h3 className="text-rosewater text-4xl font-bold">{projects.title[language]}</h3>
       <ul className="mt-5 flex flex-col gap-5 lg:gap-10">
         {filteredProjects.map((project) => (
           <li className="rounded-4xl border-4 p-4 lg:p-8" key={project.id}>
-            <p className="text-gray1 mb-3 text-2xl font-bold md:text-4xl">
-              {project.title}
-            </p>
+            <p className="text-gray1 mb-3 text-2xl font-bold md:text-4xl">{project.title}</p>
             <div className="lg:px-6">
-              <p className="mb-3 text-xl text-gray-400 lg:text-3xl">
-                {project.descriptions[language]}
-              </p>
+              <p className="mb-3 text-xl text-gray-400 lg:text-3xl">{project.descriptions[language]}</p>
               <div className="mb-3 flex flex-col text-gray-500">
                 <div className="flex items-center text-base lg:text-lg">
                   <span>{projects.deployment[language]}</span>
@@ -71,16 +63,12 @@ export default function Projects({ language }: ProjectProps) {
                 </div>
               </div>
               <div>
-                <p className="mb-1 text-xl font-bold text-gray-300 lg:text-2xl">
-                  {projects.skills[language]}
-                </p>
+                <p className="mb-1 text-xl font-bold text-gray-300 lg:text-2xl">{projects.skills[language]}</p>
                 <ul className="flex flex-wrap gap-2">
                   {project.skills.map((skill: string, index) => (
                     <li
                       className={`rounded-xl border-3 p-1 text-sm font-bold lg:text-xl ${
-                        selectedSkillsArray.includes(skill)
-                          ? "bg-purple4"
-                          : "bg-green2"
+                        selectedSkillsArray.includes(skill) ? "bg-purple4" : "bg-green2"
                       }`}
                       key={index}
                     >

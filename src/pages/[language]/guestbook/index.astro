@@ -9,7 +9,7 @@ const title = printPageTitle(Astro.url.pathname, language);
 ---
 
 <RootLayout title={title}>
-  <div class="mx-auto max-w-4xl">
+  <div class="mx-auto max-w-4xl px-2">
     <GuestbookForm language={language} />
     <GuestbookList language={language} />
   </div>

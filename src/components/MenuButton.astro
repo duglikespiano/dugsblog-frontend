@@ -5,7 +5,7 @@ import { printPageUrlInMenuButton } from "../common/functions";
 const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
 ---
 
-<div class="fixed right-[50px] bottom-[50px] h-[75px] w-[75px]">
+<div class="fixed right-[10px] bottom-[10px] h-[75px] w-[75px] md:right-[20px] md:bottom-[20px]">
   <div class="relative h-full w-full">
     <button
       class="hover:text-green1 bg-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white p-2 duration-200 hover:bg-white"
