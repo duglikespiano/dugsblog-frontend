@@ -11,7 +11,9 @@ const { language } = Astro.props as { language: Languages };
     <ul class="flex flex-col gap-4">
       {
         (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
-          <li class="text-rosewater text-3xl font-bold">
+          <li
+            class={`text-3xl font-bold ${Astro.url.pathname.split("/")[2] === item ? "text-white" : "text-rosewater"}`}
+          >
             <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
               {menus[item][language]}
             </a>
