@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@300;400;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 @import "tailwindcss";
 @import "tailwindcss/preflight.css" layer(base);
 @plugin '@tailwindcss/typography';
@@ -26,6 +26,6 @@
   --color-gray5: #808080;
   --font-en: "Atkinson Hyperlegible", serif;
   --font-ko: "42dot Sans", serif;
-  --font-ja: "Zen Kaku Gothic New", serif;
+  --font-ja: "Noto Sans JP", sans-serif;
   --breakpoint-xs: 23rem;
 }
