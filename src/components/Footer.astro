@@ -5,19 +5,21 @@ const { language } = Astro.props as { language: Languages };
 ---
 
 <footer class="flex items-center justify-center">
-  <ul class="text-rosewater flex gap-3 text-base font-bold md:gap-4">
+  <ul class="text-rosewater flex gap-3 text-xs font-bold">
     {
-      (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
-        <li
-          class={`transition-text md:hover:text-gray3 duration-200 ${Astro.url.pathname.split("/")[2] === item ? "text-white" : "text-rosewater"}`}
-        >
-          <h2>
-            <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
-              {menus[item][language]}
-            </a>
-          </h2>
-        </li>
-      ))
+      (Object.keys(menus) as (keyof typeof menus)[])
+        .filter((item) => menus[item][language] !== menus["main"][language])
+        .map((item) => (
+          <li
+            class={`transition-text md:hover:text-gray3 duration-200 ${Astro.url.pathname.split("/")[2] === item ? "text-white" : "text-rosewater"}`}
+          >
+            <h2>
+              <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
+                {menus[item][language]}
+              </a>
+            </h2>
+          </li>
+        ))
     }
   </ul>
 </footer>

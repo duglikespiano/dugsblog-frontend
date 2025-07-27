@@ -9,14 +9,14 @@ const componentTitle = componentTitles["guestbook"][language];
   id="guestbook-form"
   class="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
 >
-  <div class="text-rosewater mb-5 text-4xl font-bold">{componentTitle}</div>
+  <h2 class="text-rosewater mb-5 text-2xl font-bold">{componentTitle}</h2>
   <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-guestbook-form>
     <fieldset class="flex flex-col gap-2 md:gap-4">
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl">{guestbook["name"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-gray-300">{guestbook["name"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
+          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
           type="text"
           id="name"
           name="name"
@@ -24,17 +24,19 @@ const componentTitle = componentTitles["guestbook"][language];
           placeholder={guestbook["namePlaceholder"][language]}
           autocomplete="off"
         />
-        <p data-error-name class="mt-1 hidden pl-1 leading-none text-red-500">{guestbook["nameError"][language]}</p>
+        <p data-error-name class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
+          {guestbook["nameError"][language]}
+        </p>
       </div>
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl"
-          >{guestbook["password"][language]}<span class="ml-2 text-xs text-rose-300 sm:text-sm"
+        <label class="mt-2 text-xl font-bold text-gray-300"
+          >{guestbook["password"][language]}<span class="ml-2 text-[12px] text-rose-300"
             >*{guestbook["passwordDescription"][language]}</span
           >
         </label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
+          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
           type="password"
           id="password"
           name="password"
@@ -42,21 +44,21 @@ const componentTitle = componentTitles["guestbook"][language];
           placeholder={guestbook["passwordPlaceholder"][language]}
           autocomplete="off"
         />
-        <p data-error-password class="mt-1 hidden pl-1 leading-none text-red-500">
+        <p data-error-password class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
           {guestbook["passwordError"][language]}
         </p>
       </div>
 
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl">{guestbook["message"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-gray-300">{guestbook["message"][language]}</label>
         <textarea
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:font-bold placeholder:opacity-50 sm:p-4"
+          class="contact-input placeholder-green1 mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:p-4"
           id="message"
           name="message"
           maxlength="3000"
           placeholder={guestbook["messagePlaceholder"][language]}></textarea>
-        <p data-error-message class="mt-1 hidden pl-1 leading-none text-red-500">
+        <p data-error-message class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
           {guestbook["messageError"][language]}
         </p>
       </div>

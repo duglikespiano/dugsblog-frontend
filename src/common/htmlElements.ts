@@ -32,6 +32,12 @@ export const pageTitles = {
 };
 
 export const menus = {
+  main: {
+    en: "Main",
+    ko: "메인",
+    ja: "メイン",
+    href: "/",
+  },
   about: {
     en: "About",
     ko: "소개",

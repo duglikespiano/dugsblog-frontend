@@ -6,7 +6,7 @@ const componentTitle = componentTitles["educationAndCareer"][language];
 ---
 
 <section id="educationandcareer" class="pt-15">
-  <h2 class="text-rosewater text-4xl font-bold">
+  <h2 class="text-rosewater text-2xl font-bold">
     {componentTitle}
   </h2>
 
@@ -18,11 +18,11 @@ const componentTitle = componentTitles["educationAndCareer"][language];
             .filter((item) => item.language === language)
             .map((smallItem) => (
               <div>
-                <p class="text-3xl font-bold sm:text-4xl">{smallItem.name}</p>
+                <p class="text-xl font-bold">{smallItem.name}</p>
                 <div class="mx-4 mt-3">
-                  <p class="text-2xl font-bold text-gray-200 opacity-80 sm:text-3xl">{smallItem.department}</p>
-                  <p class="text-lg text-gray-400 opacity-80 sm:text-xl">{smallItem.date}</p>
-                  <ul class="mt-5 text-lg text-gray-300 sm:text-xl">
+                  <p class="text-lg font-bold text-gray-200 opacity-80">{smallItem.department}</p>
+                  <p class="text-sm text-gray-400 opacity-80">{smallItem.date}</p>
+                  <ul class="mt-2 text-base leading-5 text-gray-300">
                     {smallItem.duty.map((item) => (
                       <li>{item}</li>
                     ))}

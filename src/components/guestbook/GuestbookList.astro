@@ -1,6 +1,4 @@
 ---
-import type { Languages } from "../../common/types";
-const { language } = Astro.props as { language: Languages };
 import { Icon } from "astro-icon/components";
 import { guestbookMessagesStore } from "../../common/stores";
 ---
@@ -12,10 +10,10 @@ import { guestbookMessagesStore } from "../../common/stores";
         <li class="rounded-4xl border-4 p-6" data-messages-index={i}>
           <div class="relative flex flex-col gap-4">
             <div class="flex items-center gap-2">
-              <p class="text-3xl font-bold">{data.name}</p>
-              <p class="text-1xl text-gray5 font-bold">{data.date}</p>
+              <p class="text-xl font-bold">{data.name}</p>
+              <p class="text-gray5 text-xs font-bold">{data.date}</p>
             </div>
-            <p class="text-rosewater text-3xl break-all">{data.message}</p>
+            <p class="text-rosewater text-lg break-all">{data.message}</p>
             <Icon
               name="cil:trash"
               class="absolute top-0 right-0 h-6 w-6 cursor-pointer"

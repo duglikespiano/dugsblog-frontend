@@ -6,14 +6,14 @@ const componentTitle = componentTitles["contact"][language];
 ---
 
 <div id="contact-form" class="mx-auto max-w-2xl">
-  <div class="text-rosewater mb-5 text-4xl font-bold">{componentTitle}</div>
+  <div class="text-rosewater mb-5 text-2xl font-bold">{componentTitle}</div>
   <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-contact-form>
     <fieldset class="flex flex-col gap-2 md:gap-4">
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl">{contactForm["name"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["name"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           type="text"
           id="name"
           name="name"
@@ -21,13 +21,15 @@ const componentTitle = componentTitles["contact"][language];
           placeholder={contactForm["namePlaceholder"][language]}
           autocomplete="off"
         />
-        <p data-error-name class="mt-1 hidden pl-1 leading-none text-red-500">{contactForm["nameError"][language]}</p>
+        <p data-error-name class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
+          {contactForm["nameError"][language]}
+        </p>
       </div>
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl">{contactForm["email"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["email"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           type="email"
           id="email"
           name="email"
@@ -35,23 +37,23 @@ const componentTitle = componentTitles["contact"][language];
           placeholder={contactForm["emailPlaceholder"][language]}
           autocomplete="off"
         />
-        <p data-error-email data-error-email-regex class="mt-1 hidden pl-1 leading-none text-red-500">
+        <p data-error-email data-error-email-regex class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
           {contactForm["emailInvalidError"][language]}
         </p>
-        <p data-error-email class="mt-1 hidden pl-1 leading-none text-red-500">
+        <p data-error-email class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
           {contactForm["emailEmptyError"][language]}
         </p>
       </div>
       <div class="flex flex-col">
-        <label class="text-rosewater mt-2 text-3xl font-bold sm:text-3xl">{contactForm["message"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["message"][language]}</label>
         <textarea
           data-input-element
-          class="contact-input placeholder-green1 placeholder:text-1xl mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:font-bold placeholder:opacity-50"
+          class="contact-input placeholder-green1 mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           id="message"
           name="message"
           maxlength="3000"
           placeholder={contactForm["messagePlaceholder"][language]}></textarea>
-        <p data-error-message class="mt-1 hidden pl-1 leading-none text-red-500">
+        <p data-error-message class="mt-1 hidden pl-1 text-sm leading-none text-red-500">
           {contactForm["messageError"][language]}
         </p>
       </div>
