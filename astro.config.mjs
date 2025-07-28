@@ -17,7 +17,7 @@ export default defineConfig({
         ph: ["github-logo-light", "instagram-logo-light"],
         zondicons: ["hour-glass"],
         humbleicons: ["check", "exclamation"],
-        cil: ["arrow-top", "sun", "trash"],
+        cil: ["arrow-top", "sun", "moon", "trash"],
       },
     }),
     react(),

@@ -11,7 +11,7 @@ const { language } = Astro.params as { language: Languages };
 ---
 
 <!doctype html>
-<html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize>
+<html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize data-theme="light">
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>

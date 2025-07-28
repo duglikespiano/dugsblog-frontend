@@ -8,7 +8,7 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
 <div class="fixed right-[10px] bottom-[10px] h-[50px] w-[50px] md:right-[20px] md:bottom-[20px]">
   <div class="relative h-full w-full">
     <button
-      class="hover:text-green1 bg-green1 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 border-white p-2 duration-200 hover:bg-white"
+      class="dark:hover:text-green1 bg-rosewater dark:bg-green1 border-green2 dark:border-gray3 hover:text-gray3 hover:bg-green2 dark:hover:bg-gray3 dark:text-gray3 dark:hover:text-2 text-green2 absolute top-[50%] left-[50%] h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer rounded-[50%] border-2 p-2 duration-200"
       role="button"
       tabindex="0"
       aria-label="Toggle menu"
@@ -31,11 +31,11 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
       <div class="relative h-full w-full">
         <button
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
-          data-menu-button-menu
-          data-menu-button-menu1
+          data-menu-button-position="1"
+          data-menu-language-route
         >
           <p
-            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
+            class="dark:hover:text-green1 bg-rosewater dark:bg-green1 border-green2 dark:border-gray3 hover:text-gray3 hover:bg-green2 dark:hover:bg-gray3 text-green2 dark:text-gray3 dark:hover:text-2 flex h-full w-full items-center justify-center rounded-[50%] border-2 text-sm duration-200"
           >
             <a class="flex h-full w-full items-center justify-center" href={languageArray[0]["pageUrl"]}>
               {languageArray[0]["title"]}
@@ -44,11 +44,11 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
         </button>
         <button
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
-          data-menu-button-menu
-          data-menu-button-menu2
+          data-menu-button-position="2"
+          data-menu-language-route
         >
           <p
-            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white text-sm duration-200 hover:bg-white"
+            class="dark:hover:text-green1 bg-rosewater dark:bg-green1 border-green2 dark:border-gray3 hover:text-gray3 hover:bg-green2 dark:hover:bg-gray3 text-green2 dark:text-gray3 dark:hover:text-2 flex h-full w-full items-center justify-center rounded-[50%] border-2 text-sm duration-200"
           >
             <a class="flex h-full w-full items-center justify-center" href={languageArray[1]["pageUrl"]}>
               {languageArray[1]["title"]}
@@ -57,23 +57,23 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
         </button>
         <button
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
-          data-menu-button-menu
-          data-menu-button-menu3
+          data-menu-button-position="3"
+          data-menu-toggle-darkmode
         >
           <p
-            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white p-3 duration-200 hover:bg-white"
+            class="dark:hover:text-green1 bg-rosewater dark:bg-green1 border-green2 dark:border-gray3 hover:text-gray3 hover:bg-green2 dark:hover:bg-gray3 text-green2 dark:text-gray3 dark:hover:text-2 flex h-full w-full items-center justify-center rounded-[50%] border-2 p-3 duration-200"
           >
-            <Icon name="cil:sun" class="h-full w-full" />
+            <Icon name="cil:sun" class="hidden h-full w-full dark:block" />
+            <Icon name="cil:moon" class="h-full w-full dark:hidden" />
           </p>
         </button>
         <button
           class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
-          data-menu-button-menu
-          data-menu-button-menu4
+          data-menu-button-position="4"
           data-menu-to-top
         >
           <p
-            class="hover:text-green1 bg-green1 flex h-full w-full items-center justify-center rounded-[50%] border-2 border-white p-3 duration-200 hover:bg-white"
+            class="dark:hover:text-green1 bg-rosewater dark:bg-green1 dark:text-gray3 dark:hover:text-2 text-green2 border-green2 dark:border-gray3 hover:text-gray3 hover:bg-green2 dark:hover:bg-gray3 flex h-full w-full items-center justify-center rounded-[50%] border-2 p-3 duration-200"
           >
             <Icon name="cil:arrow-top" class="h-full w-full" />
           </p>
@@ -95,7 +95,7 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
 
   const menuButton = document.querySelector("[data-menu-button]") as HTMLElement;
 
-  const menuButtonMenuElements = document.querySelectorAll("[data-menu-button-menu]");
+  const menuButtonMenuElements = document.querySelectorAll("[data-menu-button-position]");
 
   const buttonsPosition = [
     { x: -70, y: 0 },
@@ -108,7 +108,7 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
 
   menuButtonMenuElements.forEach((element, i) => {
     openMenuTimeline.to(
-      `[data-menu-button-menu${i + 1}]`,
+      element,
       {
         x: buttonsPosition[i].x,
         y: buttonsPosition[i].y,
@@ -122,8 +122,21 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
   });
 
   const updateMenuIcons = () => {
-    !isMenuButtonOpen ? openMenuTimeline.restart() : openMenuTimeline.reverse();
-    isMenuButtonOpen = !isMenuButtonOpen;
+    const iconWhenMenuIsOpen = document.querySelector("[data-menu-button-icon='to-open']");
+    const iconWhenMenuIsClose = document.querySelector("[data-menu-button-icon='to-close']");
+    if (!isMenuButtonOpen) {
+      iconWhenMenuIsOpen?.classList.add("hidden");
+      iconWhenMenuIsClose?.classList.remove("hidden");
+      iconWhenMenuIsClose?.classList.add("block");
+      openMenuTimeline.restart();
+      isMenuButtonOpen = true;
+    } else {
+      iconWhenMenuIsClose?.classList.add("hidden");
+      iconWhenMenuIsOpen?.classList.remove("hidden");
+      iconWhenMenuIsOpen?.classList.add("block");
+      openMenuTimeline.reverse();
+      isMenuButtonOpen = false;
+    }
   };
 
   menuButton.addEventListener("click", (event) => {
@@ -149,10 +162,20 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
     const now = Date.now();
     if (now - lastScrollTime >= throttleDelay) {
       if (isMenuButtonOpen) {
-        isMenuButtonOpen = false;
-        openMenuTimeline.reverse();
+        updateMenuIcons();
       }
       lastScrollTime = now;
+    }
+  });
+
+  const toggleThemeButton = document.querySelector("[data-menu-toggle-darkmode]");
+  toggleThemeButton?.addEventListener("click", () => {
+    const htmlElement = document.querySelector("html") as HTMLElement;
+    const htmlTheme = htmlElement.dataset.theme;
+    if (htmlTheme === "light") {
+      htmlElement.setAttribute("data-theme", "dark");
+    } else {
+      htmlElement.setAttribute("data-theme", "light");
     }
   });
 </script>

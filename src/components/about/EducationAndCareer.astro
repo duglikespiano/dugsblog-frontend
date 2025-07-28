@@ -6,23 +6,23 @@ const componentTitle = componentTitles["educationAndCareer"][language];
 ---
 
 <section id="educationandcareer" class="pt-15">
-  <h2 class="text-rosewater text-2xl font-bold">
+  <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">
     {componentTitle}
   </h2>
 
   <ul class="mt-5 flex flex-col gap-10">
     {
       educationAndCareer.data.map((object) => (
-        <li class="after:bg-gray3 relative rounded-4xl border-4 p-4 after:absolute after:-bottom-12 after:left-1/2 after:h-11 after:w-1 after:translate-x-[-50%] after:content-[''] last-of-type:after:content-none sm:p-8">
+        <li class="dark:after:bg-gray3 dark:border-gray3 border-green1 relative rounded-4xl border-4 p-4 after:absolute after:-bottom-12 after:left-1/2 after:h-11 after:w-1 after:translate-x-[-50%] after:bg-slate-700 after:content-[''] last-of-type:after:content-none sm:p-8">
           {object.data
             .filter((item) => item.language === language)
             .map((smallItem) => (
               <div>
-                <p class="text-xl font-bold">{smallItem.name}</p>
+                <p class="dark:text-gray3 text-xl font-bold text-slate-950">{smallItem.name}</p>
                 <div class="mx-4 mt-3">
-                  <p class="text-lg font-bold text-gray-200 opacity-80">{smallItem.department}</p>
-                  <p class="text-sm text-gray-400 opacity-80">{smallItem.date}</p>
-                  <ul class="mt-2 text-base leading-5 text-gray-300">
+                  <p class="text-lg font-bold text-slate-800 opacity-80 dark:text-gray-200">{smallItem.department}</p>
+                  <p class="text-sm text-slate-700 opacity-80 dark:text-gray-400">{smallItem.date}</p>
+                  <ul class="mt-2 text-base leading-5 text-stone-600 dark:text-gray-300">
                     {smallItem.duty.map((item) => (
                       <li>{item}</li>
                     ))}

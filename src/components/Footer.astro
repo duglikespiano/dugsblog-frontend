@@ -11,13 +11,11 @@ const { language } = Astro.props as { language: Languages };
         .filter((item) => menus[item][language] !== menus["main"][language])
         .map((item) => (
           <li
-            class={`transition-text md:hover:text-gray3 duration-200 ${Astro.url.pathname.split("/")[2] === item ? "text-white" : "text-rosewater"}`}
+            class={`transition-text dark:text-rosewater after:bg-green2 dark:after:bg-rosewater text-green2 relative overflow-hidden after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full ${Astro.url.pathname.split("/")[2] === item ? null : "after:-translate-x-full after:duration-200 hover:after:translate-x-0"}`}
           >
-            <h2>
-              <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
-                {menus[item][language]}
-              </a>
-            </h2>
+            <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
+              {menus[item][language]}
+            </a>
           </li>
         ))
     }

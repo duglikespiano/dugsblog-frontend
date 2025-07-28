@@ -7,17 +7,19 @@ const componentTitle = componentTitles["skills"][language];
 
 <section
   id="skills"
-  class="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
+  class="dark:after:bg-gray3 after:bg-green1 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
 >
-  <h2 class="text-rosewater text-2xl font-bold">{componentTitle}</h2>
-  <ul class="mt-5 grid grid-cols-2 justify-center gap-2 rounded-4xl border-4 p-3 sm:gap-5 sm:p-8 lg:grid-cols-4">
+  <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">{componentTitle}</h2>
+  <ul
+    class="dark:border-gray3 border-green1 mt-5 grid grid-cols-2 justify-center gap-2 gap-x-1 rounded-4xl border-4 p-3 sm:gap-5 sm:p-8 lg:grid-cols-4"
+  >
     {
       Object.values(skills.data).map((category) => (
-        <li class="flex flex-col gap-0 sm:gap-3">
-          <p class="text-xl font-bold">{category["name"][language]}</p>
+        <li class="flex flex-col sm:gap-3">
+          <p class="dark:text-gray3 text-green1 text-xl font-bold">{category["name"][language]}</p>
           <ul>
             {category.skills.map((skill) => (
-              <li class="pl-5 text-lg text-gray-400">{skill.name}</li>
+              <li class="pl-5 text-lg text-stone-600 dark:text-gray-400">{skill.name}</li>
             ))}
           </ul>
         </li>

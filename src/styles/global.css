@@ -2,23 +2,38 @@
 @import url("https://fonts.googleapis.com/css2?family=42dot+Sans:wght@300..800&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap");
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @import "tailwindcss/preflight.css" layer(base);
 @plugin '@tailwindcss/typography';
 @theme {
-  --color-green1: #06170b;
-  --color-green2: #3d5b59;
-  --color-green3: #048c70;
-  --color-green4: #b6e2d3;
-  --color-green5: #b4f8c8;
+  --color-green1: #05150a;
+  --color-green2: #053d27; /* Strongest green anchor */
+  --color-green3: #156652; /* Deeper contrast */
+  --color-green4: #3d5b59;
+  --color-green5: #048c70;
+  --color-green6: #3cbfa0; /* Mid-tone jade */
+  --color-green7: #b6e2d3;
+  --color-green8: #a6d2c7; /* Muted teal */
+  --color-green9: #b4f8c8;
+  --color-green10: #eafaf2; /* Background-friendly soft mint */
   --color-rosewater: #d8a7b1;
   --color-pink: #d887c5;
-  --color-purple1: #786287;
-  --color-purple2: #d6acff;
-  --color-purple3: #ab9df2;
-  --color-purple4: #6455ae;
+  --color-purple1: #45394d; /* Text-usable purple */
+  --color-purple2: #8e2a6b; /* Vivid contrast to pastel bg */
+  --color-purple3: #786287;
+  --color-purple4: #6f4ab5; /* Mid-lavender */
+  --color-purple5: #6455ae;
+  --color-purple6: #8673e4; /* Softer purple highlight */
+  --color-purple7: #ab9df2;
+  --color-purple8: #d6acff;
+  --color-purple9: #d5c7f3; /* Pale lavender for UI */
   --color-hotpink: #ef7c8e;
   --color-yellow1: #fbe7c6;
   --color-yellow2: #fdfdb6;
+  --color-yellowbrown: #4e3a06; /* Deep muted yellow tone */
+  --color-yellowgreen: #777700; /* Earthy yellow for contrast */
+  --color-deepred: #5a202a; /* Deeper version for readability */
+  --color-strongred: #a61934; /* Bold hot pink accent */
   --color-gray3: #f8fafc;
   --color-gray1: #f5f5f5;
   --color-gray2: #e4e0e1;

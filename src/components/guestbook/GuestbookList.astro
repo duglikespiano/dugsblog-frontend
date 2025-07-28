@@ -7,16 +7,16 @@ import { guestbookMessagesStore } from "../../common/stores";
   <ul class="flex flex-col gap-y-8 pt-15">
     {
       guestbookMessagesStore.get().map((data, i) => (
-        <li class="rounded-4xl border-4 p-6" data-messages-index={i}>
+        <li class="border-green1 dark:border-gray3 rounded-4xl border-4 p-6" data-messages-index={i}>
           <div class="relative flex flex-col gap-4">
             <div class="flex items-center gap-2">
-              <p class="text-xl font-bold">{data.name}</p>
-              <p class="text-gray5 text-xs font-bold">{data.date}</p>
+              <p class="text-green1 text-xl font-extrabold dark:text-gray-300">{data.name}</p>
+              <p class="text-xs font-bold text-slate-700 opacity-80 dark:text-gray-400">{data.date}</p>
             </div>
-            <p class="text-rosewater text-lg break-all">{data.message}</p>
+            <p class="text-green2 dark:text-rosewater text-lg break-all">{data.message}</p>
             <Icon
               name="cil:trash"
-              class="absolute top-0 right-0 h-6 w-6 cursor-pointer"
+              class="dark:text-gray3 absolute top-0 right-0 h-6 w-6 cursor-pointer text-slate-950"
               data-guestbook-delete-button
               data-messages-delete-index={i}
             />

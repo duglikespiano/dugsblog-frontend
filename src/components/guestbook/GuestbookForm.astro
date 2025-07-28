@@ -7,16 +7,19 @@ const componentTitle = componentTitles["guestbook"][language];
 
 <div
   id="guestbook-form"
-  class="after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
+  class="after:bg-green2 dark:after:bg-gray3 relative pb-15 after:absolute after:bottom-0 after:left-[50%] after:block after:h-0.5 after:w-full after:translate-x-[-50%] after:content-['']"
 >
-  <h2 class="text-rosewater mb-5 text-2xl font-bold">{componentTitle}</h2>
-  <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-guestbook-form>
+  <h2 class="text-green2 dark:text-rosewater mb-5 text-2xl font-extrabold">{componentTitle}</h2>
+  <form
+    class="dark:border-gray3 border-green1 mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5"
+    data-guestbook-form
+  >
     <fieldset class="flex flex-col gap-2 md:gap-4">
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300">{guestbook["name"][language]}</label>
+        <label class="text-green1 mt-2 text-xl font-bold dark:text-gray-300">{guestbook["name"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
+          class="contact-input mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-slate-950 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
           type="text"
           id="name"
           name="name"
@@ -29,14 +32,15 @@ const componentTitle = componentTitles["guestbook"][language];
         </p>
       </div>
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300"
-          >{guestbook["password"][language]}<span class="ml-2 text-[12px] text-rose-300"
+        <label class="text-green1 mt-2 text-xl font-bold dark:text-gray-300"
+          >{guestbook["password"][language]}<span
+            class="ml-2 block text-[12px] text-orange-600 sm:inline dark:text-rose-300"
             >*{guestbook["passwordDescription"][language]}</span
           >
         </label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
+          class="contact-input mt-1 h-12 rounded-md border-4 border-white bg-white pl-2 text-slate-950 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:pr-4 sm:pl-4"
           type="password"
           id="password"
           name="password"
@@ -50,10 +54,10 @@ const componentTitle = componentTitles["guestbook"][language];
       </div>
 
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300">{guestbook["message"][language]}</label>
+        <label class="text-green1 mt-2 text-xl font-bold dark:text-gray-300">{guestbook["message"][language]}</label>
         <textarea
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:p-4"
+          class="contact-input mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-slate-950 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50 sm:p-4"
           id="message"
           name="message"
           maxlength="3000"
@@ -65,7 +69,7 @@ const componentTitle = componentTitles["guestbook"][language];
     </fieldset>
 
     <button
-      class="bg-rosewater mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
+      class="dark:bg-rosewater bg-green2 mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
       type="submit"
       data-guestbook-form-button
     >

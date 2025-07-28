@@ -6,14 +6,14 @@ const componentTitle = componentTitles["contact"][language];
 ---
 
 <div id="contact-form" class="mx-auto max-w-2xl">
-  <div class="text-rosewater mb-5 text-2xl font-bold">{componentTitle}</div>
-  <form class="mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-contact-form>
+  <h2 class="text-green2 dark:text-rosewater mb-5 text-2xl font-extrabold">{componentTitle}</h2>
+  <form class="dark:border-gray3 border-green1 mt-5 flex flex-col flex-wrap rounded-4xl border-4 p-5" data-contact-form>
     <fieldset class="flex flex-col gap-2 md:gap-4">
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["name"][language]}</label>
+        <label class="text-green1 mt-2 text-xl font-bold dark:text-gray-300">{contactForm["name"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
+          class="contact-input border-gray3 bg-gray3 mt-1 h-12 rounded-md border-4 pr-2 pl-2 text-gray-800 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           type="text"
           id="name"
           name="name"
@@ -26,10 +26,10 @@ const componentTitle = componentTitles["contact"][language];
         </p>
       </div>
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["email"][language]}</label>
+        <label class="text-green1 mt-2 text-xl font-bold dark:text-gray-300">{contactForm["email"][language]}</label>
         <input
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-12 rounded-md border-4 border-white bg-white pr-2 pl-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
+          class="contact-input border-gray3 bg-gray3 mt-1 h-12 rounded-md border-4 pr-2 pl-2 text-gray-800 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           type="email"
           id="email"
           name="email"
@@ -45,10 +45,12 @@ const componentTitle = componentTitles["contact"][language];
         </p>
       </div>
       <div class="flex flex-col">
-        <label class="mt-2 text-xl font-bold text-gray-300">{contactForm["message"][language]}</label>
+        <label class="mt-2 text-xl font-bold text-slate-950 dark:text-gray-300"
+          >{contactForm["message"][language]}</label
+        >
         <textarea
           data-input-element
-          class="contact-input placeholder-green1 mt-1 h-40 resize-none rounded-md border-4 border-white bg-white p-2 text-gray-800 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
+          class="contact-input border-gray3 bg-gray3 text-green1 mt-1 h-40 resize-none rounded-md border-4 p-2 placeholder-slate-950 placeholder:text-sm placeholder:font-bold placeholder:opacity-50"
           id="message"
           name="message"
           maxlength="3000"
@@ -60,7 +62,7 @@ const componentTitle = componentTitles["contact"][language];
     </fieldset>
 
     <button
-      class="bg-rosewater mx-auto mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
+      class="dark:bg-rosewater bg-green2 text-gray3 mx-auto mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
       type="submit"
       data-contact-form-button
     >

@@ -1,7 +1,11 @@
 #commit-history .react-activity-calendar__scroll-container {
-	overflow: visible !important;
+  overflow: visible !important;
 }
 
 #commit-history .os-scrollbar.os-scrollbar-horizontal.os-scrollbar-cornerless {
-	bottom: 17.5px !important;
+  bottom: 17.5px !important;
+}
+
+:not([data-theme="dark"]) #commit-history {
+  color: #06170b;
 }
