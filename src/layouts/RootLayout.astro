@@ -11,7 +11,7 @@ const { language } = Astro.params as { language: Languages };
 ---
 
 <!doctype html>
-<html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize data-theme="light">
+<html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize data-theme="dark">
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>
@@ -21,3 +21,12 @@ const { language } = Astro.params as { language: Languages };
     </OuterLayout>
   </body>
 </html>
+
+<script is:inline>
+  const htmlElement = document.querySelector("html");
+  if (localStorage.getItem("dugsblog-theme") === "dark") {
+    htmlElement.setAttribute("data-theme", "dark");
+  } else if (localStorage.getItem("dugsblog-theme") === "light") {
+    htmlElement.setAttribute("data-theme", "light");
+  }
+</script>

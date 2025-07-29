@@ -174,8 +174,10 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
     const htmlTheme = htmlElement.dataset.theme;
     if (htmlTheme === "light") {
       htmlElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("dugsblog-theme", "dark");
     } else {
       htmlElement.setAttribute("data-theme", "light");
+      localStorage.setItem("dugsblog-theme", "light");
     }
   });
 </script>
