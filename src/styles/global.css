@@ -5,6 +5,7 @@
 @custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
 @import "tailwindcss/preflight.css" layer(base);
 @plugin '@tailwindcss/typography';
+@config "../../tailwind.config.js";
 @theme {
   --color-green1: #05150a;
   --color-green2: #053d27; /* Strongest green anchor */

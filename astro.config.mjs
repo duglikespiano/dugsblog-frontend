@@ -5,6 +5,7 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import react from "@astrojs/react";
 import node from "@astrojs/node";
+import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   vite: {
@@ -21,6 +22,7 @@ export default defineConfig({
       },
     }),
     react(),
+    mdx(),
   ],
   output: "server",
   adapter: node({

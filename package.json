@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^4.3.1",
     "@astrojs/node": "^9.2.2",
     "@astrojs/react": "^4.3.0",
     "@iconify-json/tabler": "^1.2.16",

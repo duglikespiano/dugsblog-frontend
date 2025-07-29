@@ -1,6 +1,7 @@
 ---
 import { getEntry, render } from "astro:content";
 import RootLayout from "../../../layouts/RootLayout.astro";
+import Prose from "../../../layouts/Prose.astro";
 const { slug } = Astro.params as { slug: string };
 const { language } = Astro.props;
 
@@ -14,12 +15,7 @@ const { Content } = await render(entry);
 ---
 
 <RootLayout language={language}>
-  <h1>this is a blog post</h1>
-  <Content />
+  <Prose>
+    <Content />
+  </Prose>
 </RootLayout>
-
-<style is:global>
-  p {
-    border: 1px solid #fff;
-  }
-</style>

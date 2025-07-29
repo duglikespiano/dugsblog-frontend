@@ -7,7 +7,7 @@ import { guestbookMessagesStore } from "../../common/stores";
   <ul class="flex flex-col gap-y-8 pt-15">
     {
       guestbookMessagesStore.get().map((data, i) => (
-        <li class="border-green1 dark:border-gray3 rounded-4xl border-4 p-6" data-messages-index={i}>
+        <li class="border-green2 dark:border-gray3 rounded-4xl border-4 p-6" data-messages-index={i}>
           <div class="relative flex flex-col gap-4">
             <div class="flex items-center gap-2">
               <p class="text-green1 text-xl font-extrabold dark:text-gray-300">{data.name}</p>
