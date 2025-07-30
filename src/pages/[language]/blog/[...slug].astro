@@ -2,10 +2,18 @@
 import { getEntry, render } from "astro:content";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import Prose from "../../../layouts/Prose.astro";
+import type { Languages } from "../../../common/types";
 const { slug } = Astro.params as { slug: string };
-const { language } = Astro.props;
+const { language } = Astro.params as { language: Languages };
 
-const entry = await getEntry("blog", slug as string);
+const collectionMap = {
+  en: "enPosts",
+  ko: "koPosts",
+  ja: "jaPosts",
+} as const;
+
+const entry = await getEntry(collectionMap[language], slug as string);
+const tags = entry?.data.tags as string[];
 
 if (!entry) {
   throw new Error("no entry");
@@ -16,6 +24,10 @@ const { Content } = await render(entry);
 
 <RootLayout language={language}>
   <Prose>
+    <a href=`/${language}/blog/` class="text-green2 dark:text-rosewater no-underline">to blog main page</a>
+    <ul class="flex gap-4 p-0">
+      {tags.map((tag) => <li class="flex list-none items-center justify-center border-4 p-1">{tag}</li>)}
+    </ul>
     <Content />
   </Prose>
 </RootLayout>

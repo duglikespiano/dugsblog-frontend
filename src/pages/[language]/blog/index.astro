@@ -4,11 +4,14 @@ import { getCollection, getEntry } from "astro:content";
 
 // Get all entries from a collection.
 // Requires the name of the collection as an argument.
-const allBlogPosts = await getCollection("blog");
+// const posts = await getCollection("blog");
 import type { Languages } from "../../../common/types";
 import { printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
+console.log(language);
+const posts = await getCollection(`${language}Posts`);
 const title = printPageTitle(Astro.url.pathname, language);
+
 // console.log(allBlogPosts);
 
 // import { writeFileSync } from "node:fs";
@@ -34,9 +37,9 @@ const title = printPageTitle(Astro.url.pathname, language);
   <div class="mx-auto max-w-4xl px-2">
     <ul>
       {
-        allBlogPosts.map((post) => (
+        posts.map((post) => (
           <li>
-            <a href={`/en/blog/${post.data.slug}`}>
+            <a href={`/${language}/blog/${post.data.slug}`}>
               <div>{post.data.title}</div>
             </a>
           </li>
