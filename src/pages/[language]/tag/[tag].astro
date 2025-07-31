@@ -11,14 +11,13 @@ const title = printPageTitle(Astro.url.pathname, language);
 const tagsPropsArray: string[] = [];
 
 posts.forEach((post) => {
-  console.log(post.data.tags);
   post.data.tags.forEach((tag) => {
-    tagsPropsArray.push(tag.toLowerCase());
+    tagsPropsArray.push(tag);
   });
 });
 const filteredTagsPropsArray = [...new Set(tagsPropsArray)];
 ---
 
 <RootLayout title={title}>
-  <Posts posts={posts} language="language" tagsPropsArray={filteredTagsPropsArray} />
+  <Posts posts={posts} language={language} tagsPropsArray={filteredTagsPropsArray} />
 </RootLayout>
