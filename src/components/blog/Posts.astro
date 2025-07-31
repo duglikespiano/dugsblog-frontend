@@ -8,14 +8,20 @@ const { posts, language, tagsPropsArray } = Astro.props as {
 };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
-const highlightedTag = tags[tag][language];
-const filteredPots = tagsPropsArray ? posts.filter((post) => post.data.tags.includes(highlightedTag)) : posts;
+console.log(tags);
+console.log(tag);
+const highlightedTag = tag ? tags[tag][language] : null;
+console.log(highlightedTag);
+console.log(tagsPropsArray);
+const filteredPosts = tagsPropsArray
+  ? posts.filter((post) => highlightedTag !== null && post.data.tags.includes(highlightedTag))
+  : posts;
 ---
 
 <div class="mx-auto max-w-4xl px-2">
   <ul class="grid grid-cols-2 gap-4">
     {
-      filteredPots.map((post) => (
+      filteredPosts.map((post) => (
         <li class="border-4">
           <a class="flex h-full flex-col justify-between" href={`/${language}/blog/${post.data.slug}`}>
             <div class="border-2">
