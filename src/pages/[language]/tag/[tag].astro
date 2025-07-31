@@ -1,33 +1,24 @@
 ---
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
-
-import type { Languages, EnTags } from "../../../common/types";
+import Posts from "../../../components/blog/Posts.astro";
+import type { Languages } from "../../../common/types";
 import { printPageTitle } from "../../../common/functions";
-const { language, tag } = Astro.params as { language: Languages; tag: EnTags };
+const { language } = Astro.params as { language: Languages };
 
 const posts = await getCollection(`${language}Posts`);
-const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
 const title = printPageTitle(Astro.url.pathname, language);
+const tagsPropsArray: string[] = [];
 
-console.log(Astro.params);
-// if (!tag) {
-//   return Astro.redirect(`/${language}/blog`);
-// }
+posts.forEach((post) => {
+  console.log(post.data.tags);
+  post.data.tags.forEach((tag) => {
+    tagsPropsArray.push(tag.toLowerCase());
+  });
+});
+const filteredTagsPropsArray = [...new Set(tagsPropsArray)];
 ---
 
 <RootLayout title={title}>
-  <div class="mx-auto max-w-4xl px-2">
-    <ul>
-      {
-        filteredPosts.map((post) => (
-          <li>
-            <a href={`/${language}/blog/${post.data.slug}`}>
-              <div>{post.data.title}</div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <Posts posts={posts} language="language" tagsPropsArray={filteredTagsPropsArray} />
 </RootLayout>

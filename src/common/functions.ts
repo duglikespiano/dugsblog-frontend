@@ -54,6 +54,12 @@ export function printPageTitle(url: string, language: Languages): string {
     return `${pageTitles["main"][language]} - ${pageTitles[whichPage as keyof typeof pageTitles][language]}`;
   }
 
-  // Fallback if page is unknown
   return pageTitles.main[language];
+}
+
+export function capitalizeFirstLetter(str: string) {
+  if (str.length === 0) {
+    return "";
+  }
+  return `${str.charAt(0).toUpperCase()}${str.slice(1)}`;
 }

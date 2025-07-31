@@ -1,7 +1,7 @@
 ---
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
-
+import Posts from "../../../components/blog/Posts.astro";
 import type { Languages } from "../../../common/types";
 import { printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
@@ -11,17 +11,5 @@ const title = printPageTitle(Astro.url.pathname, language);
 ---
 
 <RootLayout title={title}>
-  <div class="mx-auto max-w-4xl px-2">
-    <ul>
-      {
-        posts.map((post) => (
-          <li>
-            <a href={`/${language}/blog/${post.data.slug}`}>
-              <div>{post.data.title}</div>
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </div>
+  <Posts posts={posts} language="language" />
 </RootLayout>

@@ -1,4 +1,7 @@
 import { z } from "astro:schema";
+import type { CollectionEntry } from "astro:content";
+export type Post = CollectionEntry<"enPosts">;
+export type Posts = Post[];
 
 export type Languages = "en" | "ko" | "ja";
 export type Pages = "" | "about" | "projects" | "contact" | "guestbook";
@@ -21,6 +24,7 @@ export const collectionMap = {
   ko: "koPosts",
   ja: "jaPosts",
 } as const;
+
 export const tags = {
   programming: { en: "Programming", ko: "프로그래밍", ja: "プログラミング" },
   javascript: { en: "Javascript", ko: "자바스크립트", ja: "ジャバスクリプト" },
@@ -32,7 +36,8 @@ export const tags = {
   thoughts: { en: "Thoughts", ko: "생각", ja: "考え" },
 } as const;
 
-type TagLang = keyof (typeof tags)[keyof typeof tags];
+export type TagLang = keyof (typeof tags)[keyof typeof tags];
+export type TagKey = keyof typeof tags;
 
 function extractTagTuple<T extends TagLang>(lang: T) {
   const values = Object.values(tags) as ReadonlyArray<Record<TagLang, string>>;
@@ -51,21 +56,21 @@ export type JaTags = (typeof jaTags)[number];
 export const enPostSchema = z.object({
   title: z.string(),
   slug: z.string(),
-  tags: z.array(z.enum(enTags)),
+  tags: z.string().array(),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
 });
 export const koPostSchema = z.object({
   title: z.string(),
   slug: z.string(),
-  tags: z.array(z.enum(koTags)),
+  tags: z.string().array(),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
 });
 export const jaPostSchema = z.object({
   title: z.string(),
   slug: z.string(),
-  tags: z.array(z.enum(jaTags)),
+  tags: z.string().array(),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
 });

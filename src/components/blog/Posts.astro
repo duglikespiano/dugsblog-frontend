@@ -1,0 +1,35 @@
+---
+import type { Posts, Languages } from "../../common/types";
+const { posts, language, tagsPropsArray } = Astro.props as {
+  posts: Posts;
+  language: Languages;
+  tagsPropsArray?: string[];
+};
+const { tag } = Astro.params as { tag: string };
+---
+
+<div class="mx-auto max-w-4xl px-2">
+  <ul class="grid grid-cols-2 gap-4">
+    {
+      posts.map((post) => (
+        <li class="border-4">
+          <a class="flex h-full flex-col justify-between" href={`/${language}/blog/${post.data.slug}`}>
+            <div class="border-2">
+              <div>{post.data.title}</div>
+              <div>{post.body}</div>
+            </div>
+            <ul class="flex gap-3 border-2 border-red-700">
+              {post.data.tags.map((t) => (
+                <li
+                  class={`rounded px-2 py-1 ${t.toLowerCase() === tag ? "bg-red-500 font-semibold text-white" : "bg-gray-200"}`}
+                >
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
