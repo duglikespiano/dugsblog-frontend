@@ -2,9 +2,9 @@
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 
-import type { Languages, Tags } from "../../../common/types";
+import type { Languages, EnTags } from "../../../common/types";
 import { printPageTitle } from "../../../common/functions";
-const { language, tag } = Astro.params as { language: Languages; tag: Tags };
+const { language, tag } = Astro.params as { language: Languages; tag: EnTags };
 
 const posts = await getCollection(`${language}Posts`);
 const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
