@@ -1,6 +1,6 @@
 export type Languages = "en" | "ko" | "ja";
 export type Pages = "" | "about" | "projects" | "contact" | "guestbook";
-export type ProjectObjectType = {
+export type Project = {
   id: number;
   title: string;
   descriptions: {
@@ -14,31 +14,9 @@ export type ProjectObjectType = {
   period: string[];
   skills: string[];
 };
-
-export type ComponentsTitlesType = {
-  skills: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-  educationAndCareer: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-  skillsFilter: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-  contact: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-  guestbook: {
-    en: string;
-    ko: string;
-    ja: string;
-  };
-};
+export const collectionMap = {
+  en: "enPosts",
+  ko: "koPosts",
+  ja: "jaPosts",
+} as const;
+export type Tags = "programming";

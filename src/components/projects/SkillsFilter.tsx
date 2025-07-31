@@ -2,7 +2,7 @@ import { useStore } from "@nanostores/react";
 import { skillsStore, projectsStore } from "../../common/stores";
 import { skillsFilter } from "../../common/htmlElements";
 import { allOfSkillsIhaveTried, allOfMyProjects } from "../../common/variables";
-import type { ProjectObjectType } from "../../common/types";
+import type { Project } from "../../common/types";
 import type { Languages } from "../../common/types";
 
 type ProjectProps = {
@@ -21,7 +21,7 @@ export default function SkillsFilter({ language }: ProjectProps) {
     toggleSkillsSelect(index);
 
     const selectedSkillsArray = selectedSkills.filter((skill) => skill.isSelected).map((skill) => skill.name);
-    const filteredProjects: ProjectObjectType[] = [];
+    const filteredProjects: Project[] = [];
 
     selectedSkillsArray.forEach((selectedSkill) => {
       allOfMyProjects.forEach((project) => {
@@ -39,7 +39,7 @@ export default function SkillsFilter({ language }: ProjectProps) {
       const sortedProjects = filteredProjects.sort(
         (a, b) => new Date(b.period[0]).getTime() - new Date(a.period[0]).getTime(),
       );
-      projectsStore.set(Array.from(new Set(sortedProjects)) as ProjectObjectType[]);
+      projectsStore.set(Array.from(new Set(sortedProjects)) as Project[]);
     }
   };
 

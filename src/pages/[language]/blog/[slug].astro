@@ -12,8 +12,12 @@ const collectionMap = {
   ja: "jaPosts",
 } as const;
 
-const entry = await getEntry(collectionMap[language], slug as string);
+const entry = await getEntry(collectionMap[language], slug);
 const tags = entry?.data.tags as string[];
+console.log(Astro.params);
+
+if (slug === "tag") {
+}
 
 if (!entry) {
   throw new Error("no entry");
@@ -29,7 +33,7 @@ const { Content } = await render(entry);
       {
         tags.map((tag) => (
           <li class="flex list-none items-center justify-center border-4 p-1">
-            <a href={`/${language}/blog/tag/${tag}`}>{tag}</a>
+            <a href={`/${language}/tag/${tag}`}>{tag}</a>
           </li>
         ))
       }
