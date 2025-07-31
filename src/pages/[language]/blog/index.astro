@@ -1,36 +1,13 @@
 ---
 import RootLayout from "../../../layouts/RootLayout.astro";
-import { getCollection, getEntry } from "astro:content";
+import { getCollection } from "astro:content";
 
-// Get all entries from a collection.
-// Requires the name of the collection as an argument.
-// const posts = await getCollection("blog");
 import type { Languages } from "../../../common/types";
 import { printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
-console.log(language);
+
 const posts = await getCollection(`${language}Posts`);
 const title = printPageTitle(Astro.url.pathname, language);
-
-// console.log(allBlogPosts);
-
-// import { writeFileSync } from "node:fs";
-
-// function saveVariableToJsFile(variable: any, variableName = "exportedData", filename = "output.js") {
-//   const dataString =
-//     typeof variable === "object"
-//       ? JSON.stringify(variable, null, 2) // Pretty JSON if it's an object
-//       : JSON.stringify(variable); // Stringify everything for safety
-
-//   const jsContent = `export const ${variableName} = ${dataString};\n`;
-
-//   writeFileSync(filename, jsContent, "utf8");
-//   console.log(`✅ JS file saved as ${filename}`);
-// }
-
-// // Example usage:
-
-// saveVariableToJsFile(allBlogPosts, "myVariable", "myVariable.js");
 ---
 
 <RootLayout title={title}>

@@ -1,0 +1,28 @@
+---
+import RootLayout from "../../../../layouts/RootLayout.astro";
+import { getCollection } from "astro:content";
+
+import type { Languages } from "../../../../common/types";
+import { printPageTitle } from "../../../../common/functions";
+const { language, tag } = Astro.params as { language: Languages; tag: string };
+
+const posts = await getCollection(`${language}Posts`);
+const filteredPosts = posts.filter((post) => post.data.tags.includes(tag));
+const title = printPageTitle(Astro.url.pathname, language);
+---
+
+<RootLayout title={title}>
+  <div class="mx-auto max-w-4xl px-2">
+    <ul>
+      {
+        filteredPosts.map((post) => (
+          <li>
+            <a href={`/${language}/blog/tag/${tag}/${post.data.slug}`}>
+              <div>{post.data.title}</div>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</RootLayout>

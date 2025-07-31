@@ -26,7 +26,13 @@ const { Content } = await render(entry);
   <Prose>
     <a href=`/${language}/blog/` class="text-green2 dark:text-rosewater no-underline">to blog main page</a>
     <ul class="flex gap-4 p-0">
-      {tags.map((tag) => <li class="flex list-none items-center justify-center border-4 p-1">{tag}</li>)}
+      {
+        tags.map((tag) => (
+          <li class="flex list-none items-center justify-center border-4 p-1">
+            <a href={`/${language}/blog/tag/${tag}`}>{tag}</a>
+          </li>
+        ))
+      }
     </ul>
     <Content />
   </Prose>
