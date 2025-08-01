@@ -7,5 +7,9 @@
 }
 
 :not([data-theme="dark"]) #commit-history {
-  color: #06170b;
+  color: #053d27;
+}
+
+[data-theme="dark"] #commit-history {
+  color: #f8fafc;
 }
