@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Posts from "../../../components/blog/Posts.astro";
 import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
+import "../../../css/particles.scss";
 const { language } = Astro.params as { language: Languages };
 
 const posts = await getCollection(`${language}Posts`);
@@ -16,3 +17,5 @@ if (!isStringLanguage(language)) {
 <RootLayout title={title}>
   <Posts posts={posts} language={language} />
 </RootLayout>
+
+<script src="../../../js/particles.js"></script>

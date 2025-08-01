@@ -12,6 +12,7 @@ const posts = await getCollection(`${language}Posts`);
 const entry = await getEntry(collectionMap[language], slug);
 const tagKeys = entry?.data.tags as string[];
 const slugsArray = posts.map((post) => post.data.slug);
+import "../../../css/particles.scss";
 
 if (!slugsArray.includes(slug)) {
   return Astro.redirect(`/${language}/blog/`);
@@ -40,16 +41,20 @@ const { Content } = await render(entry);
 
 <RootLayout language={language}>
   <Prose>
-    <a href=`/${language}/blog/` class="text-green2 dark:text-rosewater no-underline">to blog main page</a>
-    <ul class="flex gap-4 p-0">
-      {
-        tagsArray.map((tag) => (
-          <li class="flex list-none items-center justify-center border-4 p-1">
-            <a href={`/${language}/tags/${tag["en"].toLowerCase()}`}>{tag[language]}</a>
-          </li>
-        ))
-      }
-    </ul>
-    <Content />
+    <div class="dark:bg-green1 bg-rosewater relative z-10">
+      <a href=`/${language}/blog/` class="text-green2 dark:text-rosewater no-underline">to blog main page</a>
+      <ul class="flex gap-4 p-0">
+        {
+          tagsArray.map((tag) => (
+            <li class="flex list-none items-center justify-center border-4 p-1">
+              <a href={`/${language}/tags/${tag["en"].toLowerCase()}`}>{tag[language]}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <Content />
+    </div>
   </Prose>
 </RootLayout>
+
+<script src="../../../js/particles.js"></script>

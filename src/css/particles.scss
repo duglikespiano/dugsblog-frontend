@@ -1,0 +1,41 @@
+[data-root-wrapper] {
+  span {
+    position: absolute;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    opacity: 0.6;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+    &:nth-child(1n) {
+      background-color: orange;
+    }
+    &:nth-child(2n) {
+      background-color: red;
+    }
+    &:nth-child(3n) {
+      background-color: navy;
+    }
+    &:nth-child(4n) {
+      background-color: steelblue;
+    }
+    &:nth-child(5n) {
+      background-color: azure;
+    }
+    &:nth-child(6n) {
+      background-color: cadetblue;
+    }
+    &:nth-child(7n) {
+      background-color: crimson;
+    }
+    &:nth-child(8n) {
+      background-color: yellowgreen;
+    }
+    &:nth-child(9n) {
+      background-color: lemonchiffon;
+    }
+    &:nth-child(10n) {
+      background-color: limegreen;
+    }
+  }
+}

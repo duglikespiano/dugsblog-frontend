@@ -13,7 +13,12 @@ const { language } = Astro.props;
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000`
 >
   <Header language={language} />
-  <section id="slot-wrapper" class="py-8 opacity-0 delay-300 duration-1000 md:py-14" data-reveal-on-load>
+  <section
+    id="slot-wrapper"
+    class="py-8 opacity-0 delay-300 duration-1000 md:py-14"
+    data-reveal-on-load
+    data-root-wrapper
+  >
     <slot />
   </section>
   <Footer language={language} />
