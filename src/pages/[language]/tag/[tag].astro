@@ -3,7 +3,7 @@ import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 import Posts from "../../../components/blog/Posts.astro";
 import type { Languages } from "../../../common/types";
-import { printPageTitle } from "../../../common/functions";
+import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 
 const posts = await getCollection(`${language}Posts`);
@@ -16,6 +16,10 @@ posts.forEach((post) => {
   });
 });
 const filteredTagsPropsArray = [...new Set(tagsPropsArray)];
+
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout title={title}>

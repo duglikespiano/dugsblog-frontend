@@ -3,9 +3,12 @@ import RootLayout from "../../../layouts/RootLayout.astro";
 import Skills from "../../../components/about/Skills.astro";
 import EducationAndCareer from "../../../components/about/EducationAndCareer.astro";
 import type { Languages } from "../../../common/types";
-import { printPageTitle } from "../../../common/functions";
+import { printPageTitle, isStringLanguage } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout title={title} language={language}>

@@ -4,9 +4,13 @@ import CommitHistoryComponent from "../../components/main/CommitHistory";
 import Profile from "../../components/main/Profile.astro";
 import Characteristics from "../../components/main/Characteristics.astro";
 import type { Languages } from "../../common/types";
-import { printPageTitle } from "../../common/functions";
+import { printPageTitle, isStringLanguage } from "../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
+
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout title={title}>

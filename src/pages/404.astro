@@ -1,3 +1,25 @@
-<script>
-	window.location.href = '/en/404.html';
-</script>
+---
+import RootLayout from "../layouts/RootLayout.astro";
+
+const env = process.env;
+const userLanguageData = env.LANG || env.LANGUAGE || env.LC_ALL || env.LC_MESSAGES;
+const language = userLanguageData?.split("_")[0];
+
+// if (language === "ko") {
+//   return Astro.redirect("/ko");
+// } else if (language === "ja") {
+//   return Astro.redirect("/ja");
+// } else {
+//   return Astro.redirect("/en");
+// }
+
+return Astro.redirect(`/${language}/404`, 301);
+---
+
+<RootLayout />
+
+<style is:global>
+  [data-menu-button] {
+    display: none;
+  }
+</style>

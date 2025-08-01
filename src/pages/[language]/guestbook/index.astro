@@ -3,9 +3,12 @@ import RootLayout from "../../../layouts/RootLayout.astro";
 import GuestbookForm from "../../../components/guestbook/GuestbookForm.astro";
 import GuestbookList from "../../../components/guestbook/GuestbookList.astro";
 import type { Languages } from "../../../common/types";
-import { printPageTitle } from "../../../common/functions";
+import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout title={title}>

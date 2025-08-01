@@ -2,9 +2,12 @@
 import RootLayout from "../../../layouts/RootLayout.astro";
 import ContactForm from "../../../components/contact/ContactForm.astro";
 import type { Languages } from "../../../common/types";
-import { printPageTitle } from "../../../common/functions";
+import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout title={title}>

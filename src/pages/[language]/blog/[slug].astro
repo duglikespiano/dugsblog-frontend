@@ -6,6 +6,7 @@ import Prose from "../../../layouts/Prose.astro";
 import { tags } from "../../../common/types";
 import type { Languages, TagKey } from "../../../common/types";
 import { collectionMap } from "../../../common/types";
+import { isStringLanguage } from "../../../common/functions";
 const { slug } = Astro.params as { slug: string };
 const { language } = Astro.params as { language: Languages };
 
@@ -16,27 +17,18 @@ let tagsArray: any[] = [];
 
 tagKeys.forEach((tagName) => {
   (Object.keys(tags) as TagKey[]).forEach((tagNameInObject) => {
-    console.log(tags[tagNameInObject][language]);
-    console.log(tagName);
     if (tags[tagNameInObject][language] === tagName) {
-      tagsArray.push(tags[tagNameInObject]); // ✅ This is a string
+      tagsArray.push(tags[tagNameInObject]);
     }
   });
 });
 
-console.log(tagsArray);
-
-// (Object.keys(tags) as TagKey[]).forEach((tag, i) => {
-//   console.log(tag);
-//   console.log(i);
-//   console.log(testArray[i]);
-//   if (tags[tag][language] === testArray[i]) {
-//     tagsArray.push(tag);
-//   }
-// });
-
 if (!entry) {
   throw new Error("no entry");
+}
+
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
 }
 
 const { Content } = await render(entry);

@@ -1,7 +1,11 @@
 ---
 import RootLayout from "../../layouts/RootLayout.astro";
-
-const { language } = Astro.params;
+import { isStringLanguage } from "../../common/functions";
+import type { Languages } from "../../common/types";
+const { language } = Astro.params as { language: Languages };
+if (!isStringLanguage(language)) {
+  return new Response(null, { status: 404 });
+}
 ---
 
 <RootLayout> This is 404 {language} page </RootLayout>

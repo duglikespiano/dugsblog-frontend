@@ -8,11 +8,8 @@ const { posts, language, tagsPropsArray } = Astro.props as {
 };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
-console.log(tags);
-console.log(tag);
+
 const highlightedTag = tag ? tags[tag][language] : null;
-console.log(highlightedTag);
-console.log(tagsPropsArray);
 const filteredPosts = tagsPropsArray
   ? posts.filter((post) => highlightedTag !== null && post.data.tags.includes(highlightedTag))
   : posts;
