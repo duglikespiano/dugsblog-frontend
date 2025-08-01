@@ -1,5 +1,6 @@
 import { pageTitles } from "./htmlElements";
-import type { Languages } from "./types";
+import { tags } from "./types";
+import type { Languages, TagLang } from "./types";
 
 export function printFilename(url: string, withExtension: boolean = false) {
   const fileNameWithExtension = url.split("/")[url.split("/").length - 1];
@@ -66,4 +67,8 @@ export function capitalizeFirstLetter(str: string) {
 
 export function isStringLanguage(value: string): boolean {
   return ["en", "ko", "ja"].includes(value);
+}
+
+export function getTagKeyByTranslation(searchValue: string, lang: Languages): TagLang | undefined {
+  return (Object.keys(tags) as TagLang[]).find((key) => tags[key][lang] === searchValue);
 }

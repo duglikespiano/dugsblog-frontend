@@ -25,7 +25,10 @@ export const collectionMap = {
   ja: "jaPosts",
 } as const;
 
-export const tags = {
+export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework", "travel", "thoughts"] as const;
+export type TagLang = (typeof tagKeys)[number];
+
+export const tags: Record<TagLang, TagTranslations> = {
   programming: { en: "Programming", ko: "프로그래밍", ja: "プログラミング" },
   javascript: { en: "Javascript", ko: "자바스크립트", ja: "ジャバスクリプト" },
   css: { en: "CSS", ko: "CSS", ja: "CSS" },
@@ -36,22 +39,12 @@ export const tags = {
   thoughts: { en: "Thoughts", ko: "생각", ja: "考え" },
 } as const;
 
-export type TagLang = keyof (typeof tags)[keyof typeof tags];
+export type TagTranslations = {
+  [key in Languages]: string;
+};
+
 export type TagKey = keyof typeof tags;
-
-function extractTagTuple<T extends TagLang>(lang: T) {
-  const values = Object.values(tags) as ReadonlyArray<Record<TagLang, string>>;
-  const result = values.map((tag) => tag[lang]) as unknown as readonly [string, ...string[]];
-  return result;
-}
-
-export const enTags = extractTagTuple("en");
-export const koTags = extractTagTuple("ko");
-export const jaTags = extractTagTuple("ja");
-
-export type EnTags = (typeof enTags)[number];
-export type KoTags = (typeof koTags)[number];
-export type JaTags = (typeof jaTags)[number];
+export type TagType = { en: string; ko: string; ja: string };
 
 export const enPostSchema = z.object({
   title: z.string(),

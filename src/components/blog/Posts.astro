@@ -1,6 +1,8 @@
 ---
 import { tags } from "../../common/types";
 import type { Posts, Languages } from "../../common/types";
+import { getTagKeyByTranslation } from "../../common/functions";
+
 const { posts, language, tagsPropsArray } = Astro.props as {
   posts: Posts;
   language: Languages;
@@ -16,19 +18,30 @@ const filteredPosts = tagsPropsArray
 ---
 
 <div class="mx-auto max-w-4xl px-2">
+  {tag ? <a href={`/${language}/blog`}>TO BLOG</a> : null}
   <ul class="grid grid-cols-2 gap-4">
     {
       filteredPosts.map((post) => (
         <li class="border-4">
-          <a class="flex h-full flex-col justify-between" href={`/${language}/blog/${post.data.slug}`}>
-            <div class="border-2">
-              <div>{post.data.title}</div>
-              <div>{post.body}</div>
-            </div>
+          <div class="flex h-full flex-col justify-between">
+            <a href={`/${language}/blog/${post.data.slug}`}>
+              <div class="border-2">
+                <div>{post.data.title}</div>
+                <div>{post.body}</div>
+              </div>
+            </a>
             <ul class="flex gap-3 border-2 border-red-700">
-              {post.data.tags.map((t) => (t === highlightedTag ? <p class="text-red-500">{t}</p> : <p>{t}</p>))}
+              {post.data.tags.map((t) => {
+                const key = getTagKeyByTranslation(t, language);
+                const href = key ? `/${language}/tags/${tags[key].en.toLowerCase()}` : "#";
+                return (
+                  <p class={t === highlightedTag ? "text-red-500" : null}>
+                    <a href={href}>{t}</a>
+                  </p>
+                );
+              })}
             </ul>
-          </a>
+          </div>
         </li>
       ))
     }

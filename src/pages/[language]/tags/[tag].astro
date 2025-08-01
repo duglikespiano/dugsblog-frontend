@@ -2,9 +2,10 @@
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 import Posts from "../../../components/blog/Posts.astro";
-import type { Languages } from "../../../common/types";
+import { tags } from "../../../common/types";
+import type { Languages, TagLang } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
-const { language } = Astro.params as { language: Languages };
+const { language, tag } = Astro.params as { language: Languages; tag: string };
 
 const posts = await getCollection(`${language}Posts`);
 const title = printPageTitle(Astro.url.pathname, language);
@@ -12,13 +13,22 @@ const tagsPropsArray: string[] = [];
 
 posts.forEach((post) => {
   post.data.tags.forEach((tag) => {
-    tagsPropsArray.push(tag);
+    tagsPropsArray.push(tag.toLowerCase());
   });
 });
+
 const filteredTagsPropsArray = [...new Set(tagsPropsArray)];
 
 if (!isStringLanguage(language)) {
   return new Response(null, { status: 404 });
+}
+
+if (!(tag in tags)) {
+  return Astro.redirect(`/${language}/blog/`);
+}
+
+if (!filteredTagsPropsArray.includes(tags[tag as TagLang][language].toLowerCase())) {
+  return Astro.redirect(`/${language}/blog/`);
 }
 ---
 
