@@ -153,6 +153,7 @@ export const educationAndCareer = {
   data: [
     {
       period: "karabinerTechnology",
+      image: "karabiner.png",
       data: [
         {
           language: "en",
@@ -191,6 +192,7 @@ export const educationAndCareer = {
     },
     {
       period: "selfTaught",
+      image: "selftaught.png",
       data: [
         {
           language: "en",
@@ -229,6 +231,7 @@ export const educationAndCareer = {
     },
     {
       period: "bootcamp",
+      image: "justcode.png",
       data: [
         {
           language: "en",
@@ -267,6 +270,7 @@ export const educationAndCareer = {
     },
     {
       period: "secondCompany",
+      image: "ulvac.png",
       data: [
         {
           language: "en",
@@ -305,6 +309,7 @@ export const educationAndCareer = {
     },
     {
       period: "firstCompany",
+      image: "cfi.png",
       data: [
         {
           language: "en",
@@ -343,6 +348,7 @@ export const educationAndCareer = {
     },
     {
       period: "school",
+      image: "pknu.png",
       data: [
         {
           language: "en",

@@ -12,17 +12,35 @@ const componentTitle = componentTitles["educationAndCareer"][language];
 
   <ul class="mt-5 flex flex-col gap-10">
     {
-      educationAndCareer.data.map((object) => (
-        <li class="dark:after:bg-gray3 dark:border-gray3 border-green2 after:bg-green2 relative rounded-4xl border-4 p-4 after:absolute after:-bottom-12 after:left-1/2 after:h-11 after:w-1 after:translate-x-[-50%] after:content-[''] last-of-type:after:content-none sm:p-8">
+      educationAndCareer.data.map((object, i) => (
+        <li class="dark:border-gray3 border-green2 relative rounded-4xl border-4 p-4 sm:p-8" data-fadeup>
+          {i !== educationAndCareer.data.length - 1 && (
+            <span
+              class="line bg-green2 dark:bg-gray3 absolute -bottom-12 left-1/2 h-11 w-1 origin-top -translate-x-1/2"
+              data-fadeup-line
+            />
+          )}
+          <img
+            src={`/src/assets/educationAndCareer/${object.image}`}
+            alt=""
+            class="absolute top-2 right-2 w-12 rounded-full bg-white sm:w-16"
+            data-fadeup-logo
+          />
           {object.data
             .filter((item) => item.language === language)
             .map((smallItem) => (
-              <div>
-                <p class="dark:text-gray3 text-xl font-bold text-slate-950">{smallItem.name}</p>
+              <div class="relative">
+                <p class="dark:text-gray3 text-xl font-bold text-slate-950" data-fadeup-name>
+                  {smallItem.name}
+                </p>
                 <div class="mx-4 mt-3">
-                  <p class="text-lg font-bold text-slate-800 opacity-80 dark:text-gray-200">{smallItem.department}</p>
-                  <p class="text-sm text-slate-700 opacity-80 dark:text-gray-400">{smallItem.date}</p>
-                  <ul class="mt-2 text-base leading-5 text-stone-600 dark:text-gray-300">
+                  <p class="text-lg font-bold text-slate-800 opacity-80 dark:text-gray-200" data-fadeup-department>
+                    {smallItem.department}
+                  </p>
+                  <p class="text-sm text-slate-700 opacity-80 dark:text-gray-400" data-fadeup-date>
+                    {smallItem.date}
+                  </p>
+                  <ul class="mt-2 text-base leading-5 text-stone-600 dark:text-gray-300" data-fadeup-description>
                     {smallItem.duty.map((item) => (
                       <li>{item}</li>
                     ))}
@@ -35,3 +53,42 @@ const componentTitle = componentTitles["educationAndCareer"][language];
     }
   </ul>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+  const fadeupElements = document.querySelectorAll("[data-fadeup]");
+
+  fadeupElements.forEach((element) => {
+    const scrollTrigger = {
+      scrollTrigger: {
+        trigger: element,
+        markers: true,
+        start: "top 80%",
+      },
+    };
+    const tl = gsap.timeline(scrollTrigger);
+    const fadeupOption = {
+      duration: 0.3,
+      autoAlpha: 0,
+    };
+    const lineFadeupOption = {
+      duration: 0.5,
+      scaleY: 0,
+    };
+
+    tl.from(element, fadeupOption) //
+      .from(element.querySelector("[data-fadeup-line]"), lineFadeupOption)
+      .from(element.querySelector("[data-fadeup-name]"), fadeupOption) //
+      .from(element.querySelector("[data-fadeup-department]"), fadeupOption) //
+      .from(element.querySelector("[data-fadeup-date]"), fadeupOption) //
+      .from(element.querySelector("[data-fadeup-description]"), fadeupOption);
+  });
+
+  window.addEventListener("resize", () => {
+    ScrollTrigger.refresh();
+  });
+</script>
