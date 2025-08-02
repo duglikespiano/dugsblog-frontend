@@ -1,30 +1,35 @@
 ---
 import { Icon } from "astro-icon/components";
-import { Image } from "astro:assets";
-import profileImage from "../../assets/profile.png";
 import type { Languages } from "../../common/types";
 const { language } = Astro.props as { language: Languages };
 ---
 
 <section
   id="profile"
-  class="mx-auto justify-center pt-12 md:grid md:w-full md:grid-cols-2 md:gap-10 md:pt-0 lg:flex lg:w-[844px] lg:justify-between"
+  class="mx-auto w-[300px] justify-center pt-12 sm:w-[330px] md:grid md:w-full md:max-w-[620px] md:grid-cols-2 md:gap-0 md:pt-0 lg:flex lg:max-w-[720px] lg:justify-between lg:gap-10"
 >
-  <Image
-    class="mx-auto aspect-square w-[300px] rounded-full md:ml-auto lg:w-[400px]"
-    src={profileImage}
-    alt="Dug's profile image"
-  />
-  <div class="flex flex-col justify-end">
-    <p class="mt-5 flex flex-col items-center md:mt-0 md:items-start">
-      <span class="text-gray2 mb-1 text-4xl md:mb-3 lg:text-4xl">Hello! I am</span>
-      <span class="text-hotpink text-4xl font-extrabold lg:text-7xl">Suho Park</span>
-      <span class="text-yellow1 mb-1 text-4xl md:mb-5 lg:text-4xl">Web developer</span>
-      <span class="text-gray2 mb-2 text-xl md:mb-14 md:text-2xl"
-        ><span class="opacity-80">slowly but steadily</span>&nbsp;🐢</span
-      >
+  <div class="relative w-full cursor-pointer pt-70 sm:px-10 sm:pt-80 md:px-0 md:pt-0" data-images data-image-flipped>
+    <img
+      class="border-green2 absolute top-[50%] -left-2 z-10 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:left-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:left-6"
+      src="/src/assets/main/profile.png"
+      alt="dug"
+      data-dug-image
+    />
+    <img
+      class="border-green2 absolute top-[50%] -right-2 z-0 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 bg-white sm:w-[400px] md:right-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:right-6"
+      src="/src/assets/main/patrick.png"
+      alt="patrick"
+      data-patrick-image
+    />
+  </div>
+  <div class="flex flex-col items-center justify-end">
+    <p class="mt-5 flex flex-col items-center md:mt-0 md:items-center">
+      <span class="text-gray2 mb-2 text-4xl md:mb-3 lg:text-4xl">Hello! I am</span>
+      <span class="text-hotpink mb-1 text-4xl font-extrabold text-nowrap lg:text-7xl">Suho Park</span>
+      <span class="text-yellow1 mb-1 text-4xl lg:text-4xl">Web developer</span>
+      <span class="text-gray2 mb-2 text-xl opacity-80 md:mb-4 md:text-2xl">slowly but steadily&nbsp;🐢</span>
     </p>
-    <div class="text-gray2 flex justify-center text-4xl md:justify-start md:text-4xl lg:text-6xl">
+    <div class="text-gray2 flex text-5xl">
       <a href="https://www.github.com/duglikespiano" target="_blank" class="duration-200 hover:scale-110">
         <Icon name="ph:github-logo-light" />
       </a>
@@ -34,3 +39,33 @@ const { language } = Astro.props as { language: Languages };
     </div>
   </div>
 </section>
+
+<script>
+  import { gsap } from "gsap";
+  const images = document.querySelector("[data-images]");
+  const dugImage = document.querySelector("[data-dug-image]");
+  const patrickImage = document.querySelector("[data-patrick-image]");
+  const dugTimeline = gsap.timeline({ paused: true });
+  const patrickTimeline = gsap.timeline({ paused: true });
+  dugTimeline
+    .to(dugImage, { x: -130 }) //
+    .to(dugImage, { zIndex: 0, duration: 0 }) //
+    .to(dugImage, { x: 0 }); //
+  patrickTimeline
+    .to(patrickImage, { x: 130 }) //
+    .to(patrickImage, { zIndex: 10, duration: 0 }) //
+    .to(patrickImage, { x: 0 }); //
+
+  images?.addEventListener("click", (e) => {
+    if (dugTimeline.isActive() || patrickTimeline.isActive()) return false;
+    if ((e.currentTarget as HTMLElement).getAttribute("data-image-flipped") === "") {
+      (e.currentTarget as HTMLElement).removeAttribute("data-image-flipped");
+      dugTimeline.restart();
+      patrickTimeline.restart();
+    } else {
+      (e.currentTarget as HTMLElement).setAttribute("data-image-flipped", "");
+      dugTimeline.reverse();
+      patrickTimeline.reverse();
+    }
+  });
+</script>
