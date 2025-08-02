@@ -67,6 +67,7 @@ const componentTitle = componentTitles["educationAndCareer"][language];
       scrollTrigger: {
         trigger: element,
         start: "top 80%",
+        // markers: true,
       },
     };
     const tl = gsap.timeline(scrollTrigger);
@@ -74,17 +75,16 @@ const componentTitle = componentTitles["educationAndCareer"][language];
       duration: 0.3,
       autoAlpha: 0,
     };
-    const lineFadeupOption = {
-      duration: 0.5,
-      scaleY: 0,
-    };
-
     tl.from(element, fadeupOption) //
-      .from(element.querySelector("[data-fadeup-line]"), lineFadeupOption)
       .from(element.querySelector("[data-fadeup-name]"), fadeupOption) //
       .from(element.querySelector("[data-fadeup-department]"), fadeupOption) //
       .from(element.querySelector("[data-fadeup-date]"), fadeupOption) //
-      .from(element.querySelector("[data-fadeup-description]"), fadeupOption);
+      .from(element.querySelector("[data-fadeup-description]"), fadeupOption); //
+
+    const fadeupLine = element.querySelector("[data-fadeup-line]");
+    if (fadeupLine) {
+      tl.from(fadeupLine, { autoAlpha: 0, scaleY: 0 });
+    }
   });
 
   window.addEventListener("resize", () => {
