@@ -17,7 +17,7 @@ const { language } = Astro.props as { language: Languages };
             .filter((item) => menus[item][language] !== menus["main"][language])
             .map((item) => (
               <li
-                class={`transition-text dark:text-rosewater text-green2 dark:after:bg-rosewater after:bg-green2 relative h-full overflow-hidden after:absolute after:bottom-[2px] after:left-0 after:h-[2px] after:w-full ${Astro.url.pathname.split("/")[2] === item ? null : "after:-translate-x-full after:duration-200 hover:after:translate-x-0"}`}
+                class={`transition-text dark:text-rosewater text-green2 dark:after:bg-rosewater after:bg-green2 relative h-full overflow-hidden after:absolute after:bottom-[2px] after:left-0 after:h-[2px] after:w-full ${Astro.url.pathname.split("/")[2] === item || (Astro.url.pathname.split("/")[2] === "tags" && item === "blog") ? null : "after:-translate-x-full after:duration-200 hover:after:translate-x-0"}`}
               >
                 <a class="flex h-full items-center no-underline" href={`/${language}${menus[item]["href"]}`}>
                   {menus[item][language]}
