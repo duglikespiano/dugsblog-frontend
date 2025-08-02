@@ -5,7 +5,6 @@ import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
-import "../../../css/blob.scss";
 if (!isStringLanguage(language)) {
   return new Response(null, { status: 404 });
 }
@@ -16,5 +15,3 @@ if (!isStringLanguage(language)) {
     <ContactForm language={language} />
   </div>
 </RootLayout>
-
-<script src="/src/js/blob.js"></script>
