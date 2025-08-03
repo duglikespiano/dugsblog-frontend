@@ -25,12 +25,21 @@ const { language } = Astro.props as { language: Languages };
   </div>
   <div class="flex flex-col items-center justify-end">
     <p class="mt-5 flex flex-col items-center md:mt-0 md:items-center lg:w-[360px]">
-      <span class="text-gray2 mb-2 text-4xl md:mb-3 lg:text-4xl">{main["hello"][language]}</span>
-      <span class="text-hotpink mb-1 text-4xl font-extrabold text-nowrap lg:text-6xl">{main["name"][language]}</span>
-      <span class="text-yellow1 mb-1 text-4xl lg:text-4xl">{main["webDeveloper"][language]}</span>
-      <span class="text-gray2 mb-2 text-xl opacity-80 md:mb-4 md:text-2xl">slowly but steadily&nbsp;🐢</span>
+      <span class="dark:text-gray2 text-green1 mb-2 text-4xl md:mb-3 lg:text-4xl">{main["hello"][language]}</span>
+      <span class="dark:text-hotpink text-green2 mb-1 text-4xl font-extrabold text-nowrap lg:text-6xl"
+        >{main["name"][language]}</span
+      >
+      {
+        main["furigana"][language] ? (
+          <span class="dark:text-gray4 text-slate-800">{main["furigana"][language]}</span>
+        ) : null
+      }
+      <span class="dark:text-yellow1 text-purple2 mb-1 text-4xl lg:text-4xl">{main["webDeveloper"][language]}</span>
+      <span class="dark:text-gray2 mb-2 text-xl text-slate-800 opacity-80 md:mb-4 md:text-2xl"
+        >slowly but steadily&nbsp;🐢</span
+      >
     </p>
-    <div class="text-gray2 flex text-5xl">
+    <div class="dark:text-gray2 flex text-5xl text-slate-800">
       <a href="https://www.github.com/duglikespiano" target="_blank" class="duration-200 hover:scale-110">
         <Icon name="ph:github-logo-light" />
       </a>

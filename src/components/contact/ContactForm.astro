@@ -87,7 +87,7 @@ const componentTitle = componentTitles["contact"][language];
   function disableButton() {
     if (submitButton) {
       submitButton.disabled = true;
-      submitButton.classList.add("opacity-50", "cursor-not-allowed");
+      submitButton.classList.add("cursor-not-allowed");
       submitButton.classList.remove("cursor-pointer");
     }
   }
@@ -95,7 +95,7 @@ const componentTitle = componentTitles["contact"][language];
   function enableButton() {
     if (submitButton) {
       submitButton.disabled = false;
-      submitButton.classList.remove("opacity-50", "cursor-not-allowed");
+      submitButton.classList.remove("cursor-not-allowed");
       submitButton.classList.add("cursor-pointer");
     }
   }
