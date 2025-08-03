@@ -12,8 +12,6 @@ if (!isStringLanguage(language)) {
 ---
 
 <RootLayout title={title} language={language}>
-  <div class="px-2">
-    <SkillsFilter language={language} client:load />
-    <Projects language={language} client:load />
-  </div>
+  <SkillsFilter language={language} client:load />
+  <Projects language={language} client:load />
 </RootLayout>
