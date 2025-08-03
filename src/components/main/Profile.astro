@@ -1,12 +1,13 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../../common/types";
+import { main } from "../../common/htmlElements";
 const { language } = Astro.props as { language: Languages };
 ---
 
 <section
   id="profile"
-  class="mx-auto w-[300px] justify-center pt-12 sm:w-[330px] md:grid md:w-full md:max-w-[620px] md:grid-cols-2 md:gap-0 md:pt-0 lg:flex lg:max-w-[720px] lg:justify-between lg:gap-10"
+  class="mx-auto w-[270px] justify-center pt-12 sm:w-[300px] md:grid md:w-full md:max-w-[620px] md:grid-cols-2 md:gap-0 md:pt-0 lg:flex lg:max-w-[720px] lg:justify-between lg:gap-10"
 >
   <div class="relative w-full cursor-pointer pt-70 sm:px-10 sm:pt-80 md:px-0 md:pt-0" data-images data-image-flipped>
     <img
@@ -23,10 +24,10 @@ const { language } = Astro.props as { language: Languages };
     />
   </div>
   <div class="flex flex-col items-center justify-end">
-    <p class="mt-5 flex flex-col items-center md:mt-0 md:items-center">
-      <span class="text-gray2 mb-2 text-4xl md:mb-3 lg:text-4xl">Hello! I am</span>
-      <span class="text-hotpink mb-1 text-4xl font-extrabold text-nowrap lg:text-7xl">Suho Park</span>
-      <span class="text-yellow1 mb-1 text-4xl lg:text-4xl">Web developer</span>
+    <p class="mt-5 flex flex-col items-center md:mt-0 md:items-center lg:w-[360px]">
+      <span class="text-gray2 mb-2 text-4xl md:mb-3 lg:text-4xl">{main["hello"][language]}</span>
+      <span class="text-hotpink mb-1 text-4xl font-extrabold text-nowrap lg:text-6xl">{main["name"][language]}</span>
+      <span class="text-yellow1 mb-1 text-4xl lg:text-4xl">{main["webDeveloper"][language]}</span>
       <span class="text-gray2 mb-2 text-xl opacity-80 md:mb-4 md:text-2xl">slowly but steadily&nbsp;🐢</span>
     </p>
     <div class="text-gray2 flex text-5xl">

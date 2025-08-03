@@ -70,6 +70,34 @@ export const menus = {
   },
 };
 
+export const main = {
+  hello: {
+    en: "Hello! I am",
+    ko: "안녕하세요! 저는",
+    ja: "こんにちは! 私は",
+  },
+  webDeveloper: {
+    en: "Web developer",
+    ko: "박수호입니다",
+    ja: "朴 秀浩です",
+  },
+  name: {
+    en: "Suho Park",
+    ko: "웹 개발자",
+    ja: "ウェブ開発者",
+  },
+  furigana: {
+    en: "",
+    ko: "",
+    ja: "(パク スホ)",
+  },
+  saying: {
+    en: "- slowly but steadily🐢",
+    ko: "- 느리지만 꾸준히🐢",
+    ja: "- 遅くても地道に🐢",
+  },
+};
+
 export const skills = {
   title: {
     en: ["Skills"],
