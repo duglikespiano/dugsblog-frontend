@@ -4,8 +4,10 @@ module.exports = {
       typography: {
         DEFAULT: {
           css: {
+            // maxWidth: "1024px",
             a: {
               "&:hover": {},
+              textDecoration: "none",
             },
             h2: {
               fontWeight: "bolder",
@@ -14,21 +16,19 @@ module.exports = {
             h3: {
               fontWeight: "bold",
               color: "var(--color-green2)",
-              opacity: "80%",
             },
             h4: {
               fontWeight: "bold",
               color: "var(--color-green2)",
-              opacity: "80%",
             },
             p: {
-              fontWeight: "thin",
               lineHeight: "1.35",
-              opacity: "90%",
+            },
+            ul: {
+              margin: "0",
             },
             li: {
-              color: "var(--color-green2)",
-              borderColor: "var(--color-green2)",
+              margin: "0",
               "&::marker": {
                 color: "inherit",
               },
@@ -48,14 +48,11 @@ module.exports = {
             h3: {
               fontWeight: "bold",
               color: "var(--color-rosewater)",
-              opacity: "80%",
             },
             h4: {
               fontWeight: "bold",
               color: "var(--color-rosewater)",
-              opacity: "80%",
             },
-
             li: {
               color: "inherit",
               "&::marker": {

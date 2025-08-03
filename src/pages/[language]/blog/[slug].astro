@@ -14,6 +14,8 @@ const tagKeys = entry?.data.tags as string[];
 const slugsArray = posts.map((post) => post.data.slug);
 import "../../../css/particles.scss";
 
+console.log(entry);
+
 if (!slugsArray.includes(slug)) {
   return Astro.redirect(`/${language}/blog/`);
 }
@@ -42,17 +44,25 @@ const { Content } = await render(entry);
 <RootLayout language={language}>
   <Prose>
     <div class="dark:bg-green1 bg-rosewater relative z-10">
-      <a href=`/${language}/blog/` class="text-green2 dark:text-rosewater no-underline">to blog main page</a>
-      <ul class="flex gap-4 p-0">
-        {
-          tagsArray.map((tag) => (
-            <li class="flex list-none items-center justify-center border-4 p-1">
-              <a href={`/${language}/tags/${tag["en"].toLowerCase()}`}>{tag[language]}</a>
-            </li>
-          ))
-        }
-      </ul>
-      <Content />
+      <a
+        href=`/${language}/blog/`
+        class="text-green2 dark:text-rosewater dark:border-gray3 border-green1 text-md border-4 p-1 no-underline"
+        >to blog main page</a
+      >
+      <div class="dark:border-gray3 border-green1 border-4 p-7 sm:p-10">
+        <h2 class="mt-0">{entry.data.title}</h2>
+        <p>{entry.data.pubDate.toLocaleDateString()}</p>
+        <ul class="flex gap-4 p-0">
+          {
+            tagsArray.map((tag) => (
+              <li class="dark:bg-green1 bg-rosewater dark:border-gray3 border-green1 flex list-none items-center justify-center border-4 p-1">
+                <a href={`/${language}/tags/${tag["en"].toLowerCase()}`}>{tag[language]}</a>
+              </li>
+            ))
+          }
+        </ul>
+        <Content />
+      </div>
     </div>
   </Prose>
 </RootLayout>

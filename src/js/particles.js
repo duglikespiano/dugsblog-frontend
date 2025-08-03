@@ -1,6 +1,6 @@
 const rootWrapper = document.querySelector("[data-root-wrapper]");
 const particles = [];
-const particlesNumber = 50;
+const particlesNumber = 20;
 const SPEED_MULTIPLIER = 0.5;
 
 class Particle {
