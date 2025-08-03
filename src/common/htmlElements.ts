@@ -544,7 +544,7 @@ export const guestbook = {
     ja: "パスワード",
   },
   passwordDescription: {
-    en: "required to remove the message",
+    en: "required to delete the message",
     ko: "메세지 삭제에 필요",
     ja: "メッセージ削除に必要",
   },
