@@ -12,6 +12,7 @@
     "@astrojs/mdx": "^4.3.1",
     "@astrojs/node": "^9.2.2",
     "@astrojs/react": "^4.3.0",
+    "@iconify-json/fa7-regular": "^1.2.0",
     "@iconify-json/tabler": "^1.2.16",
     "@nanostores/react": "^0.8.4",
     "@tailwindcss/vite": "^4.0.6",

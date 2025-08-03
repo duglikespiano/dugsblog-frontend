@@ -579,3 +579,18 @@ export const guestbook = {
     ja: "提出",
   },
 };
+
+export const error = {
+  en: {
+    oops: "Oops!",
+    texts: ["An error has occurred!", "Please contact Dug!"],
+  },
+  ko: {
+    oops: "이런!",
+    texts: ["문제가 발생했습니다!", "Dug에게 연락해주세요!"],
+  },
+  ja: {
+    oops: "おおっと!",
+    texts: ["問題が発生しました！", "Dugに連絡してください！"],
+  },
+};

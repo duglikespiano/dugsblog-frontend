@@ -1,4 +1,6 @@
 ---
+import { Icon } from "astro-icon/components";
+import { error } from "../../common/htmlElements";
 import RootLayout from "../../layouts/RootLayout.astro";
 import { isStringLanguage } from "../../common/functions";
 import type { Languages } from "../../common/types";
@@ -8,4 +10,14 @@ if (!isStringLanguage(language)) {
 }
 ---
 
-<RootLayout> This is 404 {language} page </RootLayout>
+<RootLayout>
+  <div class="flex flex-col items-center font-bold">
+    <Icon name="fa7-regular:face-surprise" class="dark:text-rosewater text-green2 text-[100px] sm:text-[200px]" />
+    <div class="mt-3 sm:mt-6">
+      <p class="text-center text-4xl text-slate-800 sm:text-6xl dark:text-gray-200">{error[language]["oops"]}</p>
+      <div class="mt-2 flex flex-col text-center text-xl text-slate-700 sm:mt-4 sm:text-3xl dark:text-gray-400">
+        {error[language]["texts"].map((text) => <p>{text}</p>)}
+      </div>
+    </div>
+  </div>
+</RootLayout>

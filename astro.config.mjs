@@ -19,6 +19,7 @@ export default defineConfig({
         zondicons: ["hour-glass"],
         humbleicons: ["check", "exclamation"],
         cil: ["arrow-top", "sun", "moon", "trash"],
+        "fa7-regular": ["face-surprise"],
       },
     }),
     react(),
