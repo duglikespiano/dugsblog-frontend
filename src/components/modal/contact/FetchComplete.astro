@@ -1,7 +1,7 @@
 ---
-import Modal from "../../layouts/Modal.astro";
+import Modal from "../../../layouts/Modal.astro";
 import { Icon } from "astro-icon/components";
-import type { Languages } from "../../common/types";
+import type { Languages } from "../../../common/types";
 const { language } = Astro.props as { language: Languages };
 ---
 
@@ -23,7 +23,7 @@ const { language } = Astro.props as { language: Languages };
 </Modal>
 
 <script>
-  import { isModalOpenStore } from "../../common/stores";
+  import { isModalOpenStore } from "../../../common/stores";
   const contactCompletModalCloseButton = document.querySelector("[data-fetch-success-modal-close-button]");
 
   contactCompletModalCloseButton?.addEventListener("click", () => {

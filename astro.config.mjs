@@ -20,6 +20,7 @@ export default defineConfig({
         humbleicons: ["check", "exclamation"],
         cil: ["arrow-top", "sun", "moon", "trash"],
         "fa7-regular": ["face-surprise"],
+        mdi: ["password-outline"],
       },
     }),
     react(),

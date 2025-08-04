@@ -3,10 +3,14 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import NavModal from "../components/modal/Nav.astro";
 import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
-import FetchCompleteModal from "../components/modal/FetchComplete.astro";
-import FetchErrorModal from "../components/modal/FetchError.astro";
+import FetchCompleteModal from "../components/modal/contact/FetchComplete.astro";
+import FetchErrorModal from "../components/modal/contact/FetchError.astro";
+import AskPassword from "../components/modal/guesbook/AskPassword.astro";
+import DeleteMessageComplete from "../components/modal/guesbook/DeleteMessageComplete.astro";
+import DeleteMessageError from "../components/modal/guesbook/DeleteMessageError.astro";
 import MenuButton from "../components/MenuButton.astro";
 const { language } = Astro.props;
+const whichPage = Astro.url.pathname.split("/")[2];
 ---
 
 <section
@@ -25,9 +29,26 @@ const { language } = Astro.props;
   </section>
   <Footer language={language} />
   <NavModal language={language} />
-  <FetchProcessingModal language={language} />
-  <FetchCompleteModal language={language} />
-  <FetchErrorModal language={language} />
+  {
+    whichPage === "contact" && (
+      <>
+        <FetchProcessingModal language={language} />
+        <FetchCompleteModal language={language} />
+        <FetchErrorModal language={language} />
+      </>
+    )
+  }
+  {
+    whichPage === "guestbook" ? (
+      <>
+        {/* <FetchProcessingModal language={language} /> */}
+        <AskPassword language={language} />
+        {/* <DeleteMessageComplete language={language} />
+        <DeleteMessageError language={language} /> */}
+      </>
+    ) : null
+  }
+
   <MenuButton language={language} />
 </section>
 

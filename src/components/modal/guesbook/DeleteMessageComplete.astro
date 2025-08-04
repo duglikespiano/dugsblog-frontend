@@ -1,0 +1,36 @@
+---
+import Modal from "../../../layouts/Modal.astro";
+import { Icon } from "astro-icon/components";
+import type { Languages } from "../../../common/types";
+const { language } = Astro.props as { language: Languages };
+---
+
+<Modal modalName="delete-message-complete">
+  <div
+    id="delete-message-complete"
+    class="relative mx-6 flex aspect-square max-h-[30rem] w-full max-w-[30rem] flex-col items-center justify-center gap-5 rounded-4xl border-4"
+  >
+    <div class="flex flex-col items-center justify-center" data-on-success>
+      <Icon name="humbleicons:check" class="dark:text-green3 h-28 w-28 md:h-36 md:w-36" />
+      <p class="mt-1 text-3xl sm:mt-3 md:mt-4" data-delete-message-complete>SUCCESS!!!!!!!!!!!!</p>
+    </div>
+
+    <button
+      class="bg-rosewater absolute bottom-[5%] left-[50%] h-14 w-[90%] -translate-x-[50%] cursor-pointer rounded-lg text-xl md:text-2xl"
+      data-delete-message-complete-modal-close-button>Confirm</button
+    >
+  </div>
+</Modal>
+
+<script>
+  import { isModalOpenStore } from "../../../common/stores";
+  const contactCompletModalCloseButton = document.querySelector("[data-delete-message-complete-modal-close-button]");
+
+  contactCompletModalCloseButton?.addEventListener("click", () => {
+    const previousStore = isModalOpenStore.get();
+    isModalOpenStore.set({
+      ...previousStore,
+      "delete-message-complete": false,
+    });
+  });
+</script>

@@ -8,6 +8,9 @@ export const isModalOpenStore = atom({
   "fetch-processing": false,
   "fetch-success": false,
   "fetch-error": false,
+  "ask-password": false,
+  "delete-message-complete": false,
+  "delete-message-error": false,
 });
 export const contactFormStore = atom({
   name: "",
