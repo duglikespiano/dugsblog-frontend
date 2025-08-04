@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import NavModal from "../components/modal/Nav.astro";
 import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
 import FetchCompleteModal from "../components/modal/FetchComplete.astro";
+import FetchErrorModal from "../components/modal/FetchError.astro";
 import MenuButton from "../components/MenuButton.astro";
 const { language } = Astro.props;
 ---
@@ -26,6 +27,7 @@ const { language } = Astro.props;
   <NavModal language={language} />
   <FetchProcessingModal language={language} />
   <FetchCompleteModal language={language} />
+  <FetchErrorModal language={language} />
   <MenuButton language={language} />
 </section>
 

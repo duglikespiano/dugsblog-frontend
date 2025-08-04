@@ -5,14 +5,14 @@ import type { Languages } from "../../common/types";
 const { language } = Astro.props as { language: Languages };
 ---
 
-<Modal modalName="fetch-success">
+<Modal modalName="fetch-error">
   <div
-    id="fetch-success"
+    id="fetch-processing"
     class="relative mx-6 flex aspect-square max-h-[30rem] w-full max-w-[30rem] flex-col items-center justify-center gap-5 rounded-4xl border-4"
   >
-    <div class="flex flex-col items-center justify-center" data-on-success>
-      <Icon name="humbleicons:check" class="dark:text-green3 h-28 w-28 md:h-36 md:w-36" />
-      <p class="mt-1 text-3xl sm:mt-3 md:mt-4" data-fetch-success>SUCCESS!!!!!!!!!!!!</p>
+    <div class="flex flex-col items-center justify-center" data-on-error>
+      <Icon name="humbleicons:exclamation" class="h-28 w-28 text-red-500 md:h-36 md:w-36" />
+      <p class="mt-1 text-3xl sm:mt-3 md:mt-4">ERROR???????????</p>
     </div>
 
     <button
@@ -30,7 +30,7 @@ const { language } = Astro.props as { language: Languages };
     const previousStore = isModalOpenStore.get();
     isModalOpenStore.set({
       ...previousStore,
-      "fetch-success": false,
+      "fetch-error": false,
     });
   });
 </script>

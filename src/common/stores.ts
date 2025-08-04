@@ -5,8 +5,9 @@ export const skillsStore = atom(allOfSkillsIhaveTried);
 export const projectsStore = atom(allOfMyProjects);
 export const isModalOpenStore = atom({
   nav: false,
-  "contact-process": false,
-  "contact-complete": false,
+  "fetch-processing": false,
+  "fetch-success": false,
+  "fetch-error": false,
 });
 export const contactFormStore = atom({
   name: "",
