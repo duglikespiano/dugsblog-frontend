@@ -48,21 +48,30 @@ const { Content } = await render(entry);
       <a
         href=`/${language}/blog/`
         class="text-green2 dark:text-rosewater dark:border-gray3 border-green1 text-md border-4 p-1 no-underline"
-        >to blog main page</a
+        >to posts list</a
       >
-      <div class="dark:border-gray3 border-green1 border-4 p-7 sm:p-10">
+      <div class="dark:border-gray3 border-green1 rounded-4xl border-4 p-5 sm:p-10">
         <h2 class="mt-0">{entry.data.title}</h2>
-        <p>{entry.data.pubDate.toLocaleDateString()}</p>
-        <p>{entry.data.description}</p>
+        <p>
+          {
+            entry.data.pubDate.toLocaleDateString(`${language}`, {
+              weekday: "long",
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </p>
         <ul class="flex gap-4 p-0">
           {
             tagsArray.map((tag) => (
-              <li class="dark:bg-green1 bg-rosewater dark:border-gray3 border-green1 flex list-none items-center justify-center border-4 p-1">
+              <li class="dark:bg-green1 bg-rosewater dark:border-gray3 border-green1 flex list-none items-center justify-center rounded-xl border-2 p-1">
                 <a href={`/${language}/tags/${tag["en"].toLowerCase()}`}>{tag[language]}</a>
               </li>
             ))
           }
         </ul>
+        <p>{entry.data.description}</p>
         <Content />
       </div>
     </div>

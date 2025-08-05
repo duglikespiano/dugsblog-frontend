@@ -29,7 +29,7 @@ const filteredPosts = tagsPropsArray
           <li>
             <a
               href={`/${language}/tags/${tag[key]["en"].toLowerCase()}`}
-              class={`border-2 ${tag[key][language] === highlightedTag ? "text-red-500" : ""}`}
+              class={`${tag[key][language] === highlightedTag ? "text-red-500" : ""}`}
             >
               {tag[key][language]}
             </a>
@@ -38,27 +38,36 @@ const filteredPosts = tagsPropsArray
       })
     }
   </ul>
-  <ul class="grid grid-cols-2 gap-4">
+  <ul class="grid gap-4 sm:grid-cols-2">
     {
       filteredPosts.map((post) => (
-        <li class="border-4">
+        <li class="overflow-hidden rounded-2xl border-2">
           <div class="flex h-full flex-col justify-between">
-            <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`}>
-              <div class="border-2">
-                <img src={`/src/content/${post.filePath?.split("/")[2]}/thumbnail.jpg`} />
+            <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block border-2 border-red-600">
+              <img src={`/src/content/${post.filePath?.split("/")[2]}/thumbnail.jpg`} />
+              <div class="p-2">
                 <div>{post.data.title}</div>
                 <div class="line-clamp-2">{post.data.description}</div>
-                <p>{post.data.pubDate.toLocaleDateString()}</p>
+                <p>
+                  {post.data.pubDate.toLocaleDateString(`${language}`, {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}
+                </p>
               </div>
             </a>
-            <ul class="flex gap-3 border-2 border-red-700">
+            <ul class="m-0 flex list-none gap-2">
               {post.data.tags.map((t) => {
                 const key = getTagKeyByTranslation(t, language);
                 const href = key ? `/${language}/tags/${tags[key].en.toLowerCase()}` : "#";
                 return (
-                  <p class={t === highlightedTag ? "text-red-500" : null}>
-                    <a href={href}>{t}</a>
-                  </p>
+                  <li class="rounded-xl border-2 p-1">
+                    <a href={href} class={t === highlightedTag ? "text-red-500" : ""}>
+                      {t}
+                    </a>
+                  </li>
                 );
               })}
             </ul>
