@@ -14,8 +14,6 @@ const tagKeys = entry?.data.tags as string[];
 const slugsArray = posts.map((post) => post.data.slug);
 import "../../../css/particles.scss";
 
-console.log(entry);
-
 if (!slugsArray.includes(slug)) {
   return Astro.redirect(`/${language}/blog/`);
 }
@@ -52,6 +50,7 @@ const { Content } = await render(entry);
       <div class="dark:border-gray3 border-green1 border-4 p-7 sm:p-10">
         <h2 class="mt-0">{entry.data.title}</h2>
         <p>{entry.data.pubDate.toLocaleDateString()}</p>
+        <p>{entry.data.description}</p>
         <ul class="flex gap-4 p-0">
           {
             tagsArray.map((tag) => (

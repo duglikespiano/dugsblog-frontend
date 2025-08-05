@@ -46,23 +46,10 @@ export type TagTranslations = {
 export type TagKey = keyof typeof tags;
 export type TagType = { en: string; ko: string; ja: string };
 
-export const enPostSchema = z.object({
+export const postSchema = z.object({
   title: z.string(),
   slug: z.string(),
-  tags: z.string().array(),
-  pubDate: z.coerce.date(),
-  updatedDate: z.coerce.date().optional(),
-});
-export const koPostSchema = z.object({
-  title: z.string(),
-  slug: z.string(),
-  tags: z.string().array(),
-  pubDate: z.coerce.date(),
-  updatedDate: z.coerce.date().optional(),
-});
-export const jaPostSchema = z.object({
-  title: z.string(),
-  slug: z.string(),
+  description: z.string(),
   tags: z.string().array(),
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),

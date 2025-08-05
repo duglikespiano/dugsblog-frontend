@@ -1,18 +1,18 @@
 import { defineCollection } from "astro:content";
-import { enPostSchema, koPostSchema, jaPostSchema } from "./common/types";
+import { postSchema } from "./common/types";
 import { glob } from "astro/loaders";
 
 const enPosts = defineCollection({
   loader: glob({ pattern: "*.mdx", base: "./src/content/blog/en/" }),
-  schema: enPostSchema,
+  schema: postSchema,
 });
 const koPosts = defineCollection({
   loader: glob({ pattern: "*.mdx", base: "./src/content/blog/ko/" }),
-  schema: koPostSchema,
+  schema: postSchema,
 });
 const jaPosts = defineCollection({
   loader: glob({ pattern: "*.mdx", base: "./src/content/blog/ja/" }),
-  schema: jaPostSchema,
+  schema: postSchema,
 });
 
 export const collections = { enPosts, koPosts, jaPosts };
