@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { tags } from "../../common/types";
 import type { Posts, Languages } from "../../common/types";
 import { getTagKeyByTranslation } from "../../common/functions";
@@ -10,6 +11,7 @@ const { posts, language, tagsPropsArray } = Astro.props as {
 };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
+const tagsArray = Object.keys(tags).map((tag, i) => ({ [tag]: Object.values(tags)[i] }));
 
 const highlightedTag = tag ? tags[tag][language] : null;
 const filteredPosts = tagsPropsArray
@@ -19,15 +21,34 @@ const filteredPosts = tagsPropsArray
 
 <div class="dark:bg-green1 bg-rosewater relative z-10 mx-auto max-w-4xl px-2">
   {tag ? <a href={`/${language}/blog`}>BACK TO ALL POSTS</a> : null}
+  <ul class="flex gap-4">
+    {
+      tagsArray.map((tag) => {
+        const key = Object.keys(tag)[0] as keyof typeof tags;
+        return (
+          <li>
+            <a
+              href={`/${language}/tags/${tag[key]["en"].toLowerCase()}`}
+              class={`border-2 ${tag[key][language] === highlightedTag ? "text-red-500" : ""}`}
+            >
+              {tag[key][language]}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ul>
   <ul class="grid grid-cols-2 gap-4">
     {
       filteredPosts.map((post) => (
         <li class="border-4">
           <div class="flex h-full flex-col justify-between">
-            <a href={`/${language}/blog/${post.data.slug}`}>
+            <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`}>
               <div class="border-2">
+                <img src={`/src/content/${post.filePath?.split("/")[2]}/thumbnail.jpg`} />
                 <div>{post.data.title}</div>
-                <div>{post.data.description}</div>
+                <div class="line-clamp-2">{post.data.description}</div>
+                <p>{post.data.pubDate.toLocaleDateString()}</p>
               </div>
             </a>
             <ul class="flex gap-3 border-2 border-red-700">

@@ -3,15 +3,15 @@ import { postSchema } from "./common/types";
 import { glob } from "astro/loaders";
 
 const enPosts = defineCollection({
-  loader: glob({ pattern: "*.mdx", base: "./src/content/blog/en/" }),
+  loader: glob({ pattern: "**/en.mdx", base: "./src/content/" }),
   schema: postSchema,
 });
 const koPosts = defineCollection({
-  loader: glob({ pattern: "*.mdx", base: "./src/content/blog/ko/" }),
+  loader: glob({ pattern: "**/ko.mdx", base: "./src/content/" }),
   schema: postSchema,
 });
 const jaPosts = defineCollection({
-  loader: glob({ pattern: "*.mdx", base: "./src/content/blog/ja/" }),
+  loader: glob({ pattern: "**/ja.mdx", base: "./src/content/" }),
   schema: postSchema,
 });
 

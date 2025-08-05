@@ -1,4 +1,5 @@
 ---
+import { util } from "astro:schema";
 import { getCollection, getEntry, render } from "astro:content";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import Prose from "../../../layouts/Prose.astro";
@@ -8,10 +9,12 @@ import { isStringLanguage } from "../../../common/functions";
 import type { Languages, TagKey, TagTranslations } from "../../../common/types";
 const { slug } = Astro.params as { slug: string };
 const { language } = Astro.params as { language: Languages };
+
 const posts = await getCollection(`${language}Posts`);
-const entry = await getEntry(collectionMap[language], slug);
+const entry = await getEntry(collectionMap[language], `${slug}/${language}`);
+
 const tagKeys = entry?.data.tags as string[];
-const slugsArray = posts.map((post) => post.data.slug);
+const slugsArray = posts.map((post) => post.filePath?.split("/")[2]);
 import "../../../css/particles.scss";
 
 if (!slugsArray.includes(slug)) {

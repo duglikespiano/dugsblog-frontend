@@ -9,7 +9,7 @@ import mdx from "@astrojs/mdx";
 
 export default defineConfig({
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss("@tailwindcss/line-clamp")],
   },
 
   integrations: [

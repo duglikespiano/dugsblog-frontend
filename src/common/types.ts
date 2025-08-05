@@ -25,7 +25,8 @@ export const collectionMap = {
   ja: "jaPosts",
 } as const;
 
-export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework", "travel", "thoughts"] as const;
+// export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework", "travel", "thoughts"] as const;
+export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework"] as const;
 export type TagLang = (typeof tagKeys)[number];
 
 export const tags: Record<TagLang, TagTranslations> = {
@@ -35,8 +36,8 @@ export const tags: Record<TagLang, TagTranslations> = {
   html: { en: "HTML", ko: "HTML", ja: "HTML" },
   php: { en: "PHP", ko: "PHP", ja: "PHP" },
   framework: { en: "Framework", ko: "프레임워크", ja: "フレームワーク" },
-  travel: { en: "Travel", ko: "여행", ja: "旅行" },
-  thoughts: { en: "Thoughts", ko: "생각", ja: "考え" },
+  // travel: { en: "Travel", ko: "여행", ja: "旅行" },
+  // thoughts: { en: "Thoughts", ko: "생각", ja: "考え" },
 } as const;
 
 export type TagTranslations = {
@@ -48,7 +49,6 @@ export type TagType = { en: string; ko: string; ja: string };
 
 export const postSchema = z.object({
   title: z.string(),
-  slug: z.string(),
   description: z.string(),
   tags: z.string().array(),
   pubDate: z.coerce.date(),
