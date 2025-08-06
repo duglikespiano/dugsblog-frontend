@@ -16,14 +16,14 @@ const whichPage = Astro.url.pathname.split("/")[2];
 <section
   id="max-width-wrapper"
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000 opacity-0`
-  data-reveal-on-load
+  data-reveal-on-load-delayed="300"
 >
   <Header language={language} />
   <section
     id="slot-wrapper"
     class="py-8 opacity-0 duration-1000 md:py-14"
-    data-reveal-on-load-delayed="500"
     data-root-wrapper
+    data-reveal-on-load-delayed="800"
   >
     <slot />
   </section>
@@ -54,12 +54,12 @@ const whichPage = Astro.url.pathname.split("/")[2];
 
 <script>
   window.addEventListener("DOMContentLoaded", () => {
-    const fadeupWithoutDelayElement = document.querySelector("[data-reveal-on-load]") as HTMLElement;
-    const fadeupDelayedElement = document.querySelector("[data-reveal-on-load-delayed]") as HTMLElement;
-    const howLongDelayed = Number(fadeupDelayedElement.getAttribute("data-reveal-on-load-delayed") ?? "0");
-    fadeupWithoutDelayElement.classList.add("opacity-100");
-    setTimeout(() => {
-      fadeupDelayedElement.classList.add("opacity-100");
-    }, howLongDelayed);
+    const fadeupDelayedElements = document.querySelectorAll("[data-reveal-on-load-delayed]");
+    fadeupDelayedElements.forEach((element) => {
+      const howLongDelayed = Number(element.getAttribute("data-reveal-on-load-delayed") ?? "0");
+      setTimeout(() => {
+        element.classList.add("opacity-100");
+      }, howLongDelayed);
+    });
   });
 </script>
