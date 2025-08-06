@@ -61,8 +61,11 @@ const { Content } = await render(entry);
       <ul class="flex gap-4 p-0">
         {
           tagsArray.map((tag) => (
-            <li class="dark:bg-green1 bg-rosewater dark:border-gray3 border-green2 flex list-none items-center justify-center rounded-xl border-2 p-1">
-              <a class="text-green2 dark:text-gray3" href={`/${language}/tags/${tag["en"].toLowerCase()}`}>
+            <li class="dark:bg-green1 bg-rosewater flex list-none items-center justify-center pl-0">
+              <a
+                class="text-green2 dark:text-gray3 dark:border-gray3 border-green2 rounded-xl border-2 p-1"
+                href={`/${language}/tags/${tag["en"].toLowerCase()}`}
+              >
                 {tag[language]}
               </a>
             </li>

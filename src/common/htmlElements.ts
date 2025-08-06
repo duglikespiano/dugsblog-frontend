@@ -622,3 +622,15 @@ export const error = {
     texts: ["問題が発生しました！", "Dugに連絡してください！"],
   },
 };
+
+export const posts = {
+  en: {
+    tag: "Selected tag : ",
+  },
+  ko: {
+    tag: "선택된 태그 : ",
+  },
+  ja: {
+    tag: "選択されたタグ : ",
+  },
+};

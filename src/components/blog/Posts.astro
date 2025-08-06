@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import { tags } from "../../common/types";
 import type { Posts, Languages } from "../../common/types";
 import { getTagKeyByTranslation } from "../../common/functions";
+import { posts as postsHTMLElement } from "../../common/htmlElements";
 
 const { posts, language, tagsPropsArray } = Astro.props as {
   posts: Posts;
@@ -11,7 +11,7 @@ const { posts, language, tagsPropsArray } = Astro.props as {
 };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
-const tagsArray = Object.keys(tags).map((tag, i) => ({ [tag]: Object.values(tags)[i] }));
+// const tagsArray = Object.keys(tags).map((tag, i) => ({ [tag]: Object.values(tags)[i] }));
 
 const highlightedTag = tag ? tags[tag][language] : null;
 const filteredPosts = tagsPropsArray
@@ -20,7 +20,15 @@ const filteredPosts = tagsPropsArray
 ---
 
 <div class="relative z-10 mx-auto max-w-4xl">
-  {tag ? <a href={`/${language}/blog`}>BACK TO ALL POSTS</a> : null}
+  {
+    tag && (
+      <p class="text-green1 dark:text-rosewater mb-1 text-xl">
+        {postsHTMLElement[language]["tag"]}
+        <span class="text-green3 dark:text-gray3 font-bold">{highlightedTag}</span>
+      </p>
+    )
+  }
+
   <!-- <ul class="flex gap-4">
     {
       tagsArray.map((tag) => {
@@ -52,10 +60,13 @@ const filteredPosts = tagsPropsArray
                   const key = getTagKeyByTranslation(t, language);
                   const href = key ? `/${language}/tags/${tags[key].en.toLowerCase()}` : "#";
                   return (
-                    <li
-                      class={`dark:border-gray3 dark:text-gray3 border-green2 rounded-xl border-2 p-1 ${t === highlightedTag ? "dark:bg-purple4 text-gray3 bg-pink-800 font-extrabold" : "text-green2"}`}
-                    >
-                      <a href={href}>{t}</a>
+                    <li>
+                      <a
+                        class={`dark:border-gray3 dark:text-gray3 border-green2 block rounded-xl border-2 p-1 ${t === highlightedTag ? "dark:bg-purple4 text-gray3 bg-pink-800" : "text-green2"}`}
+                        href={href}
+                      >
+                        {t}
+                      </a>
                     </li>
                   );
                 })}
