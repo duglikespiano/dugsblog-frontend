@@ -11,7 +11,7 @@ module.exports = {
             },
             h2: {
               fontWeight: "bolder",
-              color: "var(--color-green2)",
+              color: "var(--color-green1)",
             },
             h3: {
               fontWeight: "bold",
@@ -23,6 +23,7 @@ module.exports = {
             },
             p: {
               lineHeight: "1.35",
+              color: "var(--color-stone-600)",
             },
             ul: {
               margin: "0",
@@ -58,6 +59,9 @@ module.exports = {
               "&::marker": {
                 color: "inherit",
               },
+            },
+            p: {
+              color: "var(--color-text-gray-300)",
             },
           },
         },
