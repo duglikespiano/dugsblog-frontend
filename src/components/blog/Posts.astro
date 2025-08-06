@@ -11,7 +11,6 @@ const { posts, language, tagsPropsArray } = Astro.props as {
 };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
-// const tagsArray = Object.keys(tags).map((tag, i) => ({ [tag]: Object.values(tags)[i] }));
 
 const highlightedTag = tag ? tags[tag][language] : null;
 const filteredPosts = tagsPropsArray
@@ -28,24 +27,6 @@ const filteredPosts = tagsPropsArray
       </p>
     )
   }
-
-  <!-- <ul class="flex gap-4">
-    {
-      tagsArray.map((tag) => {
-        const key = Object.keys(tag)[0] as keyof typeof tags;
-        return (
-          <li>
-            <a
-              href={`/${language}/tags/${tag[key]["en"].toLowerCase()}`}
-              class={`${tag[key][language] === highlightedTag ? "text-red-500" : ""}`}
-            >
-              {tag[key][language]}
-            </a>
-          </li>
-        );
-      })
-    }
-  </ul> -->
   <ul class="grid items-start gap-4 sm:grid-cols-2">
     {
       filteredPosts.map((post) => (
