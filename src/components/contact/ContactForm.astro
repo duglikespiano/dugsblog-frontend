@@ -65,7 +65,7 @@ const componentTitle = componentTitles["contact"][language];
     </fieldset>
 
     <button
-      class="dark:bg-rosewater bg-green2 text-gray3 mx-auto mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
+      class="dark:bg-rosewater bg-green2 text-gray3 mx-auto mt-4 flex w-full cursor-pointer flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
       type="submit"
       data-contact-form-button
     >
@@ -78,26 +78,9 @@ const componentTitle = componentTitles["contact"][language];
   import { contactFormStore, isModalOpenStore } from "../../common/stores";
 
   const contactForm = document.querySelector("[data-contact-form]") as HTMLFormElement;
-  const submitButton = document.querySelector("[data-contact-form-button]") as HTMLButtonElement;
 
   function isValidEmail(email: string): boolean {
     return /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
-  }
-
-  function disableButton() {
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.classList.add("cursor-not-allowed");
-      submitButton.classList.remove("cursor-pointer");
-    }
-  }
-
-  function enableButton() {
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.classList.remove("cursor-not-allowed");
-      submitButton.classList.add("cursor-pointer");
-    }
   }
 
   function checkIfStringEmpty(value: string) {
@@ -128,21 +111,35 @@ const componentTitle = componentTitles["contact"][language];
 
   function resetInputs() {
     document.querySelectorAll("[data-input-element]").forEach((inputElement) => {
-      disableButton();
       const test = inputElement as HTMLInputElement;
       test.value = "";
     });
   }
   //
   //
+
+  document.querySelectorAll("[data-input-element]").forEach((input) => {
+    const inputElement = input as HTMLInputElement;
+    if (inputElement.tagName !== "TEXTAREA") {
+      inputElement.addEventListener("keydown", (event: KeyboardEvent) => {
+        if (event.key === " " || event.key === "Spacebar") {
+          event.preventDefault();
+        }
+      });
+    }
+  });
+
   document.querySelectorAll("[data-input-element]").forEach((input) => {
     input.addEventListener("input", (event) => {
       const target = event.target as HTMLInputElement;
       const id = target.id;
-      const value = target.value;
+      let value = target.value;
+      if (target.tagName !== "TEXTAREA") {
+        value = value.replace(/\s/g, "");
+      }
       const trimmedValue = value.trim();
-      let areAllValuesValid = false;
       let areAllValuesFilled = true;
+
       contactFormStore.set({
         ...contactFormStore.get(),
         [id]: value,
@@ -157,10 +154,6 @@ const componentTitle = componentTitles["contact"][language];
         }
       }
 
-      if (areAllValuesFilled && isValidEmail(contactFormStore.get().email)) {
-        areAllValuesValid = true;
-      }
-
       const errorMessages = document.querySelectorAll(`[data-error-${id}]`);
       if (trimmedValue === "") {
         updateInputBorder(target, true);
@@ -168,12 +161,6 @@ const componentTitle = componentTitles["contact"][language];
       } else {
         updateInputBorder(target, false);
         updateErrorMessagesDisplay(errorMessages, false, value);
-      }
-
-      if (areAllValuesValid) {
-        enableButton();
-      } else {
-        disableButton();
       }
     });
   });
@@ -196,32 +183,54 @@ const componentTitle = componentTitles["contact"][language];
   //
   contactForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log(contactFormStore.get());
+    let isFormReady = false;
+    type ContactFormKeys = "name" | "email" | "message";
+    const formData = contactFormStore.get();
+    const invalidInputs = (Object.keys(formData) as ContactFormKeys[])
+      .filter((key) => formData[key] === "")
+      .map((key) => key);
 
-    // const previousStore = isModalOpenStore.get();
-    // isModalOpenStore.set({
-    //   ...previousStore,
-    //   "fetch-processing": true,
-    // });
+    if (invalidInputs.length !== 0) {
+      invalidInputs.forEach((invalidInput) => {
+        updateErrorMessagesDisplay(document.querySelectorAll(`[data-error-${invalidInput}]`), true);
+      });
+      return;
+    }
 
-    // setTimeout(() => {
-    //   const previousStore = isModalOpenStore.get();
-    //   isModalOpenStore.set({
-    //     ...previousStore,
-    //     "fetch-processing": false,
-    //     "fetch-success": true,
-    //   });
-    //   resetInputs();
-    // }, 2000);
+    if (invalidInputs.length === 0) {
+      isFormReady = true;
+    }
+
+    isModalOpenStore.set({
+      ...isModalOpenStore.get(),
+      "fetch-processing": true,
+    });
+    const fetchResult = await fetch("http://localhost:8000/contact", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(contactFormStore.get()),
+    });
+    //
+
+    //
+    if (fetchResult.status === 202) {
+      isModalOpenStore.set({
+        ...isModalOpenStore.get(),
+        "fetch-processing": false,
+        "fetch-success": true,
+      });
+    } else if (fetchResult.status !== 202) {
+      isModalOpenStore.set({
+        ...isModalOpenStore.get(),
+        "fetch-processing": false,
+        "fetch-error": true,
+      });
+    }
+
+    resetInputs();
   });
   //
   //
-  disableButton();
-  const previousStore = isModalOpenStore.get();
-  isModalOpenStore.set({
-    ...previousStore,
-    // "fetch-processing": true,
-    // "fetch-success": true,
-    // "fetch-error": true,
-  });
 </script>

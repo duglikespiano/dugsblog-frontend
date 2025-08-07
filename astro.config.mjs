@@ -15,8 +15,8 @@ export default defineConfig({
   integrations: [
     icon({
       include: {
+        gg: ["spinner-two"],
         ph: ["github-logo-light", "instagram-logo-light"],
-        zondicons: ["hour-glass"],
         humbleicons: ["check", "exclamation", "arrow-left"],
         cil: ["arrow-top", "sun", "moon", "trash"],
         "fa7-regular": ["face-surprise"],
