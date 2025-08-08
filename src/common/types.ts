@@ -56,7 +56,9 @@ export const postSchema = z.object({
 });
 
 export type Messages = {
+  id: number;
   name: string;
   date: string;
   message: string;
+  created_at: string;
 };
