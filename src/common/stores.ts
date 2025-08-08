@@ -22,25 +22,3 @@ export const guestbookFormStore = atom({
   password: "",
   message: "",
 });
-export const guestbookMessagesStore = atom([
-  {
-    name: "ㅋㅋㅋㅋㅋㅋ",
-    date: "1234",
-    message: "12314123123",
-  },
-  {
-    name: "ad",
-    date: "1234",
-    message: "13gsdasqdffzxvxv",
-  },
-  {
-    name: "sdfgsdg",
-    date: "1234",
-    message: "jk;yuiy",
-  },
-  {
-    name: "56474567457",
-    date: "1234",
-    message: "asghdashsdfghsdghdsghsdgh",
-  },
-]);

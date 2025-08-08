@@ -54,3 +54,9 @@ export const postSchema = z.object({
   pubDate: z.coerce.date(),
   updatedDate: z.coerce.date().optional(),
 });
+
+export type Messages = {
+  name: string;
+  date: string;
+  message: string;
+};
