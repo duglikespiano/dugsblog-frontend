@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import type { Messages } from "../../common/types";
+
 const response = await fetch("http://localhost:8000/guestbook");
 const fetchData = await response.json();
 const messages: Messages[] = fetchData.data;
@@ -17,7 +18,7 @@ const messages: Messages[] = fetchData.data;
               <p class="text-xs font-bold text-slate-700 opacity-80 dark:text-gray-400">
                 {new Date(data.created_at).toLocaleDateString("en", {
                   year: "numeric",
-                  month: "long", // 'January', 'February', etc.
+                  month: "long",
                   day: "numeric",
                 })}
               </p>
@@ -37,17 +38,25 @@ const messages: Messages[] = fetchData.data;
 </div>
 
 <script>
+  import { isModalOpenStore } from "../../common/stores";
+  import { deleteMessageIdStore } from "../../common/stores";
+
+  let deleteMessageId: number | null;
   const guestbookDeleteButtons = document.querySelectorAll("[data-guestbook-delete-button]");
   guestbookDeleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
       const target = e.target as HTMLElement;
       const messageId = target.dataset.messagesDeleteId;
-      const itemToHide = document.querySelector(`[data-message-id="${messageId}"]`) as HTMLElement;
-
-      if (itemToHide) {
-        itemToHide.style.display = "none";
-        // Or use a CSS class: itemToHide.classList.add('hidden');
+      if (messageId) {
+        deleteMessageIdStore.set(parseInt(messageId));
       }
+      // const itemToHide = document.querySelector(`[data-message-id="${messageId}"]`) as HTMLElement;
+
+      const previousStore = isModalOpenStore.get();
+      isModalOpenStore.set({
+        ...previousStore,
+        "ask-password": true,
+      });
     });
   });
 </script>

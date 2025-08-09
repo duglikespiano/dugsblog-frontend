@@ -22,3 +22,4 @@ export const guestbookFormStore = atom({
   password: "",
   message: "",
 });
+export const deleteMessageIdStore = atom(0);
