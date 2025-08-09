@@ -22,14 +22,9 @@ const { language } = Astro.props as { language: Languages };
 </Modal>
 
 <script>
-  import { isModalOpenStore } from "../../../common/stores";
+  import { deleteMessageErrorModalStore } from "../../../common/stores";
   const contactCompletModalCloseButton = document.querySelector("[data-fetch-success-modal-close-button]");
-
   contactCompletModalCloseButton?.addEventListener("click", () => {
-    const previousStore = isModalOpenStore.get();
-    isModalOpenStore.set({
-      ...previousStore,
-      "delete-message-error": false,
-    });
+    deleteMessageErrorModalStore.set(false);
   });
 </script>

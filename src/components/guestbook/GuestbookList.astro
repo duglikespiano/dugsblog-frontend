@@ -38,10 +38,8 @@ const messages: Messages[] = fetchData.data;
 </div>
 
 <script>
-  import { isModalOpenStore } from "../../common/stores";
-  import { deleteMessageIdStore } from "../../common/stores";
+  import { askPasswordModalStore, deleteMessageIdStore } from "../../common/stores";
 
-  let deleteMessageId: number | null;
   const guestbookDeleteButtons = document.querySelectorAll("[data-guestbook-delete-button]");
   guestbookDeleteButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
@@ -50,13 +48,7 @@ const messages: Messages[] = fetchData.data;
       if (messageId) {
         deleteMessageIdStore.set(parseInt(messageId));
       }
-      // const itemToHide = document.querySelector(`[data-message-id="${messageId}"]`) as HTMLElement;
-
-      const previousStore = isModalOpenStore.get();
-      isModalOpenStore.set({
-        ...previousStore,
-        "ask-password": true,
-      });
+      askPasswordModalStore.set(true);
     });
   });
 </script>

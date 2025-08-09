@@ -39,14 +39,16 @@ const whichPage = Astro.url.pathname.split("/")[2];
     )
   }
   {
-    whichPage === "guestbook" ? (
+    whichPage === "guestbook" && (
       <>
-        {/* <FetchProcessingModal language={language} /> */}
         <AskPassword language={language} />
-        {/* <DeleteMessageComplete language={language} /> */}
-        {/* <DeleteMessageError language={language} /> */}
+        <FetchProcessingModal language={language} />
+        <FetchCompleteModal language={language} />
+        <FetchErrorModal language={language} />
+        <DeleteMessageComplete language={language} />
+        <DeleteMessageError language={language} />
       </>
-    ) : null
+    )
   }
 
   <MenuButton language={language} />

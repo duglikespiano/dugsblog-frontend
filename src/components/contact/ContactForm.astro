@@ -75,7 +75,12 @@ const componentTitle = componentTitles["contact"][language];
 </div>
 
 <script>
-  import { contactFormStore, isModalOpenStore } from "../../common/stores";
+  import {
+    contactFormStore,
+    fetchProcessingModalStore,
+    fetchSuccessModalStore,
+    fetchErrorModalStore,
+  } from "../../common/stores";
 
   const contactForm = document.querySelector("[data-contact-form]") as HTMLFormElement;
 
@@ -201,10 +206,7 @@ const componentTitle = componentTitles["contact"][language];
       isFormReady = true;
     }
 
-    isModalOpenStore.set({
-      ...isModalOpenStore.get(),
-      "fetch-processing": true,
-    });
+    fetchProcessingModalStore.set(true);
     const fetchResult = await fetch("http://localhost:8000/contact", {
       method: "post",
       headers: {
@@ -215,18 +217,12 @@ const componentTitle = componentTitles["contact"][language];
     //
 
     //
-    if (fetchResult.status === 202) {
-      isModalOpenStore.set({
-        ...isModalOpenStore.get(),
-        "fetch-processing": false,
-        "fetch-success": true,
-      });
-    } else if (fetchResult.status !== 202) {
-      isModalOpenStore.set({
-        ...isModalOpenStore.get(),
-        "fetch-processing": false,
-        "fetch-error": true,
-      });
+    if (fetchResult.status >= 200) {
+      fetchProcessingModalStore.set(false);
+      fetchSuccessModalStore.set(true);
+    } else if (fetchResult.status >= 300) {
+      fetchProcessingModalStore.set(false);
+      fetchErrorModalStore.set(true);
     }
 
     resetInputs();

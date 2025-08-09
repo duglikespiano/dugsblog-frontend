@@ -23,23 +23,18 @@ const { position, top, right } = Astro.props;
 </button>
 
 <script>
-  import { isModalOpenStore } from "../common/stores";
+  import { navModalStore } from "../common/stores";
   const hamburgerElements = document.querySelectorAll("[data-hamburger]") as NodeListOf<Element>;
 
   function toggleModal() {
-    isModalOpenStore.set({
-      ...isModalOpenStore.get(),
-      nav: !isModalOpenStore.get().nav,
-    });
+    navModalStore.set(!navModalStore.get());
   }
 
   hamburgerElements.forEach((hamburger) => hamburger.addEventListener("click", toggleModal));
 
-  isModalOpenStore.subscribe((isNavOpen) => {
-    if (isNavOpen.nav) {
-      hamburgerElements.forEach((hamburger) => {
-        hamburger.classList.add("active");
-      });
+  navModalStore.subscribe((boolean) => {
+    if (boolean) {
+      hamburgerElements.forEach((hamburger) => hamburger.classList.add("active"));
     } else {
       hamburgerElements.forEach((hamburger) => hamburger.classList.remove("active"));
     }

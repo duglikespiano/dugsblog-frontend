@@ -23,14 +23,10 @@ const { language } = Astro.props as { language: Languages };
 </Modal>
 
 <script>
-  import { isModalOpenStore } from "../../../common/stores";
+  import { fetchSuccessModalStore } from "../../../common/stores";
   const contactCompletModalCloseButton = document.querySelector("[data-fetch-success-modal-close-button]");
 
   contactCompletModalCloseButton?.addEventListener("click", () => {
-    const previousStore = isModalOpenStore.get();
-    isModalOpenStore.set({
-      ...previousStore,
-      "fetch-success": false,
-    });
+    fetchSuccessModalStore.set(false);
   });
 </script>

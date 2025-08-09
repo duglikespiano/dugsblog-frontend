@@ -3,15 +3,6 @@ import { allOfSkillsIhaveTried, allOfMyProjects } from "../common/variables";
 
 export const skillsStore = atom(allOfSkillsIhaveTried);
 export const projectsStore = atom(allOfMyProjects);
-export const isModalOpenStore = atom({
-  nav: false,
-  "fetch-processing": false,
-  "fetch-success": false,
-  "fetch-error": false,
-  "ask-password": false,
-  "delete-message-complete": false,
-  "delete-message-error": false,
-});
 export const contactFormStore = atom({
   name: "",
   email: "",
@@ -23,3 +14,11 @@ export const guestbookFormStore = atom({
   message: "",
 });
 export const deleteMessageIdStore = atom(0);
+
+export const navModalStore = atom(false);
+export const fetchProcessingModalStore = atom(false);
+export const fetchSuccessModalStore = atom(false);
+export const fetchErrorModalStore = atom(false);
+export const askPasswordModalStore = atom(false);
+export const deleteMessageCompleteModalStore = atom(false);
+export const deleteMessageErrorModalStore = atom(false);

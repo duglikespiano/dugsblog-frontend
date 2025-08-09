@@ -12,12 +12,73 @@ const { modalName } = Astro.props;
 </div>
 
 <script>
-  import { isModalOpenStore } from "../common/stores";
+  import { fade } from "astro:transitions";
+  import {
+    navModalStore,
+    fetchProcessingModalStore,
+    fetchSuccessModalStore,
+    fetchErrorModalStore,
+    askPasswordModalStore,
+    deleteMessageCompleteModalStore,
+    deleteMessageErrorModalStore,
+  } from "../common/stores";
 
-  const modalElements = document.querySelectorAll(`[data-which-modal]`) as NodeListOf<Element>;
+  navModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-nav") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  fetchProcessingModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-fetch-processing") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  fetchSuccessModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-fetch-success") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  fetchErrorModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-fetch-error") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  askPasswordModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-ask-password") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  deleteMessageCompleteModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-delete-message-complete") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+  deleteMessageErrorModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-delete-message-error") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
 
-  function fixScrollWhenModalIsOpen(isOpen: boolean) {
-    if (isOpen) {
+  function updateModal(element: HTMLElement, boolean: boolean) {
+    if (boolean) {
+      element.classList.add("active");
+      element.removeAttribute("inert");
+    } else {
+      element.classList.remove("active");
+      element.setAttribute("inert", "");
+    }
+    updateFixedScreen(boolean);
+  }
+
+  function updateFixedScreen(boolean: boolean) {
+    if (boolean) {
       document.body.style.cssText = `
     position: fixed;
     top: -${window.scrollY}px;
@@ -29,22 +90,4 @@ const { modalName } = Astro.props;
       window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
     }
   }
-
-  modalElements.forEach((modalElement) => {
-    const modal = modalElement as HTMLElement;
-    const whichModal = modal.dataset.whichModal;
-
-    isModalOpenStore.subscribe((isModalOpen) => {
-      const isOpen = isModalOpen[whichModal as keyof typeof isModalOpen];
-      if (isOpen) {
-        modalElement.classList.add("active");
-        modalElement.removeAttribute("inert");
-        fixScrollWhenModalIsOpen(isOpen);
-      } else {
-        modalElement.classList.remove("active");
-        modalElement.setAttribute("inert", "");
-        fixScrollWhenModalIsOpen(isOpen);
-      }
-    });
-  });
 </script>

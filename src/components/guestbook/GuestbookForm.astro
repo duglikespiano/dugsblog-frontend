@@ -69,7 +69,7 @@ const componentTitle = componentTitles["guestbook"][language];
     </fieldset>
 
     <button
-      class="dark:bg-rosewater bg-green2 mt-4 flex w-full cursor-not-allowed flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
+      class="dark:bg-rosewater bg-green2 mt-4 flex w-full cursor-pointer flex-col items-center justify-center rounded-md px-18 py-1.5 font-bold"
       type="submit"
       data-guestbook-form-button
     >
@@ -79,26 +79,10 @@ const componentTitle = componentTitles["guestbook"][language];
 </div>
 
 <script>
-  import { guestbookFormStore, isModalOpenStore } from "../../common/stores";
+  import { guestbookFormStore, askPasswordModalStore } from "../../common/stores";
 
   const guestbookForm = document.querySelector("[data-guestbook-form]") as HTMLFormElement;
   const submitButton = document.querySelector("[data-guestbook-form-button]") as HTMLButtonElement;
-
-  function disableButton() {
-    if (submitButton) {
-      submitButton.disabled = true;
-      submitButton.classList.add("cursor-not-allowed");
-      submitButton.classList.remove("cursor-pointer");
-    }
-  }
-
-  function enableButton() {
-    if (submitButton) {
-      submitButton.disabled = false;
-      submitButton.classList.remove("cursor-not-allowed");
-      submitButton.classList.add("cursor-pointer");
-    }
-  }
 
   function checkIfStringEmpty(value: string) {
     return value === "" || value === null || value === undefined;
@@ -122,9 +106,8 @@ const componentTitle = componentTitles["guestbook"][language];
 
   function resetInputs() {
     document.querySelectorAll("[data-input-element]").forEach((inputElement) => {
-      disableButton();
-      const test = inputElement as HTMLInputElement;
-      test.value = "";
+      const input = inputElement as HTMLInputElement;
+      input.value = "";
     });
   }
   //
@@ -158,12 +141,6 @@ const componentTitle = componentTitles["guestbook"][language];
         updateInputBorder(target, false);
         updateErrorMessagesDisplay(errorMessages, false, value);
       }
-
-      if (areAllValuesFilled) {
-        enableButton();
-      } else {
-        disableButton();
-      }
     });
   });
   //
@@ -185,33 +162,8 @@ const componentTitle = componentTitles["guestbook"][language];
   //
   guestbookForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    console.log(guestbookFormStore.get());
-
-    // const previousStore = isModalOpenStore.get();
-    // isModalOpenStore.set({
-    //   ...previousStore,
-    //   "fetch-processing": true,
-    // });
-
-    // setTimeout(() => {
-    //   const previousStore = isModalOpenStore.get();
-    //   isModalOpenStore.set({
-    //     ...previousStore,
-    //     "fetch-processing": false,
-    //     "fetch-success": true,
-    //   });
-    //   resetInputs();
-    // }, 2000);
+    askPasswordModalStore.set(true);
   });
   //
   //
-  disableButton();
-  const previousStore = isModalOpenStore.get();
-  isModalOpenStore.set({
-    ...previousStore,
-    // "fetch-processing": true,
-    // "ask-password": true,
-    // "delete-message-complete": true,
-    // "delete-message-error": true,
-  });
 </script>
