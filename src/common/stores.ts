@@ -1,4 +1,5 @@
 import { atom } from "nanostores";
+import type { Messages } from "./types";
 import { allOfSkillsIhaveTried, allOfMyProjects } from "../common/variables";
 
 export const skillsStore = atom(allOfSkillsIhaveTried);
@@ -13,6 +14,7 @@ export const guestbookFormStore = atom({
   password: "",
   message: "",
 });
+export const guestbookMessagesStore = atom<Messages[]>([]);
 export const deleteMessageIdStore = atom(0);
 
 export const navModalStore = atom(false);

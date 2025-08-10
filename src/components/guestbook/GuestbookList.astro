@@ -1,22 +1,26 @@
 ---
 import { Icon } from "astro-icon/components";
+import { guestbookMessagesStore } from "../../common/stores";
 import type { Messages } from "../../common/types";
 
 const response = await fetch("http://localhost:8000/guestbook");
+const { language } = Astro.params;
 const fetchData = await response.json();
 const messages: Messages[] = fetchData.data;
+guestbookMessagesStore.set([...messages]);
+const messagesStore: Messages[] = guestbookMessagesStore.get();
 ---
 
 <div id="guestbook-list">
-  <ul class="flex flex-col gap-y-8 pt-15">
+  <ul class="flex flex-col gap-y-8 pt-15" data-guestbook-messages>
     {
-      messages.map((data) => (
+      messagesStore.map((data) => (
         <li class="border-green2 dark:border-gray3 rounded-4xl border-4 p-6" data-message-id={data.id}>
           <div class="relative flex flex-col gap-4">
             <div class="flex items-center gap-2">
               <p class="text-green1 text-xl font-extrabold dark:text-gray-300">{data.name}</p>
               <p class="text-xs font-bold text-slate-700 opacity-80 dark:text-gray-400">
-                {new Date(data.created_at).toLocaleDateString("en", {
+                {new Date(data.created_at).toLocaleDateString(`${language}`, {
                   year: "numeric",
                   month: "long",
                   day: "numeric",
@@ -38,17 +42,60 @@ const messages: Messages[] = fetchData.data;
 </div>
 
 <script>
-  import { askPasswordModalStore, deleteMessageIdStore } from "../../common/stores";
+  import {
+    askPasswordModalStore,
+    deleteMessageCompleteModalStore,
+    deleteMessageIdStore,
+    guestbookMessagesStore,
+  } from "../../common/stores";
+  const language = location.href.split("/")[3];
 
-  const guestbookDeleteButtons = document.querySelectorAll("[data-guestbook-delete-button]");
-  guestbookDeleteButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      const target = e.target as HTMLElement;
-      const messageId = target.dataset.messagesDeleteId;
-      if (messageId) {
-        deleteMessageIdStore.set(parseInt(messageId));
-      }
-      askPasswordModalStore.set(true);
+  const updateDeleteButtonsEventListener = () => {
+    const guestbookDeleteButtons = document.querySelectorAll("[data-guestbook-delete-button]");
+    guestbookDeleteButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        const target = e.currentTarget as HTMLElement;
+        const messageId = target.dataset.messagesDeleteId;
+        if (messageId) {
+          deleteMessageIdStore.set(parseInt(messageId));
+        }
+        askPasswordModalStore.set(true);
+      });
     });
+  };
+  updateDeleteButtonsEventListener();
+
+  guestbookMessagesStore.subscribe((data) => {
+    if (data.length > 0) {
+      const messageHTML = `
+        <li class="border-green2 dark:border-gray3 rounded-4xl border-4 p-6" data-message-id=${data[0].id}>
+          <div class="relative flex flex-col gap-4">
+            <div class="flex items-center gap-2">
+              <p class="text-green1 text-xl font-extrabold dark:text-gray-300">${data[0].name}</p>
+              <p class="text-xs font-bold text-slate-700 opacity-80 dark:text-gray-400">
+                ${new Date(data[0].created_at).toLocaleDateString(`${language}`, {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })}
+              </p>
+            </div>
+            <p class="text-green2 dark:text-rosewater text-lg break-all">${data[0].message}</p>
+            <svg width="1em" height="1em" class="dark:text-gray3 absolute top-0 right-0 h-6 w-6 cursor-pointer text-slate-950" data-guestbook-delete-button data-messages-delete-id=${data[0].id} data-icon="cil:trash">   
+              <symbol id="ai:cil:trash" viewBox="0 0 512 512">
+                <path fill="currentColor" d="M96 472a23.82 23.82 0 0 0 23.579 24h272.842A23.82 23.82 0 0 0 416 472V152H96Zm32-288h256v280H128Z"></path>
+                <path fill="currentColor" d="M168 216h32v200h-32zm72 0h32v200h-32zm72 0h32v200h-32zm16-128V40c0-13.458-9.488-24-21.6-24H205.6C193.488 16 184 26.542 184 40v48H64v32h384V88ZM216 48h80v40h-80Z"></path>
+              </symbol>
+              <use href="#ai:cil:trash"></use>  
+            </svg>
+          </div>
+        </li>`;
+      document.querySelector("[data-guestbook-messages]")?.insertAdjacentHTML("afterbegin", messageHTML);
+    } else {
+      const deletedMessage = document.querySelector(`[data-message-id = "${deleteMessageIdStore.get()}" ]`);
+      (document.querySelector("[data-delete-message-password-input]") as HTMLInputElement).value = "";
+      if (deletedMessage) deletedMessage?.remove();
+    }
+    updateDeleteButtonsEventListener();
   });
 </script>

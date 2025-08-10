@@ -79,7 +79,13 @@ const componentTitle = componentTitles["guestbook"][language];
 </div>
 
 <script>
-  import { guestbookFormStore, askPasswordModalStore } from "../../common/stores";
+  import { fetchSuccessModalStore } from "../../common/stores";
+  import {
+    guestbookFormStore,
+    askPasswordModalStore,
+    guestbookMessagesStore,
+    fetchProcessingModalStore,
+  } from "../../common/stores";
 
   const guestbookForm = document.querySelector("[data-guestbook-form]") as HTMLFormElement;
   const submitButton = document.querySelector("[data-guestbook-form-button]") as HTMLButtonElement;
@@ -162,7 +168,43 @@ const componentTitle = componentTitles["guestbook"][language];
   //
   guestbookForm?.addEventListener("submit", async (event) => {
     event.preventDefault();
-    askPasswordModalStore.set(true);
+    const formData = guestbookFormStore.get();
+    type guestbookFormKeys = "name" | "password" | "message";
+    const invalidInputs = (Object.keys(formData) as guestbookFormKeys[])
+      .filter((key) => formData[key] === "")
+      .map((key) => key);
+
+    if (invalidInputs.length !== 0) {
+      invalidInputs.forEach((invalidInput) => {
+        updateErrorMessagesDisplay(document.querySelectorAll(`[data-error-${invalidInput}]`), true);
+      });
+    } else {
+      fetchProcessingModalStore.set(true);
+      const fetchResult = await fetch("http://localhost:8000/guestbook", {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(guestbookFormStore.get()),
+      });
+      const data = await fetchResult.json();
+      const { id, created_at } = data;
+
+      setTimeout(() => {
+        guestbookMessagesStore.set([
+          {
+            id: id,
+            name: guestbookFormStore.get().name,
+            message: guestbookFormStore.get().message,
+            created_at: created_at,
+          },
+          ...guestbookMessagesStore.get(),
+        ]);
+        fetchProcessingModalStore.set(false);
+        fetchSuccessModalStore.set(true);
+        resetInputs();
+      }, 1000);
+    }
   });
   //
   //
