@@ -44,15 +44,19 @@ export function printPageUrlInMenuButton(url: string) {
   return filteredLanguagesArray;
 }
 
-export function printPageTitle(url: string, language: Languages): string {
+export function printPageTitle(url: string, language: Languages, postTitle?: string): string {
   const isPageTop = !Boolean(url.split("/")[2]);
   const whichPage = url.split("/")[2];
   if (isPageTop) {
     return `${pageTitles["main"][language]}`;
   }
 
+  if (whichPage === "blog" && postTitle) {
+    return `${postTitle} - ${pageTitles["main"][language]}`;
+  }
+
   if (whichPage in pageTitles) {
-    return `${pageTitles["main"][language]} - ${pageTitles[whichPage as keyof typeof pageTitles][language]}`;
+    return `${pageTitles[whichPage as keyof typeof pageTitles][language]} - ${pageTitles["main"][language]}`;
   }
 
   return pageTitles.main[language];

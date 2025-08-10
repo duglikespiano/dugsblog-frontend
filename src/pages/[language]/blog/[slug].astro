@@ -4,8 +4,9 @@ import RootLayout from "../../../layouts/RootLayout.astro";
 import Prose from "../../../layouts/Prose.astro";
 import { tags } from "../../../common/types";
 import { collectionMap } from "../../../common/types";
-import { isStringLanguage } from "../../../common/functions";
+import { isStringLanguage, printPageTitle } from "../../../common/functions";
 import type { Languages, TagKey, TagTranslations } from "../../../common/types";
+
 const { slug } = Astro.params as { slug: string };
 const { language } = Astro.params as { language: Languages };
 
@@ -14,6 +15,7 @@ const entry = await getEntry(collectionMap[language], `${slug}/${language}`);
 
 const tagKeys = entry?.data.tags as string[];
 const slugsArray = posts.map((post) => post.filePath?.split("/")[2]);
+const title = printPageTitle(Astro.url.pathname, language, entry?.data.title);
 import "../../../css/particles.scss";
 
 if (!slugsArray.includes(slug)) {
@@ -41,7 +43,7 @@ if (!isStringLanguage(language)) {
 const { Content } = await render(entry);
 ---
 
-<RootLayout language={language}>
+<RootLayout language={language} title={title}>
   <Prose>
     <div
       class="dark:bg-green1 bg-rosewater dark:border-gray3 border-green2 relative z-10 rounded-4xl border-4 p-5 sm:p-10"
