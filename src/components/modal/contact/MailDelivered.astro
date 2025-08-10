@@ -1,0 +1,33 @@
+---
+import Modal from "../../../layouts/Modal.astro";
+import { Icon } from "astro-icon/components";
+import type { Languages } from "../../../common/types";
+import { mailDeliveredModal } from "../../../common/htmlElements";
+const { language } = Astro.props as { language: Languages };
+---
+
+<Modal modalName="mail-delivered">
+  <div
+    id="mail-delivered"
+    class="relative mx-6 flex aspect-square max-h-[24rem] w-full max-w-[24rem] flex-col items-center justify-center gap-5 rounded-4xl border-4"
+  >
+    <div class="flex flex-col items-center justify-center" data-on-success>
+      <Icon name="humbleicons:mail" class="text-green3 h-36 w-36" />
+      <p class="mt-1 text-2xl" data-mail-delivered>{mailDeliveredModal[language]["text"]}</p>
+    </div>
+
+    <button
+      class="bg-rosewater absolute bottom-[5%] left-[50%] h-12 w-[90%] -translate-x-[50%] cursor-pointer rounded-lg text-xl"
+      data-mail-delivered-modal-close-button>{mailDeliveredModal[language]["confirm"]}</button
+    >
+  </div>
+</Modal>
+
+<script>
+  import { mailDeliveredModalStore } from "../../../common/stores";
+  const contactCompletModalCloseButton = document.querySelector("[data-mail-delivered-modal-close-button]");
+
+  contactCompletModalCloseButton?.addEventListener("click", () => {
+    mailDeliveredModalStore.set(false);
+  });
+</script>

@@ -12,15 +12,16 @@ const { modalName } = Astro.props;
 </div>
 
 <script>
-  import { fade } from "astro:transitions";
+  let scrollY = 0;
   import {
     navModalStore,
     fetchProcessingModalStore,
-    fetchSuccessModalStore,
+    mailDeliveredModalStore,
     fetchErrorModalStore,
     askPasswordModalStore,
     deleteMessageCompleteModalStore,
-    deleteMessageErrorModalStore,
+    deleteMessageInvalidPasswordModalStore,
+    messageCreatedModalStore,
   } from "../common/stores";
 
   navModalStore.subscribe((isModalOpen) => {
@@ -35,7 +36,7 @@ const { modalName } = Astro.props;
       updateModal(element, isModalOpen);
     }
   });
-  fetchSuccessModalStore.subscribe((isModalOpen) => {
+  mailDeliveredModalStore.subscribe((isModalOpen) => {
     const element = document.querySelector("#modal-fetch-success") as HTMLElement;
     if (element) {
       updateModal(element, isModalOpen);
@@ -47,20 +48,29 @@ const { modalName } = Astro.props;
       updateModal(element, isModalOpen);
     }
   });
+
+  messageCreatedModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-message-created") as HTMLElement;
+    if (element) {
+      updateModal(element, isModalOpen);
+    }
+  });
+
   askPasswordModalStore.subscribe((isModalOpen) => {
     const element = document.querySelector("#modal-ask-password") as HTMLElement;
     if (element) {
       updateModal(element, isModalOpen);
     }
   });
+
   deleteMessageCompleteModalStore.subscribe((isModalOpen) => {
     const element = document.querySelector("#modal-delete-message-complete") as HTMLElement;
     if (element) {
       updateModal(element, isModalOpen);
     }
   });
-  deleteMessageErrorModalStore.subscribe((isModalOpen) => {
-    const element = document.querySelector("#modal-delete-message-error") as HTMLElement;
+  deleteMessageInvalidPasswordModalStore.subscribe((isModalOpen) => {
+    const element = document.querySelector("#modal-delete-message-invalid-password") as HTMLElement;
     if (element) {
       updateModal(element, isModalOpen);
     }
@@ -74,20 +84,20 @@ const { modalName } = Astro.props;
       element.classList.remove("active");
       element.setAttribute("inert", "");
     }
-    updateFixedScreen(boolean);
+    window.scrollY !== 0 ? (scrollY = window.scrollY) : 0;
+    updateFixedScreen(boolean, scrollY);
   }
 
-  function updateFixedScreen(boolean: boolean) {
+  function updateFixedScreen(boolean: boolean, scrollY: number) {
     if (boolean) {
       document.body.style.cssText = `
     position: fixed;
-    top: -${window.scrollY}px;
+    top: -${scrollY}px;
     overflow-y: scroll;
     width: 100%;`;
     } else {
-      const scrollY = document.body.style.top;
       document.body.style.cssText = "";
-      window.scrollTo(0, parseInt(scrollY || "0", 10) * -1);
+      window.scrollTo(0, scrollY);
     }
   }
 </script>

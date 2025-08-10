@@ -2,6 +2,7 @@
 import Modal from "../../../layouts/Modal.astro";
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../../../common/types";
+import { deleteMessageCompleteModal } from "../../../common/htmlElements";
 const { language } = Astro.props as { language: Languages };
 ---
 
@@ -11,11 +12,11 @@ const { language } = Astro.props as { language: Languages };
     class="relative mx-6 flex w-full max-w-[28rem] flex-col gap-4 rounded-4xl border-4 p-5"
   >
     <div class="flex flex-col items-center justify-center" data-on-success>
-      <Icon name="humbleicons:check" class="dark:text-green3 h-28 w-28" />
-      <p class="mt-3 text-3xl" data-delete-message-complete>Message deleted</p>
+      <Icon name="humbleicons:check" class="h-28 w-28 text-orange-600" />
+      <p class="mt-3 text-2xl" data-delete-message-complete>{deleteMessageCompleteModal[language]["text"]}</p>
       <button
-        class="bg-rosewater mt-3 h-14 w-full cursor-pointer rounded-lg text-xl"
-        data-delete-message-complete-modal-close-button>Confirm</button
+        class="bg-rosewater mt-3 h-12 w-full cursor-pointer rounded-lg text-xl"
+        data-delete-message-complete-modal-close-button>{deleteMessageCompleteModal[language]["confirm"]}</button
       >
     </div>
   </div>

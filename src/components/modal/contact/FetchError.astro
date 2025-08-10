@@ -2,22 +2,24 @@
 import Modal from "../../../layouts/Modal.astro";
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../../../common/types";
+import { fetchErrorModal } from "../../../common/htmlElements";
 const { language } = Astro.props as { language: Languages };
 ---
 
 <Modal modalName="fetch-error">
   <div
     id="fetch-processing"
-    class="relative mx-6 flex aspect-square max-h-[30rem] w-full max-w-[30rem] flex-col items-center justify-center gap-5 rounded-4xl border-4"
+    class="relative mx-6 flex aspect-square max-h-[24rem] w-full max-w-[24rem] flex-col items-center justify-center gap-5 rounded-4xl border-4"
   >
     <div class="flex flex-col items-center justify-center" data-on-error>
-      <Icon name="humbleicons:exclamation" class="h-28 w-28 text-red-500 md:h-36 md:w-36" />
-      <p class="mt-1 text-3xl sm:mt-3 md:mt-4">ERROR???????????</p>
+      <Icon name="fa7-regular:face-surprise" class="h-28 w-28 text-orange-600" />
+      <p class="mt-2 text-2xl">{fetchErrorModal[language]["text"]}</p>
+      <p class="text-2xl">{fetchErrorModal[language]["contact"]}</p>
     </div>
 
     <button
-      class="bg-rosewater absolute bottom-[5%] left-[50%] h-14 w-[90%] -translate-x-[50%] cursor-pointer rounded-lg text-xl md:text-2xl"
-      data-fetch-success-modal-close-button>Confirm</button
+      class="bg-rosewater absolute bottom-[5%] left-[50%] h-12 w-[90%] -translate-x-[50%] cursor-pointer rounded-lg text-xl md:text-2xl"
+      data-fetch-success-modal-close-button>{fetchErrorModal[language]["confirm"]}</button
     >
   </div>
 </Modal>

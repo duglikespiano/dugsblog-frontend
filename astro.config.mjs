@@ -17,7 +17,7 @@ export default defineConfig({
       include: {
         gg: ["spinner-two"],
         ph: ["github-logo-light", "instagram-logo-light"],
-        humbleicons: ["check", "exclamation", "arrow-left"],
+        humbleicons: ["check", "exclamation", "arrow-left", "mail"],
         cil: ["arrow-top", "sun", "moon", "trash"],
         "fa7-regular": ["face-surprise"],
         mdi: ["password-outline"],

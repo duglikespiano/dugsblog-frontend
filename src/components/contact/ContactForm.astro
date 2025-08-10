@@ -78,7 +78,7 @@ const componentTitle = componentTitles["contact"][language];
   import {
     contactFormStore,
     fetchProcessingModalStore,
-    fetchSuccessModalStore,
+    mailDeliveredModalStore,
     fetchErrorModalStore,
   } from "../../common/stores";
 
@@ -219,7 +219,7 @@ const componentTitle = componentTitles["contact"][language];
     //
     if (fetchResult.status >= 200) {
       fetchProcessingModalStore.set(false);
-      fetchSuccessModalStore.set(true);
+      mailDeliveredModalStore.set(true);
     } else if (fetchResult.status >= 300) {
       fetchProcessingModalStore.set(false);
       fetchErrorModalStore.set(true);

@@ -3,11 +3,12 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import NavModal from "../components/modal/Nav.astro";
 import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
-import FetchCompleteModal from "../components/modal/contact/FetchComplete.astro";
 import FetchErrorModal from "../components/modal/contact/FetchError.astro";
+import MailDelivereModal from "../components/modal/contact/MailDelivered.astro";
+import MessageCreatedModal from "../components/modal/guesbook/MessageCreated.astro";
 import AskPassword from "../components/modal/guesbook/AskPassword.astro";
-import DeleteMessageComplete from "../components/modal/guesbook/DeleteMessageComplete.astro";
-import DeleteMessageError from "../components/modal/guesbook/DeleteMessageError.astro";
+import DeleteMessageCompleteModal from "../components/modal/guesbook/DeleteMessageComplete.astro";
+import DeleteMessageInvalidPasswordModal from "../components/modal/guesbook/DeleteMessageInvalidPassword.astro";
 import MenuButton from "../components/MenuButton.astro";
 const { language } = Astro.props;
 const whichPage = Astro.url.pathname.split("/")[2];
@@ -33,7 +34,7 @@ const whichPage = Astro.url.pathname.split("/")[2];
     whichPage === "contact" && (
       <>
         <FetchProcessingModal language={language} />
-        <FetchCompleteModal language={language} />
+        <MailDelivereModal language={language} />
         <FetchErrorModal language={language} />
       </>
     )
@@ -43,10 +44,10 @@ const whichPage = Astro.url.pathname.split("/")[2];
       <>
         <AskPassword language={language} />
         <FetchProcessingModal language={language} />
-        <FetchCompleteModal language={language} />
+        <MessageCreatedModal language={language} />
         <FetchErrorModal language={language} />
-        <DeleteMessageComplete language={language} />
-        <DeleteMessageError language={language} />
+        <DeleteMessageCompleteModal language={language} />
+        <DeleteMessageInvalidPasswordModal language={language} />
       </>
     )
   }

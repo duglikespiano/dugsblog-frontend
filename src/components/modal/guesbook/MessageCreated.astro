@@ -1,0 +1,29 @@
+---
+import Modal from "../../../layouts/Modal.astro";
+import { Icon } from "astro-icon/components";
+import type { Languages } from "../../../common/types";
+import { messageCreatedModal } from "../../../common/htmlElements";
+const { language } = Astro.props as { language: Languages };
+---
+
+<Modal modalName="message-created">
+  <div id="message-created" class="relative mx-6 flex w-full max-w-[28rem] flex-col gap-4 rounded-4xl border-4 p-5">
+    <div class="flex flex-col items-center justify-center" data-on-success>
+      <Icon name="humbleicons:check" class="text-green3 h-28 w-28" />
+      <p class="mt-3 text-2xl" data-message-created>{messageCreatedModal[language]["text"]}</p>
+      <button
+        class="bg-rosewater mt-3 h-12 w-full cursor-pointer rounded-lg text-xl"
+        data-message-created-modal-close-button>{messageCreatedModal[language]["confirm"]}</button
+      >
+    </div>
+  </div>
+</Modal>
+
+<script>
+  import { messageCreatedModalStore } from "../../../common/stores";
+  const contactCompletModalCloseButton = document.querySelector("[data-message-created-modal-close-button]");
+
+  contactCompletModalCloseButton?.addEventListener("click", () => {
+    messageCreatedModalStore.set(false);
+  });
+</script>

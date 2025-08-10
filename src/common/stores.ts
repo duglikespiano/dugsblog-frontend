@@ -19,8 +19,9 @@ export const deleteMessageIdStore = atom(0);
 
 export const navModalStore = atom(false);
 export const fetchProcessingModalStore = atom(false);
-export const fetchSuccessModalStore = atom(false);
+export const mailDeliveredModalStore = atom(false);
 export const fetchErrorModalStore = atom(false);
+export const messageCreatedModalStore = atom(false);
 export const askPasswordModalStore = atom(false);
 export const deleteMessageCompleteModalStore = atom(false);
-export const deleteMessageErrorModalStore = atom(false);
+export const deleteMessageInvalidPasswordModalStore = atom(false);

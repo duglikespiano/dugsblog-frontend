@@ -634,3 +634,111 @@ export const posts = {
     tag: "選択されたタグ : ",
   },
 };
+
+export const fetchingModal = {
+  en: {
+    text: "In progress...",
+  },
+  ko: {
+    text: "통신 중...",
+  },
+  ja: {
+    text: "通信中。。。",
+  },
+};
+
+export const fetchErrorModal = {
+  en: {
+    text: "Error occurred",
+    contact: "Please contact Dug",
+    confirm: "Confirm",
+  },
+  ko: {
+    text: "에러가 발생하였습니다",
+    contact: "더그에게 연락해주세요",
+    confirm: "확인",
+  },
+  ja: {
+    text: "エラーが発生しました",
+    contact: "ダグに連絡してください",
+    confirm: "確認",
+  },
+};
+
+export const mailDeliveredModal = {
+  en: {
+    text: "Contact mail delivered",
+    confirm: "Confirm",
+  },
+  ko: {
+    text: "메일이 전송되었습니다",
+    confirm: "확인",
+  },
+  ja: {
+    text: "メールが転送されました",
+    confirm: "確認",
+  },
+};
+
+export const messageCreatedModal = {
+  en: {
+    text: "Message created",
+    confirm: "Confirm",
+  },
+  ko: {
+    text: "메세지가 작성되었습니다",
+    confirm: "확인",
+  },
+  ja: {
+    text: "メッセージが作成されました",
+    confirm: "確認",
+  },
+};
+
+export const askPasswordModal = {
+  en: {
+    password: "Please input password",
+    confirm: "Confirm",
+    cancel: "Cancle",
+  },
+  ko: {
+    password: "비밀번호를 입력해주세요",
+    confirm: "확인",
+    cancel: "취소",
+  },
+  ja: {
+    password: "パスワードを入力してください",
+    confirm: "確認",
+    cancel: "キャンセル",
+  },
+};
+
+export const deleteMessageCompleteModal = {
+  en: {
+    text: "Message deleted",
+    confirm: "Confirm",
+  },
+  ko: {
+    text: "삭제되었습니다",
+    confirm: "확인",
+  },
+  ja: {
+    text: "削除されました",
+    confirm: "確認",
+  },
+};
+
+export const deleteMessageInvalidPasswordModal = {
+  en: {
+    text: "Invalid password",
+    confirm: "Confirm",
+  },
+  ko: {
+    text: "비밀번호를 확인해주세요",
+    confirm: "확인",
+  },
+  ja: {
+    text: "パスワードを確認してください",
+    confirm: "確認",
+  },
+};

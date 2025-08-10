@@ -79,16 +79,10 @@ const componentTitle = componentTitles["guestbook"][language];
 </div>
 
 <script>
-  import { fetchSuccessModalStore } from "../../common/stores";
-  import {
-    guestbookFormStore,
-    askPasswordModalStore,
-    guestbookMessagesStore,
-    fetchProcessingModalStore,
-  } from "../../common/stores";
+  import { messageCreatedModalStore } from "../../common/stores";
+  import { guestbookFormStore, guestbookMessagesStore, fetchProcessingModalStore } from "../../common/stores";
 
   const guestbookForm = document.querySelector("[data-guestbook-form]") as HTMLFormElement;
-  const submitButton = document.querySelector("[data-guestbook-form-button]") as HTMLButtonElement;
 
   function checkIfStringEmpty(value: string) {
     return value === "" || value === null || value === undefined;
@@ -201,7 +195,7 @@ const componentTitle = componentTitles["guestbook"][language];
           ...guestbookMessagesStore.get(),
         ]);
         fetchProcessingModalStore.set(false);
-        fetchSuccessModalStore.set(true);
+        messageCreatedModalStore.set(true);
         resetInputs();
       }, 1000);
     }
