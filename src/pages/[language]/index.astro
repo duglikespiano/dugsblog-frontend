@@ -2,9 +2,10 @@
 import RootLayout from "../../layouts/RootLayout.astro";
 import CommitHistoryComponent from "../../components/main/CommitHistory";
 import Profile from "../../components/main/Profile.astro";
-import type { Languages } from "../../common/types";
 import { printPageTitle, isStringLanguage } from "../../common/functions";
 import Works from "../../components/main/Works.astro";
+import Projects from "../../components/main/Projects.astro";
+import type { Languages } from "../../common/types";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
 if (!isStringLanguage(language)) {
@@ -16,4 +17,5 @@ if (!isStringLanguage(language)) {
   <Profile language={language} />
   <CommitHistoryComponent client:only />
   <Works language={language} />
+  <Projects language={language} />
 </RootLayout>

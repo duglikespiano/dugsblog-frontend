@@ -127,7 +127,7 @@ export const workHighlights = [
       ko: "일본의 금융그륨 FFG(Fukuoka Financial Group)의 자사 서비스용 페이지를 제작하였습니다. 고객이 쉽게 코드를 수정 할 수 있도록 Clean Code 작성에 유념하였습니다.",
       ja: "日本の金融グループであるFFG（ふくおかフィナンシャルグループ）の自社サービス用ページを制作しました。顧客がコードを簡単に修正できるよう、クリーンコードの作成を心がけました。",
     },
-    skills: ["ejs", "Sass", "Javascript"],
+    skills: ["EJS", "Sass", "Javascript"],
     url: "https://bizship.fukuoka-fg.com/lp/",
     img: "bizship.png",
   },
@@ -143,7 +143,7 @@ export const workHighlights = [
       ko: "패션용품 및 의류 판매용 페이지를 제작하였습니다. 매 주마다 다른 애니메이션과 디자인의 페이지를 제작하였으며, 다양한 애니메이션을 구현하는 실력을 키울 수 있었습니다.",
       ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
     },
-    skills: ["ejs", "Sass", "Javascript"],
+    skills: ["EJS", "Sass", "Javascript"],
     url: "https://usagi-online.com/s/250514PIS/",
     img: "fcl1.png",
   },
@@ -159,11 +159,80 @@ export const workHighlights = [
       ko: "패션용품 및 의류 판매용 페이지를 제작하였습니다. 매 주마다 다른 애니메이션과 디자인의 페이지를 제작하였으며, 다양한 애니메이션을 구현하는 실력을 키울 수 있었습니다.",
       ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
     },
-    skills: ["ejs", "Sass", "Javascript"],
+    skills: ["EJS", "Sass", "Javascript"],
     url: "https://usagi-online.com/s/250205CFD/",
     img: "fcl2.png",
   },
 ];
+
+export const projectsOnMain = [
+  {
+    service: {
+      en: "Dug's Works",
+      ko: "Dug's Works",
+      ja: "Dug's Works",
+    },
+    description: {
+      en: "This is my personal profile page, which serves as the motto and concept for the page you are currently viewing. It was built using React, Sass, and Express.js.",
+      ko: "현재 보시고 계신 페이지의 모토가 되는 개인 프로필페이지입니다. React와 Sass, Expess.js로 구현하였습니다.",
+      ja: "現在ご覧いただいているページのモットーとなる個人プロフィールページです。React、Sass、Express.jsを使用して実装しました。",
+    },
+    skills: ["React", "Sass", "Express.js"],
+    url: "https://dugsworks.netlify.app/",
+    img: "dugsworks.png",
+  },
+  {
+    service: {
+      en: "Pokemon Card Memory Game",
+      ko: "포켓몬카드 메모리게임",
+      ja: "ポケモンカードメモリゲーム",
+    },
+    description: {
+      en: "I created this page to have a fun time with my nieces and nephews. It uses the PokeAPI and royalty-free background music.",
+      ko: "조카들과 재밌는 시간을 보내기 위해 제작 해 본 페이지입니다. PokeAPI 및 저작권에 제약이 없는 BGM을 사용하였습니다.",
+      ja: "甥や姪と楽しい時間を過ごすために制作したページです。PokeAPIと著作権フリーのBGMを使用しました。",
+    },
+    skills: ["HTML", "CSS", "Javascript"],
+    url: "https://dugsnotes-pokemon-memory-game.netlify.app/",
+    img: "pokemon.png",
+  },
+  {
+    service: {
+      en: "Dug's notes - GSAP",
+      ko: "Dug's notes - GSAP",
+      ja: "Dug's notes - GSAP",
+    },
+    description: {
+      en: "I am practicing through various tutorials to deepen my understanding of the JavaScript library GSAP.",
+      ko: "Javascript 라이브러리 GSAP을 이해하기 위해 여러 강좌를 통해 연습하고있습니다.",
+      ja: "JavaScriptライブラリであるGSAPを理解するために、さまざまな講座を通して練習しています。",
+    },
+    skills: ["HTML", "GSAP", "Javascript"],
+    url: "https://github.com/duglikespiano/dugsnotes-gsap-carl",
+    img: "gsap.png",
+  },
+  {
+    service: {
+      en: "Building 10 Responsive Web Sites",
+      ko: "10개의 반응형 웹페이지 제작하기",
+      ja: "10個のレスポンシブウェーブページ制作",
+    },
+    description: {
+      en: "To practice responsive page layout design, I purchased a course on Udemy and gained experience in creating responsive web pages.",
+      ko: "반응형 페이지의 레이아웃 구성을 연습하기 위해 Udemy에서 강좌를 구매하여 반응형 페이지 작성을 경험하였습니다.",
+      ja: "レスポンシブページのレイアウト構成を練習するために、Udemyで講座を購入し、レスポンシブページの制作を経験しました。",
+    },
+    skills: ["HTML", "CSS", "Javascript"],
+    url: "https://github.com/duglikespiano/10responsivewebsites-html-css-javascript",
+    img: "10projects.png",
+  },
+];
+
+export const relatedSkills = {
+  en: "Related Skills",
+  ko: "관련 스킬",
+  ja: "関連スキル",
+};
 
 export const skills = {
   title: {
@@ -546,6 +615,11 @@ export const componentTitles = {
     en: "Work Highlights",
     ko: "업무실적",
     ja: "業務成績",
+  },
+  projectsOnMain: {
+    en: "Projects",
+    ko: "프로젝트",
+    ja: "プロジェクト",
   },
   personalProjects: {
     en: "Personal Projects",

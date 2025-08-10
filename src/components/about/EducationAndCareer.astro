@@ -22,7 +22,7 @@ const componentTitle = componentTitles["educationAndCareer"][language];
           )}
           <img
             src={`/src/assets/educationAndCareer/${object.image}`}
-            alt=""
+            alt={object["data"][0]["name"]}
             class="absolute top-2 right-2 w-12 rounded-full bg-white sm:w-16"
             data-fadeup-logo
           />

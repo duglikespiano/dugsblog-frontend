@@ -1,26 +1,23 @@
 ---
-import { workHighlights, componentTitles, relatedSkills } from "../../common/htmlElements";
+import { projectsOnMain, componentTitles, relatedSkills } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
 const { language } = Astro.props as { language: Languages };
-const componentTitle = componentTitles["workHighlights"][language];
+const componentTitle = componentTitles["projectsOnMain"][language];
 ---
 
-<section id="works">
+<section id="projects" class="mt-16">
   <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">
     {componentTitle}
   </h2>
   <ul class="mt-5 grid gap-6 md:grid-cols-2">
     {
-      workHighlights.map((object) => (
+      projectsOnMain.map((object) => (
         <li class="dark:border-gray3 border-green2 relative overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
           <a href={object.url} class="block">
-            <img src={`/src/assets/main/works/${object.img}`} alt={object.service} />
+            <img src={`/src/assets/main/projects/${object.img}`} alt={object["service"][language]} />
             <div class="relative p-4 sm:p-8">
-              <p class="dark:text-gray3 text-xl font-bold text-slate-950">{object["service"]}</p>
+              <p class="dark:text-gray3 text-xl font-bold text-slate-950">{object["service"][language]}</p>
               <div class="mx-4 mt-3">
-                <p class="text-lg font-bold text-slate-800 opacity-80 dark:text-gray-200">
-                  {object["title"][language]}
-                </p>
                 <p class="text-sm text-slate-700 opacity-80 dark:text-gray-400">{object["description"][language]}</p>
                 <p class="dark:text-gray3 text-green2 mt-2 text-sm opacity-80">{relatedSkills[language]}</p>
                 <ul class="mt-1 flex gap-2 text-base leading-5">
