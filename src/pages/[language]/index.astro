@@ -4,6 +4,7 @@ import CommitHistoryComponent from "../../components/main/CommitHistory";
 import Profile from "../../components/main/Profile.astro";
 import type { Languages } from "../../common/types";
 import { printPageTitle, isStringLanguage } from "../../common/functions";
+import Works from "../../components/main/Works.astro";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
 if (!isStringLanguage(language)) {
@@ -14,4 +15,5 @@ if (!isStringLanguage(language)) {
 <RootLayout title={title}>
   <Profile language={language} />
   <CommitHistoryComponent client:only />
+  <Works language={language} />
 </RootLayout>

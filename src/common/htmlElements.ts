@@ -98,6 +98,73 @@ export const main = {
   },
 };
 
+export const workHighlights = [
+  {
+    service: "らでぃっしゅぼーや",
+    title: {
+      en: "Osechi Order Page",
+      ko: "오세치 판매 페이지",
+      ja: "おせち販売ページ",
+    },
+    description: {
+      en: "I created a sales page for Osechi, a traditional Japanese New Year’s dish. Over a period of about six months, I developed a structure that allows for efficient updates to the design and pricing, which are refreshed approximately every month.",
+      ko: "일본의 전통음식 오세치 판매용 페이지를 제작하였습니다. 총 약 6개월간, 약 한달 단위씩 갱신되는 디자인과 가격을 효과적으로 수정할 수 있는 구조를 구현하였습니다.",
+      ja: "日本の伝統料理であるおせちの販売ページを制作しました。約6か月間にわたり、約1か月ごとに更新されるデザインや価格を効率的に修正できる構造を実装しました。",
+    },
+    skills: ["PHP", "Sass", "Javascript"],
+    url: "#",
+    img: "osechi.png",
+  },
+  {
+    service: "Fukuoka Financial Group",
+    title: {
+      en: "BIZSHIP",
+      ko: "BIZSHIP",
+      ja: "BIZSHIP",
+    },
+    description: {
+      en: "I created a service page for FFG (Fukuoka Financial Group), a Japanese financial group. I focused on writing clean code to ensure that clients can easily make code modifications.",
+      ko: "일본의 금융그륨 FFG(Fukuoka Financial Group)의 자사 서비스용 페이지를 제작하였습니다. 고객이 쉽게 코드를 수정 할 수 있도록 Clean Code 작성에 유념하였습니다.",
+      ja: "日本の金融グループであるFFG（ふくおかフィナンシャルグループ）の自社サービス用ページを制作しました。顧客がコードを簡単に修正できるよう、クリーンコードの作成を心がけました。",
+    },
+    skills: ["ejs", "Sass", "Javascript"],
+    url: "https://bizship.fukuoka-fg.com/lp/",
+    img: "bizship.png",
+  },
+  {
+    service: "USAGI ONLINE",
+    title: {
+      en: "Fashion & Apparel Order Page",
+      ko: "패션용품 및 의류 판매 페이지",
+      ja: "ファッション及び衣類販売ページ",
+    },
+    description: {
+      en: "I created sales pages for fashion goods and clothing. Each week, I designed a new page with different animations and layouts, which allowed me to improve my skills in implementing a variety of animations.",
+      ko: "패션용품 및 의류 판매용 페이지를 제작하였습니다. 매 주마다 다른 애니메이션과 디자인의 페이지를 제작하였으며, 다양한 애니메이션을 구현하는 실력을 키울 수 있었습니다.",
+      ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
+    },
+    skills: ["ejs", "Sass", "Javascript"],
+    url: "https://usagi-online.com/s/250514PIS/",
+    img: "fcl1.png",
+  },
+  {
+    service: "USAGI ONLINE",
+    title: {
+      en: "Fashion & Apparel Order Page",
+      ko: "패션용품 및 의류 판매 페이지",
+      ja: "ファッション及び衣類販売ページ",
+    },
+    description: {
+      en: "I created sales pages for fashion goods and clothing. Each week, I designed a new page with different animations and layouts, which allowed me to improve my skills in implementing a variety of animations.",
+      ko: "패션용품 및 의류 판매용 페이지를 제작하였습니다. 매 주마다 다른 애니메이션과 디자인의 페이지를 제작하였으며, 다양한 애니메이션을 구현하는 실력을 키울 수 있었습니다.",
+      ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
+    },
+    skills: ["ejs", "Sass", "Javascript"],
+    url: "https://usagi-online.com/s/250205CFD/",
+    img: "fcl2.png",
+  },
+];
+
 export const skills = {
   title: {
     en: ["Skills"],
@@ -474,6 +541,16 @@ export const componentTitles = {
     en: "Education & Career",
     ko: "교육 & 이력",
     ja: "教育＆履歴",
+  },
+  workHighlights: {
+    en: "Work Highlights",
+    ko: "업무실적",
+    ja: "業務成績",
+  },
+  personalProjects: {
+    en: "Personal Projects",
+    ko: "개인프로젝트",
+    ja: "個人プロジェクト",
   },
   skillsFilter: {
     en: "Skills filter",

@@ -1,0 +1,40 @@
+---
+import { workHighlights, componentTitles } from "../../common/htmlElements";
+import type { Languages } from "../../common/types";
+const { language } = Astro.props as { language: Languages };
+const componentTitle = componentTitles["workHighlights"][language];
+---
+
+<section id="works">
+  <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">
+    {componentTitle}
+  </h2>
+  <ul class="mt-5 grid gap-6 md:grid-cols-2">
+    {
+      workHighlights.map((object) => (
+        <li class="dark:border-gray3 border-green2 relative overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
+          <a href={object.url} class="block">
+            <img src={`/src/assets/main/works/${object.img}`} alt={object.service} />
+            <div class="relative p-4 sm:p-8">
+              <p class="dark:text-gray3 text-xl font-bold text-slate-950">{object["service"]}</p>
+              <div class="mx-4 mt-3">
+                <p class="text-lg font-bold text-slate-800 opacity-80 dark:text-gray-200">
+                  {object["title"][language]}
+                </p>
+                <p class="text-sm text-slate-700 opacity-80 dark:text-gray-400">{object["description"][language]}</p>
+                <p class="dark:text-gray3 text-green2 mt-2 text-sm opacity-80">관련스킬</p>
+                <ul class="mt-1 flex gap-2 text-base leading-5">
+                  {object.skills.map((item) => (
+                    <li class="border-green2 dark:border-gray3 dark:text-gray3 text-green2 rounded-lg border-2 p-1 opacity-80">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
