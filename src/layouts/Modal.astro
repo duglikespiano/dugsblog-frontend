@@ -37,7 +37,7 @@ const { modalName } = Astro.props;
     }
   });
   mailDeliveredModalStore.subscribe((isModalOpen) => {
-    const element = document.querySelector("#modal-fetch-success") as HTMLElement;
+    const element = document.querySelector("#modal-mail-delivered") as HTMLElement;
     if (element) {
       updateModal(element, isModalOpen);
     }
