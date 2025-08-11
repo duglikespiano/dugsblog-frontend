@@ -3,7 +3,7 @@ import { Icon } from "astro-icon/components";
 import { guestbookMessagesStore } from "../../common/stores";
 import type { Messages } from "../../common/types";
 
-const response = await fetch(`${import.meta.env.PUBLIC_BACKEND_URL}:${import.meta.env.PUBLIC_BACKEND_PORT}/guestbook`);
+const response = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/guestbook`);
 const { language } = Astro.params;
 const fetchData = await response.json();
 const messages: Messages[] = fetchData.data;

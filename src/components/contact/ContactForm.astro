@@ -207,16 +207,13 @@ const componentTitle = componentTitles["contact"][language];
     }
 
     fetchProcessingModalStore.set(true);
-    const fetchResult = await fetch(
-      `${import.meta.env.PUBLIC_BACKEND_URL}:${import.meta.env.PUBLIC_BACKEND_PORT}/contact`,
-      {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(contactFormStore.get()),
+    const fetchResult = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/contact`, {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
       },
-    );
+      body: JSON.stringify(contactFormStore.get()),
+    });
     //
 
     //

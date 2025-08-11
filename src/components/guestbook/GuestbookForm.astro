@@ -174,16 +174,13 @@ const componentTitle = componentTitles["guestbook"][language];
       });
     } else {
       fetchProcessingModalStore.set(true);
-      const fetchResult = await fetch(
-        `${import.meta.env.PUBLIC_BACKEND_URL}:${import.meta.env.PUBLIC_BACKEND_PORT}/guestbook`,
-        {
-          method: "post",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(guestbookFormStore.get()),
+      const fetchResult = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/guestbook`, {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
         },
-      );
+        body: JSON.stringify(guestbookFormStore.get()),
+      });
       const data = await fetchResult.json();
       const { id, created_at } = data;
 
