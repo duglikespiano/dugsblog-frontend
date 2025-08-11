@@ -1,14 +1,14 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import NavModal from "../components/modal/Nav.astro";
-import FetchProcessingModal from "../components/modal/FetchProcessing.astro";
-import FetchErrorModal from "../components/modal/contact/FetchError.astro";
-import MailDelivereModal from "../components/modal/contact/MailDelivered.astro";
-import MessageCreatedModal from "../components/modal/guesbook/MessageCreated.astro";
-import AskPassword from "../components/modal/guesbook/AskPassword.astro";
-import DeleteMessageCompleteModal from "../components/modal/guesbook/DeleteMessageComplete.astro";
-import DeleteMessageInvalidPasswordModal from "../components/modal/guesbook/DeleteMessageInvalidPassword.astro";
+import NavModal from "../components/modals/Nav.astro";
+import FetchProcessingModal from "../components/modals/FetchProcessing.astro";
+import FetchErrorModal from "../components/modals/contact/FetchError.astro";
+import MailDelivereModal from "../components/modals/contact/MailDelivered.astro";
+import MessageCreatedModal from "../components/modals/guesbook/MessageCreated.astro";
+import AskPassword from "../components/modals/guesbook/AskPassword.astro";
+import DeleteMessageCompleteModal from "../components/modals/guesbook/DeleteMessageComplete.astro";
+import DeleteMessageInvalidPasswordModal from "../components/modals/guesbook/DeleteMessageInvalidPassword.astro";
 import MenuButton from "../components/MenuButton.astro";
 const { language } = Astro.props;
 const whichPage = Astro.url.pathname.split("/")[2];
