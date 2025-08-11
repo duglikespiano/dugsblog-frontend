@@ -1,6 +1,4 @@
 ---
-import profile from "../../assets/main/profile/profile.png";
-import patrick from "../../assets/main/profile/patrick.png";
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../../common/types";
 import { main } from "../../common/htmlElements";
@@ -14,13 +12,13 @@ const { language } = Astro.props as { language: Languages };
   <div class="relative w-full cursor-pointer pt-70 sm:px-10 sm:pt-80 md:px-0 md:pt-0" data-images data-image-flipped>
     <img
       class="border-green2 bg-gray3 absolute top-[50%] -left-2 z-10 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:left-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:left-6"
-      src={profile.src}
+      src="/assets/main/profile/profile.png"
       alt="dug"
       data-dug-image
     />
     <img
       class="border-green2 bg-gray3 absolute top-[50%] -right-2 z-0 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:right-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:right-6"
-      src={patrick.src}
+      src="/assets/main/profile/patrick.png"
       alt="patrick"
       data-patrick-image
     />
