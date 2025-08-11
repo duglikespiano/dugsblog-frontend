@@ -2,9 +2,13 @@
   "name": "dugsblog-frontend",
   "type": "module",
   "version": "0.0.1",
+  "engines": {
+    "node": ">=22.18.0"
+  },
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "start": "node ./dist/server/entry.mjs",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
