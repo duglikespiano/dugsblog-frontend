@@ -11,7 +11,7 @@ const componentTitle = componentTitles["skills"][language];
 >
   <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">{componentTitle}</h2>
   <ul
-    class="dark:border-gray3 border-green2 mt-5 grid grid-cols-2 justify-center gap-2 gap-x-1 rounded-4xl border-4 p-3 sm:gap-5 sm:p-8 lg:grid-cols-4"
+    class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 mt-5 grid grid-cols-2 justify-center gap-2 gap-x-1 rounded-4xl border-4 p-3 sm:gap-5 sm:p-8 lg:grid-cols-4"
   >
     {
       Object.values(skills.data).map((category) => (

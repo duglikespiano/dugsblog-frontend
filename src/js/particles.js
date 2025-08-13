@@ -33,6 +33,7 @@ class Particle {
 
 function createParticleElement() {
   const span = document.createElement("span");
+  span.classList.add("particle");
   span.style.width = `${Math.random() * 50}px`;
   rootWrapper.appendChild(span);
   return span;

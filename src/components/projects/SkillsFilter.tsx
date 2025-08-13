@@ -58,7 +58,7 @@ export default function SkillsFilter({ language }: ProjectProps) {
           {skillsFilter.counts[language][1]}
         </p>
       </div>
-      <ul className="border-green2 dark:border-gray3 mt-5 flex flex-wrap gap-1.5 rounded-4xl border-4 p-5 lg:gap-2.5">
+      <ul className="border-green2 dark:border-gray3 dark:bg-green1 bg-rosewater relative z-10 mt-5 flex flex-wrap gap-1.5 rounded-4xl border-4 p-5 lg:gap-2.5">
         {selectedSkills.map((skill, index: number) => (
           <li
             className={`border-green2 dark:border-gray3 text-md flex cursor-pointer items-center justify-center rounded-2xl border-4 p-1 font-bold select-none ${

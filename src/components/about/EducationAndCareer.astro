@@ -13,7 +13,10 @@ const componentTitle = componentTitles["educationAndCareer"][language];
   <ul class="mt-5 flex flex-col gap-10">
     {
       educationAndCareer.data.map((object, i) => (
-        <li class="dark:border-gray3 border-green2 relative rounded-4xl border-4 p-4 sm:p-8" data-fadeup>
+        <li
+          class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 rounded-4xl border-4 p-4 sm:p-8"
+          data-fadeup
+        >
           {i !== educationAndCareer.data.length - 1 && (
             <span
               class="line bg-green2 dark:bg-gray3 absolute -bottom-12 left-1/2 h-11 w-1 origin-top -translate-x-1/2"
