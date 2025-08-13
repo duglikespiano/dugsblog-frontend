@@ -112,8 +112,8 @@ export const workHighlights = [
       ja: "日本の伝統料理であるおせちの販売ページを制作しました。約6か月間にわたり、約1か月ごとに更新されるデザインや価格を効率的に修正できる構造を実装しました。",
     },
     skills: ["PHP", "Sass", "Javascript"],
-    url: "#",
-    img: "osechi.png",
+    url: "https://www.radishbo-ya.co.jp/rb/osechi/pb/",
+    img: "osechi.jpg",
   },
   {
     service: "Fukuoka Financial Group",
