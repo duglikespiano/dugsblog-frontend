@@ -3,7 +3,7 @@ import Modal from "../../layouts/Modal.astro";
 import Hamburger from "../Hamburger.astro";
 import { menus } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
-const { language } = Astro.props as { language: Languages };
+const { language } = Astro.params as { language: Languages };
 const whichPage = Astro.url.pathname.split("/")[2];
 ---
 
@@ -13,7 +13,7 @@ const whichPage = Astro.url.pathname.split("/")[2];
       {
         (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
           <li
-            class={`text-3xl font-bold ${Astro.url.pathname.split("/")[2] === item || (whichPage === "" && item === "main") || (whichPage === "tags" && item === "blog") ? "text-white" : "text-rosewater"}`}
+            class={`text-3xl font-bold ${whichPage === item || (whichPage === "" && item === "main") || (whichPage === "tags" && item === "blog") ? "text-white" : "text-rosewater"}`}
           >
             <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
               {menus[item][language]}

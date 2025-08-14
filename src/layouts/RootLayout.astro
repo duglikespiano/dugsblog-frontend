@@ -5,8 +5,9 @@ import InnerLayout from "./InnerLayout.astro";
 import { printHTMLDocumentLanguage } from "../common/functions";
 import "../styles/global.css";
 import "../styles/common.scss";
+import type { Languages } from "../common/types";
 const { title } = Astro.props;
-const language = Astro.url.pathname.split("/")[1];
+const { language } = Astro.params as { language: Languages };
 ---
 
 <!doctype html>
@@ -14,7 +15,7 @@ const language = Astro.url.pathname.split("/")[1];
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
     <OuterLayout>
-      <InnerLayout language={language}>
+      <InnerLayout>
         <slot />
       </InnerLayout>
     </OuterLayout>

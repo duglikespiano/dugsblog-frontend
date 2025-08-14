@@ -10,7 +10,8 @@ import AskPassword from "../components/modals/guesbook/AskPassword.astro";
 import DeleteMessageCompleteModal from "../components/modals/guesbook/DeleteMessageComplete.astro";
 import DeleteMessageInvalidPasswordModal from "../components/modals/guesbook/DeleteMessageInvalidPassword.astro";
 import MenuButton from "../components/MenuButton.astro";
-const { language } = Astro.props;
+import type { Languages } from "../common/types";
+const { language } = Astro.params as { language: Languages };
 const whichPage = Astro.url.pathname.split("/")[2];
 ---
 
@@ -19,7 +20,7 @@ const whichPage = Astro.url.pathname.split("/")[2];
   class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000 opacity-0`
   data-reveal-on-load-delayed="300"
 >
-  <Header language={language} />
+  <Header />
   <section
     id="slot-wrapper"
     class="py-8 opacity-0 duration-1000 md:py-14"
@@ -28,31 +29,31 @@ const whichPage = Astro.url.pathname.split("/")[2];
   >
     <slot />
   </section>
-  <Footer language={language} />
-  <NavModal language={language} />
+  <Footer />
+  <NavModal />
   {
     whichPage === "contact" && (
       <>
-        <FetchProcessingModal language={language} />
-        <MailDelivereModal language={language} />
-        <FetchErrorModal language={language} />
+        <FetchProcessingModal />
+        <MailDelivereModal />
+        <FetchErrorModal />
       </>
     )
   }
   {
     whichPage === "guestbook" && (
       <>
-        <AskPassword language={language} />
-        <FetchProcessingModal language={language} />
-        <MessageCreatedModal language={language} />
-        <FetchErrorModal language={language} />
-        <DeleteMessageCompleteModal language={language} />
-        <DeleteMessageInvalidPasswordModal language={language} />
+        <AskPassword />
+        <FetchProcessingModal />
+        <MessageCreatedModal />
+        <FetchErrorModal />
+        <DeleteMessageCompleteModal />
+        <DeleteMessageInvalidPasswordModal />
       </>
     )
   }
 
-  <MenuButton language={language} />
+  <MenuButton />
 </section>
 
 <script>

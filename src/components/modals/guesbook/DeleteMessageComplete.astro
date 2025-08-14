@@ -3,7 +3,7 @@ import Modal from "../../../layouts/Modal.astro";
 import { Icon } from "astro-icon/components";
 import type { Languages } from "../../../common/types";
 import { deleteMessageCompleteModal } from "../../../common/htmlElements";
-const { language } = Astro.props as { language: Languages };
+const { language } = Astro.params as { language: Languages };
 ---
 
 <Modal modalName="delete-message-complete">

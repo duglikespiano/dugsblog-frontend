@@ -2,7 +2,8 @@
 import Hamburger from "./Hamburger.astro";
 import { pageTitles, menus } from "../common/htmlElements";
 import type { Languages } from "../common/types";
-const { language } = Astro.props as { language: Languages };
+const { language } = Astro.params as { language: Languages };
+const whichPage = Astro.url.pathname.split("/")[2];
 ---
 
 <header class="py-2">
@@ -17,7 +18,7 @@ const { language } = Astro.props as { language: Languages };
             .filter((item) => menus[item][language] !== menus["main"][language])
             .map((item) => (
               <li
-                class={`transition-text dark:text-rosewater text-green2 dark:after:bg-rosewater after:bg-green2 relative h-full overflow-hidden after:absolute after:bottom-[2px] after:left-0 after:h-[2px] after:w-full ${Astro.url.pathname.split("/")[2] === item || (Astro.url.pathname.split("/")[2] === "tags" && item === "blog") ? null : "after:-translate-x-full after:duration-200 hover:after:translate-x-0"}`}
+                class={`transition-text dark:text-rosewater text-green2 dark:after:bg-rosewater after:bg-green2 relative h-full overflow-hidden after:absolute after:bottom-[2px] after:left-0 after:h-[2px] after:w-full ${whichPage === item || (whichPage === "tags" && item === "blog") ? null : "after:-translate-x-full after:duration-200 hover:after:translate-x-0"}`}
               >
                 <a class="flex h-full items-center no-underline" href={`/${language}${menus[item]["href"]}`}>
                   {menus[item][language]}
@@ -27,6 +28,6 @@ const { language } = Astro.props as { language: Languages };
         }
       </ul>
     </nav>
-    <Hamburger position="absolute" top="top-1/2" right="right-0" language={language} />
+    <Hamburger position="absolute" top="top-1/2" right="right-0" />
   </div>
 </header>

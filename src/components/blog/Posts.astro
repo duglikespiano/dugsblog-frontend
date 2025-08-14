@@ -4,11 +4,12 @@ import type { Posts, Languages } from "../../common/types";
 import { getTagKeyByTranslation } from "../../common/functions";
 import { posts as postsHTMLElement } from "../../common/htmlElements";
 
-const { posts, language, tagsPropsArray } = Astro.props as {
+const { posts, tagsPropsArray } = Astro.props as {
   posts: Posts;
-  language: Languages;
   tagsPropsArray?: string[];
 };
+
+const { language } = Astro.params as { language: Languages };
 type TagKey = keyof typeof tags;
 const { tag } = Astro.params as { tag: TagKey };
 
