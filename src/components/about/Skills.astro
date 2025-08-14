@@ -11,7 +11,7 @@ const componentTitle = componentTitles["skills"][language];
 >
   <h2 class="text-green2 dark:text-rosewater text-2xl font-extrabold">{componentTitle}</h2>
   <ul
-    class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 mt-5 grid grid-cols-2 justify-center gap-2 gap-x-1 rounded-4xl border-4 p-3 sm:gap-5 sm:p-8 lg:grid-cols-4"
+    class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 mt-5 grid grid-cols-2 justify-center gap-5 gap-x-5 rounded-4xl border-4 p-3 sm:p-8 lg:grid-cols-4"
   >
     {
       Object.values(skills.data).map((category) => (
@@ -19,7 +19,7 @@ const componentTitle = componentTitles["skills"][language];
           <p class="dark:text-gray3 text-green1 text-xl font-bold">{category["name"][language]}</p>
           <ul class="flex flex-wrap gap-2">
             {category.skills.map((skill) => (
-              <li>
+              <li class="w-10 sm:w-auto">
                 <img src={`https://skillicons.dev/icons?i=${skill.name}&theme=dark`} alt={skill.name} />
               </li>
             ))}

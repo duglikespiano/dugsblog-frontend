@@ -59,11 +59,3 @@ window.addEventListener("load", () => {
   init();
   animate();
 });
-
-window.addEventListener("resize", () => {
-  particles.forEach((particle) => {
-    particle.x = Math.random() * (document.documentElement.scrollWidth - particle.size);
-    particle.y = Math.random() * (document.documentElement.scrollHeight - particle.size);
-    particle.update();
-  });
-});
