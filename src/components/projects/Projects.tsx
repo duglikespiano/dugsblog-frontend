@@ -30,6 +30,7 @@ export default function Projects({ language }: ProjectProps) {
                     <a
                       className="dark:border-gray3 border-green2 dark:bg-green2 text-gray3 rounded-sm border-1 bg-pink-800 p-0.5 text-xs"
                       href={project.deploymentURL}
+                      target="_blank"
                     >
                       {projects.repository[language]}
                     </a>
@@ -43,6 +44,7 @@ export default function Projects({ language }: ProjectProps) {
                     <a
                       className="dark:border-gray3 border-green2 dark:bg-green2 text-gray3 rounded-sm border-1 bg-pink-800 p-0.5 text-xs"
                       href={project.frontendRepositoryURL}
+                      target="_blank"
                     >
                       {projects.repository[language]}
                     </a>
@@ -56,6 +58,7 @@ export default function Projects({ language }: ProjectProps) {
                     <a
                       className="dark:border-gray3 border-green2 dark:bg-green2 text-gray3 rounded-sm border-1 bg-pink-800 p-0.5 text-xs"
                       href={project.backendRepositoryURL}
+                      target="_blank"
                     >
                       {projects.repository[language]}
                     </a>
