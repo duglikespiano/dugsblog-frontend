@@ -4,6 +4,7 @@ import { error } from "../../../common/htmlElements";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import type { Languages } from "../../../common/types";
 const { language } = Astro.params as { language: Languages };
+import "../../../css/particles.scss";
 ---
 
 <RootLayout>
@@ -17,3 +18,5 @@ const { language } = Astro.params as { language: Languages };
     </div>
   </div>
 </RootLayout>
+
+<script src="/src/js/particles.js"></script>

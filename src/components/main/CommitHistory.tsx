@@ -6,7 +6,7 @@ import "./CommitHistory.css";
 
 export default function CommitHistory() {
   return (
-    <section id="commit-history" className="flex justify-center pt-15 pb-15">
+    <section id="commit-history" className="mt-15 mb-15 flex justify-center">
       <OverlayScrollbarsComponent defer>
         <GitHubCalendar
           username="duglikespiano"

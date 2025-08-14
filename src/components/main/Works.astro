@@ -12,7 +12,7 @@ const componentTitle = componentTitles["workHighlights"][language];
   <ul class="mt-5 grid gap-6 md:grid-cols-2">
     {
       workHighlights.map((object) => (
-        <li class="dark:border-gray3 border-green2 relative overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
+        <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
           <a href={object.url} class="block">
             <img src={`/assets/main/works/${object.img}`} alt={object.service} />
             <div class="relative p-4 sm:p-8">
