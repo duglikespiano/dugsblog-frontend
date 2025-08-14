@@ -17,6 +17,7 @@ const highlightedTag = tag ? tags[tag][language] : null;
 const filteredPosts = tagsPropsArray
   ? posts.filter((post) => highlightedTag !== null && post.data.tags.includes(highlightedTag))
   : posts;
+const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
 <div class="relative z-10 mx-auto max-w-4xl">
@@ -30,7 +31,7 @@ const filteredPosts = tagsPropsArray
   }
   <ul class="grid items-start gap-4 sm:grid-cols-2">
     {
-      filteredPosts.map((post) => (
+      sortedPosts.map((post) => (
         <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater cursor-pointer overflow-hidden rounded-2xl border-4 md:duration-500 md:hover:scale-103">
           <div class="flex h-full flex-col justify-between">
             <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
