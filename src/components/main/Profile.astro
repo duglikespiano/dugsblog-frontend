@@ -11,13 +11,13 @@ const { language } = Astro.props as { language: Languages };
 >
   <div class="relative w-full cursor-pointer pt-70 sm:px-10 sm:pt-80 md:px-0 md:pt-0" data-images data-image-flipped>
     <img
-      class="border-green2 bg-gray3 absolute top-[50%] -left-2 z-10 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:left-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:left-6"
+      class="border-green2 bg-gray3 absolute top-[50%] -left-2 z-10 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:left-8 md:max-w-[236px] lg:left-5 lg:max-w-[260px]"
       src="/assets/main/profile/profile.png"
       alt="dug"
       data-dug-image
     />
     <img
-      class="border-green2 bg-gray3 absolute top-[50%] -right-2 z-0 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:right-8 md:ml-auto md:h-full md:w-auto md:translate-x-0 lg:right-6"
+      class="border-green2 bg-gray3 absolute top-[50%] -right-2 z-0 mx-auto aspect-square w-full -translate-y-[50%] rounded-full border-2 sm:w-[400px] md:right-8 md:max-w-[236px] lg:right-5 lg:max-w-[260px]"
       src="/assets/main/profile/patrick.png"
       alt="patrick"
       data-patrick-image
@@ -25,8 +25,11 @@ const { language } = Astro.props as { language: Languages };
   </div>
   <div class="flex flex-col items-center justify-end">
     <p class="mt-5 flex flex-col items-center md:mt-0 md:items-center lg:w-[360px]">
-      <span class="dark:text-gray2 text-green1 mb-2 text-4xl md:mb-3 lg:text-4xl">{main["hello"][language]}</span>
-      <span class="dark:text-hotpink text-green2 mb-1 text-4xl font-extrabold text-nowrap lg:text-6xl"
+      <span class=`dark:text-gray2 text-green1 mb-2 text-4xl md:mb-3 ${language === 'ja' && "lg:text-3xl" }`
+        >{main["hello"][language]}</span
+      >
+      <span
+        class=`dark:text-hotpink text-green2 mb-1 text-4xl font-extrabold text-nowrap ${language === 'ja' ? "lg:text-4xl" : "lg:text-6xl"}`
         >{main["name"][language]}</span
       >
       {
