@@ -13,7 +13,7 @@ const whichPage = Astro.url.pathname.split("/")[2];
       {
         (Object.keys(menus) as (keyof typeof menus)[]).map((item) => (
           <li
-            class={`text-3xl font-bold ${whichPage === item || (whichPage === "" && item === "main") || (whichPage === "tags" && item === "blog") ? "text-white" : "text-rosewater"}`}
+            class={`text-3xl font-bold ${whichPage === item || ((whichPage === "" || whichPage === "appspecific") && item === "main") || (whichPage === "tags" && item === "blog") ? "text-white" : "text-rosewater"}`}
           >
             <a class="no-underline" href={`/${language}${menus[item]["href"]}`}>
               {menus[item][language]}
