@@ -37,4 +37,5 @@
 
 ### 3. その他
 
+- 配布 URL : https://dugsblog.up.railway.app/
 - スキルセットコンポーネントアイコン出所 : https://github.com/tandpfun/skill-icons

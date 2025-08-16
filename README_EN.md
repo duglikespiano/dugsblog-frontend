@@ -37,4 +37,5 @@
 
 ### 3. ETC
 
+- Publish URL : https://dugsblog.up.railway.app/
 - Skill set component's icons source : https://github.com/tandpfun/skill-icons
