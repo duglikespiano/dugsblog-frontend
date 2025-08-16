@@ -34,3 +34,7 @@
 4. 配布して運用すること
    </br>
    </br>
+
+### 3. その他
+
+- スキルセットコンポーネントアイコン出所 : https://github.com/tandpfun/skill-icons

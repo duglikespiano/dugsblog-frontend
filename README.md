@@ -34,3 +34,7 @@
 4. 배포하여 운용할 것
    </br>
    </br>
+
+### 3. 기타
+
+- 스킬셋 컴포넌트 아이콘 출처 : https://github.com/tandpfun/skill-icons

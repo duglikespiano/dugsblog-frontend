@@ -34,3 +34,7 @@
 4. To publish and manage
    </br>
    </br>
+
+### 3. ETC
+
+- Skill set component's icons source : https://github.com/tandpfun/skill-icons
