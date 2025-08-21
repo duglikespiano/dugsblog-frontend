@@ -2,7 +2,6 @@
 import { tags } from "../../common/types";
 import type { Posts, Languages } from "../../common/types";
 import { getTagKeyByTranslation } from "../../common/functions";
-import { posts as postsHTMLElement } from "../../common/htmlElements";
 
 const { posts, tagsPropsArray } = Astro.props as {
   posts: Posts;
@@ -20,62 +19,52 @@ const filteredPosts = tagsPropsArray
 const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 ---
 
-<div class="relative z-10 mx-auto max-w-4xl">
+<ul class="columns-1 gap-6 [column-fill:_balance] sm:columns-2">
   {
-    tag && (
-      <p class="text-green1 dark:text-rosewater mb-1 text-xl">
-        {postsHTMLElement[language]["tag"]}
-        <span class="text-green3 dark:text-gray3 font-bold">{highlightedTag}</span>
-      </p>
-    )
-  }
-  <ul class="grid items-start gap-4 sm:grid-cols-2">
-    {
-      sortedPosts.map((post) => (
-        <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater cursor-pointer overflow-hidden rounded-2xl border-4 md:duration-500 md:hover:scale-103">
-          <div class="flex h-full flex-col justify-between">
-            <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
-              <img src={`/contents/${post.filePath?.split("/")[2]}/thumbnail.jpg`} />
-            </a>
-            <div class="p-2">
-              <div class="flex">
-                <ul class="my-1 flex list-none gap-2">
-                  {post.data.tags.map((t) => {
-                    const key = getTagKeyByTranslation(t, language);
-                    const href = key ? `/${language}/tags/${tags[key].en.toLowerCase()}` : "#";
-                    return (
-                      <li>
-                        <a
-                          class={`dark:border-gray3 dark:text-gray3 border-green2 block rounded-xl border-2 p-1 ${t === highlightedTag ? "dark:bg-purple4 text-gray3 bg-pink-800" : "text-green2"}`}
-                          href={href}
-                        >
-                          {t}
-                        </a>
-                      </li>
-                    );
+    sortedPosts.map((post) => (
+      <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater mb-6 cursor-pointer break-inside-avoid overflow-hidden rounded-2xl border-4 last-of-type:mb-0 md:duration-500 md:hover:scale-103">
+        <div class="flex h-full flex-col justify-between">
+          <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
+            <img src={`/contents/${post.filePath?.split("/")[2]}/thumbnail.jpg`} />
+          </a>
+          <div class="p-2">
+            <div class="flex">
+              <ul class="my-1 flex list-none flex-wrap gap-2">
+                {post.data.tags.map((t) => {
+                  const key = getTagKeyByTranslation(t, language);
+                  const href = key ? `/${language}/tags/${tags[key].en.toLowerCase()}` : "#";
+                  return (
+                    <li>
+                      <a
+                        class={`dark:border-gray3 dark:text-gray3 border-green2 block rounded-xl border-2 p-1 ${t === highlightedTag ? "dark:bg-purple4 text-gray3 bg-pink-800" : "text-green2"}`}
+                        href={href}
+                      >
+                        {t}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+            <div class="flex flex-col gap-1">
+              <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
+                <div class="dark:text-rosewater text-green1 text-xl font-bold">{post.data.title}</div>
+                <p class="text-sm text-slate-700 dark:text-gray-400">
+                  {post.data.pubDate.toLocaleDateString(`${language}`, {
+                    weekday: "long",
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
                   })}
-                </ul>
-              </div>
-              <div class="flex flex-col gap-1">
-                <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
-                  <div class="dark:text-rosewater text-green1 text-xl font-bold">{post.data.title}</div>
-                  <p class="text-sm text-slate-700 dark:text-gray-400">
-                    {post.data.pubDate.toLocaleDateString(`${language}`, {
-                      weekday: "long",
-                      year: "numeric",
-                      month: "long",
-                      day: "numeric",
-                    })}
-                  </p>
-                  <div class="mt-3 line-clamp-2 leading-none text-stone-600 dark:text-gray-300">
-                    {post.data.description}
-                  </div>
-                </a>
-              </div>
+                </p>
+                <div class="mt-3 line-clamp-2 leading-none text-stone-600 dark:text-gray-300">
+                  {post.data.description}
+                </div>
+              </a>
             </div>
           </div>
-        </li>
-      ))
-    }
-  </ul>
-</div>
+        </div>
+      </li>
+    ))
+  }
+</ul>
