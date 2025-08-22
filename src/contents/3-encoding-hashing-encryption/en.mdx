@@ -1,0 +1,60 @@
+---
+title: "Comparision between encoding, hashing, encryption"
+description: "Compare encoding, hashing, encryption"
+pubDate: 2025-08-22
+tags: ["Programming"]
+---
+
+Compare encoding, hashing, encryption.
+
+Refered video below.
+
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/z5lpHsl8qQ4?si=XABKrEhJID6Cnoad"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+
+|                | Encoding | Hashing | Encryption |
+| :------------: | :------: | :-----: | :--------: |
+| Is reversible? |    ✅    |   ❌    |     ✅     |
+|   Is secure?   |    ❌    |   ✅    |     ✅     |
+
+### Encoding
+
+Human can't understand computer's language, Computer can't understand human's language. We need encoding to solve the problem. Converting human's language into computer's language is encoding. Converting computer's language into human's language is decoding.
+
+Encoding is reversible, it's purpose is on data's store, consistent interpretion.
+
+Encoding is being used to brower's URL, saving of movies, documents. URL encodion, one of most common encoding is called as Percent-encoding too.
+
+Reference : [Percent-encoding from MDN](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding)
+
+### Hashing
+
+When we sign up to a webpage, all the password is stored after hashing. Like this, hashing is being used for security. In addition, integrity of data(detect change), quick data search by hashtable, uniqueness of data, data download are purpose of hashing too.
+
+Hashing is not reversible. No matter how long the input is, it prints fixed length of data. If you input same value, it prints same value always.
+
+As it prints always same result when the input is same, it has security fualt. A table which organize input and output data is called as Rainbow-table. To make it more secure, salt is being added to neutralize Rainbow-table.
+
+JSON Web Tokens(JWT) is one of the most common example for hashing.
+
+Reference : [JSON Web Tokens - jwt.io](https://www.jwt.io/)
+
+### Encryption
+
+When the system requires reversible security, encryption is the one. the purposes of encryption are on cridential, security, authentication.
+
+Data is being encrypted when it's being delivered, it can't be decrypted without proper password key. because of that, it can maintain its security even on the situation that the data has been taken during communication.
+
+One of the most famous cipher is, CAESAR's cipher. it encrypts the content by converting text with shifting alphabets by a fixed number of position.<br/>
+_hello(after shifting alphabets as the number 3) -> khoor_
+
+Reference : [Ciphertext from MDN](https://developer.mozilla.org/en-US/docs/Glossary/Ciphertext)

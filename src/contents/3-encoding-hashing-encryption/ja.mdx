@@ -1,0 +1,60 @@
+---
+title: "エンコーディング、 ハッシュ化、暗号化の比較"
+description: "エンコーディング、 ハッシュ化、暗号化を比較します"
+pubDate: 2025-08-22
+tags: ["プログラミング"]
+---
+
+エンコーディング、 ハッシュ化、暗号化を比較します。
+
+下記動画を参考しました。
+
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/z5lpHsl8qQ4?si=XABKrEhJID6Cnoad"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+
+|                | エンコーディング | ハッシュ化 | 暗号化 |
+| :------------: | :--------------: | :--------: | :----: |
+| Is reversible? |        ✅        |     ❌     |   ✅   |
+|   Is secure?   |        ❌        |     ✅     |   ✅   |
+
+### エンコーディング
+
+人間はコンピュータの言語を理解できません。コンピュータは人間の言語を理解できません。こんな問題を解決させる為にエンコーディングが必要です。人間の言語をコンピュータで変換させるのがエンコーディングです。コンピュータの言語を人間の言語に変化させるのがディコーディングです。
+
+エンコーディングは可逆的だし、データーの保存を一致性に目的があります。
+
+ブラウザのURL、動画、文章保存にエンコーディングが使われます。一番得やすいエンコーディングの一つのURLエンコーディングはPercent-エンコーディングでも呼ばれます。
+
+参考 : [Percent-エンコーディング from MDN](https://developer.mozilla.org/en-US/docs/Glossary/Percent-encoding)
+
+### ハッシュ化
+
+我々がウェブページに加入する時に、全てのパスワードはハッシュ化されてデーターベースに保存されます。このように、ハッシュ化は保安性の為に使われます。それだけではなくデータの一致性（変調感知）、ハッシュテーブルを通じたテータの検索、データの唯一性確保、データダウンロードなどにも使われます。
+
+ハッシュ化は可逆的ではないです。どの長さの文字例を入力しても、決められた長さの文字例を出力します。同じ文字例をインプットした時に、出力される文字例が同一です。
+
+同じ文字例をインプットしたときに、出力される文字例が同じなので保安に脆弱性があります。インプットの文字例と出力文字例をまとめておいた表をRainbow-tableと呼びます。これを補完するためにハッシュにsaltを追加してRainbow-tableを無力化したりします。
+
+ウェブページ頻繁に使われるJSON Web Tokens(JWT)がハッシュを利用した代表的な例です。
+
+参考 : [JSON Web Tokens - jwt.io](https://www.jwt.io/)
+
+### 暗号化
+
+可逆的な法案性が必要な場合には暗号化を使用します。暗号化の目的は機密性、保安、認証にあります。
+
+データは送る時から暗号化され、正しい暗号鍵がなければ解読できません。なので、途中にデータが取れられても保安性を維持できます。
+
+一番有名な暗号文の一つは、CAESAR's cipherであり、暗号化させようとする内容をアルファベットごとに一定の距離だけ押して、別のアルファベットに置き換える方式を使いました。<br/>
+_hello(アルファベット 3文字づつ押せば) -> khoor_
+
+参考 : [暗号文 from MDN](https://developer.mozilla.org/en-US/docs/Glossary/Ciphertext)

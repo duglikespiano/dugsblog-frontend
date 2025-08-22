@@ -5,6 +5,9 @@ module.exports = {
         DEFAULT: {
           css: {
             // maxWidth: "1024px",
+            table: {
+              textAlign: "center",
+            },
             a: {
               "&:hover": {},
               textDecoration: "none",
