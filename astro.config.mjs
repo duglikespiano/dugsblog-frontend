@@ -12,6 +12,12 @@ export default defineConfig({
     plugins: [tailwindcss("@tailwindcss/line-clamp")],
   },
 
+  markdown: {
+    shikiConfig: {
+      theme: "andromeeda",
+    },
+  },
+
   integrations: [
     icon({
       include: {
@@ -26,6 +32,7 @@ export default defineConfig({
     react(),
     mdx(),
   ],
+
   output: "server",
   adapter: node({
     mode: "standalone",
