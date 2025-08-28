@@ -25,13 +25,13 @@ export const collectionMap = {
   ja: "jaPosts",
 } as const;
 
-export const tagKeys = ["travel", "thoughts", "programming"] as const;
+export const tagKeys = ["travel", "thoughts", "programming", "javascript"] as const;
 // export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework"] as const;
 export type TagLang = (typeof tagKeys)[number];
 
 export const tags: Record<TagLang, TagTranslations> = {
   programming: { en: "Programming", ko: "프로그래밍", ja: "プログラミング" },
-  // javascript: { en: "Javascript", ko: "자바스크립트", ja: "ジャバスクリプト" },
+  javascript: { en: "JavaScript", ko: "JavaScript", ja: "JavaScript" },
   // css: { en: "CSS", ko: "CSS", ja: "CSS" },
   // html: { en: "HTML", ko: "HTML", ja: "HTML" },
   // php: { en: "PHP", ko: "PHP", ja: "PHP" },

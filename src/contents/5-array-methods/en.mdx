@@ -1,0 +1,63 @@
+---
+title: "JavaScript's array methods forEach() and map()"
+description: "Explain JavaScript's array methods forEach() and map()"
+pubDate: 2025-08-29
+tags: ["JavaScript"]
+---
+
+Explain JavaScript's array methods forEach() and map().
+
+### Summary table
+
+| Feature        | `forEach()` 🌀                                                     | `map()` 🔁                                                |
+| -------------- | ------------------------------------------------------------------ | --------------------------------------------------------- |
+| Purpose        | Run side effects (e.g., log, update external variable).            | Transform array elements into a new array.                |
+| Return value   | `undefined`                                                        | A new array of same length.                               |
+| Mutates array? | No (unless you mutate inside callback).                            | No (pure function, unless you mutate inside).             |
+| Chainable?     | ❌ No                                                              | ✅ Yes (can chain with `.filter()`, `.reduce()`).         |
+| Performance    | Similar (slightly faster since forEach doesn’t build a new array). | Slight overhead because it creates a new array.           |
+| Use case       | Logging, counters, saving data externally.                         | Transforming data (e.g., square numbers, extract fields). |
+
+### forEach()
+
+```javascript
+array.forEach((element, index, array) => {
+  // Do something with element
+  // Executes the callback on each element.
+  //Does not return a new array → always undefined.
+});
+```
+
+### map()
+
+```javascript
+const newArray = array.map((element, index, array) => {
+  return element * 2;
+  //Executes the callback on each element.
+  //Returns a new array with transformed values.
+  //Original array is unchanged.
+});
+```
+
+### Example
+
+```javascript
+const array = [1, 2, 3];
+
+// forEach example
+const newArrayWithForEach = array.forEach((item) => item * 2);
+
+// map example with a return
+const newArrayWithMap = array.map((item) => {
+  return item; // If you don't return a value, map will insert 'undefined' instead
+});
+
+// map example without a return
+const undefinedArrayWithMap = array.map((item) => {
+  // no return here → implicit 'undefined'
+});
+
+console.log(newArrayWithForEach); // undefined (forEach always returns undefined, not an array)
+console.log(newArrayWithMap); // [1, 2, 3]
+console.log(undefinedArrayWithMap); // [undefined, undefined, undefined]
+```
