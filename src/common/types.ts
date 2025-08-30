@@ -25,7 +25,7 @@ export const collectionMap = {
   ja: "jaPosts",
 } as const;
 
-export const tagKeys = ["travel", "thoughts", "programming", "javascript"] as const;
+export const tagKeys = ["travel", "thoughts", "programming", "javascript", "english"] as const;
 // export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework"] as const;
 export type TagLang = (typeof tagKeys)[number];
 
@@ -38,6 +38,7 @@ export const tags: Record<TagLang, TagTranslations> = {
   // framework: { en: "Framework", ko: "프레임워크", ja: "フレームワーク" },
   travel: { en: "Travel", ko: "여행", ja: "旅行" },
   thoughts: { en: "Thoughts", ko: "생각", ja: "考え" },
+  english: { en: "English", ko: "영어", ja: "英語" },
 } as const;
 
 export type TagTranslations = {
