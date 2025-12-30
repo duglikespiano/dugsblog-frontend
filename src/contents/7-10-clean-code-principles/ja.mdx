@@ -1,0 +1,314 @@
+---
+title: "Conner Ardmanからの10個のClean Code原軸"
+description: "Conner Ardmanは自分の10個のClean Code原軸があると言っています"
+pubDate: 2025-12-31
+tags: ["プログラミング"]
+---
+
+Conner Ardmanは下のように自分の10個のClean Code原軸があると言っています。
+
+本記事は添付動画の要約です。
+
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/wSDyiEjhp8k?si=hx2Wn3_CKENL4Zr6"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+
+### 1. 要らないnestingは避けること
+
+条件分の順番を調整して要らないnestingを避けます。
+
+#### 前
+
+```javascript
+function processUser(user) {
+  if (user !== null) {
+    if (user.hasSubscription) {
+      if (user.page >= 18) {
+        showFullVersion();
+      } else {
+        showChildrenVersion();
+      }
+    } else {
+      throw new Error("User needs a subscription");
+    }
+  } else {
+    throw new Error("No user found");
+  }
+}
+```
+
+#### 後
+
+```javascript
+function processUser(user) {
+  if (user === null) {
+    throw new Error("No user found");
+  }
+  if (!user.hasSubscription) {
+    throw new Error("User needs a subscription");
+  }
+  if (user.age < 18) {
+    return showChildrenVersion();
+  }
+  showFullVersion();
+}
+```
+
+### 2. 曖昧さを避けること
+
+変数や関数に明瞭で意味がわかりやすい名前を付けます。
+
+#### 前
+
+```javascript
+const MIN_PASSWORD = 6;
+function checkPasswordLength(password) {
+  return password.length >= MIN_PASSWORD;
+}
+```
+
+#### 後
+
+```javascript
+const MIN_PASSWORD_LENGTH = 6;
+function isPasswordLongEnough(password) {
+  return password.length >= MIN_PASSWORD_LENGTH;
+}
+```
+
+### 3. 要らないコメントを避けること
+
+本当に必要な時だけにコメントを残します。
+
+#### 前
+
+```javascript
+// Function to check if a number is prime
+function isPrime(number) {
+  //Check if number is less than 2
+  if (number < 2) {
+    // If less than 2, not a prime number
+    return false;
+  }
+  // At lest 1 divisor must but less than square root, so we can stop there
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    // Check if number is divisible by i
+    if (number % i === 0) {
+      // If divisible, number is not prime
+      return false;
+    }
+  }
+  // After all checks, if not divisible by any i, number is prime
+  return true;
+}
+```
+
+#### 後
+
+```javascript
+function isPrime(number) {
+  if (number < 2) {
+    return false;
+  }
+  // At lest 1 divisor must but less than square root, so we can stop there
+  for (let i = 2; i <= Math.sqrt(number); i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+```
+
+### 4. formattingの同一性を維持すること
+
+text concatenationとtemplate literalみたいな様式を同じく維持します。
+
+#### 前
+
+```javascript
+const name = "Dug";
+const age = 26;
+function getUserInfo() {
+  console.log("User Info:");
+  console.log("Name:" + name);
+  console.log(`Age: ${age}`);
+}
+```
+
+#### 後
+
+```javascript
+const name = "Dug";
+const age = 26;
+function getUserInfo() {
+  console.log("User Info:");
+  console.log(`Name: ${name}`);
+  console.log(`Age: ${age}`);
+}
+```
+
+### 5. DRY(Don't Repeat Yourself)
+
+要らないコードを反復的に使用しないようにします。
+
+#### 前
+
+```javascript
+function logLogin() {
+  console.log(`User logged in at ${new Date()}`);
+}
+function logLogout() {
+  console.log(`User logged in at ${new Date()}`);
+}
+function logSignup() {
+  console.log(`User signed up at ${new Date()}`);
+}
+```
+
+#### 後
+
+```javascript
+function logAction(action) {
+  console.log(`User ${action} at ${new Date()}`);
+}
+```
+
+### 6. 早めに失敗させること
+
+条件分を早めに失敗させて要らないコードが実行させることを避けます。
+
+#### 前
+
+```javascript
+function getUppercaseInput(input) {
+  const result = input?.toUpperCase?.();
+  if (typeof input !== "string" || input.trim() === "") {
+    throw new Error("Invalid input");
+  }
+  return result;
+}
+```
+
+#### 後
+
+```javascript
+function getUppercaseInput(input) {
+  if (typeof input !== "string" || input.trim() === "") {
+    throw new Error("Invalid input");
+  }
+  return input.toUpperCase();
+}
+```
+
+### 7. Magic numberを避けること
+
+変数の意味と必要さを明確にします。
+
+#### 前
+
+```javascript
+let price = 10;
+if (transactionType === 1) {
+  price *= 1.1;
+}
+```
+
+#### 後
+
+```javascript
+const TAXABLE_TRANSACTION_TYPE = 1;
+const TAX_MULTIPLE = 1.1;
+let price = 10;
+if (transactionType === TAXABLE_TRANSACTION_TYPE) {
+  price *= TAX_MULTIPLE;
+}
+```
+
+### 8. global変数を操作するのを避けること
+
+バグを予防するためにglobal変数を操作することよりはlocal変数を操作するようにします。
+
+#### 前
+
+```javascript
+let area = 0;
+function calculateAndUpdateArea(radius) {
+  const newArea = Math.PI * radius * radius;
+  area = newArea;
+  return newArea;
+}
+```
+
+#### 後
+
+```javascript
+let area = 0;
+function calculateArea(radius) {
+  return (newArea = Math.PI * radius * radius);
+}
+area = calculateArea(5);
+```
+
+### 9. 可読性を維持すること
+
+コードを読みやすくします。
+
+#### 前
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const result = numbers.reduce((acc, n) => (n & 1 ? [...acc, n * n] : acc), []);
+console.log(result);
+```
+
+#### 後
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+const filteredAndSquared = numbers.filter((n) => n % 2 !== 0).map((n) => n * n);
+console.log(filteredAndSquared);
+```
+
+### 10. 不必要な最適化を避けること
+
+良いコードを書くために、最適化以外の要素も顧慮するようにします。
+
+#### 前
+
+```javascript
+const arr = [4, 2, 2, 8, 3, 3, 1];
+function countingSort(arr, min, max) {
+  let count = new Array(max - min + 1).fill(0);
+  arr.forEach((element) => {
+    count[element - min]++;
+  });
+  let index = 0;
+  for (let i = min; i <= max; i++) {
+    while (count[i - mix] > 0) {
+      while (count[i - mix] > 0) {
+        arr[index++] = i;
+        count[i - min]--;
+      }
+    }
+  }
+  return arr;
+}
+console.log(countingSort(arr, 1, 8));
+```
+
+#### 後
+
+```javascript
+const arr = [4, 2, 2, 8, 3, 3, 1];
+const sorted = arr.slice().sort((a, b) => a - b);
+console.log(sorted);
+```
