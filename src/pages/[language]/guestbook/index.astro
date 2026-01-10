@@ -4,7 +4,6 @@ import GuestbookForm from "../../../components/guestbook/GuestbookForm.astro";
 import GuestbookList from "../../../components/guestbook/GuestbookList.astro";
 import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
-import "../../../css/particles.scss";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
 if (!isStringLanguage(language)) {
@@ -18,5 +17,3 @@ if (!isStringLanguage(language)) {
     <GuestbookList />
   </div>
 </RootLayout>
-
-<script src="/src/js/particles.js"></script>

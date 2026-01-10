@@ -8,7 +8,6 @@ import Projects from "../../components/main/Projects.astro";
 import type { Languages } from "../../common/types";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
-import "../../css/particles.scss";
 if (!isStringLanguage(language)) {
   return new Response(null, { status: 404 });
 }
@@ -20,5 +19,3 @@ if (!isStringLanguage(language)) {
   <Works />
   <Projects />
 </RootLayout>
-
-<script src="/src/js/particles.js"></script>

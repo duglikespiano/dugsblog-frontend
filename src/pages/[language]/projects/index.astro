@@ -6,7 +6,6 @@ import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
-import "../../../css/particles.scss";
 if (!isStringLanguage(language)) {
   return new Response(null, { status: 404 });
 }
@@ -16,5 +15,3 @@ if (!isStringLanguage(language)) {
   <SkillsFilter language={language} client:load />
   <Projects language={language} client:load />
 </RootLayout>
-
-<script src="/src/js/particles.js"></script>

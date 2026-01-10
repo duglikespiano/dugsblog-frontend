@@ -16,7 +16,6 @@ const entry = await getEntry(collectionMap[language], `${slug}/${language}`);
 const tagKeys = entry?.data.tags as string[];
 const slugsArray = posts.map((post) => post.filePath?.split("/")[2]);
 const title = printPageTitle(Astro.url.pathname, language, entry?.data.title);
-import "../../../css/particles.scss";
 
 if (!slugsArray.includes(slug)) {
   return Astro.redirect(`/${language}/blog/`);
@@ -77,5 +76,3 @@ const { Content } = await render(entry);
     </div>
   </Prose>
 </RootLayout>
-
-<script src="../../../js/particles.js"></script>

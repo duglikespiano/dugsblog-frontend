@@ -17,16 +17,11 @@ const whichPage = Astro.url.pathname.split("/")[2];
 
 <section
   id="max-width-wrapper"
-  class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000 opacity-0`
+  class=`text-gray3 font-${language} mx-auto flex min-h-lvh max-w-7xl flex-col justify-between px-5 py-4 duration-1000 opacity-0 relative`
   data-reveal-on-load-delayed="300"
 >
   <Header />
-  <section
-    id="slot-wrapper"
-    class="py-8 opacity-0 duration-1000 md:py-14"
-    data-root-wrapper
-    data-reveal-on-load-delayed="800"
-  >
+  <section id="slot-wrapper" class="py-8 opacity-0 duration-1000 md:py-14" data-reveal-on-load-delayed="800">
     <slot />
   </section>
   <Footer />
@@ -52,7 +47,6 @@ const whichPage = Astro.url.pathname.split("/")[2];
       </>
     )
   }
-
   <MenuButton />
 </section>
 

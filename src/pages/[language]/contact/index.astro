@@ -4,7 +4,6 @@ import ContactForm from "../../../components/contact/ContactForm.astro";
 import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
-import "../../../css/particles.scss";
 const title = printPageTitle(Astro.url.pathname, language);
 if (!isStringLanguage(language)) {
   return new Response(null, { status: 404 });
@@ -14,5 +13,3 @@ if (!isStringLanguage(language)) {
 <RootLayout title={title}>
   <ContactForm />
 </RootLayout>
-
-<script src="/src/js/particles.js"></script>

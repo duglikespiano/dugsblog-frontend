@@ -1,5 +1,22 @@
 <div data-overlayscrollbars-initialize>
-  <section id="body-content-wrapper" class="dark:bg-green1 bg-rosewater relative overflow-hidden transition-all">
+  <section id="body-content-wrapper" class="dark:bg-green1 bg-rosewater relative z-0 overflow-hidden transition-all">
     <slot />
+    <canvas
+      id="liquid"
+      class="w-vw pointer-events-none fixed top-0 left-0 z-[-1] block h-dvh opacity-0 transition duration-3000"
+      data-reveal-on-load-delayed="1000"></canvas>
   </section>
 </div>
+
+<script src="/src/js/particles.js"></script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const fadeupDelayedElements = document.querySelectorAll("[data-reveal-on-load-delayed]");
+    fadeupDelayedElements.forEach((element) => {
+      const howLongDelayed = Number(element.getAttribute("data-reveal-on-load-delayed") ?? "0");
+      setTimeout(() => {
+        element.classList.add("opacity-100");
+      }, howLongDelayed);
+    });
+  });
+</script>
