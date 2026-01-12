@@ -144,7 +144,7 @@ export const workHighlights = [
       ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
     },
     skills: ["EJS", "Sass", "JavaScript"],
-    url: "https://usagi-online.com/s/250514PIS/",
+    url: "https://usagi-online.com/s/251023MOW/",
     img: "fcl1.png",
   },
   {
@@ -160,7 +160,7 @@ export const workHighlights = [
       ja: "ファッション用品および衣類の販売ページを制作しました。毎週異なるアニメーションやデザインのページを制作し、さまざまなアニメーションを実装するスキルを向上させることができました。",
     },
     skills: ["EJS", "Sass", "JavaScript"],
-    url: "https://usagi-online.com/s/250205CFD/",
+    url: "https://usagi-online.com/s/251112JAK/",
     img: "fcl2.png",
   },
 ];
@@ -168,63 +168,63 @@ export const workHighlights = [
 export const projectsOnMain = [
   {
     service: {
+      en: "Code Explain page with AI",
+      ko: "AI를 활용한 코드설명페이지",
+      ja: "AIを活用したコード説明ページ",
+    },
+    description: {
+      en: "Simple code explain page. Powered by AI.",
+      ko: "AI를 활용한 간단한 코드설명페이지입니다.",
+      ja: "AIを活用した簡単なコード説明ページです。",
+    },
+    skills: ["AI", "React", "TailwindCSS", "Express.js"],
+    url: "https://dugscodeexplainer.up.railway.app/",
+    img: "codeexplainer.png",
+  },
+  {
+    service: {
+      en: "Apple Commerce Clone Page with React",
+      ko: "React로 구현한 클론 Apple 페이지",
+      ja: "Reactで実装したクロンAppleページ",
+    },
+    description: {
+      en: "Clone of Apple's commerce page. Built by React.",
+      ko: "React로 구현한 Apple사의 클론페이지입니다.",
+      ja: "Reactで実装したApple社のクロンページです。",
+    },
+    skills: ["React", "TailwindCSS", "GSAP", "ThreeJS"],
+    url: "https://dugsnotes-react2.up.railway.app/",
+    img: "apple.png",
+  },
+  {
+    service: {
+      en: "Dashboard with React",
+      ko: "React로 구현한 대쉬보드",
+      ja: "Reactで実装したダッシュボード",
+    },
+    description: {
+      en: "Dashboard page with component library. Built by React",
+      ko: "컴포넌트 라이브러리를 활용한 React 대쉬보드페이지입니다.",
+      ja: "コンポーネントライブラリを活用したReactダッシュボードページです。",
+    },
+    skills: ["React", "Tailwind", "syncfusion"],
+    url: "https://dugsnotes-react1.up.railway.app/",
+    img: "dashboard.png",
+  },
+  {
+    service: {
       en: "Dug's Works",
       ko: "Dug's Works",
       ja: "Dug's Works",
     },
     description: {
-      en: "This is my personal profile page, which serves as the motto and concept for the page you are currently viewing. It was built using React, Sass, and Express.js.",
-      ko: "현재 보시고 계신 페이지의 모토가 되는 개인 프로필페이지입니다. React와 Sass, Expess.js로 구현하였습니다.",
-      ja: "現在ご覧いただいているページのモットーとなる個人プロフィールページです。React、Sass、Express.jsを使用して実装しました。",
+      en: "The page previous version of this page. Built by React, Sass, and Express.js.",
+      ko: "현재 보고 계신 페이지의 이전 버전입니다. React와 Sass, Expess.js로 구현하였습니다.",
+      ja: "現在ご覧いただいているページの以前のバージョンです。React、Sass、Express.jsで実装しました。",
     },
     skills: ["React", "Sass", "Express.js"],
     url: "https://dugsworks.netlify.app/",
     img: "dugsworks.png",
-  },
-  {
-    service: {
-      en: "Pokemon Card Memory Game",
-      ko: "포켓몬카드 메모리게임",
-      ja: "ポケモンカードメモリゲーム",
-    },
-    description: {
-      en: "I created this page to have a fun time with my nieces and nephews. It uses the PokeAPI and royalty-free background music.",
-      ko: "조카들과 재밌는 시간을 보내기 위해 제작 해 본 페이지입니다. PokeAPI 및 저작권에 제약이 없는 BGM을 사용하였습니다.",
-      ja: "甥や姪と楽しい時間を過ごすために制作したページです。PokeAPIと著作権フリーのBGMを使用しました。",
-    },
-    skills: ["HTML", "CSS", "JavaScript"],
-    url: "https://dugsnotes-pokemon-memory-game.netlify.app/",
-    img: "pokemon.png",
-  },
-  {
-    service: {
-      en: "Dug's notes - GSAP",
-      ko: "Dug's notes - GSAP",
-      ja: "Dug's notes - GSAP",
-    },
-    description: {
-      en: "I am practicing through various tutorials to deepen my understanding of the JavaScript library GSAP.",
-      ko: "JavaScript 라이브러리 GSAP을 이해하기 위해 여러 강좌를 통해 연습하고있습니다.",
-      ja: "JavaScriptライブラリであるGSAPを理解するために、さまざまな講座を通して練習しています。",
-    },
-    skills: ["HTML", "GSAP", "JavaScript"],
-    url: "https://github.com/duglikespiano/dugsnotes-gsap-carl",
-    img: "gsap.png",
-  },
-  {
-    service: {
-      en: "Building 10 Responsive Web Sites",
-      ko: "10개의 반응형 웹페이지 제작하기",
-      ja: "10個のレスポンシブウェーブページ制作",
-    },
-    description: {
-      en: "To practice responsive page layout design, I purchased a course on Udemy and gained experience in creating responsive web pages.",
-      ko: "반응형 페이지의 레이아웃 구성을 연습하기 위해 Udemy에서 강좌를 구매하여 반응형 페이지 작성을 경험하였습니다.",
-      ja: "レスポンシブページのレイアウト構成を練習するために、Udemyで講座を購入し、レスポンシブページの制作を経験しました。",
-    },
-    skills: ["HTML", "CSS", "JavaScript"],
-    url: "https://github.com/duglikespiano/10responsivewebsites-html-css-javascript",
-    img: "10projects.png",
   },
 ];
 
