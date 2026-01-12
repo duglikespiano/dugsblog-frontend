@@ -1,6 +1,9 @@
 // Code reference from below url
 // https://sorifolio.github.io/spreadfreediving/
 
+// Code reference from below url
+// https://sorifolio.github.io/spreadfreediving/
+
 !(function () {
   "use strict";
   var t,
@@ -36,15 +39,18 @@
           );
         },
         resize: function () {
-          var t = this.elem;
-          for (
-            this.width = t.offsetWidth, this.height = t.offsetHeight, this.left = 0, this.top = 0;
-            null != t;
-            t = t.offsetParent
-          )
-            (this.left += t.offsetLeft), (this.top += t.offsetTop);
-          this.ctx && ((this.elem.width = this.width), (this.elem.height = this.height)),
-            this.callback && this.callback();
+          // 🔧 FIX: force viewport size
+          this.width = window.innerWidth;
+          this.height = window.innerHeight;
+          this.left = 0;
+          this.top = 0;
+
+          if (this.ctx) {
+            this.elem.width = this.width;
+            this.elem.height = this.height;
+          }
+
+          this.callback && this.callback();
         },
       },
     },
@@ -55,8 +61,6 @@
     return new s(this.x + t.x, this.y + t.y);
   };
   var h = function (t) {
-    var i = 0.1,
-      h = 1.5;
     (this.vel = new s(
       (Math.random() > 0.5 ? 1 : -1) * (0.2 + 0.25 * Math.random()),
       (Math.random() > 0.5 ? 1 : -1) * (0.2 + Math.random()),
@@ -179,9 +183,7 @@
 let resizeTimeout;
 
 window.addEventListener("resize", () => {
-  cancelAnimationFrame(o);
   clearTimeout(resizeTimeout);
-
   resizeTimeout = setTimeout(() => {
     createLiquid();
   }, 150);
