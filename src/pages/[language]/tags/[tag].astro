@@ -20,7 +20,7 @@ posts.forEach((post) => {
 const filteredTagsPropsArray = [...new Set(tagsPropsArray)];
 
 if (!isStringLanguage(language)) {
-  return new Response(null, { status: 404 });
+  return Astro.redirect("/", 301);
 }
 
 if (!(tag in tags)) {

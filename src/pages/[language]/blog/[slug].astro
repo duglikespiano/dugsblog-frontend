@@ -36,7 +36,7 @@ if (!entry) {
 }
 
 if (!isStringLanguage(language)) {
-  return new Response(null, { status: 404 });
+  return Astro.redirect("/", 301);
 }
 
 const { Content } = await render(entry);
