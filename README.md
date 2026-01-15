@@ -37,5 +37,5 @@
 
 ### 3. 기타
 
-- 배포 URL : https://dugsblog.up.railway.app/
+- 배포 URL : https://dugsblog.dev/
 - 스킬셋 컴포넌트 아이콘 출처 : https://github.com/tandpfun/skill-icons

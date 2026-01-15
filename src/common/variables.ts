@@ -38,7 +38,7 @@ export const allOfMyProjects = [
       ko: "Astro, SSR로 구현한 개인 블로그",
       ja: "Astro、SSRで実装した個人ブログ",
     },
-    deploymentURL: "https://dugsblog.up.railway.app/",
+    deploymentURL: "https://dugsblog.dev/",
     frontendRepositoryURL: "https://github.com/duglikespiano/dugsblog-frontend",
     backendRepositoryURL: "https://github.com/duglikespiano/dugsblog-backend",
     period: ["2025-02-20", "2025-08-15"],
