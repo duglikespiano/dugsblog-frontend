@@ -1,0 +1,55 @@
+---
+title: "A Record, CNAME, ALIAS"
+description: "A Record, CNAME, ALIAS DNS 레코드의 비교"
+pubDate: 2026-01-18
+tags: ["네트워크"]
+---
+
+DNS를 설정할 때, **A Records**, **CNAME**, **ALIAS** 와 같은 단어를 볼 수 있습니다.  
+각 단어는 비슷해 보이지만 다른 목적을 위해 사용됩니다.
+
+## 간단 비교
+
+| Feature             | A Record   | CNAME  | ALIAS                  |
+| ------------------- | ---------- | ------ | ---------------------- |
+| Points to           | IP address | Domain | Domain                 |
+| Root domain allowed | ✅ Yes     | ❌ No  | ✅ Yes                 |
+| Auto IP updates     | ❌ No      | ✅ Yes | ✅ Yes                 |
+| Extra DNS lookup    | ❌ No      | ✅ Yes | ❌ No (resolved early) |
+| Standard DNS        | ✅ Yes     | ✅ Yes | ❌ Provider-specific   |
+
+## A Record (Address Record)
+
+인터넷에 연결된 모든 서버들은 IP주소를 가집니다.  
+컴퓨터들은 IP주소로 통신합니다. 하지만 IP주소는 직관적이지 않고 기억하기 어렵습니다.
+
+A record는 도메인과 IP주소를 연결하여 위와 같은 문제를 해결합니다.
+
+```txt
+example.com ➡️ 111.111.111.111
+
+```
+
+## CNAME(Canonical Name)
+
+CNAME은 한 도메인을 다른 도메인에 연결합니다.  
+IP주소에 직접적으로 연결하진 않습니다. 대신 목표 도메인의 별명처럼 사용됩니다.
+
+CNAME은 IP의 변경을 자동으로 감지합니다.  
+하지만 표준 DNS의 `example.com`과 같은 최상위 도메인에서는 사용될 수 없습니다.
+
+```txt
+www.example.com ➡️ example.com
+```
+
+## ALIAS
+
+ALIAS는 CNAME과 비슷하게 작용합니다만, 클라이언트에 페이지를 전달하기 전에 DNS와 목표 도메인 사이를 연결합니다.  
+결과적으로 클라이언트는 다른 도메인을 전달받는 대신 IP주소를 전달받습니다.
+
+ALIAS는 `example.com`와 같은 최상위 도메인에서 사용 할 수 있습니다.  
+ALIAS는 DNS표준이 아니기 때문에, 특정 DNS서비스(Netlify, Hostinger 등)에서만 사용 할 수 있습니다.
+
+```txt
+example.com ➡️ myapp.hosting-provider.com
+```

@@ -1,0 +1,59 @@
+---
+title: "A Record, CNAME, ALIAS"
+description: "A clear comparison of A Record, CNAME, and ALIAS DNS records"
+pubDate: 2026-01-18
+tags: ["Network"]
+---
+
+When configuring DNS, you will often encounter **A Records**, **CNAME**, and **ALIAS** records.  
+They may look similar at first glance, but each serves a different purpose and has important limitations.
+
+## Quick Comparison
+
+| Feature             | A Record   | CNAME  | ALIAS                  |
+| ------------------- | ---------- | ------ | ---------------------- |
+| Points to           | IP address | Domain | Domain                 |
+| Root domain allowed | ✅ Yes     | ❌ No  | ✅ Yes                 |
+| Auto IP updates     | ❌ No      | ✅ Yes | ✅ Yes                 |
+| Extra DNS lookup    | ❌ No      | ✅ Yes | ❌ No (resolved early) |
+| Standard DNS        | ✅ Yes     | ✅ Yes | ❌ Provider-specific   |
+
+## A Record (Address Record)
+
+Every server connected to the internet has an IP address.  
+Computers communicate using these IP addresses, but they are difficult for humans to remember.
+
+An A record solves this problem by mapping a domain name to an IP address.
+
+```txt
+example.com ➡️ 111.111.111.111
+
+```
+
+## CNAME(Canonical Name)
+
+A CNAME record maps one domain to another domain.
+
+It does not point directly to an IP address.
+Instead, it acts like a nickname for the target domain.
+
+Because of this, it automatically follows IP changes.
+However, it cannot be used on the root domain `example.com` in standard DNS.
+
+```txt
+www.example.com ➡️ example.com
+```
+
+## ALIAS
+
+An ALIAS record behaves similarly to a CNAME, but the DNS provider resolves the target domain before responding to the client.
+
+As a result, the client receives an IP address directly instead of another domain name.
+
+An ALIAS record points to a domain name and can be used on root domains (such as `example.com`).
+
+Because ALIAS is not part of the official DNS standard, it is a provider-specific feature and is only available on certain DNS services.
+
+```txt
+example.com ➡️ myapp.hosting-provider.com
+```
