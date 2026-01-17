@@ -174,7 +174,7 @@ const componentTitle = componentTitles["guestbook"][language];
       });
     } else {
       fetchProcessingModalStore.set(true);
-      const fetchResult = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/guestbook`, {
+      const fetchResult = await fetch(`${import.meta.env.BACKEND_URI}/guestbook`, {
         method: "post",
         headers: {
           "Content-type": "application/json",
