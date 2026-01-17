@@ -207,7 +207,7 @@ const componentTitle = componentTitles["contact"][language];
     }
 
     fetchProcessingModalStore.set(true);
-    const fetchResult = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/contact`, {
+    const fetchResult = await fetch(`${import.meta.env.BACKEND_URI}/contact`, {
       method: "post",
       headers: {
         "Content-type": "application/json",

@@ -2,7 +2,7 @@
 import { guestbookMessagesStore } from "../../common/stores";
 import type { Messages, Languages } from "../../common/types";
 
-const response = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/guestbook`);
+const response = await fetch(`${import.meta.env.BACKEND_URI}/guestbook`);
 const { language } = Astro.params as { language: Languages };
 const fetchData = await response.json();
 const messages: Messages[] = fetchData.data;
