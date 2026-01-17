@@ -24,7 +24,7 @@ const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.da
   {/* Single-column mode (mobile) */}
   <ul class="flex flex-col gap-6 sm:hidden">
     {
-      sortedPosts.map((post) => (
+      sortedPosts.map((post, i) => (
         <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater cursor-pointer overflow-hidden rounded-2xl border-4 md:duration-500 md:hover:scale-103">
           <div class="flex h-full flex-col justify-between">
             <a href={`/${language}/blog/${post.filePath?.split("/")[2]}`} class="block">
@@ -32,6 +32,7 @@ const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.da
                 src={`/contents/${post.filePath?.split("/")[2]}/thumbnail.jpg`}
                 alt={post.data.title}
                 class="h-auto w-full"
+                loading="lazy"
               />
             </a>
             <div class="p-2">
@@ -89,6 +90,7 @@ const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.da
                   src={`/contents/${post.filePath?.split("/")[2]}/thumbnail.jpg`}
                   alt={post.data.title}
                   class="h-auto w-full"
+                  loading="lazy"
                 />
               </a>
               <div class="p-2">
@@ -146,6 +148,7 @@ const sortedPosts = filteredPosts.sort((a, b) => b.data.pubDate.getTime() - a.da
                   src={`/contents/${post.filePath?.split("/")[2]}/thumbnail.jpg`}
                   alt={post.data.title}
                   class="h-auto w-full"
+                  loading="lazy"
                 />
               </a>
               <div class="p-2">

@@ -1,8 +1,14 @@
 ---
+import { Image } from "astro:assets";
 import { workHighlights, componentTitles, relatedSkills } from "../../common/htmlElements";
 import type { Languages } from "../../common/types";
 const { language } = Astro.params as { language: Languages };
 const componentTitle = componentTitles["workHighlights"][language];
+import osechi from "../../../public/assets/main/works/osechi.jpg";
+import bizship from "../../../public/assets/main/works/bizship.jpg";
+import fcl1 from "../../../public/assets/main/works/fcl1.jpg";
+import fcl2 from "../../../public/assets/main/works/fcl2.jpg";
+const workImages = { osechi, bizship, fcl1, fcl2 };
 ---
 
 <section id="works" class="md:px-16">
@@ -14,7 +20,7 @@ const componentTitle = componentTitles["workHighlights"][language];
       workHighlights.map((object) => (
         <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
           <a href={object.url} class="block">
-            <img src={`/assets/main/works/${object.img}`} alt={object.service} />
+            <Image src={workImages[object.img]} format="avif" width={600} alt={object["service"]} />
             <div class="relative p-4 sm:p-8">
               <p class="dark:text-gray3 text-xl font-bold text-slate-950">{object["service"]}</p>
               <div class="mx-4 mt-3">
