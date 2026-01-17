@@ -2,6 +2,7 @@
 import Head from "./Head.astro";
 import OuterLayout from "./OuterLayout.astro";
 import InnerLayout from "./InnerLayout.astro";
+import GtmBody from "./analytics/GtmBody.astro";
 import { printHTMLDocumentLanguage } from "../common/functions";
 import "../styles/global.css";
 import "../styles/common.scss";
@@ -14,6 +15,7 @@ const { language } = Astro.params as { language: Languages };
 <html lang={printHTMLDocumentLanguage(language)} data-overlayscrollbars-initialize data-theme="dark">
   <Head title={title} />
   <body data-overlayscrollbars-initialize>
+    <GtmBody />
     <OuterLayout>
       <InnerLayout>
         <slot />

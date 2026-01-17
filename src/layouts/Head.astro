@@ -1,10 +1,12 @@
 ---
 import Meta from "./Meta.astro";
+import GtmHead from "./analytics/GtmHead.astro";
 import OverlayScrolls from "./OverlayScrolls.astro";
 const { title } = Astro.props;
 ---
 
 <head>
+  <GtmHead />
   <Meta />
   <OverlayScrolls />
   <title>{title}</title>
