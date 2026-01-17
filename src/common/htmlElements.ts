@@ -98,7 +98,22 @@ export const main = {
   },
 };
 
-export const workHighlights = [
+export const workHighlights: {
+  service: string;
+  title: {
+    en: string;
+    ko: string;
+    ja: string;
+  };
+  description: {
+    en: string;
+    ko: string;
+    ja: string;
+  };
+  skills: string[];
+  url: string;
+  img: "osechi" | "bizship" | "fcl1" | "fcl2";
+}[] = [
   {
     service: "らでぃっしゅぼーや",
     title: {
@@ -113,7 +128,7 @@ export const workHighlights = [
     },
     skills: ["PHP", "Sass", "JavaScript"],
     url: "https://www.radishbo-ya.co.jp/rb/osechi/pb/",
-    img: "osechi.jpg",
+    img: "osechi",
   },
   {
     service: "Fukuoka Financial Group",
@@ -129,7 +144,7 @@ export const workHighlights = [
     },
     skills: ["EJS", "Sass", "JavaScript"],
     url: "https://bizship.fukuoka-fg.com/lp/",
-    img: "bizship.png",
+    img: "bizship",
   },
   {
     service: "USAGI ONLINE",
@@ -145,7 +160,7 @@ export const workHighlights = [
     },
     skills: ["EJS", "Sass", "JavaScript"],
     url: "https://usagi-online.com/s/251023MOW/",
-    img: "fcl1.png",
+    img: "fcl1",
   },
   {
     service: "USAGI ONLINE",
@@ -161,11 +176,25 @@ export const workHighlights = [
     },
     skills: ["EJS", "Sass", "JavaScript"],
     url: "https://usagi-online.com/s/251112JAK/",
-    img: "fcl2.png",
+    img: "fcl2",
   },
 ];
 
-export const projectsOnMain = [
+export const projectsOnMain: {
+  service: {
+    en: string;
+    ko: string;
+    ja: string;
+  };
+  description: {
+    en: string;
+    ko: string;
+    ja: string;
+  };
+  skills: string[];
+  url: string;
+  img: "codeexplainer" | "apple" | "dashboard" | "dugsworks";
+}[] = [
   {
     service: {
       en: "Code Explain page with AI",
@@ -179,7 +208,7 @@ export const projectsOnMain = [
     },
     skills: ["AI", "React", "TailwindCSS", "Express.js"],
     url: "https://dugscodeexplainer.up.railway.app/",
-    img: "codeexplainer.png",
+    img: "codeexplainer",
   },
   {
     service: {
@@ -194,7 +223,7 @@ export const projectsOnMain = [
     },
     skills: ["React", "TailwindCSS", "GSAP", "ThreeJS"],
     url: "https://dugsnotes-react2.up.railway.app/",
-    img: "apple.png",
+    img: "apple",
   },
   {
     service: {
@@ -209,7 +238,7 @@ export const projectsOnMain = [
     },
     skills: ["React", "Tailwind", "syncfusion"],
     url: "https://dugsnotes-react1.up.railway.app/",
-    img: "dashboard.png",
+    img: "dashboard",
   },
   {
     service: {
@@ -224,7 +253,7 @@ export const projectsOnMain = [
     },
     skills: ["React", "Sass", "Express.js"],
     url: "https://dugsworks.netlify.app/",
-    img: "dugsworks.png",
+    img: "dugsworks",
   },
 ];
 
