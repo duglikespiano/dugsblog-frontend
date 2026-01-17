@@ -1,0 +1,55 @@
+---
+title: "A Record, CNAME, ALIAS"
+description: "A Record、CNAME、ALIAS DNS レコードの比較"
+pubDate: 2026-01-18
+tags: ["ネットワーク"]
+---
+
+DNSを設定する時、**A Records**、**CNAME**、**ALIAS**みたいな単語を見えます。
+各単語は似ていますが、別の目的の為に使われます。
+
+## 簡単比較
+
+| Feature             | A Record   | CNAME  | ALIAS                  |
+| ------------------- | ---------- | ------ | ---------------------- |
+| Points to           | IP address | Domain | Domain                 |
+| Root domain allowed | ✅ Yes     | ❌ No  | ✅ Yes                 |
+| Auto IP updates     | ❌ No      | ✅ Yes | ✅ Yes                 |
+| Extra DNS lookup    | ❌ No      | ✅ Yes | ❌ No (resolved early) |
+| Standard DNS        | ✅ Yes     | ✅ Yes | ❌ Provider-specific   |
+
+## A Record (Address Record)
+
+インターネットに繋がっている全てのサーバーはIPアドレスを持ちます。  
+コンピューターたちはIPアドレスで通信します。ですが、IPアドレスは直感的ではないし、記憶し難しいです。
+
+A recordはドメインとIPアドレスを繋がって上のような問題を解決します。
+
+```txt
+example.com ➡️ 111.111.111.111
+
+```
+
+## CNAME(Canonical Name)
+
+CNAMEは一つのドメインを他のドメインに連携します。  
+IPアドレスの直接連携はしないですが、目標ドメインのあだ名のように使われます。
+
+CNAMEはIPの変更を自動で完治します。
+ですが、標準DNSの`example.com`のみたいな最上位ドメインには使えません。
+
+```txt
+www.example.com ➡️ example.com
+```
+
+## ALIAS
+
+ALIASはCNAMEのように作用しますが、クライアントにページを渡す前にDNSと目標ドメインを連携します。  
+結果的にクライアントは他のドメインをもらう代わりにIPアドレスをもらいます。
+
+ALIASは`example.com`と同じく最上位ドメインで使われます。
+ALIASはDNS標準ではないので、特定DNSサービス(Netlify、Hostingerなど)にだけ使われます。
+
+```txt
+example.com ➡️ myapp.hosting-provider.com
+```
