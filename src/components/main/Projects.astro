@@ -21,7 +21,7 @@ const projectsImages = { codeexplainer, apple, dashboard, dugsworks };
       projectsOnMain.map((object) => (
         <li class="dark:border-gray3 border-green2 dark:bg-green1 bg-rosewater relative z-10 overflow-hidden rounded-4xl border-4 md:duration-500 md:hover:scale-103">
           <a href={object.url} class="block">
-            <Image src={projectsImages[object.img]} format="avif" width={600} alt={object["service"][language]} />
+            <Image src={projectsImages[object.img]} format="avif" width={1000} alt={object["service"][language]} />
             <div class="relative p-4 sm:p-8">
               <p class="dark:text-gray3 text-xl font-bold text-slate-950">{object["service"][language]}</p>
               <div class="mx-4 mt-3">
