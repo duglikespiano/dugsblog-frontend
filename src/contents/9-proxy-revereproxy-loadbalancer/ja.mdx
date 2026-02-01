@@ -1,0 +1,94 @@
+---
+title: "Proxy vs Reverse Proxy vs Load Balancer"
+description: "Proxy、reverse proxy、load balancerの比較"
+pubDate: 2026-02-01
+tags: ["ネットワーク"]
+---
+
+import proxy from "./proxy.jpg";
+import reverseProxy from "./reverseproxy.jpg";
+import loadBalancer from "./loadbalancer.jpg";
+
+ウェブシステムを構成する時、**proxy**、**reverse proxy**、**load balancer**について聞く時があります。
+
+各用語はすごくにっているように見えるし、実際重ねる部分もあります。ですが、各用語は別の問題を解決するしネットワーク構成で別の位置で作用します。
+
+## 簡単比較
+
+| Feature           | Proxy                   | Reverse Proxy              | Load Balancer         |
+| ----------------- | ----------------------- | -------------------------- | --------------------- |
+| Who it represents | Client                  | Server                     | Server group          |
+| Position          | Client side             | Server side                | Server side           |
+| Main purpose      | Control outbound access | Protect & optimize servers | Distribute traffic    |
+| Hides             | Client identity         | Server details             | Backend servers       |
+| Typical use case  | Company network, VPN    | Web servers, APIs          | High-traffic services |
+
+## Proxy
+
+Proxyはクライアントとインターネットの間で作用します。
+
+クライアントがインターネットに直接にアクセスする代わりにproxyを先に通じるようになります。
+
+### こんな問題を解決します
+
+- クライアントの実際のIPを隠れます
+- Outbound accessを制限してフィルタリングします
+- Bandwidth使用量を減らせる為にresponseをキャッシングします
+
+```txt
+Client ➡️ Proxy ➡️ Internet
+```
+
+<img src={proxy.src} className="mx-auto w-full max-w-[500px]" alt="proxy" />
+
+## Reverse Proxy
+
+Reverse proxyはサーバーたちの前に位置してインターネットを向かいます。
+
+Clientはサーバーと直接コミュニケーションすると見えますが、実際はreverse proxyとコミュニケーションします。
+
+### こんな問題を解決します
+
+- サーバーの内部構造を隠れます。
+- TLS (HTTPS)操作を中央化します
+- Responsesをキャッシングします
+- 保安規則を適用します(接続量制限、IP遮断)
+
+```txt
+Client ➡️ Reverse Proxy ➡️ Server
+```
+
+<img src={reverseProxy.src} className="mx-auto w-full max-w-[500px]" alt="reverseproxy" />
+
+## Load Balancer
+
+Load balancerはトラフィックを色んなサーバーに掛かって分倍します。
+
+この為に一つのサーバーに過負荷が掛かることを防止します。
+
+### こんな問題を解決します
+
+- トラフィック量をハンドリングします
+- 可用性を改善します
+- Horizontal scalingが可能にします
+
+```txt
+Client
+  ➡️ Load Balancer
+    ➡️ Server A
+    ➡️ Server B
+    ➡️ Server C
+```
+
+<img src={loadBalancer.src} className="mx-auto w-full max-w-[500px]" alt="loadbalancer" />
+
+## 全体流れ図
+
+```txt
+Client
+  ➡️ Reverse Proxy
+    ➡️ Load Balancer
+      ➡️ App Server 1
+      ➡️ App Server 2
+      ➡️ App Server 3
+```

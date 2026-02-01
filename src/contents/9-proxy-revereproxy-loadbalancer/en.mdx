@@ -1,0 +1,94 @@
+---
+title: "Proxy vs Reverse Proxy vs Load Balancer"
+description: "A clear explanation of proxy, reverse proxy, and load balancer with real-world examples"
+pubDate: 2026-02-01
+tags: ["Network"]
+---
+
+import proxy from "./proxy.jpg";
+import reverseProxy from "./reverseproxy.jpg";
+import loadBalancer from "./loadbalancer.jpg";
+
+When building or operating web systems, you will often hear the terms **proxy**, **reverse proxy**, and **load balancer**.
+
+They sound similar, and in practice they sometimes overlap, but they solve different problems and sit at different positions in a network architecture.
+
+## Quick Comparison
+
+| Feature           | Proxy                   | Reverse Proxy              | Load Balancer         |
+| ----------------- | ----------------------- | -------------------------- | --------------------- |
+| Who it represents | Client                  | Server                     | Server group          |
+| Position          | Client side             | Server side                | Server side           |
+| Main purpose      | Control outbound access | Protect & optimize servers | Distribute traffic    |
+| Hides             | Client identity         | Server details             | Backend servers       |
+| Typical use case  | Company network, VPN    | Web servers, APIs          | High-traffic services |
+
+## Proxy
+
+A proxy sits between the client and the internet.
+
+Instead of the client directly accessing a server, the request goes through the proxy first.
+
+### What problem does it solve?
+
+- Hide the client’s real IP address
+- Restrict or filter outbound access
+- Cache responses to reduce bandwidth usage
+
+```txt
+Client ➡️ Proxy ➡️ Internet
+```
+
+<img src={proxy.src} className="mx-auto w-full max-w-[500px]" alt="proxy" />
+
+## Reverse Proxy
+
+A reverse proxy sits in front of servers, facing the internet.
+
+Clients think they are talking to the server directly, but they are actually talking to the reverse proxy.
+
+### What problem does it solve?
+
+- Hide internal server structure
+- Centralize TLS (HTTPS) handling
+- Cache responses
+- Apply security rules (rate limiting, IP blocking)
+
+```txt
+Client ➡️ Reverse Proxy ➡️ Server
+```
+
+<img src={reverseProxy.src} className="mx-auto w-full max-w-[500px]" alt="reverseproxy" />
+
+## Load Balancer
+
+A load balancer distributes incoming traffic across multiple servers.
+
+It ensures that no single server becomes a bottleneck.
+
+### What problem does it solve?
+
+- Handle high traffic
+- Improve availability
+- Enable horizontal scaling
+
+```txt
+Client
+  ➡️ Load Balancer
+    ➡️ Server A
+    ➡️ Server B
+    ➡️ Server C
+```
+
+<img src={loadBalancer.src} className="mx-auto w-full max-w-[500px]" alt="loadbalancer" />
+
+## How They Work Together
+
+```txt
+Client
+  ➡️ Reverse Proxy
+    ➡️ Load Balancer
+      ➡️ App Server 1
+      ➡️ App Server 2
+      ➡️ App Server 3
+```
