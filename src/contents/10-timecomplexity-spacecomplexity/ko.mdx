@@ -1,0 +1,132 @@
+---
+title: "Time Complexity vs Space Complexity"
+description: "time complexity와 space complexity의 비교"
+pubDate: 2026-02-27
+tags: ["Computer Science"]
+---
+
+import timeComplexity from "./timecomplexity.jpg";
+import spaceComplexity from "./spacecomplexity.jpg";
+import timeSpaceTradeoff from "./timespacetradeoff.jpg";
+
+알고리즘과 자료구조를 공부할 때, 우리는 끊임없이 **time complexity**와 **space complexity**를 볼 수 있습니다.
+
+두 용어 모두 알고리즘의 효율성을 측정하기 위해 사용되지만, 다른 관점을 가집니다.
+
+## Quick Comparison
+
+| Feature         | Time Complexity              | Space Complexity                  |
+| --------------- | ---------------------------- | --------------------------------- |
+| Measures        | Execution time growth        | Memory usage growth               |
+| Focus           | CPU operations               | Memory allocation                 |
+| Depends on      | Number of operations         | Extra variables / data structures |
+| Example concern | “Will this run fast enough?” | “Will this use too much memory?”  |
+| Common notation | O(n), O(log n), O(n²)        | O(1), O(n), O(n²)                 |
+
+## Time Complexity
+
+Time complexity는 입력값이 커짐에 따라 알고리즘의 실행시간이 어떻게 늘어나는지를 표시합니다.
+
+하지만, **실제의 시간을 측정하는 것이 아닙**니다.
+입력값 `n`에 따라 얼마나 많은 연산이 일어나는지를 측정합니다.
+
+### Common Time Complexity
+
+| Complexity | Meaning          |
+| ---------- | ---------------- |
+| O(1)       | Constant time    |
+| O(log n)   | Logarithmic time |
+| O(n)       | Linear time      |
+| O(n log n) | Log-linear time  |
+| O(n²)      | Quadratic time   |
+| O(2ⁿ)      | Exponential time |
+
+### Example
+
+```javascript
+function printAll(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+```
+
+n이 두 배가 되면, 연산량이 두 배가 됩니다.
+
+Time complexity: O(n)
+
+```txt
+Input size ⬆️ → Execution time ⬆️
+```
+
+<img src={timeComplexity.src} className="mx-auto w-full max-w-[500px]" alt="time complexity" />
+
+## Space Complexity
+
+Space complexity는 입력값이 늘어남에 따라 늘어나는 메모리 사용량을 표현합니다.
+
+변수, 자료구조, 재귀반복문을 포함합니다.
+
+### Example
+
+```javascript
+function doubleArray(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i] * 2);
+  }
+  return result;
+}
+```
+
+n이 두 배가 되면, n의 크기도 2배가 됩니다.
+
+Space complexity: O(n)
+
+```txt
+Input size ⬆️ → Memory usage ⬆️
+```
+
+<img src={spaceComplexity.src} className="mx-auto w-full max-w-[500px]" alt="space complexity" />
+
+## Trade-Off Between Time and Space
+
+때로는 더 많은 메모리를 사용하여 time complexity를 개선하기도 합니다.
+
+Example:
+
+- Using a HashMap to store previously computed results
+- Caching database queries
+- Memoization in recursion
+
+This is called a time-space tradeoff.
+
+```txt
+More memory → Faster execution
+Less memory → Slower execution
+```
+
+<img src={timeSpaceTradeoff.src} className="mx-auto w-full max-w-[500px]" alt="complexity comparison graph" />
+
+### Real-World Example
+
+#### Case 1: Without Extra Memory
+
+Search for a value in an unsorted array.  
+Time: O(n)  
+Space: O(1)
+
+#### Case 2: Using HashMap
+
+Store values in a HashMap first.  
+Time: O(1) **lookup**  
+Space: O(n)
+
+We improved time performance by increasing memory usage.
+
+## Final Summary
+
+- Time complexity는 알고리즘이 얼마나 많은 연산을 하는지 측정합니다.
+- Space complexity는 알고리즘이 얼마나 많은 메모리를 소모하는지 측정합니다.
+- 둘을 모두 Big-O notation을 통해 표현할 수 있습니다.
+- 실제 상황에서는 둘의 균형이 필요합니다.

@@ -1,0 +1,132 @@
+---
+title: "Time Complexity vs Space Complexity"
+description: "A clear explanation of time complexity and space complexity with practical examples"
+pubDate: 2026-02-27
+tags: ["Computer Science"]
+---
+
+import timeComplexity from "./timecomplexity.jpg";
+import spaceComplexity from "./spacecomplexity.jpg";
+import timeSpaceTradeoff from "./timespacetradeoff.jpg";
+
+When studying algorithms and data structures, you will constantly encounter the terms **time complexity** and **space complexity**.
+
+They are both used to measure efficiency, but they evaluate different aspects of an algorithm.
+
+## Quick Comparison
+
+| Feature         | Time Complexity              | Space Complexity                  |
+| --------------- | ---------------------------- | --------------------------------- |
+| Measures        | Execution time growth        | Memory usage growth               |
+| Focus           | CPU operations               | Memory allocation                 |
+| Depends on      | Number of operations         | Extra variables / data structures |
+| Example concern | “Will this run fast enough?” | “Will this use too much memory?”  |
+| Common notation | O(n), O(log n), O(n²)        | O(1), O(n), O(n²)                 |
+
+## Time Complexity
+
+Time complexity describes how the running time of an algorithm grows as the input size increases.
+
+It does **not** measure actual seconds.
+It measures how the number of operations scales relative to input size `n`.
+
+### Common Time Complexity
+
+| Complexity | Meaning          |
+| ---------- | ---------------- |
+| O(1)       | Constant time    |
+| O(log n)   | Logarithmic time |
+| O(n)       | Linear time      |
+| O(n log n) | Log-linear time  |
+| O(n²)      | Quadratic time   |
+| O(2ⁿ)      | Exponential time |
+
+### Example
+
+```javascript
+function printAll(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+```
+
+If n doubles, the number of operations doubles.
+
+Time complexity: O(n)
+
+```txt
+Input size ⬆️ → Execution time ⬆️
+```
+
+<img src={timeComplexity.src} className="mx-auto w-full max-w-[500px]" alt="time complexity" />
+
+## Space Complexity
+
+Space complexity describes how much extra memory an algorithm uses as the input size increases.
+
+It includes variables, data structures, recursion call stack
+
+### Example
+
+```javascript
+function doubleArray(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i] * 2);
+  }
+  return result;
+}
+```
+
+If n doubles, the size of result doubles.
+
+Space complexity: O(n)
+
+```txt
+Input size ⬆️ → Memory usage ⬆️
+```
+
+<img src={spaceComplexity.src} className="mx-auto w-full max-w-[500px]" alt="space complexity" />
+
+## Trade-Off Between Time and Space
+
+Sometimes we improve time complexity by using more memory.
+
+Example:
+
+- Using a HashMap to store previously computed results
+- Caching database queries
+- Memoization in recursion
+
+This is called a time-space tradeoff.
+
+```txt
+More memory → Faster execution
+Less memory → Slower execution
+```
+
+<img src={timeSpaceTradeoff.src} className="mx-auto w-full max-w-[500px]" alt="complexity comparison graph" />
+
+### Real-World Example
+
+#### Case 1: Without Extra Memory
+
+Search for a value in an unsorted array.  
+Time: O(n)  
+Space: O(1)
+
+#### Case 2: Using HashMap
+
+Store values in a HashMap first.  
+Time: O(1) **lookup**  
+Space: O(n)
+
+We improved time performance by increasing memory usage.
+
+## Final Summary
+
+- Time complexity measures how fast an algorithm grows.
+- Space complexity measures how much memory it consumes.
+- Both are expressed using Big-O notation.
+- Real engineering requires balancing both.

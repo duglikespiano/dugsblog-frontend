@@ -1,0 +1,132 @@
+---
+title: "Time Complexity vs Space Complexity"
+description: "time complexity와 space complexityの比較"
+pubDate: 2026-02-27
+tags: ["Computer Science"]
+---
+
+import timeComplexity from "./timecomplexity.jpg";
+import spaceComplexity from "./spacecomplexity.jpg";
+import timeSpaceTradeoff from "./timespacetradeoff.jpg";
+
+アルゴリズムとデータ構造を勉強する時に、**time complexity**と**space complexity**を見えます。
+
+二つともアルゴリズムを効率性を測定する為に使われますが、違う観点を持ちます。
+
+## Quick Comparison
+
+| Feature         | Time Complexity              | Space Complexity                  |
+| --------------- | ---------------------------- | --------------------------------- |
+| Measures        | Execution time growth        | Memory usage growth               |
+| Focus           | CPU operations               | Memory allocation                 |
+| Depends on      | Number of operations         | Extra variables / data structures |
+| Example concern | “Will this run fast enough?” | “Will this use too much memory?”  |
+| Common notation | O(n), O(log n), O(n²)        | O(1), O(n), O(n²)                 |
+
+## Time Complexity
+
+Time complexityは入力値が大きくなることによって、アルゴリズムの実行時間がどう増えるかを表示します。
+
+ですが、**実際の時間を測定することではない**です。
+入力値`n`によってどのぐらいの演算が起こるかを測定します。
+
+### Common Time Complexity
+
+| Complexity | Meaning          |
+| ---------- | ---------------- |
+| O(1)       | Constant time    |
+| O(log n)   | Logarithmic time |
+| O(n)       | Linear time      |
+| O(n log n) | Log-linear time  |
+| O(n²)      | Quadratic time   |
+| O(2ⁿ)      | Exponential time |
+
+### Example
+
+```javascript
+function printAll(arr) {
+  for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+  }
+}
+```
+
+nが２倍になったら、演算量が２倍になります。
+
+Time complexity: O(n)
+
+```txt
+Input size ⬆️ → Execution time ⬆️
+```
+
+<img src={timeComplexity.src} className="mx-auto w-full max-w-[500px]" alt="time complexity" />
+
+## Space Complexity
+
+Space complexityは入力値が増えることによって増えるメモリ使用量を表現します。
+
+変数、データ構造、再帰反復分を含めます。
+
+### Example
+
+```javascript
+function doubleArray(arr) {
+  let result = [];
+  for (let i = 0; i < arr.length; i++) {
+    result.push(arr[i] * 2);
+  }
+  return result;
+}
+```
+
+nが２倍になったら、nのサイズも２倍になります。
+
+Space complexity: O(n)
+
+```txt
+Input size ⬆️ → Memory usage ⬆️
+```
+
+<img src={spaceComplexity.src} className="mx-auto w-full max-w-[500px]" alt="space complexity" />
+
+## Trade-Off Between Time and Space
+
+時にはより多いメモリを使用してtime complexityを改善する時もあります。
+
+Example:
+
+- Using a HashMap to store previously computed results
+- Caching database queries
+- Memoization in recursion
+
+This is called a time-space tradeoff.
+
+```txt
+More memory → Faster execution
+Less memory → Slower execution
+```
+
+<img src={timeSpaceTradeoff.src} className="mx-auto w-full max-w-[500px]" alt="complexity comparison graph" />
+
+### Real-World Example
+
+#### Case 1: Without Extra Memory
+
+Search for a value in an unsorted array.  
+Time: O(n)  
+Space: O(1)
+
+#### Case 2: Using HashMap
+
+Store values in a HashMap first.  
+Time: O(1) **lookup**  
+Space: O(n)
+
+We improved time performance by increasing memory usage.
+
+## Final Summary
+
+- Time complexityはアルゴリズムがどれぐらいの演算をするかを測定します。
+- Space complexityはアルゴリズムがどれぐらいのメモリを消耗するかを測定します。
+- 二つともにBig-O notationを通じて表現できます。
+- 実際現場では二つのバランスが重要です。
