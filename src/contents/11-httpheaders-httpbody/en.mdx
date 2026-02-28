@@ -1,0 +1,200 @@
+---
+title: "HTTP Headers, HTTP Body"
+description: "A clear explanation of HTTP Headers, HTTP Body"
+pubDate: 2026-02-28
+tags: ["Network"]
+---
+
+This post explains what **HTTP Headers**, **HTTP Body** are.
+
+## Quick Comparison
+
+| Part    | Purpose                |
+| ------- | ---------------------- |
+| Headers | Describe the message   |
+| Body    | Actual data being sent |
+
+## HTTP Headers
+
+### Example: Request Headers
+
+```text
+GET /api/users HTTP/1.1
+Host: example.com
+Content-Type: application/json
+Authorization: Bearer abc123
+User-Agent: Chrome/145
+```
+
+#### Common Request Headers
+
+| Headers       | Meaning                                |
+| ------------- | -------------------------------------- |
+| Host          | Which server you're contacting         |
+| Content-Type  | Format of body (JSON, form-data, etc.) |
+| Authorization | Authentication info                    |
+| User-Agent    | Browser or client info                 |
+| Cookie        | Session info                           |
+
+### Example: Response Headers
+
+```text
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 124
+Set-Cookie: sessionId=xyz
+Cache-Control: no-cache
+```
+
+#### Common Response Headers
+
+| Headers        | Meaning                |
+| -------------- | ---------------------- |
+| Content-Type   | Type of response body  |
+| Content-Length | Size of body           |
+| Set-Cookie     | Save cookie in browser |
+| Cache-Control  | Caching rules          |
+
+## HTTP Body
+
+### Example: Request Body (POST)
+
+```text
+POST /api/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "Dug",
+  "age": 20
+}
+```
+
+### Example: Response Body
+
+```text
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "id": 1,
+  "name": "Dug",
+  "age": 20
+}
+```
+
+#### Common Response Headers
+
+| Headers        | Meaning                |
+| -------------- | ---------------------- |
+| Content-Type   | Type of response body  |
+| Content-Length | Size of body           |
+| Set-Cookie     | Save cookie in browser |
+| Cache-Control  | Caching rules          |
+
+## HTTP Body Types and Their Usages
+
+### application/json
+
+#### Example
+
+```text
+Content-Type: application/json
+
+{
+  "name": "Dug",
+  "age": 20
+}
+```
+
+#### Used for
+
+- REST APIs
+- Frontend ↔ Backend communication
+- SPA applications (React, Vue, Astro, etc.)
+- Authentication APIs
+
+#### Notes
+
+- ✅ Modern standard for APIs
+- Both request and response commonly use JSON
+
+### application/x-www-form-urlencoded
+
+#### Example
+
+```text
+Content-Type: application/x-www-form-urlencoded
+
+email=test@test.com&password=1234
+```
+
+#### Used for
+
+- Traditional HTML forms
+- Simple form submissions
+
+### multipart/form-data
+
+#### Example
+
+```text
+Content-Type: multipart/form-data; boundary=----123
+
+------123
+Content-Disposition: form-data; name="username"
+
+dug
+------123
+Content-Disposition: form-data; name="avatar"; filename="me.png"
+Content-Type: image/png
+
+(binary data)
+------123--
+```
+
+#### Used for
+
+- Image uploads
+- File uploads
+- Profile pictures
+- Form + file together
+
+#### Notes
+
+- Very common in requests
+- Rare in responses
+- Required when uploading files
+
+### text/html
+
+#### Example
+
+```text
+Content-Type: text/html
+
+<html>
+  <body>
+    <h1>Hello</h1>
+  </body>
+</html>
+```
+
+#### Used for
+
+- Server-side rendered pages
+- Static websites
+- Traditional web applications
+
+#### Notes
+
+- Very common in responses
+- Rare in requests
+
+## Request vs Response Usage Summary
+
+| Content-Type                      | Request         | Response       | Typical Usage |
+| --------------------------------- | --------------- | -------------- | ------------- |
+| application/json                  | ✅ Very Common  | ✅ Very Common | APIs          |
+| application/x-www-form-urlencoded | ✅ Common       | ⚠ Rare        | HTML forms    |
+| multipart/form-data               | ✅ File uploads | ❌ Very Rare   | Uploads       |
+| text/html                         | ❌ Rare         | ✅ Very Common | Web pages     |
