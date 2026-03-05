@@ -1,0 +1,213 @@
+---
+title: "Linux File Permissions"
+description: "A clear explanation of Linux file permissions"
+pubDate: 2026-03-06
+tags: ["Linux"]
+---
+
+This post explains what **Linux file permissions** are.
+
+## Viewing File Permissions
+
+To see permissions, use:
+
+```bash
+ls -l
+```
+
+Example output:
+
+```bash
+-rwxr-xr-- 1 dug staff 1200 Mar  6 10:00 script.sh
+```
+
+Breakdown:
+
+```text
+-rwxr-xr--
+│││ │ │
+│││ │ └── Others permissions
+│││ └──── Group permissions
+││└────── Owner permissions
+└──────── File type
+```
+
+## File Types
+
+The first character indicates the file type.
+
+| Symbol | Meaning          |
+| ------ | ---------------- |
+| `-`    | Regular file     |
+| `d`    | Directory        |
+| `l`    | Symbolic link    |
+| `c`    | Character device |
+| `b`    | Block device     |
+
+Example:
+
+```bash
+drwxr-xr-x
+```
+
+This means it is a directory.
+
+## Permission Types
+
+Linux has three basic permissions.
+
+| Symbol | Name    | Meaning                   |
+| ------ | ------- | ------------------------- |
+| `r`    | Read    | View file contents        |
+| `w`    | Write   | Modify the file           |
+| `x`    | Execute | Run the file as a program |
+
+Example:
+
+```text
+rwx
+```
+
+Means:
+
+```text
+read + write + execute
+```
+
+## Permission Groups
+
+Permissions are divided into three user groups.
+
+```text
+rwx r-x r--
+│   │   │
+│   │   └── Others
+│   └────── Group
+└────────── Owner
+```
+
+| Group  | Meaning                    |
+| ------ | -------------------------- |
+| Owner  | The user who owns the file |
+| Group  | Users in the file's group  |
+| Others | Everyone else              |
+
+Example:
+
+```text
+-rwxr-xr--
+```
+
+Meaning:
+| Group | Permission |
+| ------ | -------------------- |
+| Owner | read, write, execute |
+| Group | read, execute |
+| Others | read only |
+
+## Changing Permissions with _chmod_
+
+The _chmod_ command changes file permissions.
+
+**Symbolic Mode**
+
+```bash
+chmod u+x script.sh
+```
+
+Meaning:
+
+```text
+u = user (owner)
++ = add permission
+x = execute
+```
+
+Example commands:
+
+```bash
+chmod u+x file.sh
+chmod g-w file.txt
+chmod o+r file.txt
+```
+
+Symbols:
+| Symbol | Meaning |
+| ------ | ------------ |
+| u | user (owner) |
+| g | group |
+| o | others |
+| a | all |
+
+## Numeric (Octal) Permissions
+
+Permissions can also be represented using numbers.
+| Permission | Value |
+| ---------- | ----- |
+| read | 4 |
+| write | 2 |
+| execute | 1 |
+
+You add the values together.
+Example:
+| Permission | Calculation | Value |
+| ---------- | ----------- | ----- |
+| rwx | 4+2+1 | 7 |
+| rw- | 4+2 | 6 |
+| r-x | 4+1 | 5 |
+| r-- | 4 | 4 |
+
+Example:
+
+```bash
+chmod 755 script.sh
+```
+
+Meaning:
+
+```text
+7 = rwx (owner)
+5 = r-x (group)
+5 = r-x (others)
+```
+
+Result:
+
+```text
+rwxr-xr-x
+```
+
+## Directory Permissions
+
+Permissions behave **differently for directories.**
+| Permission | Meaning |
+| ---------- | ------------------- |
+| r | list files |
+| w | create/delete files |
+| x | enter the directory |
+
+Example:
+
+```bash
+chmod 755 myfolder
+```
+
+Means:
+
+- everyone can enter
+- everyone can list files
+- only owner can modify files
+
+## Changing Ownership
+
+Change owner:
+
+```text
+chown user file.txt
+```
+
+Change owner and group:
+
+```text
+chown user:group file.txt
+```

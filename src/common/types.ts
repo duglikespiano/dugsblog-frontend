@@ -33,6 +33,7 @@ export const tagKeys = [
   "english",
   "network",
   "computerscience",
+  "linux",
 ] as const;
 // export const tagKeys = ["programming", "javascript", "css", "html", "php", "framework"] as const;
 export type TagLang = (typeof tagKeys)[number];
@@ -44,6 +45,7 @@ export const tags: Record<TagLang, TagTranslations> = {
   // html: { en: "HTML", ko: "HTML", ja: "HTML" },
   // php: { en: "PHP", ko: "PHP", ja: "PHP" },
   // framework: { en: "Framework", ko: "프레임워크", ja: "フレームワーク" },
+  linux: { en: "Linux", ko: "Linux", ja: "Linux" },
   computerscience: { en: "ComputerScience", ko: "ComputerScience", ja: "ComputerScience" },
   network: { en: "Network", ko: "네트워크", ja: "ネットワーク" },
   travel: { en: "Travel", ko: "여행", ja: "旅行" },
