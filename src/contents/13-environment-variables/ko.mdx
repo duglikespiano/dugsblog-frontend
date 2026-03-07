@@ -1,0 +1,125 @@
+---
+title: "Linux의 환경변수"
+description: "Linux의 환경변수의 확인, 생성, 삭제에 대해 설명합니다"
+pubDate: 2026-03-08
+tags: ["Linux"]
+---
+
+환경변수는 **운영체제와 어플리케이션의 설정을 저장하기 위한 데이터로, key-value쌍으로 저장됩니다**.
+
+프로그램은 런타임동안 어떻게 동작할지 판단하기 위해 이러한 변수들을 읽습니다.
+예를들어, 실행파일들이 어디에 위치하는지, 시스템이 어떤 언어를 써야할지, 데이터베이스에 어떻게 접속할지 등을 정의합니다.
+
+## Quick Overview
+
+| Operation            | Command Example                                          |
+| -------------------- | -------------------------------------------------------- |
+| Check variable       | `echo $VARIABLE_NAME`                                    |
+| List variables       | `printenv` or `env`                                      |
+| Create (session)     | `export VARIABLE=value`                                  |
+| Create (permanent)   | Add `export VARIABLE=value` to `~/.bashrc` or `~/.zshrc` |
+| Create (system-wide) | Add variable to `/etc/environment`                       |
+| Remove variable      | `unset VARIABLE`                                         |
+
+## Checking Environment Variables
+
+You can check the value of a specific environment variable using `echo`.
+
+```bash
+echo $HOME
+```
+
+Example output:
+
+```text
+/home/user
+```
+
+To list all environment variables::
+
+```bash
+printenv
+```
+
+or
+
+```bash
+env
+```
+
+Both commands display all environment variables available in the current shell session.
+
+## Creating Environment Variables (Session Only)
+
+You can create a variable that exists only during the current shell session.
+
+```bash
+export MY_VARIABLE="hello"
+```
+
+Check the value:
+
+```bash
+echo $MY_VARIABLE
+```
+
+Once the terminal session is closed, the variable disappears.
+
+## Creating Environment Variables Permanently (User Level)
+
+To make an environment variable persist across terminal sessions, add it to your shell configuration file.
+
+Common files include:
+
+| Shell | File        |
+| ----- | ----------- |
+| Bash  | `~/.bashrc` |
+| Zsh   | `~/.zshrc`  |
+
+Example:
+
+```bash
+export MY_VARIABLE="hello"
+```
+
+After adding the line, reload the configuration:
+
+```bash
+source ~/.zshrc
+```
+
+Now the variable will be available every time a new shell starts.
+
+## Creating Environment Variables System-Wide
+
+System-wide environment variables are available to all users.
+
+They are commonly defined in:
+
+```bash
+/etc/environment
+```
+
+Example:
+
+```text
+MY_VARIABLE="hello"
+```
+
+After modifying this file, you typically need to log out and log back in for the changes to take effect.
+
+## Removing Environment Variables
+
+To remove an environment variable from the current session, use the unset command.
+
+```bash
+unset MY_VARIABLE
+```
+
+Check if it was removed:
+
+```bash
+echo $MY_VARIABLE
+```
+
+If the variable was defined in a configuration file (such as ~/.zshrc), you must remove the line from that file and reload the configuration.
