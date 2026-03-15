@@ -1,0 +1,164 @@
+---
+title: "SSH (Secure Shell)"
+description: "SSHは何か、何の為に開発者たちが使うか、どうクラウドに安全に接続するかを説明します"
+pubDate: 2026-03-16
+tags: ["ネットワーク"]
+---
+
+リナックスマシン、開発環境などのクラウド環境で仕事をする時に、**SSH (Secure Shell)** のことについて聞かれることがあります。
+
+SSHはターミナルを通じて他のネットワークやコンピューターに安全に接続できるようにします。
+
+サーバー管理、配布、ファイル伝送に使われる一番普遍的なツールの一つです。
+
+## Overview
+
+| Feature            | SSH                    |
+| ------------------ | ---------------------- |
+| Full name          | Secure Shell           |
+| Main purpose       | Remote computer access |
+| Default port       | 22                     |
+| Encryption         | ✅ Yes                 |
+| Password login     | ✅ Supported           |
+| Key authentication | ✅ Recommended         |
+
+## What is SSH?
+
+SSH is a network protocol that allows one computer to securely connect to another computer.
+
+Without SSH, commands sent over a network could be exposed in plain text.
+
+SSH encrypts all communication between client and server.
+
+```txt
+Your Computer ➡️ Internet ➡️ Remote Server
+```
+
+Because of encryption, usernames, passwords, and commands remain protected.
+
+## Why Developers Use SSH
+
+SSH is commonly used when managing cloud servers.
+
+Typical examples include:
+
+- connecting to a cloud VM
+- deploying applications
+- editing server files
+- restarting services
+- checking logs
+
+For example, after creating a cloud server on providers like AWS, Amazon Web Services, Google Cloud, or DigitalOcean, SSH is usually the first way to access it.
+
+## Basic SSH Command
+
+The basic command is:
+
+```bash
+ssh username@server-ip
+```
+
+Example:
+
+```bash
+ssh ubuntu@192.168.1.10
+```
+
+Here:
+
+- ssh starts the SSH client
+- ubuntu is the remote username
+- 192.168.1.10 is the server IP address
+
+## Why SSH Keys Are Preferred
+
+SSH supports password login, but key authentication is safer.
+
+A key pair contains:
+
+- private key (kept on your computer)
+- public key (stored on the server)
+
+When connecting, the server checks whether your private key matches the stored public key.
+
+## Generate SSH Key
+
+You can generate a key with:
+
+```bash
+ssh-keygen
+```
+
+This creates:
+
+```bash
+~/.ssh/id_rsa
+~/.ssh/id_rsa.pub
+```
+
+- id_rsa = private key
+- id_rsa.pub = public key
+
+## Copy Public Key to Server
+
+To allow login without password:
+
+```bash
+ssh-copy-id username@server-ip
+```
+
+This copies your public key into:
+
+```bash
+~/.ssh/authorized_keys
+```
+
+on the remote server.
+
+## Common SSH Port
+
+SSH uses port **22** by default.
+Sometimes servers change the port for security.
+
+Then you connect like:
+
+```bash
+ssh -p 2222 username@server-ip
+```
+
+## File Transfer with SSH
+
+SSH also allows secure file transfer.
+
+Using SCP:
+
+```bash
+scp file.txt username@server-ip:/home/ubuntu/
+```
+
+This uploads a file securely.
+
+## Typical Developer Workflow
+
+A common workflow looks like:
+
+1. Create cloud server
+2. Get public IP
+3. Receive SSH key
+4. Connect by SSH
+5. Deploy application
+
+SSH becomes the main entrance to your remote machine.
+
+## Summary
+
+SSH is a secure way to control another computer remotely.
+
+It is essential when working with:
+
+- cloud servers
+- Linux machines
+- deployments
+- remote development
+
+For developers, SSH is one of the most important networking tools to understand.
