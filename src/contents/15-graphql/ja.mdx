@@ -1,0 +1,294 @@
+---
+title: "GraphQL"
+description: "What GraphQL is, how it works, and how it differs from REST API"
+pubDate: 2026-03-18
+tags: ["ネットワーク"]
+---
+
+GraphQLは、クライアントが正確に必要なだけのデータをリクエストできるAPI言語です。
+
+応答データの構造を主にサーバーが決定するRESTとは異なり、GraphQLはクライアントが応答の形を定義できるようにします。
+
+## Overview
+
+| Feature             | GraphQL                         |
+| ------------------- | ------------------------------- |
+| Type                | Query language for APIs         |
+| Created by          | Meta                            |
+| Main characteristic | Client defines requested fields |
+| Endpoint style      | Usually one endpoint            |
+| Response format     | Usually JSON                    |
+
+## What is GraphQL?
+
+GraphQL is both:
+
+- a query language
+- a specification for how APIs should respond
+
+The client sends a query that describes required fields.
+
+The server returns data matching that exact structure.
+
+```txt
+Client ➡️ Query ➡️ GraphQL Server ➡️ Exact Data Response
+```
+
+This is one of the biggest differences from REST.
+
+In REST, different resources often use different URLs.
+
+For example:
+
+```txt
+/users
+/posts
+/comments
+```
+
+In GraphQL, most requests go through a single endpoint:
+
+```txt
+/graphql
+```
+
+The difference comes from the query content, not the URL.
+
+## Why GraphQL Was Introduced
+
+REST APIs sometimes return more data than needed.
+
+Example:
+
+```txt
+GET /users/1
+```
+
+Response:
+
+```json
+{
+  "id": 1,
+  "name": "Tom",
+  "email": "tom@example.com",
+  "address": "Tokyo",
+  "phone": "000-1111-2222"
+}
+```
+
+But if the frontend only needs:
+
+- name
+- email
+
+then the other fields are unnecessary.
+
+This is called **over-fetching**.
+
+Sometimes REST also causes **under-fetching**, where one request is not enough and multiple endpoints must be called.
+
+GraphQL was designed to solve both problems.
+
+## Basic GraphQL Query
+
+A GraphQL query explicitly lists required fields.
+
+```graphql
+{
+  user(id: 1) {
+    name
+    email
+  }
+}
+```
+
+Response:
+
+```json
+{
+  "data": {
+    "user": {
+      "name": "Tom",
+      "email": "tom@example.com"
+    }
+  }
+}
+```
+
+Only requested fields are returned.
+
+## Nested Data Fetching
+
+One major strength of GraphQL is nested data retrieval.
+
+Example:
+
+```graphql
+{
+  user(id: 1) {
+    name
+    posts {
+      title
+    }
+  }
+}
+```
+
+This can return:
+
+```json
+{
+  "data": {
+    "user": {
+      "name": "Tom",
+      "posts": [{ "title": "First Post" }, { "title": "Second Post" }]
+    }
+  }
+}
+```
+
+In REST, this often requires multiple requests.
+
+## GraphQL Schema
+
+GraphQL APIs are based on schemas.
+
+A schema defines available data types.
+
+```graphql
+type User {
+  id: ID
+  name: String
+  email: String
+}
+```
+
+This acts like a contract between frontend and backend.
+
+It clearly tells:
+
+- which fields exist
+- what type each field has
+- what can be queried
+
+Because of this, GraphQL feels strongly structured.
+
+## Resolver
+
+A query itself does not fetch data directly.
+
+A resolver handles actual data retrieval.
+
+Example:
+
+```js
+user: (_, { id }) => {
+  return users.find((user) => user.id === id);
+};
+```
+
+The resolver connects query fields to actual database logic.
+
+## GraphQL vs REST API
+
+### Endpoint Structure
+
+REST:
+
+```txt
+/users
+/users/1
+/posts
+/posts/1
+```
+
+GraphQL:
+
+```txt
+/graphql
+```
+
+REST uses many URLs.
+
+GraphQL usually uses one endpoint.
+
+### Response Control
+
+REST:
+
+The server defines response structure.
+
+GraphQL:
+
+The client defines response structure.
+
+### Request Count
+
+REST often requires multiple requests.
+
+Example:
+
+```txt
+GET /users/1
+GET /users/1/posts
+```
+
+GraphQL often combines them:
+
+```graphql
+{
+  user(id: 1) {
+    name
+    posts {
+      title
+    }
+  }
+}
+```
+
+## Comparison Table
+
+| Feature               | GraphQL      | REST API                |
+| --------------------- | ------------ | ----------------------- |
+| Endpoint count        | Usually one  | Multiple                |
+| Client chooses fields | ✅ Yes       | ❌ No                   |
+| Nested data           | ✅ Easy      | Often multiple requests |
+| Response shape        | Flexible     | Fixed                   |
+| Caching               | More complex | Easier                  |
+
+## Why Frontend Developers Often Prefer GraphQL
+
+GraphQL fits well when UI components need different subsets of data.
+
+Typical advantages:
+
+- avoids unnecessary fields
+- reduces multiple API calls
+- keeps data requirements explicit
+
+This becomes especially useful in component-based frontend frameworks.
+
+Each component can request exactly what it needs.
+
+## When REST Can Still Be Better
+
+REST remains simpler when:
+
+- API structure is small
+- caching matters heavily
+- infrastructure already uses REST tools
+
+GraphQL introduces flexibility, but also adds backend complexity.
+
+## Summary
+
+GraphQL is a query language that gives clients precise control over API responses.
+
+Compared with REST:
+
+- GraphQL offers flexible querying
+- REST offers simpler architecture
+
+Both approaches are widely used.
+
+Choosing between them depends on project requirements.
