@@ -1,0 +1,412 @@
+---
+title: "Regex (Regular Expression)"
+description: "Regex 가 무엇인지, 왜 개발자들이 사용하는지, 기호들의 의미는 무엇인지 설명합니다"
+pubDate: 2026-03-19
+tags: ["프로그래밍"]
+---
+
+**Regex (Regular Expression)** 는 특별한 문법으로 문자의 패턴을 표현하는 툴입니다.
+
+개발자들은 문자를 효과적으로 검색, 추출, 검증, 대체하기 위해 Regex를 사용합니다.
+
+양식의 검증, 로그분석, 파싱, 데이터 가공 등에 흔히 사용됩니다.
+
+## Overview
+
+| Feature      | Regex                           |
+| ------------ | ------------------------------- |
+| Full name    | Regular Expression              |
+| Main purpose | Pattern matching in text        |
+| Common use   | Search, validation, replacement |
+| Works in     | Many languages                  |
+| Example      | Email validation                |
+
+## What is Regex?
+
+Regex is a pattern language used to match character combinations inside text.
+
+Instead of comparing full text manually, you define a rule.
+
+For example:
+
+```txt
+abc
+```
+
+This matches exactly:
+
+- abc
+
+But it does not match:
+
+- abcd
+- xabc
+- ABC
+
+Regex becomes powerful when special symbols are added.
+
+## Basic Example
+
+Suppose you want to find all numbers inside text:
+
+```txt
+123
+hello
+45
+```
+
+Regex:
+
+```txt
+\d+
+```
+
+This means:
+
+- `\d` = any digit
+- `+` = one or more times
+
+So it matches:
+
+- 123
+- 45
+
+## Common Regex Symbols
+
+### Dot `.`
+
+```txt
+a.c
+```
+
+The dot means **any single character**.
+
+Matches:
+
+- abc
+- a1c
+- a-c
+
+Does not match:
+
+- ac
+
+### Asterisk `*`
+
+```txt
+ab*
+```
+
+The asterisk means **zero or more times**.
+
+Matches:
+
+- a
+- ab
+- abb
+- abbb
+
+### Plus `+`
+
+```txt
+ab+
+```
+
+The plus means **one or more times**.
+
+Matches:
+
+- ab
+- abb
+- abbb
+
+Does not match:
+
+- a
+
+### Question Mark `?`
+
+```txt
+colou?r
+```
+
+The question mark means **zero or one time**.
+
+Matches:
+
+- color
+- colour
+
+## Character Sets
+
+Square brackets define a set of allowed characters.
+
+```txt
+[abc]
+```
+
+Matches:
+
+- a
+- b
+- c
+
+```txt
+[0-9]
+```
+
+Matches any digit.
+
+```txt
+[a-z]
+```
+
+Matches lowercase letters.
+
+## Special Shortcuts
+
+### Digit `\d`
+
+```txt
+\d
+```
+
+Matches one digit.
+
+### Word Character `\w`
+
+```txt
+\w
+```
+
+Matches:
+
+- letters
+- digits
+- underscore
+
+### Whitespace `\s`
+
+```txt
+\s
+```
+
+Matches spaces, tabs, and line breaks.
+
+## Anchors
+
+Anchors define position.
+
+### Start `^`
+
+```txt
+^Hello
+```
+
+Matches text starting with `Hello`.
+
+### End `$`
+
+```txt
+world$
+```
+
+Matches text ending with `world`.
+
+## Simple Validation Example
+
+Email-like pattern:
+
+```txt
+\w+@\w+\.\w+
+```
+
+Matches:
+
+- [test@mail.com](mailto:test@mail.com)
+
+This means:
+
+- word characters
+- `@` symbol
+- word characters
+- dot
+- word characters
+
+Real email validation usually needs more detailed regex.
+
+## Regex in JavaScript
+
+Example:
+
+```javascript
+const text = "abc123";
+const result = text.match(/\d+/);
+
+console.log(result);
+```
+
+Result:
+
+```txt
+["123"]
+```
+
+## JavaScript Regex Flags
+
+In JavaScript, regex can include **flags** after the pattern.
+
+Flags change how matching works.
+
+Example:
+
+```javascript
+const text = "Hello hello";
+const result = text.match(/hello/gi);
+
+console.log(result);
+```
+
+Result:
+
+```txt
+["Hello", "hello"]
+```
+
+### Global `g`
+
+The `g` flag means **find all matches**, not just the first one.
+
+```javascript
+const text = "a1 b2 c3";
+const result = text.match(/\d/g);
+```
+
+Matches:
+
+- 1
+- 2
+- 3
+
+Without `g`, only the first match is returned.
+
+### Ignore Case `i`
+
+The `i` flag means **case-insensitive matching**.
+
+```javascript
+/hello/i;
+```
+
+Matches:
+
+- hello
+- Hello
+- HELLO
+
+### Multiline `m`
+
+The `m` flag changes how `^` and `$` work in multiple lines.
+
+```javascript
+/^abc/m;
+```
+
+Without `m`, `^` checks only the beginning of the whole text.
+
+With `m`, it checks the beginning of each line.
+
+## Common Beginner Mistakes
+
+Regex often looks simple but small mistakes are very common.
+
+### Forgetting Escape Characters
+
+Some symbols have special meaning.
+
+For example:
+
+```txt
+.
+```
+
+This means **any character**, not a real dot.
+
+To match an actual dot:
+
+```txt
+\.
+```
+
+### Expecting `+` and `*` to Mean the Same
+
+```txt
+ab*
+```
+
+Matches:
+
+- a
+- ab
+- abb
+
+But:
+
+```txt
+ab+
+```
+
+Requires at least one `b`.
+
+### Forgetting Global Flag in JavaScript
+
+```javascript
+const text = "1 2 3";
+text.match(/\d/);
+```
+
+Only returns:
+
+```txt
+["1"]
+```
+
+To get all matches:
+
+```javascript
+text.match(/\d/g);
+```
+
+### Using Regex for Everything
+
+Regex is powerful, but not always the best solution.
+
+Very complex validation can become hard to read and maintain.
+
+Sometimes simple string methods are easier.
+
+## Why Developers Use Regex
+
+Regex is useful when:
+
+- validating form input
+- extracting data
+- replacing text
+- filtering logs
+- parsing strings
+
+For example:
+
+- email validation
+- phone number check
+- finding URLs
+
+## Summary
+
+Regex is a compact language for describing text patterns.
+
+It allows developers to search and process text efficiently.
+
+At first, symbols may look difficult, but basic patterns quickly become practical in daily development.
+
+A good way to learn regex is to start with small patterns and test them often 🔍
