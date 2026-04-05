@@ -1,0 +1,283 @@
+---
+title: "Safari CSS Fixes"
+description: "Safari에서 자주 발생하는 CSS 문제와 해결 방법에 대해 설명합니다"
+pubDate: 2026-04-05
+tags: ["CSS"]
+---
+
+**Safari**는 같은 CSS라도 다른 브라우저와 다르게 동작하는 경우가 종종있기 때문에, 별도의 코드를 작성해줘야 하는 경우가 있습니다.
+
+이러한 문제는 모바일 Safari에서 더 자주 볼 수 있으며, Safari가 WebKit을 사용하고 뷰포트와 터치를 처리하는 방식이 다른 브라우저와 다르기 때문입니다.
+
+## Overview
+
+| Feature      | Safari CSS Fixes                    |
+| ------------ | ----------------------------------- |
+| Main purpose | Handle Safari-specific CSS behavior |
+| Common use   | Layout, scrolling, forms, rendering |
+| Often needed | Mobile Safari                       |
+| Typical fix  | `-webkit-` prefix or explicit value |
+
+## Why Safari Needs Extra Care
+
+Most CSS works the same across browsers.
+
+However, Safari still has some differences in:
+
+- viewport height
+- flex layout
+- form controls
+- scrolling behavior
+
+Because of this, small CSS fixes are often added only when Safari shows unexpected results.
+
+## Viewport Height
+
+One common issue is viewport height.
+
+Using:
+
+```css
+height: 100vh;
+```
+
+may produce unexpected layout height on mobile Safari.
+
+A safer option is:
+
+```css
+height: 100svh;
+```
+
+Or fallback:
+
+```css
+height: 100vh;
+height: -webkit-fill-available;
+```
+
+This helps when Safari includes browser UI in height calculation.
+
+## Flex Layout
+
+Safari can behave differently in nested flex layouts.
+
+Example:
+
+```css
+flex: 1;
+```
+
+Sometimes works better when written explicitly:
+
+```css
+flex: 1 1 auto;
+```
+
+This gives Safari a clearer flex basis.
+
+## Overflow Inside Flex Items
+
+Safari flex children may overflow unexpectedly.
+
+A common fix is:
+
+```css
+.child {
+  min-width: 0;
+  min-height: 0;
+}
+```
+
+This is useful for:
+
+- long text
+- scrollable areas
+- nested containers
+
+## Scrolling
+
+Safari often needs momentum scrolling enabled explicitly.
+
+Example:
+
+```css
+.container {
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+```
+
+This improves touch scrolling on iPhone.
+
+## Sticky Position
+
+`position: sticky` may stop working if a parent element uses:
+
+```css
+overflow: hidden;
+```
+
+Safer:
+
+```css
+overflow: visible;
+```
+
+Sticky elements usually need parent containers without hidden overflow.
+
+## Form Controls
+
+Safari applies strong default styles to form elements.
+
+A common reset is:
+
+```css
+input,
+button,
+select,
+textarea {
+  -webkit-appearance: none;
+  appearance: none;
+}
+```
+
+This helps create consistent custom UI.
+
+## Input Zoom on iPhone
+
+Safari automatically zooms when input font size is too small.
+
+Example problem:
+
+```css
+font-size: 14px;
+```
+
+Safer:
+
+```css
+input {
+  font-size: 16px;
+}
+```
+
+This prevents zoom when focusing input fields.
+
+## Text Rendering
+
+Safari may resize text automatically.
+
+To keep text stable:
+
+```css
+html {
+  -webkit-text-size-adjust: 100%;
+}
+```
+
+Font rendering can also improve with:
+
+```css
+body {
+  -webkit-font-smoothing: antialiased;
+}
+```
+
+## Safari Prefixes Still Common
+
+Some CSS properties still need `-webkit-` prefixes.
+
+Example:
+
+```css
+-webkit-backdrop-filter: blur(10px);
+backdrop-filter: blur(10px);
+```
+
+This is often required for blur effects.
+
+Another example:
+
+```css
+-webkit-mask-image: linear-gradient(...);
+```
+
+## Transform and Fixed Position
+
+Safari sometimes creates stacking issues when combining:
+
+```css
+transform
+```
+
+and
+
+```css
+position: fixed;
+```
+
+A small fix can be:
+
+```css
+transform: translateZ(0);
+```
+
+Or avoid transformed parent elements.
+
+## Animation Rendering
+
+Safari animations sometimes look smoother with GPU forcing:
+
+```css
+transform: translate3d(0, 0, 0);
+will-change: transform;
+```
+
+This should be used carefully.
+
+## Images and Video
+
+Images usually work more reliably with:
+
+```css
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+```
+
+For video autoplay on iPhone:
+
+```html
+playsinline muted autoplay
+```
+
+Without these attributes, autoplay may fail.
+
+## Practical Safari Checklist
+
+Common Safari fixes developers often check first:
+
+- `-webkit-appearance: none`
+- `-webkit-overflow-scrolling: touch`
+- `100svh`
+- `-webkit-backdrop-filter`
+- `min-width: 0`
+
+## Feature Detection
+
+Instead of detecting Safari directly, feature detection is safer.
+
+Example:
+
+```css
+@supports (-webkit-touch-callout: none) {
+  .box {
+    height: -webkit-fill-available;
+  }
+}
+```
+
+This applies fixes only when Safari-specific behavior is available.
