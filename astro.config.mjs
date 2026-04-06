@@ -33,7 +33,7 @@ export default defineConfig({
     mdx(),
   ],
 
-  output: "hybrid",
+  output: "static",
   adapter: node({
     mode: "standalone",
   }),
