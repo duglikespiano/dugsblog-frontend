@@ -17,7 +17,7 @@ export default function SkillsFilter({ language }: ProjectProps) {
     skillsStore.set([...selectedSkills]);
   };
 
-  const handleDisplayProjects = (event: React.MouseEvent<HTMLLIElement>, index: number) => {
+  const handleDisplayProjects = (e: React.MouseEvent<HTMLLIElement>, index: number) => {
     toggleSkillsSelect(index);
 
     const selectedSkillsArray = selectedSkills.filter((skill) => skill.isSelected).map((skill) => skill.name);

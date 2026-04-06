@@ -1,8 +1,9 @@
 ---
+import type { GetStaticPaths } from "astro";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 import Posts from "../../../components/blog/Posts.astro";
-import { tags } from "../../../common/types";
+import { tags, tagKeys } from "../../../common/types";
 import type { Languages, TagLang } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language, tag } = Astro.params as { language: Languages; tag: string };
@@ -30,6 +31,13 @@ if (!(tag in tags)) {
 if (!filteredTagsPropsArray.includes(tags[tag as TagLang][language].toLowerCase())) {
   return Astro.redirect(`/${language}/blog/`);
 }
+
+export const getStaticPaths = (() => {
+  const languages: Languages[] = ["en", "ko", "ja"];
+  return languages.flatMap((language) =>
+    tagKeys.map((tag) => ({ params: { language, tag } }))
+  );
+}) satisfies GetStaticPaths;
 ---
 
 <RootLayout title={title}>

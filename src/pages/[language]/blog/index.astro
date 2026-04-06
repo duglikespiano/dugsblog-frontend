@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from "astro";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import { getCollection } from "astro:content";
 import Posts from "../../../components/blog/Posts.astro";
@@ -11,6 +12,9 @@ const title = printPageTitle(Astro.url.pathname, language);
 if (!isStringLanguage(language)) {
   return Astro.redirect("/", 301);
 }
+export const getStaticPaths = (() => {
+  return [{ params: { language: "en" } }, { params: { language: "ko" } }, { params: { language: "ja" } }];
+}) satisfies GetStaticPaths;
 ---
 
 <RootLayout title={title}>

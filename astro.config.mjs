@@ -33,7 +33,7 @@ export default defineConfig({
     mdx(),
   ],
 
-  output: "server",
+  // output: "server",
   adapter: node({
     mode: "standalone",
   }),

@@ -139,7 +139,7 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
     }
   };
 
-  menuButton.addEventListener("click", (event) => {
+  menuButton.addEventListener("click", () => {
     updateMenuIcons();
   });
 
@@ -157,7 +157,7 @@ const languageArray = printPageUrlInMenuButton(Astro.url.pathname);
   let isUserScrolling = true;
   let lastScrollTime = 0;
   const throttleDelay = 1000; // run at most once every 200ms
-  window.addEventListener("scroll", (e) => {
+  window.addEventListener("scroll", () => {
     if (!isUserScrolling) return;
     const now = Date.now();
     if (now - lastScrollTime >= throttleDelay) {

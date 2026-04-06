@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from "astro";
 import { getCollection, getEntry, render } from "astro:content";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import Prose from "../../../layouts/Prose.astro";
@@ -10,16 +11,18 @@ import type { Languages, TagKey, TagTranslations } from "../../../common/types";
 const { slug } = Astro.params as { slug: string };
 const { language } = Astro.params as { language: Languages };
 
-const posts = await getCollection(`${language}Posts`);
+if (!isStringLanguage(language)) {
+  return Astro.redirect("/", 301);
+}
+
 const entry = await getEntry(collectionMap[language], `${slug}/${language}`);
 
-const tagKeys = entry?.data.tags as string[];
-const slugsArray = posts.map((post) => post.filePath?.split("/")[2]);
-const title = printPageTitle(Astro.url.pathname, language, entry?.data.title);
-
-if (!slugsArray.includes(slug)) {
+if (!entry) {
   return Astro.redirect(`/${language}/blog/`);
 }
+
+const tagKeys = entry.data.tags as string[];
+const title = printPageTitle(Astro.url.pathname, language, entry.data.title);
 
 let tagsArray: TagTranslations[] = [];
 
@@ -31,15 +34,19 @@ tagKeys.forEach((tagName) => {
   });
 });
 
-if (!entry) {
-  throw new Error("no entry");
-}
-
-if (!isStringLanguage(language)) {
-  return Astro.redirect("/", 301);
-}
-
 const { Content } = await render(entry);
+
+export const getStaticPaths = (async () => {
+  const languages: Languages[] = ["en", "ko", "ja"];
+  const paths = [];
+  for (const lang of languages) {
+    const posts = await getCollection(collectionMap[lang]);
+    for (const post of posts) {
+      paths.push({ params: { language: lang, slug: post.id.split("/")[0] } });
+    }
+  }
+  return paths;
+}) satisfies GetStaticPaths;
 ---
 
 <RootLayout title={title}>

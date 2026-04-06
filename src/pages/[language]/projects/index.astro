@@ -1,4 +1,5 @@
 ---
+import type { GetStaticPaths } from "astro";
 import RootLayout from "../../../layouts/RootLayout.astro";
 import SkillsFilter from "../../../components/projects/SkillsFilter.tsx";
 import Projects from "../../../components/projects/Projects.tsx";
@@ -6,6 +7,9 @@ import type { Languages } from "../../../common/types";
 import { isStringLanguage, printPageTitle } from "../../../common/functions";
 const { language } = Astro.params as { language: Languages };
 const title = printPageTitle(Astro.url.pathname, language);
+export const getStaticPaths = (() => {
+  return [{ params: { language: "en" } }, { params: { language: "ko" } }, { params: { language: "ja" } }];
+}) satisfies GetStaticPaths;
 if (!isStringLanguage(language)) {
   return Astro.redirect("/", 301);
 }
