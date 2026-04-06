@@ -1,0 +1,61 @@
+---
+title: "OSI model"
+description: "Explain what the OSI model is and features each layer has"
+pubDate: 2026-04-06
+tags: ["ネットワーク"]
+---
+
+**OSI model**はネットワークコミュニケーションがどうやって7個のレイヤーを通じてされるか説明します。
+
+各レイヤーはraw bitsを伝送することからアプリケーションにデーターを表現することまでなどの固有の役割を持つ、各違うシステムが標準化された方法で通信できるようにします。
+
+## All People Seem To Need Data Processing
+
+## Overview
+
+| Layer        | Main Keywords                          |
+| ------------ | -------------------------------------- |
+| Application  | https://mail.google.com                |
+| Presentation | SSL encryption                         |
+| Session      | Link the presentation to the transport |
+| Transport    | TCP encapsulation                      |
+| Network      | IP encapsulation                       |
+| Data Link    | Ethernet                               |
+| Physical     | Electrical signals                     |
+
+## Layer7 - Application
+
+- The layer we see
+- HTTP, FTP, DNS, POP3
+
+## Layer6 - Presentation
+
+- Character encoding
+- Application encryption
+- Often combined with the Application layer
+
+## Layer5 - Session
+
+- Communication management between devices
+- Control protocols, tunneling protocols
+
+## Layer4 - Transport
+
+- The "post office" layer(Parcels and letters)
+- TCP(Transmission Control Protocol) and UDP (User Datagram Protocol)
+
+## Layer3 - Network
+
+- The "routing" layer
+- Internet Protocol(IP)
+- Fragments frames to traverse different networks
+
+## Layer2 - Data Link
+
+- The foundation of communication at the data link layer
+- Data Link Control(DLC) protocols, MAC(Media Access Control) address on Ethernet
+
+## Layer1 - Physical
+
+- This layer is about physics of the network like cabling, signaling, connectors, etc..
+- This layer isn't about protocols
