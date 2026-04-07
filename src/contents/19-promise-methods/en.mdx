@@ -1,0 +1,184 @@
+---
+title: "Promise concurrency methods"
+description: "Explain differences between Promise.all, Promise.allSettled, Promise.any, and Promise.race"
+pubDate: 2026-04-07
+tags: ["JavaScript"]
+---
+
+When working with asynchronous code in JavaScript, we often need to execute multiple promises together.
+
+JavaScript provides several built-in methods for this purpose:
+
+- `Promise.all()`
+- `Promise.allSettled()`
+- `Promise.any()`
+- `Promise.race()`
+
+Although they all receive multiple promises, **their behavior is very different depending on success, failure, and completion timing.**
+
+This post is a summary of the attached video.
+
+<div style="position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe
+    src="https://www.youtube.com/embed/0yR_Im3VPqQ?si=q0aOL9fJHyTkldM4"
+    title="YouTube video player"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;"
+  ></iframe>
+</div>
+
+## Why Multiple Promise Control Matters
+
+A single asynchronous task is simple to manage.
+
+However, in real applications we often need situations like:
+
+- Fetch several APIs at the same time
+- Continue even if one request fails
+- Use the fastest available result
+- Stop waiting after the first completed task
+
+That is why JavaScript provides multiple concurrency methods.
+
+## Overview
+
+| Method             | Success Condition     | Failure Condition             | Returns                   |
+| ------------------ | --------------------- | ----------------------------- | ------------------------- |
+| Promise.all        | All promises succeed  | One promise fails immediately | Array of fulfilled values |
+| Promise.allSettled | All promises complete | Never rejects                 | Array of result objects   |
+| Promise.any        | One promise succeeds  | All promises fail             | First fulfilled value     |
+| Promise.race       | First promise settles | First settled promise rejects | First settled result      |
+
+## Promise.all
+
+- Waits until **all promises succeed**
+- Rejects immediately if one promise fails
+
+```js
+const p1 = Promise.resolve("A");
+const p2 = Promise.resolve("B");
+const p3 = Promise.resolve("C");
+
+const result = await Promise.all([p1, p2, p3]);
+
+console.log(result);
+// ["A", "B", "C"]
+```
+
+If one promise fails:
+
+```js
+const p1 = Promise.resolve("A");
+const p2 = Promise.reject("Error");
+const p3 = Promise.resolve("C");
+
+await Promise.all([p1, p2, p3]);
+```
+
+The entire operation rejects immediately.
+
+This is useful when **all results are required together.**
+
+## Promise.allSettled
+
+- Waits until **every promise finishes**
+- Does not stop when one fails
+
+```js
+const p1 = Promise.resolve("A");
+const p2 = Promise.reject("Error");
+const p3 = Promise.resolve("C");
+
+const result = await Promise.allSettled([p1, p2, p3]);
+
+console.log(result);
+```
+
+Result:
+
+```js
+[
+  { status: "fulfilled", value: "A" },
+  { status: "rejected", reason: "Error" },
+  { status: "fulfilled", value: "C" },
+];
+```
+
+This is useful when **you want to inspect every result individually.**
+
+## Promise.any
+
+- Resolves when **the first promise succeeds**
+- Ignores rejected promises until one succeeds
+
+```js
+const p1 = Promise.reject("Fail 1");
+const p2 = Promise.resolve("Success");
+const p3 = Promise.reject("Fail 2");
+
+const result = await Promise.any([p1, p2, p3]);
+
+console.log(result);
+// "Success"
+```
+
+If all promises fail:
+
+```js
+await Promise.any([Promise.reject("Fail 1"), Promise.reject("Fail 2")]);
+```
+
+It throws an `AggregateError`.
+
+This is useful when **only one successful result is needed.**
+
+## Promise.race
+
+- Resolves or rejects based on **the first settled promise**
+- The first finished promise decides everything
+
+```js
+const p1 = new Promise((resolve) => setTimeout(() => resolve("A"), 1000));
+const p2 = new Promise((resolve) => setTimeout(() => resolve("B"), 500));
+
+const result = await Promise.race([p1, p2]);
+
+console.log(result);
+// "B"
+```
+
+If the fastest promise rejects:
+
+```js
+const p1 = new Promise((_, reject) => setTimeout(() => reject("Error"), 300));
+const p2 = new Promise((resolve) => setTimeout(() => resolve("Success"), 500));
+
+await Promise.race([p1, p2]);
+```
+
+The entire race rejects immediately.
+
+This is useful when **speed matters more than waiting for all results.**
+
+## Choosing the Right Method
+
+Use:
+
+- `Promise.all` when every result is required
+- `Promise.allSettled` when every result should be inspected
+- `Promise.any` when one success is enough
+- `Promise.race` when the fastest completion matters
+
+## Final Thought
+
+These methods look similar, but their failure behavior is fundamentally different.
+
+Understanding this difference is important when building:
+
+- API request systems
+- Retry logic
+- Timeout control
+- Parallel task execution
