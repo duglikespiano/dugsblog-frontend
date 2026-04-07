@@ -15,9 +15,12 @@ export default function Projects({ language }: ProjectProps) {
   return (
     <section id="projects" className="pt-15 lg:px-20">
       <h2 className="text-green2 dark:text-rosewater text-2xl font-extrabold">{projects.title[language]}</h2>
-      <ul className="dark:bg-green1 bg-rosewater relative z-10 mt-5 flex flex-col gap-5 lg:gap-10">
+      <ul className="relative z-10 mt-5 flex flex-col gap-5 lg:gap-10">
         {filteredProjects.map((project) => (
-          <li className="border-green2 dark:border-gray3 rounded-4xl border-4 p-4 lg:p-8" key={project.id}>
+          <li
+            className="dark:bg-green1 bg-rosewater border-green2 dark:border-gray3 rounded-4xl border-4 p-4 lg:p-8"
+            key={project.id}
+          >
             <p className="dark:text-gray1 text-green1 mb-1 text-xl font-bold">{project.title}</p>
             <div className="lg:px-6">
               <p className="mb-3 text-xl text-slate-950 opacity-80 lg:text-lg dark:text-gray-400">
