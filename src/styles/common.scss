@@ -22,3 +22,28 @@
     margin-left: 0 !important;
   }
 }
+
+html {
+  &[data-theme="light"] {
+    *::selection {
+      background: rgba(8, 163, 5, 0.4);
+    }
+    *::-moz-selection {
+      background: rgba(8, 163, 5, 0.4);
+    }
+    *::-webkit-selection {
+      background: rgba(8, 163, 5, 0.4);
+    }
+  }
+  &[data-theme="dark"] {
+    *::selection {
+      background: rgba(158, 163, 5, 0.4);
+    }
+    *::-moz-selection {
+      background: rgba(158, 163, 5, 0.4);
+    }
+    *::-webkit-selection {
+      background: rgba(158, 163, 5, 0.4);
+    }
+  }
+}
