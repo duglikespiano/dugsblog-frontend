@@ -1,0 +1,263 @@
+---
+title: "Shell Script Syntax"
+description: "Learn the fundamentals of shell scripting, including strings, paths, conditions, and practical examples"
+pubDate: 2026-04-14
+tags: ["Linux"]
+---
+
+When working with Linux or macOS systems, you will frequently encounter **shell scripts**.
+
+Shell scripting allows you to automate repetitive tasks, manage files, and control system behavior efficiently.
+
+---
+
+## What is a Shell Script?
+
+A shell script is a text file that contains a sequence of commands executed by a shell (like `bash`).
+
+Basic structure:
+
+```bash
+#!/bin/bash
+echo "Hello, World!"
+```
+
+Here:
+
+- `#!/bin/bash` → tells the system which interpreter to use
+- `echo` → prints text to the terminal
+
+---
+
+## Variables and Strings
+
+Shell scripts handle strings as their primary data type.
+
+### Basic String Usage
+
+```bash
+#!/bin/bash
+name="Dug"
+echo "Hello, $name"
+```
+
+- Variables are assigned without spaces
+- Use `$` to access variable values
+
+### String Concatenation
+
+```bash
+greeting="Hello"
+name="Dug"
+
+message="$greeting, $name!"
+echo "$message"
+```
+
+### String Length
+
+```bash
+text="Hello"
+echo ${#text}
+```
+
+---
+
+## 🔥 Advanced String Handling
+
+In real-world scripts, you often need to **manipulate strings efficiently** without external tools.
+
+### Remove Suffix (`%`)
+
+```bash
+file="image.png"
+echo ${file%.png}
+```
+
+### Remove Longest Suffix (`%%`)
+
+```bash
+file="archive.tar.gz"
+echo ${file%%.*}
+```
+
+### Remove Prefix (`#`)
+
+```bash
+path="/home/user/file.txt"
+echo ${path#/home/}
+```
+
+### Remove Longest Prefix (`##`)
+
+```bash
+path="/home/user/file.txt"
+echo ${path##*/}
+```
+
+### Replace First Match (`/`)
+
+```bash
+text="apple banana apple"
+echo ${text/apple/orange}
+```
+
+### Replace All Matches (`//`)
+
+```bash
+text="apple banana apple"
+echo ${text//apple/orange}
+```
+
+### Case Conversion with `tr`
+
+```bash
+echo "hello world" | tr '[:lower:]' '[:upper:]'
+echo "HELLO WORLD" | tr '[:upper:]' '[:lower:]'
+```
+
+---
+
+## Path and File Handling
+
+Working with file paths is a core part of shell scripting.
+
+### Common Path Variables
+
+```bash
+echo $HOME
+echo $PWD
+```
+
+- `$HOME` → user home directory
+- `$PWD` → current working directory
+
+### Check if File Exists
+
+```bash
+file="test.txt"
+
+if [ -f "$file" ]; then
+  echo "File exists"
+else
+  echo "File not found"
+fi
+```
+
+### Loop Through Files
+
+```bash
+for file in *.txt; do
+  echo "Processing $file"
+done
+```
+
+---
+
+## Condition Statements
+
+Conditionals allow scripts to make decisions.
+
+### Basic if Statement
+
+```bash
+number=10
+
+if [ $number -gt 5 ]; then
+  echo "Greater than 5"
+else
+  echo "Less or equal to 5"
+fi
+```
+
+### String Comparison
+
+```bash
+name="Dug"
+
+if [ "$name" = "Dug" ]; then
+  echo "Name matches"
+fi
+```
+
+---
+
+## Loops
+
+Loops help automate repetitive tasks.
+
+### For Loop
+
+```bash
+for i in 1 2 3; do
+  echo "Number: $i"
+done
+```
+
+### While Loop
+
+```bash
+count=1
+
+while [ $count -le 3 ]; do
+  echo "Count: $count"
+  ((count++))
+done
+```
+
+---
+
+## Functions
+
+You can organize code using functions.
+
+```bash
+greet() {
+  echo "Hello, $1"
+}
+
+greet "Dug"
+```
+
+- `$1` → first argument passed to function
+
+---
+
+## Command Substitution
+
+Capture output of commands.
+
+```bash
+current_dir=$(pwd)
+echo "You are in $current_dir"
+```
+
+---
+
+## Input Handling
+
+Read user input:
+
+```bash
+echo "Enter your name:"
+read name
+
+echo "Hello, $name"
+```
+
+---
+
+## Exit Status
+
+Every command returns a status:
+
+- `0` → success
+- non-zero → failure
+
+```bash
+if [ $? -eq 0 ]; then
+  echo "Previous command succeeded"
+fi
+```
+
+---
