@@ -4,6 +4,8 @@
 // Code reference from below url
 // https://sorifolio.github.io/spreadfreediving/
 
+let createLiquid;
+
 !(function () {
   "use strict";
   var t,
