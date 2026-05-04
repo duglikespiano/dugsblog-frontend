@@ -1,0 +1,27 @@
+---
+interface Props {
+  position: number;
+  dataAttr?: string;
+  padding?: boolean;
+  textSm?: boolean;
+}
+
+const { position, dataAttr, padding = false, textSm = false } = Astro.props;
+
+const extraAttrs = dataAttr ? { [dataAttr]: true } : {};
+---
+
+<button
+  class="pointer-events-none absolute top-[50%] left-[50%] flex h-full w-full -translate-x-[50%] -translate-y-[50%] cursor-pointer items-center justify-center transition-opacity"
+  data-menu-button-position={position}
+  {...extraAttrs}
+>
+  <p
+    class:list={[
+      "dark:hover:text-green1 bg-rosewater dark:bg-green1 border-green2 dark:border-rosewater hover:text-rosewater hover:bg-green2 dark:hover:bg-rosewater text-green2 dark:text-rosewater dark:hover:text-2 flex h-full w-full items-center justify-center rounded-[50%] border-2 duration-200",
+      { "p-3": padding, "text-sm": textSm },
+    ]}
+  >
+    <slot />
+  </p>
+</button>
