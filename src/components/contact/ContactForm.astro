@@ -207,22 +207,21 @@ const componentTitle = componentTitles["contact"][language];
     }
 
     fetchProcessingModalStore.set(true);
-    const fetchResult = await fetch(`${import.meta.env.BACKEND_URI}/contact`, {
+
+    const fetchResult = await fetch(`${import.meta.env.PUBLIC_BACKEND_URI}/contact`, {
       method: "post",
       headers: {
         "Content-type": "application/json",
       },
       body: JSON.stringify(contactFormStore.get()),
     });
-    //
 
-    //
-    if (fetchResult.status >= 200) {
-      fetchProcessingModalStore.set(false);
-      mailDeliveredModalStore.set(true);
-    } else if (fetchResult.status >= 300) {
+    if (fetchResult.status >= 300) {
       fetchProcessingModalStore.set(false);
       fetchErrorModalStore.set(true);
+    } else if (fetchResult.status >= 200) {
+      fetchProcessingModalStore.set(false);
+      mailDeliveredModalStore.set(true);
     }
 
     resetInputs();
